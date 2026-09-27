@@ -17,10 +17,10 @@
 .detail { max-width: 640px; overflow-wrap: anywhere; }
 </style></head>
 <body><h1>Illinium SoC DV dashboard</h1>
-<div class="run-status fail"><strong>Regression FAILED</strong></div>
-<p>Run <strong>36293921453-1</strong> · commit <a href="https://github.com/ece427-illinium/rtl-dev/commit/61f48a879c08c9ac9664666609deaa397848d084"><code>61f48a879c08</code></a>
-· generated 2026-09-27 04:41 UTC</p>
-<p><a href="https://github.com/ece427-illinium/rtl-dev/actions/runs/36293921453">Open the authenticated Actions run</a> for complete logs and artifacts.
+<div class="run-status pass"><strong>Regression PASSED</strong></div>
+<p>Run <strong>36295830596-1</strong> · commit <a href="https://github.com/ece427-illinium/rtl-dev/commit/e2eaf1d9b55151dff8bf582cf6136d5ff6ed7893"><code>e2eaf1d9b551</code></a>
+· generated 2026-09-27 05:22 UTC</p>
+<p><a href="https://github.com/ece427-illinium/rtl-dev/actions/runs/36295830596">Open the authenticated Actions run</a> for complete logs and artifacts.
 This public page reports test status and concise failure signatures, but does not publish RTL,
 absolute runner paths, simulation logs, coverage databases, or source annotations.</p>
 <h2>Testbench results</h2><table class="test-results"><thead><tr>
@@ -261,14 +261,22 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <td>CONTROL</td><td>reset_sync</td><td><code>ctrl.reset_sync</code></td><td>smoke</td>
 <td><span class="status status-pass">PASS</span></td>
 <td>1 run</td><td class="detail">—</td></tr>
-<tr class="test-fail">
+<tr class="test-pass">
 <td>CONTROL</td><td>scan_access</td><td><code>ctrl.full_scan_access</code></td><td>smoke</td>
-<td><span class="status status-fail">FAIL</span></td>
-<td>—</td><td class="detail">compile failed: tb:scan_access:COMPILE SE (build/dv/runs/R-20260926-232445-527-V83M/scan_access/compile.log); tb:scan_access:COMPILE SE x1 (NEW)</td></tr>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
 <tr class="test-pass">
 <td>CONTROL</td><td>control</td><td><code>ctrl.control</code></td><td>smoke</td>
 <td><span class="status status-pass">PASS</span></td>
 <td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CONTROL</td><td>scan_access</td><td><code>ctrl.full_scan_access.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CONTROL</td><td>control</td><td><code>ctrl.control.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
 <tr class="test-pass">
 <td>DATAPATH</td><td>accumulator</td><td><code>accumulator</code></td><td>smoke</td>
 <td><span class="status status-pass">PASS</span></td>
@@ -502,16 +510,25 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <td><span class="status status-pass">PASS</span></td>
 <td>5 runs</td><td class="detail">—</td></tr>
 <tr class="test-pass">
+<td>MEMORY</td><td>vs_cache_bank</td><td><code>memory.cache_bank.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
 <td>SOCIO</td><td>protocol</td><td><code>socio.protocol</code></td><td>smoke</td>
 <td><span class="status status-pass">PASS</span></td>
 <td>1 run</td><td class="detail">—</td></tr>
 <tr class="test-pass">
 <td>SOCIO</td><td>integration</td><td><code>socio.integration</code></td><td>smoke</td>
 <td><span class="status status-pass">PASS</span></td>
-<td>1 run</td><td class="detail">—</td></tr></tbody></table>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>SOCIO</td><td>integration</td><td><code>socio.integration.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr></tbody></table>
 <h2>Coverage by block</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
-<tbody><tr><td>CMTE</td><td>99.66%</td><td>90.71%</td><td>76.32%</td><td>98.27%</td><td>92.59%</td><td>—</td></tr>
-<tr><td>CONTROL</td><td>99.10%</td><td>84.71%</td><td>61.54%</td><td>91.07%</td><td>40.00%</td><td>100.00%</td></tr>
+<tbody><tr><td>All blocks, merged by module</td><td>97.54%</td><td>91.70%</td><td>58.82%</td><td>96.50%</td><td>92.99%</td><td>99.76%</td></tr>
+<tr><td>CMTE</td><td>99.66%</td><td>90.71%</td><td>76.32%</td><td>98.27%</td><td>92.59%</td><td>—</td></tr>
+<tr><td>CONTROL</td><td>97.92%</td><td>89.60%</td><td>87.88%</td><td>93.26%</td><td>80.00%</td><td>100.00%</td></tr>
 <tr><td>DATAPATH</td><td>97.35%</td><td>98.18%</td><td>100.00%</td><td>96.33%</td><td>100.00%</td><td>—</td></tr>
 <tr><td>EXECUNIT</td><td>90.17%</td><td>98.45%</td><td>—</td><td>97.83%</td><td>100.00%</td><td>—</td></tr>
 <tr><td>IO</td><td>99.62%</td><td>95.94%</td><td>—</td><td>97.78%</td><td>100.00%</td><td>98.99%</td></tr>
@@ -531,9 +548,10 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <tr><td>vsp_tt</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>—</td></tr>
 <tr><td>vsp_unit</td><td>100.00%</td><td>96.55%</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>—</td></tr></tbody></table></section>
 <section><h2>CONTROL benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
-<tbody><tr><td>All benches, merged by module</td><td>99.10%</td><td>84.71%</td><td>61.54%</td><td>91.07%</td><td>40.00%</td><td>100.00%</td></tr>
-<tr><td>control</td><td>99.02%</td><td>84.71%</td><td>61.54%</td><td>90.00%</td><td>40.00%</td><td>100.00%</td></tr>
-<tr><td>reset_sync</td><td>100.00%</td><td>—</td><td>—</td><td>100.00%</td><td>—</td><td>100.00%</td></tr></tbody></table></section>
+<tbody><tr><td>All benches, merged by module</td><td>97.92%</td><td>89.60%</td><td>87.88%</td><td>93.26%</td><td>80.00%</td><td>100.00%</td></tr>
+<tr><td>control</td><td>99.02%</td><td>84.71%</td><td>69.23%</td><td>90.00%</td><td>78.57%</td><td>100.00%</td></tr>
+<tr><td>reset_sync</td><td>100.00%</td><td>—</td><td>—</td><td>100.00%</td><td>—</td><td>100.00%</td></tr>
+<tr><td>scan_access</td><td>96.30%</td><td>100.00%</td><td>100.00%</td><td>96.97%</td><td>83.33%</td><td>100.00%</td></tr></tbody></table></section>
 <section><h2>DATAPATH benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
 <tbody><tr><td>All benches, merged by module</td><td>97.35%</td><td>98.18%</td><td>100.00%</td><td>96.33%</td><td>100.00%</td><td>—</td></tr>
 <tr><td>accumulator</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>—</td><td>—</td></tr>
