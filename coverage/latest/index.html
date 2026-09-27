@@ -1,18 +1,523 @@
 <!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
-<title>Illinium SoC coverage</title><link rel="stylesheet" href="illinium-coverage.css"></head>
-<body><h1>Illinium SoC coverage</h1>
-<p>Run <strong>36284782839-1</strong> · commit <a href="https://github.com/ece427-illinium/rtl-dev/commit/4dc2860143c8adf9064868b90b23797d2340006b"><code>4dc2860143c8</code></a>
-· generated 2026-09-27 01:34 UTC</p>
-<p>This public dashboard contains coverage scores only. Detailed URG pages, logs, databases,
-and source annotations remain in the private workflow artifacts.</p>
+<title>Illinium SoC DV dashboard</title><link rel="stylesheet" href="illinium-coverage.css">
+<style>
+.run-status { border: 2px solid; border-radius: 8px; padding: 14px 18px; margin: 18px 0; font-size: 1.15rem; }
+.run-status.pass { background: #dafbe1; border-color: #1a7f37; color: #116329; }
+.run-status.warn { background: #fff8c5; border-color: #9a6700; color: #7d4e00; }
+.run-status.fail { background: #ffebe9; border-color: #cf222e; color: #a40e26; }
+.run-status.unknown { background: #eaeef2; border-color: #57606a; color: #24292f; }
+.status { display: inline-block; border-radius: 999px; padding: 2px 8px; font-weight: 700; }
+.status-pass { background: #dafbe1; color: #116329; }
+.status-warn { background: #fff8c5; color: #7d4e00; }
+.status-fail { background: #ffebe9; color: #a40e26; }
+.status-unknown { background: #eaeef2; color: #24292f; }
+.test-fail td { background: #fff5f4 !important; }
+.test-warn td { background: #fffbea !important; }
+.detail { max-width: 640px; overflow-wrap: anywhere; }
+</style></head>
+<body><h1>Illinium SoC DV dashboard</h1>
+<div class="run-status fail"><strong>Regression FAILED</strong></div>
+<p>Run <strong>36293921453-1</strong> · commit <a href="https://github.com/ece427-illinium/rtl-dev/commit/61f48a879c08c9ac9664666609deaa397848d084"><code>61f48a879c08</code></a>
+· generated 2026-09-27 04:41 UTC</p>
+<p><a href="https://github.com/ece427-illinium/rtl-dev/actions/runs/36293921453">Open the authenticated Actions run</a> for complete logs and artifacts.
+This public page reports test status and concise failure signatures, but does not publish RTL,
+absolute runner paths, simulation logs, coverage databases, or source annotations.</p>
+<h2>Testbench results</h2><table class="test-results"><thead><tr>
+<th>Block</th><th>Bench</th><th>Test</th><th>Tier</th><th>Status</th><th>Seeds</th><th>Failure / warning</th>
+</tr></thead><tbody><tr class="test-pass">
+<td>CMTE</td><td>fe_unit</td><td><code>fe_unit</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>fe_engine</td><td><code>fe_engine</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>12 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>fe_engine</td><td><code>fe_engine.setc</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>12 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>fe_engine</td><td><code>fe_engine.setc_slowvs</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>6 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>fe_engine</td><td><code>fe_engine.h2a</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>fe_engine</td><td><code>fe_engine.h2b</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>fe_engine</td><td><code>fe_engine.revisit</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>6 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>paint</td><td><code>paint</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>delta</td><td><code>delta</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>delta_handshake</td><td><code>delta_handshake</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_tt</td><td><code>vsp_tt</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_unit</td><td><code>vsp_unit</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_unit</td><td><code>vsp_unit.mode1</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_unit</td><td><code>vsp_unit.mode2</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_unit</td><td><code>vsp_unit.spurious</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_be</td><td><code>vsp_be.delayed4</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_be</td><td><code>vsp_be.delayed50</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_be</td><td><code>vsp_be.dly_hold50</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_be</td><td><code>vsp_be.revisit_dly</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_be</td><td><code>vsp_be.revisit_early</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_be</td><td><code>vsp_be.info_mode1</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>vsp_be</td><td><code>vsp_be.info_mode2</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.A_fe_default</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>30 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.B_slow_wb</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>15 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.C_dp_early</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>15 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.C_dp_late</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>15 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.D_noread_wide</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>15 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.E_endc</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>15 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.F_empty</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.L_narrow_only</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.G_h8_clear_first</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>2 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.G_h8_clearlen2</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>2 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.I_revisit</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>10 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.H_aggr</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>10 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.J_ack0_info</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>be</td><td><code>be.K_h11_info</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.a</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.b</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.d</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.e</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.f</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.g</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.n</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.i</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.j</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.c1</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.c1b</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.c2</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.c3</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.c4</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.c5</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.r3</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.c6</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.l</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.r1</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.r1b</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.r2</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CMTE</td><td>ic</td><td><code>ic.rnd</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CONTROL</td><td>reset_sync</td><td><code>ctrl.reset_sync</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-fail">
+<td>CONTROL</td><td>scan_access</td><td><code>ctrl.full_scan_access</code></td><td>smoke</td>
+<td><span class="status status-fail">FAIL</span></td>
+<td>—</td><td class="detail">compile failed: tb:scan_access:COMPILE SE (build/dv/runs/R-20260926-232445-527-V83M/scan_access/compile.log); tb:scan_access:COMPILE SE x1 (NEW)</td></tr>
+<tr class="test-pass">
+<td>CONTROL</td><td>control</td><td><code>ctrl.control</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>DATAPATH</td><td>accumulator</td><td><code>accumulator</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>DATAPATH</td><td>register_file</td><td><code>register_file</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>DATAPATH</td><td>arch_state</td><td><code>arch_state</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>DATAPATH</td><td>execution_control</td><td><code>execution_control</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>DATAPATH</td><td>datapath</td><td><code>datapath</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>DATAPATH</td><td>register_file</td><td><code>register_file.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>DATAPATH</td><td>arch_state</td><td><code>arch_state.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>DATAPATH</td><td>execution_control</td><td><code>execution_control.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>DATAPATH</td><td>datapath</td><td><code>datapath.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>10 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>EXECUNIT</td><td>units</td><td><code>units</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>EXECUNIT</td><td>logic_unit</td><td><code>logic_unit</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>EXECUNIT</td><td>arithmetic_unit</td><td><code>arithmetic_unit</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>EXECUNIT</td><td>shift_unit</td><td><code>shift_unit</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>EXECUNIT</td><td>index_unit</td><td><code>index_unit</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>EXECUNIT</td><td>reduce_unit</td><td><code>reduce_unit</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>async_fifo</td><td><code>io.async_fifo</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>p2p_rx_cdc</td><td><code>io.p2p_rx_cdc</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>program_rx</td><td><code>io.program_rx</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>completion_router</td><td><code>io.completion_router</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>event_tx</td><td><code>io.event_tx</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>mem_link</td><td><code>io.mem_link</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>fpga_host</td><td><code>io.fpga_host</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>async_fifo8</td><td><code>io.async_fifo.width8</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>async_fifo8</td><td><code>io.async_fifo.width8_fast_writer</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>async_fifo8</td><td><code>io.async_fifo.width8_fast_reader</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>program_rx</td><td><code>io.program_rx.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>completion_router</td><td><code>io.completion_router.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>event_tx</td><td><code>io.event_tx.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>mem_link</td><td><code>io.mem_link.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>async_fifo</td><td><code>io.async_fifo.fast_writer</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>IO</td><td>async_fifo</td><td><code>io.async_fifo.fast_reader</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>index_directed</td><td><code>index.directed</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>directed_depth1</td><td><code>loader.directed_depth1</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>directed_depth3</td><td><code>loader.directed_depth3</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>directed_depth4</td><td><code>loader.directed_depth4</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>loader</td><td><code>loader.smoke</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>loader</td><td><code>loader.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>50 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>loader_depth1</td><td><code>loader_depth1.smoke</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>loader_depth1</td><td><code>loader_depth1.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>50 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>loader_depth3</td><td><code>loader_depth3.smoke</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>loader_depth3</td><td><code>loader_depth3.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>50 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>index</td><td><code>index.smoke</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>index</td><td><code>index.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>50 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>index_slots1</td><td><code>index_slots1.smoke</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>index_slots1</td><td><code>index_slots1.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>50 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>index_slots2</td><td><code>index_slots2.smoke</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>index_slots2</td><td><code>index_slots2.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>50 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>index_slots3</td><td><code>index_slots3.smoke</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>index_slots3</td><td><code>index_slots3.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>50 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>packer</td><td><code>packer.smoke</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>LDE</td><td>packer</td><td><code>packer.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>50 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>MEMORY</td><td>cache_array</td><td><code>memory.cache_array</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>MEMORY</td><td>vs_cache_bank</td><td><code>memory.cache_bank</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>MEMORY</td><td>vs_arbiter</td><td><code>memory.vs_arbiter</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>MEMORY</td><td>vs_service</td><td><code>memory.vs_service</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>MEMORY</td><td>vs_service_wm2</td><td><code>memory.vs_service.wm2</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>MEMORY</td><td>vs_service</td><td><code>memory.vs_service.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>20 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>MEMORY</td><td>vs_arbiter</td><td><code>memory.vs_arbiter.random</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>SOCIO</td><td>protocol</td><td><code>socio.protocol</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>SOCIO</td><td>integration</td><td><code>socio.integration</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr></tbody></table>
 <h2>Coverage by block</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
-<tbody><tr><td>All blocks, merged by module</td><td>97.61%</td><td>91.47%</td><td>57.14%</td><td>96.39%</td><td>95.22%</td><td>99.75%</td></tr>
-<tr><td>CMTE</td><td>99.66%</td><td>90.71%</td><td>76.32%</td><td>98.27%</td><td>92.59%</td><td>—</td></tr>
+<tbody><tr><td>CMTE</td><td>99.66%</td><td>90.71%</td><td>76.32%</td><td>98.27%</td><td>92.59%</td><td>—</td></tr>
+<tr><td>CONTROL</td><td>99.10%</td><td>84.71%</td><td>61.54%</td><td>91.07%</td><td>40.00%</td><td>100.00%</td></tr>
 <tr><td>DATAPATH</td><td>97.35%</td><td>98.18%</td><td>100.00%</td><td>96.33%</td><td>100.00%</td><td>—</td></tr>
 <tr><td>EXECUNIT</td><td>90.17%</td><td>98.45%</td><td>—</td><td>97.83%</td><td>100.00%</td><td>—</td></tr>
+<tr><td>IO</td><td>99.62%</td><td>95.94%</td><td>—</td><td>97.78%</td><td>100.00%</td><td>98.99%</td></tr>
 <tr><td>LDE</td><td>100.00%</td><td>96.61%</td><td>84.62%</td><td>98.59%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>MEMIO</td><td>96.80%</td><td>78.86%</td><td>36.62%</td><td>91.56%</td><td>100.00%</td><td>99.61%</td></tr></tbody></table>
+<tr><td>MEMORY</td><td>99.55%</td><td>79.94%</td><td>31.94%</td><td>96.62%</td><td>90.00%</td><td>99.83%</td></tr>
+<tr><td>SOCIO</td><td>91.96%</td><td>72.33%</td><td>30.95%</td><td>84.27%</td><td>94.74%</td><td>100.00%</td></tr></tbody></table>
 <section><h2>CMTE benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
 <tbody><tr><td>All benches, merged by module</td><td>99.66%</td><td>90.71%</td><td>76.32%</td><td>98.27%</td><td>92.59%</td><td>—</td></tr>
 <tr><td>be</td><td>100.00%</td><td>96.75%</td><td>76.47%</td><td>100.00%</td><td>100.00%</td><td>—</td></tr>
@@ -25,6 +530,10 @@ and source annotations remain in the private workflow artifacts.</p>
 <tr><td>vsp_be</td><td>99.07%</td><td>78.86%</td><td>70.59%</td><td>92.19%</td><td>80.00%</td><td>—</td></tr>
 <tr><td>vsp_tt</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>—</td></tr>
 <tr><td>vsp_unit</td><td>100.00%</td><td>96.55%</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>—</td></tr></tbody></table></section>
+<section><h2>CONTROL benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
+<tbody><tr><td>All benches, merged by module</td><td>99.10%</td><td>84.71%</td><td>61.54%</td><td>91.07%</td><td>40.00%</td><td>100.00%</td></tr>
+<tr><td>control</td><td>99.02%</td><td>84.71%</td><td>61.54%</td><td>90.00%</td><td>40.00%</td><td>100.00%</td></tr>
+<tr><td>reset_sync</td><td>100.00%</td><td>—</td><td>—</td><td>100.00%</td><td>—</td><td>100.00%</td></tr></tbody></table></section>
 <section><h2>DATAPATH benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
 <tbody><tr><td>All benches, merged by module</td><td>97.35%</td><td>98.18%</td><td>100.00%</td><td>96.33%</td><td>100.00%</td><td>—</td></tr>
 <tr><td>accumulator</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>—</td><td>—</td></tr>
@@ -40,6 +549,16 @@ and source annotations remain in the private workflow artifacts.</p>
 <tr><td>reduce_unit</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>—</td><td>—</td></tr>
 <tr><td>shift_unit</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>—</td><td>—</td></tr>
 <tr><td>units</td><td>91.03%</td><td>97.17%</td><td>—</td><td>97.60%</td><td>100.00%</td><td>—</td></tr></tbody></table></section>
+<section><h2>IO benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
+<tbody><tr><td>All benches, merged by module</td><td>99.62%</td><td>95.94%</td><td>—</td><td>97.78%</td><td>100.00%</td><td>98.99%</td></tr>
+<tr><td>async_fifo</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
+<tr><td>async_fifo8</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
+<tr><td>completion_router</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
+<tr><td>event_tx</td><td>100.00%</td><td>93.75%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>87.88%</td></tr>
+<tr><td>fpga_host</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>100.00%</td></tr>
+<tr><td>mem_link</td><td>100.00%</td><td>96.61%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
+<tr><td>p2p_rx_cdc</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
+<tr><td>program_rx</td><td>96.43%</td><td>94.67%</td><td>—</td><td>83.33%</td><td>100.00%</td><td>100.00%</td></tr></tbody></table></section>
 <section><h2>LDE benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
 <tbody><tr><td>All benches, merged by module</td><td>100.00%</td><td>96.61%</td><td>84.62%</td><td>98.59%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>directed_depth1</td><td>100.00%</td><td>95.25%</td><td>69.23%</td><td>98.02%</td><td>100.00%</td><td>—</td></tr>
@@ -54,24 +573,15 @@ and source annotations remain in the private workflow artifacts.</p>
 <tr><td>loader_depth1</td><td>100.00%</td><td>97.76%</td><td>100.00%</td><td>99.01%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>loader_depth3</td><td>100.00%</td><td>97.76%</td><td>100.00%</td><td>99.01%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>packer</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr></tbody></table></section>
-<section><h2>MEMIO benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
-<tbody><tr><td>All benches, merged by module</td><td>96.80%</td><td>78.86%</td><td>36.62%</td><td>91.56%</td><td>100.00%</td><td>99.61%</td></tr>
-<tr><td>async_fifo</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>async_fifo8</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
+<section><h2>MEMORY benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
+<tbody><tr><td>All benches, merged by module</td><td>99.55%</td><td>79.94%</td><td>31.94%</td><td>96.62%</td><td>90.00%</td><td>99.83%</td></tr>
 <tr><td>cache_array</td><td>100.00%</td><td>—</td><td>—</td><td>100.00%</td><td>—</td><td>100.00%</td></tr>
-<tr><td>completion_router</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>control</td><td>98.96%</td><td>78.38%</td><td>70.37%</td><td>88.51%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>diagnostic_scan</td><td>100.00%</td><td>—</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>event_tx</td><td>100.00%</td><td>93.75%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>87.88%</td></tr>
-<tr><td>fpga_host</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>100.00%</td></tr>
-<tr><td>integration</td><td>90.08%</td><td>67.66%</td><td>30.95%</td><td>81.86%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>mem_link</td><td>100.00%</td><td>96.61%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>p2p_rx_cdc</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>program_rx</td><td>96.43%</td><td>94.67%</td><td>—</td><td>83.33%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>protocol</td><td>99.35%</td><td>87.35%</td><td>—</td><td>92.06%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>reset_sync</td><td>100.00%</td><td>—</td><td>—</td><td>100.00%</td><td>—</td><td>100.00%</td></tr>
 <tr><td>vs_arbiter</td><td>100.00%</td><td>87.93%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>vs_cache_bank</td><td>100.00%</td><td>80.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>vs_service</td><td>99.48%</td><td>79.25%</td><td>31.82%</td><td>95.97%</td><td>100.00%</td><td>99.48%</td></tr>
-<tr><td>vs_service_wm2</td><td>99.48%</td><td>79.56%</td><td>32.05%</td><td>95.97%</td><td>100.00%</td><td>100.00%</td></tr></tbody></table></section>
+<tr><td>vs_cache_bank</td><td>100.00%</td><td>85.71%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
+<tr><td>vs_service</td><td>99.48%</td><td>78.80%</td><td>31.82%</td><td>95.97%</td><td>87.50%</td><td>99.48%</td></tr>
+<tr><td>vs_service_wm2</td><td>99.48%</td><td>79.11%</td><td>32.05%</td><td>95.97%</td><td>87.50%</td><td>100.00%</td></tr></tbody></table></section>
+<section><h2>SOCIO benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
+<tbody><tr><td>All benches, merged by module</td><td>91.96%</td><td>72.33%</td><td>30.95%</td><td>84.27%</td><td>94.74%</td><td>100.00%</td></tr>
+<tr><td>integration</td><td>90.08%</td><td>67.33%</td><td>30.95%</td><td>81.86%</td><td>93.33%</td><td>100.00%</td></tr>
+<tr><td>protocol</td><td>99.35%</td><td>87.35%</td><td>—</td><td>92.06%</td><td>100.00%</td><td>100.00%</td></tr></tbody></table></section>
 </body></html>
