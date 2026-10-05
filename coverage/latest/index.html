@@ -18,9 +18,9 @@
 </style></head>
 <body><h1>Illinium SoC DV dashboard</h1>
 <div class="run-status pass"><strong>Regression PASSED</strong></div>
-<p>Run <strong>37269101566-1</strong> · commit <a href="https://github.com/ece427-illinium/rtl-dev/commit/d86c8af160d3cc0db8b3bba214c31fb15475d366"><code>d86c8af160d3</code></a>
-· generated 2026-10-05 06:24 UTC</p>
-<p><a href="https://github.com/ece427-illinium/rtl-dev/actions/runs/37269101566">Open the authenticated Actions run</a> for complete logs and artifacts.
+<p>Run <strong>37306151533-1</strong> · commit <a href="https://github.com/ece427-illinium/rtl-dev/commit/ccc34ec6cfc5bfb20709c723b0ebd9cf123f9c14"><code>ccc34ec6cfc5</code></a>
+· generated 2026-10-05 12:38 UTC</p>
+<p><a href="https://github.com/ece427-illinium/rtl-dev/actions/runs/37306151533">Open the authenticated Actions run</a> for complete logs and artifacts.
 This public page reports test status and concise failure signatures, but does not publish RTL,
 absolute runner paths, simulation logs, coverage databases, or source annotations.</p>
 <h2>Testbench results</h2><table class="test-results"><thead><tr>
@@ -398,6 +398,14 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <td><span class="status status-pass">PASS</span></td>
 <td>1 run</td><td class="detail">—</td></tr>
 <tr class="test-pass">
+<td>FULLCHIP</td><td>zoo</td><td><code>fullchip.smoke</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>FULLCHIP</td><td>faults</td><td><code>fullchip.watchdogs</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>1 run</td><td class="detail">—</td></tr>
+<tr class="test-pass">
 <td>IO</td><td>async_fifo</td><td><code>io.async_fifo</code></td><td>smoke</td>
 <td><span class="status status-pass">PASS</span></td>
 <td>1 run</td><td class="detail">—</td></tr>
@@ -656,12 +664,13 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <h2>Mixed-level DFT scan</h2><p><span class="status status-pass">PASS</span> 20,545 reported stages — Three-pin shift, capture, readout, restore, and exit passed.</p>
 <h2>Fully synthesized DFT scan</h2><p><span class="status status-pass">PASS</span> 20,545 reported stages — Three-pin shift, capture, readout, restore, and exit passed.</p>
 <h2>Coverage by block</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
-<tbody><tr><td>All blocks, merged by module</td><td>93.96%</td><td>91.67%</td><td>53.72%</td><td>91.99%</td><td>86.15%</td><td>99.99%</td></tr>
+<tbody><tr><td>All blocks, merged by module</td><td>86.19%</td><td>76.80%</td><td>41.28%</td><td>78.73%</td><td>72.64%</td><td>99.99%</td></tr>
 <tr><td>CMTE</td><td>99.66%</td><td>90.71%</td><td>76.32%</td><td>98.27%</td><td>92.59%</td><td>—</td></tr>
 <tr><td>CONTROL</td><td>98.06%</td><td>89.80%</td><td>87.88%</td><td>93.75%</td><td>78.26%</td><td>100.00%</td></tr>
 <tr><td>DATAPATH</td><td>75.20%</td><td>89.63%</td><td>100.00%</td><td>87.31%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>EXECUNIT</td><td>90.63%</td><td>98.63%</td><td>—</td><td>97.87%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>FED</td><td>96.57%</td><td>97.62%</td><td>—</td><td>91.64%</td><td>100.00%</td><td>100.00%</td></tr>
+<tr><td>FULLCHIP</td><td>61.69%</td><td>46.33%</td><td>19.71%</td><td>52.18%</td><td>47.33%</td><td>—</td></tr>
 <tr><td>IO</td><td>99.76%</td><td>96.97%</td><td>—</td><td>98.51%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>LDE</td><td>100.00%</td><td>96.57%</td><td>84.62%</td><td>98.59%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>MEMORY</td><td>99.55%</td><td>79.94%</td><td>31.94%</td><td>96.62%</td><td>90.00%</td><td>99.83%</td></tr>
@@ -709,6 +718,10 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <tr><td>smoke</td><td>90.78%</td><td>95.31%</td><td>—</td><td>84.62%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>stream</td><td>97.75%</td><td>98.05%</td><td>—</td><td>94.46%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>units</td><td>78.49%</td><td>92.84%</td><td>—</td><td>65.56%</td><td>—</td><td>100.00%</td></tr></tbody></table></section>
+<section><h2>FULLCHIP benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
+<tbody><tr><td>All benches, merged by module</td><td>61.69%</td><td>46.33%</td><td>19.71%</td><td>52.18%</td><td>47.33%</td><td>—</td></tr>
+<tr><td>faults</td><td>53.56%</td><td>38.56%</td><td>6.09%</td><td>45.11%</td><td>37.45%</td><td>—</td></tr>
+<tr><td>zoo</td><td>61.69%</td><td>46.28%</td><td>19.00%</td><td>52.18%</td><td>47.33%</td><td>—</td></tr></tbody></table></section>
 <section><h2>IO benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
 <tbody><tr><td>All benches, merged by module</td><td>99.76%</td><td>96.97%</td><td>—</td><td>98.51%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>async_fifo</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
