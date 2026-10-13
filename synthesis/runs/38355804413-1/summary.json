@@ -1,0 +1,971 @@
+{
+  "status": "PASS",
+  "run_id": "38355804413-1",
+  "points": [
+    {
+      "frequency_mhz": 200,
+      "period_ns": 5.0,
+      "status": "PASS",
+      "synthesis_status": "PASS",
+      "scan_status": [
+        "PASS",
+        "PASS"
+      ],
+      "scan_results": [
+        {
+          "kind": "mixed",
+          "status": "PASS",
+          "detail": "Three-pin shift, capture, readout, restore, and exit passed."
+        },
+        {
+          "kind": "full-top",
+          "status": "PASS",
+          "detail": "Three-pin shift, capture, readout, restore, and exit passed."
+        }
+      ],
+      "fullchip_gate_status": "PASS",
+      "fullchip_gate_selection": "full-single-seed",
+      "total_cell_area": 409023.137529,
+      "setup_wns_ns": 0.000304,
+      "hold_wns_ns": -0.228955,
+      "hold_warning": true,
+      "scan_chain_length": 20516,
+      "estimated_setup_limited_frequency_mhz": null,
+      "scan_enable_sram_setup_wns_ns": 35.192108,
+      "timing_modes": [
+        {
+          "mode": "functional",
+          "setup_wns_ns": 0.000304,
+          "hold_wns_ns": -0.228955,
+          "period_ns": 5.0
+        },
+        {
+          "mode": "scan_enable",
+          "setup_wns_ns": 35.192108,
+          "hold_wns_ns": -0.228955,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_shift",
+          "setup_wns_ns": 198.761246,
+          "hold_wns_ns": -0.228955,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_capture",
+          "setup_wns_ns": 198.761246,
+          "hold_wns_ns": -0.228955,
+          "period_ns": 400.0
+        }
+      ],
+      "setup_paths": [
+        {
+          "startpoint": "i_core/g_tile[1].i_worker/datapath/control/state_r_reg[2]",
+          "endpoint": "i_core/g_tile[1].i_worker/datapath/merge/dest_data_o_reg[1]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 4.669281,
+          "required_ns": 4.669584,
+          "slack_ns": 0.000304,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[1].i_worker/datapath/control/state_r_reg[2]",
+          "endpoint": "i_core/g_tile[1].i_worker/datapath/merge/dest_data_o_reg[12]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 4.669281,
+          "required_ns": 4.669614,
+          "slack_ns": 0.000333,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[1].i_worker/datapath/control/state_r_reg[2]",
+          "endpoint": "i_core/g_tile[1].i_worker/datapath/merge/dest_data_o_reg[10]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 4.669281,
+          "required_ns": 4.669879,
+          "slack_ns": 0.000599,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[1].i_worker/datapath/control/state_r_reg[2]",
+          "endpoint": "i_core/g_tile[1].i_worker/datapath/merge/dest_data_o_reg[14]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 4.669281,
+          "required_ns": 4.669879,
+          "slack_ns": 0.000599,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[1].i_worker/datapath/control/state_r_reg[2]",
+          "endpoint": "i_core/g_tile[1].i_worker/datapath/merge/dest_data_o_reg[11]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 4.669281,
+          "required_ns": 4.669879,
+          "slack_ns": 0.000599,
+          "status": "MET",
+          "mode": "functional"
+        }
+      ],
+      "hold_paths": [
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync1_r_reg[2]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync2_r_reg[2]",
+          "path_group": "core_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync1_r_reg[2]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync2_r_reg[2]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/wgray_rsync1_r_reg[2]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/wgray_rsync2_r_reg[2]",
+          "path_group": "io_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync1_r_reg[2]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync2_r_reg[2]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "scan_shift"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/wgray_rsync1_r_reg[2]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/wgray_rsync2_r_reg[2]",
+          "path_group": "io_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "scan_shift"
+        }
+      ],
+      "area": {
+        "number_of_ports": 4474,
+        "number_of_nets": 90494,
+        "number_of_cells": 85916,
+        "number_of_combinational_cells": 63068,
+        "number_of_sequential_cells": 22116,
+        "number_of_macros_black_boxes": 2,
+        "number_of_buffers_inverters": 10312,
+        "number_of_references": 53,
+        "combinational_area": 161586.799743,
+        "buffer_inverter_area": 16569.200408,
+        "noncombinational_area": 227485.602922,
+        "macro_black_box_area": 19950.734863,
+        "net_interconnect_area": 13275474.754791,
+        "total_cell_area": 409023.137529,
+        "total_area": 13684497.89232
+      },
+      "storage_path": "/groups/ece427-group2/nightly-synthesis/38355804413-1/200mhz",
+      "artifact_name": "synthesis-point-200mhz-38355804413-1",
+      "artifact_url": "https://github.com/ece427-illinium/rtl-dev/actions/runs/38355804413#artifacts",
+      "evidence_available": true,
+      "scan_evidence_available": true
+    },
+    {
+      "frequency_mhz": 300,
+      "period_ns": 3.3333333333333335,
+      "status": "PASS",
+      "synthesis_status": "PASS",
+      "scan_status": [
+        "PASS",
+        "PASS"
+      ],
+      "scan_results": [
+        {
+          "kind": "mixed",
+          "status": "PASS",
+          "detail": "Three-pin shift, capture, readout, restore, and exit passed."
+        },
+        {
+          "kind": "full-top",
+          "status": "PASS",
+          "detail": "Three-pin shift, capture, readout, restore, and exit passed."
+        }
+      ],
+      "fullchip_gate_status": "PASS",
+      "fullchip_gate_selection": "smoke",
+      "total_cell_area": 426739.137977,
+      "setup_wns_ns": 5.9e-05,
+      "hold_wns_ns": -0.228993,
+      "hold_warning": true,
+      "scan_chain_length": 20662,
+      "estimated_setup_limited_frequency_mhz": null,
+      "scan_enable_sram_setup_wns_ns": 35.192108,
+      "timing_modes": [
+        {
+          "mode": "functional",
+          "setup_wns_ns": 5.9e-05,
+          "hold_wns_ns": -0.228993,
+          "period_ns": 3.3333333333333335
+        },
+        {
+          "mode": "scan_enable",
+          "setup_wns_ns": 35.192108,
+          "hold_wns_ns": -0.228993,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_shift",
+          "setup_wns_ns": 198.761398,
+          "hold_wns_ns": -0.228993,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_capture",
+          "setup_wns_ns": 198.761398,
+          "hold_wns_ns": -0.228993,
+          "period_ns": 400.0
+        }
+      ],
+      "setup_paths": [
+        {
+          "startpoint": "i_core/g_tile[2].i_worker/commit_engine/back_end_u/back_reg_r_reg[cell_bounds][6]",
+          "endpoint": "i_core/g_tile[2].i_worker/commit_engine/back_end_u/delta_u/delta_acc_r_reg[15]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 2.987229,
+          "required_ns": 2.987288,
+          "slack_ns": 5.9e-05,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[3].i_worker/frontend/fed/instruction_o_reg[10]",
+          "endpoint": "i_core/R_509",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 2.995924,
+          "required_ns": 2.995991,
+          "slack_ns": 6.7e-05,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[2].i_worker/commit_engine/back_end_u/back_reg_r_reg[cell_bounds][6]",
+          "endpoint": "i_core/g_tile[2].i_worker/commit_engine/back_end_u/delta_u/delta_acc_r_reg[11]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 2.987229,
+          "required_ns": 2.987394,
+          "slack_ns": 0.000165,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/R_168",
+          "endpoint": "i_core/g_tile[2].i_worker/datapath/merge/dest_data_o_reg[2]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 3.003088,
+          "required_ns": 3.003271,
+          "slack_ns": 0.000183,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[1].i_worker/datapath/control/state_r_reg[1]",
+          "endpoint": "i_core/g_tile[1].i_worker/datapath/merge/dest_data_o_reg[23]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 2.989565,
+          "required_ns": 2.989859,
+          "slack_ns": 0.000294,
+          "status": "MET",
+          "mode": "functional"
+        }
+      ],
+      "hold_paths": [
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync1_r_reg[0]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync2_r_reg[0]",
+          "path_group": "core_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071499,
+          "required_ns": 0.300492,
+          "slack_ns": -0.228993,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync1_r_reg[0]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync2_r_reg[0]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071499,
+          "required_ns": 0.300492,
+          "slack_ns": -0.228993,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync1_r_reg[0]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync2_r_reg[0]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071499,
+          "required_ns": 0.300492,
+          "slack_ns": -0.228993,
+          "status": "VIOLATED",
+          "mode": "scan_shift"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync1_r_reg[0]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync2_r_reg[0]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071499,
+          "required_ns": 0.300492,
+          "slack_ns": -0.228993,
+          "status": "VIOLATED",
+          "mode": "scan_capture"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/consumed_sync1_r_reg[1]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/consumed_sync2_r_reg[1]",
+          "path_group": "core_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "functional"
+        }
+      ],
+      "area": {
+        "number_of_ports": 4477,
+        "number_of_nets": 95649,
+        "number_of_cells": 91175,
+        "number_of_combinational_cells": 68181,
+        "number_of_sequential_cells": 22262,
+        "number_of_macros_black_boxes": 2,
+        "number_of_buffers_inverters": 11627,
+        "number_of_references": 53,
+        "combinational_area": 177642.800194,
+        "buffer_inverter_area": 20676.000402,
+        "noncombinational_area": 229145.60292,
+        "macro_black_box_area": 19950.734863,
+        "net_interconnect_area": 13558369.620575,
+        "total_cell_area": 426739.137977,
+        "total_area": 13985108.758552
+      },
+      "storage_path": "/groups/ece427-group2/nightly-synthesis/38355804413-1/300mhz",
+      "artifact_name": "synthesis-point-300mhz-38355804413-1",
+      "artifact_url": "https://github.com/ece427-illinium/rtl-dev/actions/runs/38355804413#artifacts",
+      "evidence_available": true,
+      "scan_evidence_available": true
+    },
+    {
+      "frequency_mhz": 500,
+      "period_ns": 2.0,
+      "status": "PASS",
+      "synthesis_status": "PASS",
+      "scan_status": [
+        "PASS",
+        "PASS"
+      ],
+      "scan_results": [
+        {
+          "kind": "mixed",
+          "status": "PASS",
+          "detail": "Three-pin shift, capture, readout, restore, and exit passed."
+        },
+        {
+          "kind": "full-top",
+          "status": "PASS",
+          "detail": "Three-pin shift, capture, readout, restore, and exit passed."
+        }
+      ],
+      "fullchip_gate_status": "PASS",
+      "fullchip_gate_selection": "smoke",
+      "total_cell_area": 470220.337999,
+      "setup_wns_ns": 8.1e-05,
+      "hold_wns_ns": -0.228955,
+      "hold_warning": true,
+      "scan_chain_length": 20540,
+      "estimated_setup_limited_frequency_mhz": null,
+      "scan_enable_sram_setup_wns_ns": 35.192108,
+      "timing_modes": [
+        {
+          "mode": "functional",
+          "setup_wns_ns": 8.1e-05,
+          "hold_wns_ns": -0.228955,
+          "period_ns": 2.0
+        },
+        {
+          "mode": "scan_enable",
+          "setup_wns_ns": 35.192108,
+          "hold_wns_ns": -0.228955,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_shift",
+          "setup_wns_ns": 198.761246,
+          "hold_wns_ns": -0.228955,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_capture",
+          "setup_wns_ns": 198.761246,
+          "hold_wns_ns": -0.228955,
+          "period_ns": 400.0
+        }
+      ],
+      "setup_paths": [
+        {
+          "startpoint": "i_core/R_213",
+          "endpoint": "i_core/i_vs_service/i_vs_cache_bank/lookup_valid_o_reg",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.66147,
+          "required_ns": 1.661551,
+          "slack_ns": 8.1e-05,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[1].i_worker/datapath/control/state_r_reg[1]",
+          "endpoint": "i_core/g_tile[1].i_worker/datapath/merge/dest_data_o_reg[14]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.658094,
+          "required_ns": 1.658188,
+          "slack_ns": 9.4e-05,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[2].i_worker/frontend/fed/instruction_o_reg[3]",
+          "endpoint": "i_core/g_tile[2].i_worker/commit_engine/front_end_u/word_paint_u/guard_field_r_reg[6]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.650189,
+          "required_ns": 1.650306,
+          "slack_ns": 0.000117,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[2].i_worker/frontend/fed/instruction_o_reg[3]",
+          "endpoint": "i_core/g_tile[2].i_worker/commit_engine/front_end_u/word_paint_u/no_compare_field_r_reg[6]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.650189,
+          "required_ns": 1.650317,
+          "slack_ns": 0.000128,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[3].i_worker/frontend/fed/instruction_o_reg[32]",
+          "endpoint": "i_core/g_tile[3].i_worker/commit_engine/front_end_u/word_paint_u/no_compare_field_r_reg[14]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.650172,
+          "required_ns": 1.650331,
+          "slack_ns": 0.000159,
+          "status": "MET",
+          "mode": "functional"
+        }
+      ],
+      "hold_paths": [
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/i_fifo/rgray_wsync1_r_reg[1]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/i_fifo/rgray_wsync2_r_reg[1]",
+          "path_group": "core_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/i_fifo/rgray_wsync1_r_reg[1]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/i_fifo/rgray_wsync2_r_reg[1]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/i_fifo/rgray_wsync1_r_reg[1]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/i_fifo/rgray_wsync2_r_reg[1]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "scan_shift"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/i_fifo/rgray_wsync1_r_reg[1]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/i_fifo/rgray_wsync2_r_reg[1]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "scan_capture"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync1_r_reg[2]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync2_r_reg[2]",
+          "path_group": "core_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071784,
+          "required_ns": 0.30042,
+          "slack_ns": -0.228636,
+          "status": "VIOLATED",
+          "mode": "functional"
+        }
+      ],
+      "area": {
+        "number_of_ports": 4100,
+        "number_of_nets": 102175,
+        "number_of_cells": 97980,
+        "number_of_combinational_cells": 75110,
+        "number_of_sequential_cells": 22140,
+        "number_of_macros_black_boxes": 2,
+        "number_of_buffers_inverters": 13543,
+        "number_of_references": 53,
+        "combinational_area": 221780.800253,
+        "buffer_inverter_area": 32712.800336,
+        "noncombinational_area": 228488.802883,
+        "macro_black_box_area": 19950.734863,
+        "net_interconnect_area": 13927738.472229,
+        "total_cell_area": 470220.337999,
+        "total_area": 14397958.810228
+      },
+      "storage_path": "/groups/ece427-group2/nightly-synthesis/38355804413-1/500mhz",
+      "artifact_name": "synthesis-point-500mhz-38355804413-1",
+      "artifact_url": "https://github.com/ece427-illinium/rtl-dev/actions/runs/38355804413#artifacts",
+      "evidence_available": true,
+      "scan_evidence_available": true
+    },
+    {
+      "frequency_mhz": 700,
+      "period_ns": 1.4285714285714286,
+      "status": "FAIL",
+      "synthesis_status": "FAIL",
+      "scan_status": [
+        "PASS",
+        "PASS"
+      ],
+      "scan_results": [
+        {
+          "kind": "mixed",
+          "status": "PASS",
+          "detail": "Three-pin shift, capture, readout, restore, and exit passed."
+        },
+        {
+          "kind": "full-top",
+          "status": "PASS",
+          "detail": "Three-pin shift, capture, readout, restore, and exit passed."
+        }
+      ],
+      "fullchip_gate_status": "PASS",
+      "fullchip_gate_selection": "smoke",
+      "total_cell_area": 568015.538256,
+      "setup_wns_ns": -0.26827,
+      "hold_wns_ns": -0.235667,
+      "hold_warning": true,
+      "scan_chain_length": 20926,
+      "estimated_setup_limited_frequency_mhz": null,
+      "scan_enable_sram_setup_wns_ns": 35.249664,
+      "timing_modes": [
+        {
+          "mode": "functional",
+          "setup_wns_ns": -0.26827,
+          "hold_wns_ns": -0.228955,
+          "period_ns": 1.4285714285714286
+        },
+        {
+          "mode": "scan_enable",
+          "setup_wns_ns": 35.249664,
+          "hold_wns_ns": -0.235667,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_shift",
+          "setup_wns_ns": 198.755615,
+          "hold_wns_ns": -0.235667,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_capture",
+          "setup_wns_ns": 198.755615,
+          "hold_wns_ns": -0.235667,
+          "period_ns": 400.0
+        }
+      ],
+      "setup_paths": [
+        {
+          "startpoint": "i_scan_access/req_addr_r_reg[4]",
+          "endpoint": "i_core/i_control/state_write_data_r_reg[1]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.364568,
+          "required_ns": 1.096298,
+          "slack_ns": -0.26827,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_scan_access/req_addr_r_reg[4]",
+          "endpoint": "i_core/i_control/state_write_data_r_reg[0]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.364568,
+          "required_ns": 1.096301,
+          "slack_ns": -0.268266,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_scan_access/req_addr_r_reg[4]",
+          "endpoint": "i_core/i_control/state_write_r_reg",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.319426,
+          "required_ns": 1.093608,
+          "slack_ns": -0.225818,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_scan_access/req_addr_r_reg[4]",
+          "endpoint": "i_core/i_control/csr_read_data_r_reg[8]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.222017,
+          "required_ns": 1.095119,
+          "slack_ns": -0.126898,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_scan_access/req_addr_r_reg[4]",
+          "endpoint": "i_core/i_control/csr_read_data_r_reg[11]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.222017,
+          "required_ns": 1.095654,
+          "slack_ns": -0.126363,
+          "status": "VIOLATED",
+          "mode": "functional"
+        }
+      ],
+      "hold_paths": [
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_response_fifo/rptr_gray_r_reg[1]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_response_fifo/rgray_wsync1_r_reg[1]",
+          "path_group": "io_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.065205,
+          "required_ns": 0.300871,
+          "slack_ns": -0.235667,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_response_fifo/rptr_gray_r_reg[1]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_response_fifo/rgray_wsync1_r_reg[1]",
+          "path_group": "io_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.065205,
+          "required_ns": 0.300871,
+          "slack_ns": -0.235667,
+          "status": "VIOLATED",
+          "mode": "scan_shift"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_response_fifo/rptr_gray_r_reg[1]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_response_fifo/rgray_wsync1_r_reg[1]",
+          "path_group": "io_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.065205,
+          "required_ns": 0.300871,
+          "slack_ns": -0.235667,
+          "status": "VIOLATED",
+          "mode": "scan_capture"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync1_r_reg[1]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync2_r_reg[1]",
+          "path_group": "core_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync1_r_reg[1]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_event_tx_fifo/consumed_sync2_r_reg[1]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071529,
+          "required_ns": 0.300484,
+          "slack_ns": -0.228955,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        }
+      ],
+      "area": {
+        "number_of_ports": 4100,
+        "number_of_nets": 109265,
+        "number_of_cells": 105093,
+        "number_of_combinational_cells": 81837,
+        "number_of_sequential_cells": 22526,
+        "number_of_macros_black_boxes": 2,
+        "number_of_buffers_inverters": 17569,
+        "number_of_references": 53,
+        "combinational_area": 313689.200487,
+        "buffer_inverter_area": 57621.200157,
+        "noncombinational_area": 234375.602906,
+        "macro_black_box_area": 19950.734863,
+        "net_interconnect_area": 14375040.70871,
+        "total_cell_area": 568015.538256,
+        "total_area": 14943056.246966
+      },
+      "storage_path": "/groups/ece427-group2/nightly-synthesis/38355804413-1/700mhz",
+      "artifact_name": "synthesis-point-700mhz-38355804413-1",
+      "artifact_url": "https://github.com/ece427-illinium/rtl-dev/actions/runs/38355804413#artifacts",
+      "evidence_available": true,
+      "scan_evidence_available": true
+    },
+    {
+      "frequency_mhz": 900,
+      "period_ns": 1.1111111111111112,
+      "status": "FAIL",
+      "synthesis_status": "FAIL",
+      "scan_status": [
+        "PASS",
+        "PASS"
+      ],
+      "scan_results": [
+        {
+          "kind": "mixed",
+          "status": "PASS",
+          "detail": "Three-pin shift, capture, readout, restore, and exit passed."
+        },
+        {
+          "kind": "full-top",
+          "status": "PASS",
+          "detail": "Three-pin shift, capture, readout, restore, and exit passed."
+        }
+      ],
+      "fullchip_gate_status": "PASS",
+      "fullchip_gate_selection": "smoke",
+      "total_cell_area": 628263.940275,
+      "setup_wns_ns": -0.410498,
+      "hold_wns_ns": -0.228993,
+      "hold_warning": true,
+      "scan_chain_length": 20632,
+      "estimated_setup_limited_frequency_mhz": null,
+      "scan_enable_sram_setup_wns_ns": 70.305756,
+      "timing_modes": [
+        {
+          "mode": "functional",
+          "setup_wns_ns": -0.410498,
+          "hold_wns_ns": -0.228993,
+          "period_ns": 1.1111111111111112
+        },
+        {
+          "mode": "scan_enable",
+          "setup_wns_ns": 42.793915,
+          "hold_wns_ns": -0.228993,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_shift",
+          "setup_wns_ns": 198.755615,
+          "hold_wns_ns": -0.228993,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_capture",
+          "setup_wns_ns": 198.755615,
+          "hold_wns_ns": -0.228993,
+          "period_ns": 400.0
+        }
+      ],
+      "setup_paths": [
+        {
+          "startpoint": "i_scan_access/req_addr_r_reg[4]",
+          "endpoint": "i_core/i_control/csr_read_data_r_reg[9]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.16509,
+          "required_ns": 0.754592,
+          "slack_ns": -0.410498,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_scan_access/req_addr_r_reg[4]",
+          "endpoint": "i_core/i_control/csr_read_data_r_reg[0]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.158828,
+          "required_ns": 0.755114,
+          "slack_ns": -0.403714,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_scan_access/req_addr_r_reg[4]",
+          "endpoint": "i_core/i_control/csr_read_data_r_reg[1]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.160727,
+          "required_ns": 0.766796,
+          "slack_ns": -0.393932,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_scan_access/req_addr_r_reg[4]",
+          "endpoint": "i_core/i_control/csr_read_data_r_reg[11]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.106822,
+          "required_ns": 0.778115,
+          "slack_ns": -0.328706,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_scan_access/req_addr_r_reg[4]",
+          "endpoint": "i_core/i_control/clk_gate_config_r_reg[tile_db_enable]/latch",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.093794,
+          "required_ns": 0.765922,
+          "slack_ns": -0.327873,
+          "status": "VIOLATED",
+          "mode": "functional"
+        }
+      ],
+      "hold_paths": [
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync1_r_reg[0]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync2_r_reg[0]",
+          "path_group": "core_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071499,
+          "required_ns": 0.300492,
+          "slack_ns": -0.228993,
+          "status": "VIOLATED",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync1_r_reg[0]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync2_r_reg[0]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071499,
+          "required_ns": 0.300492,
+          "slack_ns": -0.228993,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync1_r_reg[0]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync2_r_reg[0]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071499,
+          "required_ns": 0.300492,
+          "slack_ns": -0.228993,
+          "status": "VIOLATED",
+          "mode": "scan_shift"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync1_r_reg[0]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync2_r_reg[0]",
+          "path_group": "chip_shift_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071499,
+          "required_ns": 0.300492,
+          "slack_ns": -0.228993,
+          "status": "VIOLATED",
+          "mode": "scan_capture"
+        },
+        {
+          "startpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync1_r_reg[2]",
+          "endpoint": "i_core/i_p2p_rx_cdc/i_memory_tx_fifo/i_fifo/rgray_wsync2_r_reg[2]",
+          "path_group": "core_clk",
+          "path_type": "min",
+          "arrival_ns": 0.071784,
+          "required_ns": 0.30042,
+          "slack_ns": -0.228636,
+          "status": "VIOLATED",
+          "mode": "functional"
+        }
+      ],
+      "area": {
+        "number_of_ports": 4100,
+        "number_of_nets": 109636,
+        "number_of_cells": 105697,
+        "number_of_combinational_cells": 82735,
+        "number_of_sequential_cells": 22232,
+        "number_of_macros_black_boxes": 2,
+        "number_of_buffers_inverters": 16262,
+        "number_of_references": 54,
+        "combinational_area": 368386.000885,
+        "buffer_inverter_area": 56366.800415,
+        "noncombinational_area": 239927.204527,
+        "macro_black_box_area": 19950.734863,
+        "net_interconnect_area": 14421800.637787,
+        "total_cell_area": 628263.940275,
+        "total_area": 15050064.578062
+      },
+      "storage_path": "/groups/ece427-group2/nightly-synthesis/38355804413-1/900mhz",
+      "artifact_name": "synthesis-point-900mhz-38355804413-1",
+      "artifact_url": "https://github.com/ece427-illinium/rtl-dev/actions/runs/38355804413#artifacts",
+      "evidence_available": true,
+      "scan_evidence_available": true
+    }
+  ]
+}
