@@ -18,9 +18,9 @@
 </style></head>
 <body><h1>Illinium SoC DV dashboard</h1>
 <div class="run-status pass"><strong>Regression PASSED</strong></div>
-<p>Run <strong>39186310361-1</strong> · commit <a href="https://github.com/ece427-illinium/rtl-dev/commit/86c61854fbffdba9c671429833a535ab28acd4ed"><code>86c61854fbff</code></a>
-· generated 2026-10-19 05:03 UTC</p>
-<p><a href="https://github.com/ece427-illinium/rtl-dev/actions/runs/39186310361">Open the authenticated Actions run</a> for complete logs and artifacts.
+<p>Run <strong>39237151329-1</strong> · commit <a href="https://github.com/ece427-illinium/rtl-dev/commit/cefb2926f7b5a2182cbd344e8313f21360894c04"><code>cefb2926f7b5</code></a>
+· generated 2026-10-19 12:03 UTC</p>
+<p><a href="https://github.com/ece427-illinium/rtl-dev/actions/runs/39237151329">Open the authenticated Actions run</a> for complete logs and artifacts.
 This public page reports test status and concise failure signatures, but does not publish RTL,
 absolute runner paths, simulation logs, coverage databases, or source annotations.</p>
 <h2>Testbench results</h2><table class="test-results"><thead><tr>
@@ -257,6 +257,26 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <td>CMTE</td><td>ic</td><td><code>ic.rnd</code></td><td>full</td>
 <td><span class="status status-pass">PASS</span></td>
 <td>3 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CONTROL</td><td>dft_clock_controller</td><td><code>ctrl.dft_clock_handoff.duty_cycle</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>10 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CONTROL</td><td>dft_clock_controller</td><td><code>ctrl.dft_clock_handoff.coincident</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CONTROL</td><td>dft_clock_controller</td><td><code>ctrl.dft_clock_handoff</code></td><td>smoke</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CONTROL</td><td>dft_clock_controller</td><td><code>ctrl.dft_clock_handoff.fast_scan</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
+<tr class="test-pass">
+<td>CONTROL</td><td>dft_clock_controller</td><td><code>ctrl.dft_clock_handoff.slow_scan</code></td><td>full</td>
+<td><span class="status status-pass">PASS</span></td>
+<td>5 runs</td><td class="detail">—</td></tr>
 <tr class="test-pass">
 <td>CONTROL</td><td>reset_sync</td><td><code>ctrl.reset_sync</code></td><td>smoke</td>
 <td><span class="status status-pass">PASS</span></td>
@@ -732,17 +752,17 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <h2>Mixed-level DFT scan</h2><p><span class="status status-pass">PASS</span> 20,383 reported stages — Three-pin shift, capture, readout, restore, and exit passed.</p>
 <h2>Fully synthesized DFT scan</h2><p><span class="status status-pass">PASS</span> 20,383 reported stages — Three-pin shift, capture, readout, restore, and exit passed.</p>
 <h2>Coverage by block</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
-<tbody><tr><td>All blocks, merged by module</td><td>91.51%</td><td>86.66%</td><td>57.32%</td><td>88.53%</td><td>68.52%</td><td>100.00%</td></tr>
+<tbody><tr><td>All blocks, merged by module</td><td>91.61%</td><td>86.62%</td><td>58.21%</td><td>88.56%</td><td>68.61%</td><td>100.00%</td></tr>
 <tr><td>CMTE</td><td>99.66%</td><td>90.71%</td><td>76.32%</td><td>98.27%</td><td>92.59%</td><td>—</td></tr>
-<tr><td>CONTROL</td><td>98.06%</td><td>89.80%</td><td>87.88%</td><td>93.75%</td><td>78.26%</td><td>100.00%</td></tr>
+<tr><td>CONTROL</td><td>99.69%</td><td>89.88%</td><td>90.91%</td><td>96.48%</td><td>84.00%</td><td>100.00%</td></tr>
 <tr><td>DATAPATH</td><td>75.20%</td><td>89.63%</td><td>100.00%</td><td>87.31%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>EXECUNIT</td><td>90.63%</td><td>98.63%</td><td>—</td><td>97.87%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>FED</td><td>96.57%</td><td>97.57%</td><td>—</td><td>91.64%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>FULLCHIP</td><td>83.35%</td><td>77.43%</td><td>52.69%</td><td>81.72%</td><td>83.06%</td><td>—</td></tr>
+<tr><td>FULLCHIP</td><td>83.48%</td><td>77.32%</td><td>52.05%</td><td>81.67%</td><td>82.66%</td><td>—</td></tr>
 <tr><td>IO</td><td>99.75%</td><td>97.07%</td><td>—</td><td>98.47%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>LDE</td><td>100.00%</td><td>96.57%</td><td>84.62%</td><td>98.59%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>MEMORY</td><td>99.55%</td><td>80.86%</td><td>52.78%</td><td>96.62%</td><td>90.00%</td><td>100.00%</td></tr>
-<tr><td>SOCIO</td><td>82.57%</td><td>68.41%</td><td>26.50%</td><td>71.20%</td><td>57.20%</td><td>100.00%</td></tr>
+<tr><td>SOCIO</td><td>83.06%</td><td>68.81%</td><td>30.77%</td><td>71.95%</td><td>57.31%</td><td>100.00%</td></tr>
 <tr><td>TILECTRL</td><td>93.88%</td><td>71.63%</td><td>61.70%</td><td>90.48%</td><td>68.91%</td><td>100.00%</td></tr></tbody></table>
 <section><h2>CMTE benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
 <tbody><tr><td>All benches, merged by module</td><td>99.66%</td><td>90.71%</td><td>76.32%</td><td>98.27%</td><td>92.59%</td><td>—</td></tr>
@@ -757,10 +777,11 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <tr><td>vsp_tt</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>—</td></tr>
 <tr><td>vsp_unit</td><td>100.00%</td><td>96.55%</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>—</td></tr></tbody></table></section>
 <section><h2>CONTROL benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
-<tbody><tr><td>All benches, merged by module</td><td>98.06%</td><td>89.80%</td><td>87.88%</td><td>93.75%</td><td>78.26%</td><td>100.00%</td></tr>
+<tbody><tr><td>All benches, merged by module</td><td>99.69%</td><td>89.88%</td><td>90.91%</td><td>96.48%</td><td>84.00%</td><td>100.00%</td></tr>
 <tr><td>control</td><td>99.02%</td><td>84.09%</td><td>69.23%</td><td>90.00%</td><td>73.33%</td><td>100.00%</td></tr>
+<tr><td>dft_clock_controller</td><td>100.00%</td><td>92.19%</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>—</td></tr>
 <tr><td>reset_sync</td><td>100.00%</td><td>—</td><td>—</td><td>100.00%</td><td>—</td><td>100.00%</td></tr>
-<tr><td>scan_access</td><td>96.84%</td><td>98.31%</td><td>100.00%</td><td>97.50%</td><td>87.50%</td><td>100.00%</td></tr></tbody></table></section>
+<tr><td>scan_access</td><td>100.00%</td><td>93.33%</td><td>96.97%</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr></tbody></table></section>
 <section><h2>DATAPATH benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
 <tbody><tr><td>All benches, merged by module</td><td>75.20%</td><td>89.63%</td><td>100.00%</td><td>87.31%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>accumulator</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>—</td><td>—</td></tr>
@@ -787,9 +808,9 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <tr><td>stream</td><td>97.75%</td><td>98.00%</td><td>—</td><td>94.46%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>units</td><td>78.49%</td><td>92.84%</td><td>—</td><td>65.56%</td><td>—</td><td>100.00%</td></tr></tbody></table></section>
 <section><h2>FULLCHIP benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
-<tbody><tr><td>All benches, merged by module</td><td>83.35%</td><td>77.43%</td><td>52.69%</td><td>81.72%</td><td>83.06%</td><td>—</td></tr>
-<tr><td>faults</td><td>53.51%</td><td>38.22%</td><td>6.09%</td><td>45.12%</td><td>37.50%</td><td>—</td></tr>
-<tr><td>zoo</td><td>83.35%</td><td>77.38%</td><td>51.97%</td><td>81.72%</td><td>83.06%</td><td>—</td></tr></tbody></table></section>
+<tbody><tr><td>All benches, merged by module</td><td>83.48%</td><td>77.32%</td><td>52.05%</td><td>81.67%</td><td>82.66%</td><td>—</td></tr>
+<tr><td>faults</td><td>54.03%</td><td>38.38%</td><td>7.53%</td><td>45.27%</td><td>37.10%</td><td>—</td></tr>
+<tr><td>zoo</td><td>83.48%</td><td>77.27%</td><td>51.37%</td><td>81.67%</td><td>82.66%</td><td>—</td></tr></tbody></table></section>
 <section><h2>IO benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
 <tbody><tr><td>All benches, merged by module</td><td>99.75%</td><td>97.07%</td><td>—</td><td>98.47%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>async_fifo</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>
@@ -823,8 +844,8 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <tr><td>vs_service</td><td>99.48%</td><td>79.68%</td><td>53.03%</td><td>95.97%</td><td>87.50%</td><td>100.00%</td></tr>
 <tr><td>vs_service_wm2</td><td>99.48%</td><td>80.00%</td><td>52.56%</td><td>95.97%</td><td>87.50%</td><td>100.00%</td></tr></tbody></table></section>
 <section><h2>SOCIO benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
-<tbody><tr><td>All benches, merged by module</td><td>82.57%</td><td>68.41%</td><td>26.50%</td><td>71.20%</td><td>57.20%</td><td>100.00%</td></tr>
-<tr><td>boot</td><td>60.03%</td><td>35.79%</td><td>24.00%</td><td>43.64%</td><td>73.53%</td><td>100.00%</td></tr>
+<tbody><tr><td>All benches, merged by module</td><td>83.06%</td><td>68.81%</td><td>30.77%</td><td>71.95%</td><td>57.31%</td><td>100.00%</td></tr>
+<tr><td>boot</td><td>63.29%</td><td>40.07%</td><td>30.68%</td><td>48.06%</td><td>76.47%</td><td>100.00%</td></tr>
 <tr><td>integration</td><td>90.98%</td><td>69.23%</td><td>30.95%</td><td>83.86%</td><td>94.44%</td><td>100.00%</td></tr>
 <tr><td>program_credit</td><td>95.28%</td><td>86.89%</td><td>—</td><td>85.00%</td><td>55.56%</td><td>100.00%</td></tr>
 <tr><td>program_credit_default</td><td>95.28%</td><td>86.89%</td><td>—</td><td>85.00%</td><td>55.56%</td><td>100.00%</td></tr>
