@@ -1,0 +1,818 @@
+Group : mem_link_tb::link_cg
+
+===============================================================================
+Group : mem_link_tb::link_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/memory_link/mem_link_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
+100.00 1      100    1        64           64            coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   mem_link_tb::link_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 10       0         10      100.00  
+Crosses   4        0         4       100.00  
+
+
+Variables for Group  mem_link_tb::link_cg
+
+
+VARIABLE              EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+ordered_completion    1        0         1       100.00  100  1      1        0                    
+read_depth            5        0         5       100.00  100  1      1        0                    
+request_type          3        0         3       100.00  100  1      1        0                    
+response_backpressure 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group  mem_link_tb::link_cg
+
+
+CROSS                     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+outstanding_depth_x_stall 4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable ordered_completion
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for ordered_completion
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 61    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable read_depth
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for read_depth
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+maximum 24    1        
+three   30    1        
+two     30    1        
+one     107   1        
+empty   308   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request_type
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for request_type
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+full_write   36    1        
+masked_write 53    1        
+read         61    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable response_backpressure
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for response_backpressure
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 288   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross outstanding_depth_x_stall
+
+
+Samples crossed: read_depth response_backpressure
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              4        0         4       100.00          
+Automatically Generated Cross Bins 4        0         4       100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for outstanding_depth_x_stall
+
+
+Bins
+
+read_depth response_backpressure COUNT AT LEAST 
+maximum    observed              18    1        
+three      observed              18    1        
+two        observed              18    1        
+one        observed              58    1        
+
+
+User Defined Cross Bins for outstanding_depth_x_stall
+
+
+Excluded/Illegal bins
+
+NAME               COUNT STATUS   
+empty_cannot_stall 0     Excluded 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                 
+100.00 100.00    1      100    1        1            64           64                    mem_link_tb::link_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 10       0         10      100.00  
+Crosses   4        0         4       100.00  
+
+
+Variables for Group Instance  coverage
+
+
+VARIABLE              EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+ordered_completion    1        0         1       100.00  100  1      1        0                    
+read_depth            5        0         5       100.00  100  1      1        0                    
+request_type          3        0         3       100.00  100  1      1        0                    
+response_backpressure 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  coverage
+
+
+CROSS                     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+outstanding_depth_x_stall 4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable ordered_completion
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for ordered_completion
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 61    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable read_depth
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for read_depth
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+maximum 24    1        
+three   30    1        
+two     30    1        
+one     107   1        
+empty   308   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request_type
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for request_type
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+full_write   36    1        
+masked_write 53    1        
+read         61    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable response_backpressure
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for response_backpressure
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 288   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross outstanding_depth_x_stall
+
+
+Samples crossed: read_depth response_backpressure
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              4        0         4       100.00          
+Automatically Generated Cross Bins 4        0         4       100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for outstanding_depth_x_stall
+
+
+Bins
+
+read_depth response_backpressure COUNT AT LEAST 
+maximum    observed              18    1        
+three      observed              18    1        
+two        observed              18    1        
+one        observed              58    1        
+
+
+User Defined Cross Bins for outstanding_depth_x_stall
+
+
+Excluded/Illegal bins
+
+NAME               COUNT STATUS   
+empty_cannot_stall 0     Excluded 
+
+
+Group : mem_link_tb::wire_cg
+
+===============================================================================
+Group : mem_link_tb::wire_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/memory_link/mem_link_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME          
+100.00 1      100    1        64           64            wire_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   mem_link_tb::wire_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 25       0         25      100.00  
+Crosses   28       0         28      100.00  
+
+
+Variables for Group  mem_link_tb::wire_cg
+
+
+VARIABLE               EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+bidirectional_activity 1        0         1       100.00  100  1      1        0                    
+local_write_completion 1        0         1       100.00  100  1      1        0                    
+request_byte_position  12       0         12      100.00  100  1      1        0                    
+response_byte_position 4        0         4       100.00  100  1      1        0                    
+wire_request           3        0         3       100.00  100  1      1        0                    
+write_mask             4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group  mem_link_tb::wire_cg
+
+
+CROSS              EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+request_x_position 24       0         24      100.00  100  1      1        0                     
+write_type_x_mask  4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable bidirectional_activity
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for bidirectional_activity
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 24    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable local_write_completion
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for local_write_completion
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 24    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request_byte_position
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 12       0         12      100.00  
+
+
+User Defined Bins for request_byte_position
+
+
+Bins
+
+NAME                 COUNT AT LEAST 
+payload_4            89    1        
+payload_5            89    1        
+payload_6            89    1        
+payload_7            89    1        
+payload_8            53    1        
+payload_9            53    1        
+payload_10           53    1        
+payload_11           53    1        
+header_and_address_0 150   1        
+header_and_address_1 150   1        
+header_and_address_2 150   1        
+header_and_address_3 150   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable response_byte_position
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for response_byte_position
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+bytes_0 61    1        
+bytes_1 61    1        
+bytes_2 61    1        
+bytes_3 61    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable wire_request
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for wire_request
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+full_write   294   1        
+masked_write 654   1        
+read         488   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_mask
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for write_mask
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+all_one_compact 288   1        
+mixed           492   1        
+sparse          72    1        
+byte_like       72    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross request_x_position
+
+
+Samples crossed: wire_request request_byte_position
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              24       0         24      100.00          
+Automatically Generated Cross Bins 24       0         24      100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for request_x_position
+
+
+Bins
+
+wire_request request_byte_position COUNT AT LEAST 
+full_write   payload_4             36    1        
+full_write   payload_5             36    1        
+full_write   payload_6             36    1        
+full_write   payload_7             36    1        
+full_write   header_and_address_0  36    1        
+full_write   header_and_address_1  36    1        
+full_write   header_and_address_2  36    1        
+full_write   header_and_address_3  36    1        
+masked_write payload_4             53    1        
+masked_write payload_5             53    1        
+masked_write payload_6             53    1        
+masked_write payload_7             53    1        
+masked_write payload_8             53    1        
+masked_write payload_9             53    1        
+masked_write payload_10            53    1        
+masked_write payload_11            53    1        
+masked_write header_and_address_0  53    1        
+masked_write header_and_address_1  53    1        
+masked_write header_and_address_2  53    1        
+masked_write header_and_address_3  53    1        
+read         header_and_address_0  61    1        
+read         header_and_address_1  61    1        
+read         header_and_address_2  61    1        
+read         header_and_address_3  61    1        
+
+
+User Defined Cross Bins for request_x_position
+
+
+Excluded/Illegal bins
+
+NAME                     COUNT STATUS   
+read_has_no_payload      0     Excluded 
+compact_has_no_mask_tail 0     Excluded 
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross write_type_x_mask
+
+
+Samples crossed: wire_request write_mask
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        0         4       100.00          
+
+
+User Defined Cross Bins for write_type_x_mask
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+masked_byte   72    1        
+masked_sparse 72    1        
+masked_mixed  492   1        
+compact_full  288   1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : wire_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                 
+100.00 100.00    1      100    1        1            64           64                    mem_link_tb::wire_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   wire_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 25       0         25      100.00  
+Crosses   28       0         28      100.00  
+
+
+Variables for Group Instance  wire_coverage
+
+
+VARIABLE               EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+bidirectional_activity 1        0         1       100.00  100  1      1        0                    
+local_write_completion 1        0         1       100.00  100  1      1        0                    
+request_byte_position  12       0         12      100.00  100  1      1        0                    
+response_byte_position 4        0         4       100.00  100  1      1        0                    
+wire_request           3        0         3       100.00  100  1      1        0                    
+write_mask             4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  wire_coverage
+
+
+CROSS              EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+request_x_position 24       0         24      100.00  100  1      1        0                     
+write_type_x_mask  4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable bidirectional_activity
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for bidirectional_activity
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 24    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable local_write_completion
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for local_write_completion
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 24    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request_byte_position
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 12       0         12      100.00  
+
+
+User Defined Bins for request_byte_position
+
+
+Bins
+
+NAME                 COUNT AT LEAST 
+payload_4            89    1        
+payload_5            89    1        
+payload_6            89    1        
+payload_7            89    1        
+payload_8            53    1        
+payload_9            53    1        
+payload_10           53    1        
+payload_11           53    1        
+header_and_address_0 150   1        
+header_and_address_1 150   1        
+header_and_address_2 150   1        
+header_and_address_3 150   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable response_byte_position
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for response_byte_position
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+bytes_0 61    1        
+bytes_1 61    1        
+bytes_2 61    1        
+bytes_3 61    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable wire_request
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for wire_request
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+full_write   294   1        
+masked_write 654   1        
+read         488   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_mask
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for write_mask
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+all_one_compact 288   1        
+mixed           492   1        
+sparse          72    1        
+byte_like       72    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross request_x_position
+
+
+Samples crossed: wire_request request_byte_position
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              24       0         24      100.00          
+Automatically Generated Cross Bins 24       0         24      100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for request_x_position
+
+
+Bins
+
+wire_request request_byte_position COUNT AT LEAST 
+full_write   payload_4             36    1        
+full_write   payload_5             36    1        
+full_write   payload_6             36    1        
+full_write   payload_7             36    1        
+full_write   header_and_address_0  36    1        
+full_write   header_and_address_1  36    1        
+full_write   header_and_address_2  36    1        
+full_write   header_and_address_3  36    1        
+masked_write payload_4             53    1        
+masked_write payload_5             53    1        
+masked_write payload_6             53    1        
+masked_write payload_7             53    1        
+masked_write payload_8             53    1        
+masked_write payload_9             53    1        
+masked_write payload_10            53    1        
+masked_write payload_11            53    1        
+masked_write header_and_address_0  53    1        
+masked_write header_and_address_1  53    1        
+masked_write header_and_address_2  53    1        
+masked_write header_and_address_3  53    1        
+read         header_and_address_0  61    1        
+read         header_and_address_1  61    1        
+read         header_and_address_2  61    1        
+read         header_and_address_3  61    1        
+
+
+User Defined Cross Bins for request_x_position
+
+
+Excluded/Illegal bins
+
+NAME                     COUNT STATUS   
+read_has_no_payload      0     Excluded 
+compact_has_no_mask_tail 0     Excluded 
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross write_type_x_mask
+
+
+Samples crossed: wire_request write_mask
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        0         4       100.00          
+
+
+User Defined Cross Bins for write_type_x_mask
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+masked_byte   72    1        
+masked_sparse 72    1        
+masked_mixed  492   1        
+compact_full  288   1        
+
+

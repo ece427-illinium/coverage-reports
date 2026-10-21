@@ -1,0 +1,41 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT            
+ 83.13  99.02  84.09  69.23  90.00  73.33 control_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT                   
+  100.00 100.00 --     --     100.00 --     i_chip_reset_sync 
+   88.28  98.96  84.09  69.23  89.13 100.00 i_dut             
+   20.00 --     --     --     --      20.00 i_scan_access     
+  100.00 100.00 --     --     100.00 --     i_scan_reset_sync 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                         
+ 98.44 100.00  92.19 100.00 100.00 100.00 dft_clock_controller_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+   98.44 100.00  92.19 100.00 100.00 100.00 dut 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT               
+100.00 100.00 --     --     100.00 --     reset_sync_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT        
+  100.00 100.00 --     --     100.00 --     i_chip 
+  100.00 100.00 --     --     100.00 --     i_io   
+  100.00 100.00 --     --     100.00 --     i_scan 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                
+ 98.06 100.00  93.33  96.97 100.00 100.00 scan_access_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT                    
+   95.59 100.00  89.06  88.89 100.00 100.00 i_clock_controller 
+  100.00 100.00 100.00 100.00 100.00 100.00 i_dut              
+

@@ -17,12 +17,14 @@
 .detail { max-width: 640px; overflow-wrap: anywhere; }
 </style></head>
 <body><h1>Illinium SoC DV dashboard</h1>
-<div class="run-status warn"><strong>Regression PASSED; FULL TOP SCAN NOT RUN</strong></div>
-<p>Run <strong>39402748362-1</strong> · commit <a href="https://github.com/ece427-illinium/rtl-dev/commit/cefb2926f7b5a2182cbd344e8313f21360894c04"><code>cefb2926f7b5</code></a>
-· generated 2026-10-20 10:44 UTC</p>
-<p><a href="https://github.com/ece427-illinium/rtl-dev/actions/runs/39402748362">Open the authenticated Actions run</a> for complete logs and artifacts.
-This public page reports test status and concise failure signatures, but does not publish RTL,
-absolute runner paths, simulation logs, coverage databases, or source annotations.</p>
+<div class="run-status pass"><strong>Regression PASSED</strong></div>
+<p>Run <strong>39636672995-1</strong> · commit <a href="https://github.com/ece427-illinium/rtl-dev/commit/cf154b049d20ffa870c60cc14820edd3c1298260"><code>cf154b049d20</code></a>
+· generated 2026-10-21 20:55 UTC</p>
+<p><a href="https://github.com/ece427-illinium/rtl-dev/actions/runs/39636672995">Open the authenticated Actions run</a> for complete logs and artifacts.
+This dashboard reports test status and concise failure signatures. Detailed URG reports,
+when included below, contain RTL source annotations and may include source paths.
+Simulation logs, coverage databases and private synthesis libraries are not included.</p>
+<h2>Detailed Synopsys coverage</h2><p><a href="urg/dashboard.html">Open the complete URG coverage report</a> — modules, instances, benches, annotated source and uncovered items.</p>
 <h2>Testbench results</h2><table class="test-results"><thead><tr>
 <th>Block</th><th>Bench</th><th>Test</th><th>Tier</th><th>Status</th><th>Seeds</th><th>Failure / warning</th>
 </tr></thead><tbody><tr class="test-pass">
@@ -749,16 +751,16 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <td>TILECTRL</td><td>isa22_commit</td><td><code>tilectrl.isa22_commit</code></td><td>smoke</td>
 <td><span class="status status-pass">PASS</span></td>
 <td>1 run</td><td class="detail">—</td></tr></tbody></table>
-<h2>Mixed-level DFT scan</h2><p><span class="status status-unknown">NOT RUN</span> chain unavailable — No inserted soc_core netlist was produced.</p>
-<h2>Fully synthesized DFT scan</h2><p><span class="status status-unknown">NOT RUN</span> chain unavailable — No synthesized top_soc netlist was produced.</p>
+<h2>Mixed-level DFT scan</h2><p><span class="status status-pass">PASS</span> 21,534 reported stages — Three-pin shift, capture, readout, restore, and exit passed.</p>
+<h2>Fully synthesized DFT scan</h2><p><span class="status status-pass">PASS</span> 21,534 reported stages — Three-pin shift, capture, readout, restore, and exit passed.</p>
 <h2>Coverage by block</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
-<tbody><tr><td>All blocks, merged by module</td><td>91.61%</td><td>86.62%</td><td>58.21%</td><td>88.56%</td><td>68.61%</td><td>100.00%</td></tr>
+<tbody><tr><td>All blocks, merged by module</td><td>91.61%</td><td>86.61%</td><td>58.21%</td><td>88.56%</td><td>68.61%</td><td>100.00%</td></tr>
 <tr><td>CMTE</td><td>99.66%</td><td>90.71%</td><td>76.32%</td><td>98.27%</td><td>92.59%</td><td>—</td></tr>
 <tr><td>CONTROL</td><td>99.69%</td><td>89.88%</td><td>90.91%</td><td>96.48%</td><td>84.00%</td><td>100.00%</td></tr>
 <tr><td>DATAPATH</td><td>75.20%</td><td>89.63%</td><td>100.00%</td><td>87.31%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>EXECUNIT</td><td>90.63%</td><td>98.63%</td><td>—</td><td>97.87%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>FED</td><td>96.57%</td><td>97.57%</td><td>—</td><td>91.64%</td><td>100.00%</td><td>100.00%</td></tr>
-<tr><td>FULLCHIP</td><td>83.48%</td><td>77.32%</td><td>52.05%</td><td>81.67%</td><td>82.66%</td><td>—</td></tr>
+<tr><td>FULLCHIP</td><td>83.48%</td><td>77.31%</td><td>52.05%</td><td>81.67%</td><td>82.66%</td><td>—</td></tr>
 <tr><td>IO</td><td>99.75%</td><td>97.07%</td><td>—</td><td>98.47%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>LDE</td><td>100.00%</td><td>96.57%</td><td>84.62%</td><td>98.59%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>MEMORY</td><td>99.55%</td><td>80.86%</td><td>52.78%</td><td>96.62%</td><td>90.00%</td><td>100.00%</td></tr>
@@ -808,9 +810,9 @@ absolute runner paths, simulation logs, coverage databases, or source annotation
 <tr><td>stream</td><td>97.75%</td><td>98.00%</td><td>—</td><td>94.46%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>units</td><td>78.49%</td><td>92.84%</td><td>—</td><td>65.56%</td><td>—</td><td>100.00%</td></tr></tbody></table></section>
 <section><h2>FULLCHIP benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
-<tbody><tr><td>All benches, merged by module</td><td>83.48%</td><td>77.32%</td><td>52.05%</td><td>81.67%</td><td>82.66%</td><td>—</td></tr>
-<tr><td>faults</td><td>54.03%</td><td>38.38%</td><td>7.53%</td><td>45.27%</td><td>37.10%</td><td>—</td></tr>
-<tr><td>zoo</td><td>83.48%</td><td>77.27%</td><td>51.37%</td><td>81.67%</td><td>82.66%</td><td>—</td></tr></tbody></table></section>
+<tbody><tr><td>All benches, merged by module</td><td>83.48%</td><td>77.31%</td><td>52.05%</td><td>81.67%</td><td>82.66%</td><td>—</td></tr>
+<tr><td>faults</td><td>54.03%</td><td>38.37%</td><td>7.53%</td><td>45.27%</td><td>37.10%</td><td>—</td></tr>
+<tr><td>zoo</td><td>83.48%</td><td>77.26%</td><td>51.37%</td><td>81.67%</td><td>82.66%</td><td>—</td></tr></tbody></table></section>
 <section><h2>IO benches</h2><table><thead><tr><th>Report</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th><th>FUNCTIONAL</th></tr></thead>
 <tbody><tr><td>All benches, merged by module</td><td>99.75%</td><td>97.07%</td><td>—</td><td>98.47%</td><td>100.00%</td><td>100.00%</td></tr>
 <tr><td>async_fifo</td><td>100.00%</td><td>100.00%</td><td>—</td><td>100.00%</td><td>100.00%</td><td>100.00%</td></tr>

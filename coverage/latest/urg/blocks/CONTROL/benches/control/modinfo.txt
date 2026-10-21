@@ -1,0 +1,1311 @@
+===============================================================================
+Module : scan_access
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 20.00 --     --     --     --      20.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/control/scan/scan_access.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                     
+ 20.00 --     --     --     --      20.00 control_tb.i_scan_access 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : scan_access
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       5     5         100.00  1                 20.00   
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            5     5         100.00  1                 20.00   
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name         Attempts Real Successes Failures Incomplete 
+unnamed$$_39 40644    40614          0        0          
+unnamed$$_40 40644    0              0        0          
+unnamed$$_41 40644    0              0        0          
+unnamed$$_42 40644    0              0        0          
+unnamed$$_43 40644    0              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : control_tb.i_scan_access
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 20.00 --     --     --     --      20.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 20.00 --     --     --     --      20.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+ 20.00 --     --     --     --      20.00 scan_access 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 --     --     --     --     100.00 control_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : control
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 88.28  98.96  84.09  69.23  89.13 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/control/epoch/control.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME             
+ 88.28  98.96  84.09  69.23  89.13 100.00 control_tb.i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : control
+
+             Line No.   Total   Covered  Percent
+TOTAL                       96       95    98.96
+ALWAYS             64        5        5   100.00
+ALWAYS             83        3        3   100.00
+ALWAYS             97       15       15   100.00
+ALWAYS            118       32       32   100.00
+ALWAYS            182       31       30    96.77
+ALWAYS            254       10       10   100.00
+INITIAL           275        0        0
+
+63                        always_ff @(posedge clk_i or negedge chip_rst_ni) begin
+64         1/1              if (!chip_rst_ni) begin
+65         1/1                req_sync1_r <= 1'b0;
+66         1/1                req_sync2_r <= 1'b0;
+67                          end else begin
+68                            // Two-flop synchronizer for the scan-domain request toggle.
+69         1/1                req_sync1_r <= csr_if.req_toggle;
+70         1/1                req_sync2_r <= req_sync1_r;
+71                          end
+72                        end
+73                      
+74                        // CSR stores aligned word addresses to save bits. The VS service consumes
+75                        // byte addresses, so append the two zero byte-offset bits here.
+76                        assign vs_map_value.comb_end = {comb_end_r, 2'b00};
+77                        assign vs_map_value.seq_end = {seq_end_r, 2'b00};
+78                        assign vs_map_value.vs_end = {vs_end_r, 2'b00};
+79                      
+80                        // Quiescence is small enough to reduce here. Keeping it beside the control
+81                        // FSM avoids a separate stateless status-aggregator module.
+82                        always_comb begin
+83         1/1              quiescent = control_if.program_rx_idle && control_if.event_status.idle &&
+84                                      control_if.event_status.credit_returns_empty &&
+85                                      control_if.vs_arbiter_idle && control_if.vs_status.idle &&
+86                                      control_if.memory_link_idle;
+87         1/1              for (int unsigned tile = 0; tile < NTILES; tile++)
+88         1/1                quiescent &= tile_idle[tile];
+89                        end
+90                      
+91                        // Trusted scan software supplies an ordered, aligned VS map before RUN.
+92                        assign ready_to_start = quiescent && control_if.vs_status.invalidated;
+93                      
+94                        // CSR readback packing. This is combinational so scan-side reads observe a
+95                        // snapshot captured by the mailbox on the chip clock.
+96                        always_comb begin
+97         1/1              control_status_value = '0;
+98         1/1              control_status_value[1:0] = mode_r;
+99         1/1              control_status_value[2] = config_r.cache_enable;
+100        1/1              control_status_value[3] = config_r.tile_db_enable;
+101        1/1              control_status_value[NTILES+3:4] = tile_enable_r;
+102        1/1              control_status_value[8] = quiescent;
+103        1/1              control_status_value[9] = control_state_r == CTRL_WAIT_ACK;
+104        1/1              control_status_value[10] = stop_pending_r;
+105        1/1              control_status_value[11] = ready_to_start;
+106                     
+107        1/1              unique case (csr_if.addr)
+108        1/1                8'h00: csr_read_value = control_status_value;
+109        1/1                8'h04: csr_read_value = {8'b0, vs_map_value.comb_end};
+110        1/1                8'h08: csr_read_value = {8'b0, vs_map_value.seq_end};
+111        1/1                8'h0c: csr_read_value = {8'b0, vs_map_value.vs_end};
+112        1/1                default: csr_read_value = '0;
+113                         endcase
+114                       end
+115                     
+116                       // Functional-clock mailbox consumer and CSR write decoder.
+117                       always_ff @(posedge clk_i or negedge chip_rst_ni) begin
+118        1/1              if (!chip_rst_ni) begin
+119        1/1                mailbox_ack_toggle_r <= 1'b0;
+120        1/1                csr_read_data_r <= '0;
+121        1/1                config_r <= {HAS_TILE_DB, HAS_CACHE};
+122        1/1                tile_enable_r <= '1;
+123        1/1                comb_end_r <= '0;
+124        1/1                seq_end_r <= '0;
+125        1/1                vs_end_r <= '0;
+126        1/1                state_write_r <= 1'b0;
+127        1/1                state_write_data_r <= '0;
+128                         end else begin
+129                           // Chip-clock side of the CSR mailbox. A request is consumed once,
+130                           // reads return a stable value, and writes are accepted only while IDLE.
+131        1/1                state_write_r <= 1'b0;
+132                     
+133        1/1                if (req_sync2_r != mailbox_ack_toggle_r) begin
+134        1/1                  if (csr_if.op == SCAN_CSR_READ) begin
+135        1/1                    csr_read_data_r <= csr_read_value;
+136        1/1                  end else if (csr_if.op == SCAN_CSR_WRITE) begin
+137        1/1                    unique case (csr_if.addr)
+138                                 8'h00: begin
+139                                   // The trusted host writes the complete writable prefix. Status
+140                                   // bits [11:8] are read-only and ignored on writes.
+141        1/1                        if (mode_r == CHIP_IDLE && quiescent) begin
+142        1/1                          config_r <= config_t'(csr_if.write_data[3:2]);
+143        1/1                          tile_enable_r <= csr_if.write_data[NTILES+3:4];
+144                                   end
+                        MISSING_ELSE
+145                     
+146        1/1                        if (csr_if.write_data[1:0] == CHIP_IDLE) begin
+147        1/1                          state_write_r <= 1'b1;
+148        1/1                          state_write_data_r <= CHIP_IDLE;
+149        1/1                        end else if ((csr_if.write_data[1:0] == CHIP_VERBOSE ||
+150                                                 csr_if.write_data[1:0] == CHIP_RUN) &&
+151                                                control_state_r == CTRL_IDLE && ready_to_start) begin
+152        1/1                          state_write_r <= 1'b1;
+153        1/1                          state_write_data_r <= csr_if.write_data[1:0];
+154                                   end
+                        MISSING_ELSE
+155                                 end
+156                                 8'h04: begin
+157        1/1                        if (mode_r == CHIP_IDLE && quiescent)
+158        1/1                          comb_end_r <= csr_if.write_data[23:2];
+                        MISSING_ELSE
+159                                 end
+160                                 8'h08: begin
+161        1/1                        if (mode_r == CHIP_IDLE && quiescent)
+162        1/1                          seq_end_r <= csr_if.write_data[23:2];
+                   ==>  MISSING_ELSE
+163                                 end
+164                                 8'h0c: begin
+165        1/1                        if (mode_r == CHIP_IDLE && quiescent)
+166        1/1                          vs_end_r <= csr_if.write_data[23:2];
+                   ==>  MISSING_ELSE
+167                                 end
+168                                 default: begin end
+169                               endcase
+170                             end
+                   ==>  MISSING_ELSE
+171                     
+172        1/1                  mailbox_ack_toggle_r <= req_sync2_r;
+173                           end
+                        MISSING_ELSE
+174                         end
+175                       end
+176                     
+177                       // HOST_CYCLE_END from the FPGA scheduler is the sole boundary trigger.
+178                       // DRAIN waits for all internal work, WRITEBACK flushes dirty combinational
+179                       // words, INVALIDATE clears cache valids, SEND_DONE emits DUT_DONE, and
+180                       // WAIT_ACK prevents the next epoch from starting too early.
+181                       always_ff @(posedge clk_i or negedge chip_rst_ni) begin
+182        1/1              if (!chip_rst_ni) begin
+183        1/1                mode_r <= CHIP_IDLE;
+184        1/1                control_state_r <= CTRL_IDLE;
+185        1/1                stop_pending_r <= 1'b0;
+186                         end else begin
+187        1/1                if (state_write_r) begin
+188        1/1                  if (state_write_data_r == CHIP_IDLE) begin
+189        1/1                    if (control_state_r == CTRL_IDLE)
+190        1/1                      mode_r <= CHIP_IDLE;
+191                               else
+192        1/1                      stop_pending_r <= 1'b1;
+193        1/1                  end else if (control_state_r == CTRL_IDLE && ready_to_start) begin
+194        1/1                    mode_r <= chip_state_e'(state_write_data_r);
+195        1/1                    control_state_r <= CTRL_ACTIVE;
+196        1/1                    stop_pending_r <= 1'b0;
+197                             end
+                   ==>  MISSING_ELSE
+198                           end
+                        MISSING_ELSE
+199                     
+200                           // Boundary FSM transitions are intentionally monotonic for one epoch.
+201                           // A stop request is remembered until the current boundary is complete.
+202        1/1                unique case (control_state_r)
+203                             CTRL_IDLE: begin
+204                             end
+205                     
+206                             CTRL_ACTIVE: begin             // Normal execution; wait for FPGA boundary.
+207        1/1                    if (control_if.host_cycle_end)
+208        1/1                      control_state_r <= CTRL_DRAIN;
+                        MISSING_ELSE
+209                             end
+210                     
+211                             CTRL_DRAIN: begin              // Stop admitting work; wait for all work to retire.
+212        1/1                    if (quiescent)
+213        1/1                      control_state_r <= CTRL_WRITEBACK;
+                        MISSING_ELSE
+214                             end
+215                     
+216                             CTRL_WRITEBACK: begin           // Flush dirty COMB words to FPGA memory.
+217        1/1                    if (control_if.vs_status.writeback_done)
+218        1/1                      control_state_r <= CTRL_INVALIDATE;
+                        MISSING_ELSE
+219                             end
+220                     
+221                             CTRL_INVALIDATE: begin          // Clear cache valid bits before next epoch.
+222                               // Writebacks start after CTRL_DRAIN. Their local completion can
+223                               // precede the last queued I/O byte reaching the FPGA.
+224        1/1                    if (control_if.vs_status.invalidated && control_if.memory_link_idle) begin
+225        1/1                      control_state_r <= CTRL_SEND_DONE;
+226                               end
+                        MISSING_ELSE
+227                             end
+228                     
+229                             CTRL_SEND_DONE: begin           // Wait until event TX owns the one-nibble DUT_DONE.
+230        1/1                    if (control_if.dut_done_valid && control_if.dut_done_ready)
+231        1/1                      control_state_r <= CTRL_WAIT_ACK;
+                        MISSING_ELSE
+232                             end
+233                     
+234                             CTRL_WAIT_ACK: begin            // Wait for FPGA to finish boundary-side Q/D updates.
+235        1/1                    if (control_if.epoch_ack) begin
+236        1/1                      if (stop_pending_r) begin
+237        1/1                        mode_r <= CHIP_IDLE;
+238        1/1                        control_state_r <= CTRL_IDLE;
+239        1/1                        stop_pending_r <= 1'b0;
+240                                 end else begin
+241        1/1                        control_state_r <= CTRL_ACTIVE;
+242                                 end
+243                               end
+                        MISSING_ELSE
+244                             end
+245                     
+246        0/1     ==>          default: control_state_r <= CTRL_IDLE;
+247                           endcase
+248                         end
+249                       end
+250                     
+251                       // Decode state/configuration into enables. These outputs are deliberately
+252                       // level signals so every downstream block sees the same admission policy.
+253                       always_comb begin
+254        1/1              control_if.control = '0;
+255        1/1              control_if.control.cfg = config_r;
+256        1/1              control_if.control.vs_map = vs_map_value;
+257        1/1              control_if.control.work_admit = control_state_r == CTRL_ACTIVE;
+258                         // Running tiles retain VS access while boundary work drains.
+259        1/1              control_if.control.vs_admit = control_state_r == CTRL_ACTIVE ||
+260                                                       control_state_r == CTRL_DRAIN;
+261        1/1              control_if.control.vs_writeback = control_state_r == CTRL_WRITEBACK;
+262        1/1              if (control_state_r == CTRL_IDLE || control_state_r == CTRL_INVALIDATE)
+263        1/1                control_if.control.cache_invalidate = 1'b1;
+                        MISSING_ELSE
+264                     
+265        1/1              control_if.dut_done_valid = control_state_r == CTRL_SEND_DONE;
+266                     
+267        1/1              control_if.tile_enable = tile_enable_r;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : control
+
+               Total   Covered  Percent
+Conditions         88       74    84.09
+Logical            88       74    84.09
+Non-Logical         0        0
+Event               0        0
+
+ LINE       83
+ EXPRESSION 
+ Number  Term
+      1  control_if.program_rx_idle && 
+      2  control_if.event_status.idle && 
+      3  control_if.event_status.credit_returns_empty && 
+      4  control_if.vs_arbiter_idle && 
+      5  control_if.vs_status.idle && 
+      6  control_if.memory_link_idle)
+
+-1- -2- -3- -4- -5- -6- Status
+ 0   1   1   1   1   1  Covered
+ 1   0   1   1   1   1  Covered
+ 1   1   0   1   1   1  Covered
+ 1   1   1   0   1   1  Covered
+ 1   1   1   1   0   1  Covered
+ 1   1   1   1   1   0  Covered
+ 1   1   1   1   1   1  Covered
+
+ LINE       103
+ EXPRESSION (control_state_r == CTRL_WAIT_ACK)
+            -----------------1----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       133
+ EXPRESSION (req_sync2_r != mailbox_ack_toggle_r)
+            ------------------1------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       134
+ EXPRESSION (csr_if.op == SCAN_CSR_READ)
+            --------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       136
+ EXPRESSION (csr_if.op == SCAN_CSR_WRITE)
+            --------------1--------------
+
+-1- Status
+ 0  Not Covered
+ 1  Covered
+
+ LINE       141
+ EXPRESSION ((mode_r == CHIP_IDLE) && quiescent)
+             ----------1----------    ----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       141
+ SUB-EXPRESSION (mode_r == CHIP_IDLE)
+                ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       146
+ EXPRESSION (csr_if.write_data[1:0] == CHIP_IDLE)
+            ------------------1------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       149
+ EXPRESSION (((csr_if.write_data[1:0] == CHIP_VERBOSE) || (csr_if.write_data[1:0] == CHIP_RUN)) && (control_state_r == CTRL_IDLE) && ready_to_start)
+             -----------------------------------------1----------------------------------------    ---------------2--------------    -------3------
+
+-1- -2- -3- Status
+ 0   1   1  Not Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       149
+ SUB-EXPRESSION ((csr_if.write_data[1:0] == CHIP_VERBOSE) || (csr_if.write_data[1:0] == CHIP_RUN))
+                 --------------------1-------------------    ------------------2-----------------
+
+-1- -2- Status
+ 0   0  Not Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       149
+ SUB-EXPRESSION (csr_if.write_data[1:0] == CHIP_VERBOSE)
+                --------------------1-------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       149
+ SUB-EXPRESSION (csr_if.write_data[1:0] == CHIP_RUN)
+                ------------------1-----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       149
+ SUB-EXPRESSION (control_state_r == CTRL_IDLE)
+                ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       157
+ EXPRESSION ((mode_r == CHIP_IDLE) && quiescent)
+             ----------1----------    ----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       157
+ SUB-EXPRESSION (mode_r == CHIP_IDLE)
+                ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       161
+ EXPRESSION ((mode_r == CHIP_IDLE) && quiescent)
+             ----------1----------    ----2----
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       161
+ SUB-EXPRESSION (mode_r == CHIP_IDLE)
+                ----------1----------
+
+-1- Status
+ 0  Not Covered
+ 1  Covered
+
+ LINE       165
+ EXPRESSION ((mode_r == CHIP_IDLE) && quiescent)
+             ----------1----------    ----2----
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       165
+ SUB-EXPRESSION (mode_r == CHIP_IDLE)
+                ----------1----------
+
+-1- Status
+ 0  Not Covered
+ 1  Covered
+
+ LINE       188
+ EXPRESSION (state_write_data_r == CHIP_IDLE)
+            ----------------1----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       189
+ EXPRESSION (control_state_r == CTRL_IDLE)
+            ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       193
+ EXPRESSION ((control_state_r == CTRL_IDLE) && ready_to_start)
+             ---------------1--------------    -------2------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       193
+ SUB-EXPRESSION (control_state_r == CTRL_IDLE)
+                ---------------1--------------
+
+-1- Status
+ 0  Not Covered
+ 1  Covered
+
+ LINE       224
+ EXPRESSION (control_if.vs_status.invalidated && control_if.memory_link_idle)
+             ----------------1---------------    -------------2-------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       230
+ EXPRESSION (control_if.dut_done_valid && control_if.dut_done_ready)
+             ------------1------------    ------------2------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       257
+ EXPRESSION (control_state_r == CTRL_ACTIVE)
+            ----------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       259
+ EXPRESSION ((control_state_r == CTRL_ACTIVE) || (control_state_r == CTRL_DRAIN))
+             ----------------1---------------    ---------------2---------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       259
+ SUB-EXPRESSION (control_state_r == CTRL_ACTIVE)
+                ----------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       259
+ SUB-EXPRESSION (control_state_r == CTRL_DRAIN)
+                ---------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       261
+ EXPRESSION (control_state_r == CTRL_WRITEBACK)
+            -----------------1-----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       262
+ EXPRESSION ((control_state_r == CTRL_IDLE) || (control_state_r == CTRL_INVALIDATE))
+             ---------------1--------------    ------------------2-----------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       262
+ SUB-EXPRESSION (control_state_r == CTRL_IDLE)
+                ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       262
+ SUB-EXPRESSION (control_state_r == CTRL_INVALIDATE)
+                ------------------1-----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       265
+ EXPRESSION (control_state_r == CTRL_SEND_DONE)
+            -----------------1-----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       92
+ EXPRESSION (quiescent && control_if.vs_status.invalidated)
+             ----1----    ----------------2---------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+-------------------------------------------------------------------------------
+FSM Coverage for Module : control
+Summary for FSM :: control_state_r
+            Total Covered Percent                         
+States      7     7       100.00  (Not included in score) 
+Transitions 13    9       69.23                           
+Sequences   0     0                                       
+
+State, Transition and Sequence Details for FSM :: control_state_r
+-------------------------------------------------------------------------------
+states          Line No. Covered 
+CTRL_ACTIVE     195      Covered 
+CTRL_DRAIN      208      Covered 
+CTRL_IDLE       184      Covered 
+CTRL_INVALIDATE 218      Covered 
+CTRL_SEND_DONE  225      Covered 
+CTRL_WAIT_ACK   231      Covered 
+CTRL_WRITEBACK  213      Covered 
+
+transitions                     Line No. Covered     
+CTRL_ACTIVE->CTRL_DRAIN         208      Covered     
+CTRL_ACTIVE->CTRL_IDLE          184      Not Covered 
+CTRL_DRAIN->CTRL_IDLE           184      Covered     
+CTRL_DRAIN->CTRL_WRITEBACK      213      Covered     
+CTRL_IDLE->CTRL_ACTIVE          195      Covered     
+CTRL_INVALIDATE->CTRL_IDLE      184      Not Covered 
+CTRL_INVALIDATE->CTRL_SEND_DONE 225      Covered     
+CTRL_SEND_DONE->CTRL_IDLE       184      Not Covered 
+CTRL_SEND_DONE->CTRL_WAIT_ACK   231      Covered     
+CTRL_WAIT_ACK->CTRL_ACTIVE      241      Covered     
+CTRL_WAIT_ACK->CTRL_IDLE        184      Covered     
+CTRL_WRITEBACK->CTRL_IDLE       184      Not Covered 
+CTRL_WRITEBACK->CTRL_INVALIDATE 218      Covered     
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : control
+         Line No. Total Covered Percent 
+Branches          46    41      89.13   
+IF       64       2     2       100.00  
+CASE     107      5     5       100.00  
+IF       118      16    13      81.25   
+IF       182      21    19      90.48   
+IF       262      2     2       100.00  
+
+
+64             if (!chip_rst_ni) begin
+               -1-  
+65               req_sync1_r <= 1'b0;
+                 ==>
+66               req_sync2_r <= 1'b0;
+67             end else begin
+68               // Two-flop synchronizer for the scan-domain request toggle.
+69               req_sync1_r <= csr_if.req_toggle;
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+107            unique case (csr_if.addr)
+                      -1-  
+108              8'h00: csr_read_value = control_status_value;
+                 ==>
+109              8'h04: csr_read_value = {8'b0, vs_map_value.comb_end};
+                 ==>
+110              8'h08: csr_read_value = {8'b0, vs_map_value.seq_end};
+                 ==>
+111              8'h0c: csr_read_value = {8'b0, vs_map_value.vs_end};
+                 ==>
+112              default: csr_read_value = '0;
+                 ==>
+
+Branches:
+
+-1-     Status  
+8'h00   Covered 
+8'h04   Covered 
+8'h08   Covered 
+8'h0c   Covered 
+default Covered 
+
+
+118            if (!chip_rst_ni) begin
+               -1-  
+119              mailbox_ack_toggle_r <= 1'b0;
+                 ==>
+120              csr_read_data_r <= '0;
+121              config_r <= {HAS_TILE_DB, HAS_CACHE};
+122              tile_enable_r <= '1;
+123              comb_end_r <= '0;
+124              seq_end_r <= '0;
+125              vs_end_r <= '0;
+126              state_write_r <= 1'b0;
+127              state_write_data_r <= '0;
+128            end else begin
+129              // Chip-clock side of the CSR mailbox. A request is consumed once,
+130              // reads return a stable value, and writes are accepted only while IDLE.
+131              state_write_r <= 1'b0;
+132        
+133              if (req_sync2_r != mailbox_ack_toggle_r) begin
+                 -2-  
+134                if (csr_if.op == SCAN_CSR_READ) begin
+                   -3-        
+135                  csr_read_data_r <= csr_read_value;
+                     ==>
+136                end else if (csr_if.op == SCAN_CSR_WRITE) begin
+                            -4-        
+137                  unique case (csr_if.addr)
+                            -5-  
+138                    8'h00: begin
+139                      // The trusted host writes the complete writable prefix. Status
+140                      // bits [11:8] are read-only and ignored on writes.
+141                      if (mode_r == CHIP_IDLE && quiescent) begin
+                         -6-  
+142                        config_r <= config_t'(csr_if.write_data[3:2]);
+                           ==>
+143                        tile_enable_r <= csr_if.write_data[NTILES+3:4];
+144                      end
+                         MISSING_ELSE
+                         ==>
+145        
+146                      if (csr_if.write_data[1:0] == CHIP_IDLE) begin
+                         -7-        
+147                        state_write_r <= 1'b1;
+                           ==>
+148                        state_write_data_r <= CHIP_IDLE;
+149                      end else if ((csr_if.write_data[1:0] == CHIP_VERBOSE ||
+                                  -8-         
+150                                    csr_if.write_data[1:0] == CHIP_RUN) &&
+151                                   control_state_r == CTRL_IDLE && ready_to_start) begin
+152                        state_write_r <= 1'b1;
+                           ==>
+153                        state_write_data_r <= csr_if.write_data[1:0];
+154                      end
+                         MISSING_ELSE
+                         ==>
+155                    end
+156                    8'h04: begin
+157                      if (mode_r == CHIP_IDLE && quiescent)
+                         -9-  
+158                        comb_end_r <= csr_if.write_data[23:2];
+                           ==>
+                           MISSING_ELSE
+                           ==>
+159                    end
+160                    8'h08: begin
+161                      if (mode_r == CHIP_IDLE && quiescent)
+                         -10-  
+162                        seq_end_r <= csr_if.write_data[23:2];
+                           ==>
+                           MISSING_ELSE
+                           ==>
+163                    end
+164                    8'h0c: begin
+165                      if (mode_r == CHIP_IDLE && quiescent)
+                         -11-  
+166                        vs_end_r <= csr_if.write_data[23:2];
+                           ==>
+                           MISSING_ELSE
+                           ==>
+167                    end
+168                    default: begin end
+                       ==>
+169                  endcase
+170                end
+                   MISSING_ELSE
+                   ==>
+171        
+172                mailbox_ack_toggle_r <= req_sync2_r;
+173              end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- -5-     -6- -7- -8- -9- -10- -11- Status      
+1   -   -   -   -       -   -   -   -   -    -    Covered     
+0   1   1   -   -       -   -   -   -   -    -    Covered     
+0   1   0   1   8'h00   1   -   -   -   -    -    Covered     
+0   1   0   1   8'h00   0   -   -   -   -    -    Covered     
+0   1   0   1   8'h00   -   1   -   -   -    -    Covered     
+0   1   0   1   8'h00   -   0   1   -   -    -    Covered     
+0   1   0   1   8'h00   -   0   0   -   -    -    Covered     
+0   1   0   1   8'h04   -   -   -   1   -    -    Covered     
+0   1   0   1   8'h04   -   -   -   0   -    -    Covered     
+0   1   0   1   8'h08   -   -   -   -   1    -    Covered     
+0   1   0   1   8'h08   -   -   -   -   0    -    Not Covered 
+0   1   0   1   8'h0c   -   -   -   -   -    1    Covered     
+0   1   0   1   8'h0c   -   -   -   -   -    0    Not Covered 
+0   1   0   1   default -   -   -   -   -    -    Covered     
+0   1   0   0   -       -   -   -   -   -    -    Not Covered 
+0   0   -   -   -       -   -   -   -   -    -    Covered     
+
+
+182            if (!chip_rst_ni) begin
+               -1-  
+183              mode_r <= CHIP_IDLE;
+                 ==>
+184              control_state_r <= CTRL_IDLE;
+185              stop_pending_r <= 1'b0;
+186            end else begin
+187              if (state_write_r) begin
+                 -2-  
+188                if (state_write_data_r == CHIP_IDLE) begin
+                   -3-  
+189                  if (control_state_r == CTRL_IDLE)
+                     -4-  
+190                    mode_r <= CHIP_IDLE;
+                       ==>
+191                  else
+192                    stop_pending_r <= 1'b1;
+                       ==>
+193                end else if (control_state_r == CTRL_IDLE && ready_to_start) begin
+                            -5-  
+194                  mode_r <= chip_state_e'(state_write_data_r);
+                     ==>
+195                  control_state_r <= CTRL_ACTIVE;
+196                  stop_pending_r <= 1'b0;
+197                end
+                   MISSING_ELSE
+                   ==>
+198              end
+                 MISSING_ELSE
+                 ==>
+199        
+200              // Boundary FSM transitions are intentionally monotonic for one epoch.
+201              // A stop request is remembered until the current boundary is complete.
+202              unique case (control_state_r)
+                        -6-  
+203                CTRL_IDLE: begin
+                   ==>
+204                end
+205        
+206                CTRL_ACTIVE: begin             // Normal execution; wait for FPGA boundary.
+207                  if (control_if.host_cycle_end)
+                     -7-            
+208                    control_state_r <= CTRL_DRAIN;
+                       ==>
+                       MISSING_ELSE
+                       ==>
+209                end
+210        
+211                CTRL_DRAIN: begin              // Stop admitting work; wait for all work to retire.
+212                  if (quiescent)
+                     -8-  
+213                    control_state_r <= CTRL_WRITEBACK;
+                       ==>
+                       MISSING_ELSE
+                       ==>
+214                end
+215        
+216                CTRL_WRITEBACK: begin           // Flush dirty COMB words to FPGA memory.
+217                  if (control_if.vs_status.writeback_done)
+                     -9-            
+218                    control_state_r <= CTRL_INVALIDATE;
+                       ==>
+                       MISSING_ELSE
+                       ==>
+219                end
+220        
+221                CTRL_INVALIDATE: begin          // Clear cache valid bits before next epoch.
+222                  // Writebacks start after CTRL_DRAIN. Their local completion can
+223                  // precede the last queued I/O byte reaching the FPGA.
+224                  if (control_if.vs_status.invalidated && control_if.memory_link_idle) begin
+                     -10-                                                
+225                    control_state_r <= CTRL_SEND_DONE;
+                       ==>
+226                  end
+                     MISSING_ELSE
+                     ==>
+227                end
+228        
+229                CTRL_SEND_DONE: begin           // Wait until event TX owns the one-nibble DUT_DONE.
+230                  if (control_if.dut_done_valid && control_if.dut_done_ready)
+                     -11-                                         
+231                    control_state_r <= CTRL_WAIT_ACK;
+                       ==>
+                       MISSING_ELSE
+                       ==>
+232                end
+233        
+234                CTRL_WAIT_ACK: begin            // Wait for FPGA to finish boundary-side Q/D updates.
+235                  if (control_if.epoch_ack) begin
+                     -12-            
+236                    if (stop_pending_r) begin
+                       -13-  
+237                      mode_r <= CHIP_IDLE;
+                         ==>
+238                      control_state_r <= CTRL_IDLE;
+239                      stop_pending_r <= 1'b0;
+240                    end else begin
+241                      control_state_r <= CTRL_ACTIVE;
+                         ==>
+242                    end
+243                  end
+                     MISSING_ELSE
+                     ==>
+244                end
+245        
+246                default: control_state_r <= CTRL_IDLE;
+                   ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- -6-              -7- -8- -9- -10- -11- -12- -13- Status      
+1   -   -   -   -   -                -   -   -   -    -    -    -    Covered     
+0   1   1   1   -   -                -   -   -   -    -    -    -    Covered     
+0   1   1   0   -   -                -   -   -   -    -    -    -    Covered     
+0   1   0   -   1   -                -   -   -   -    -    -    -    Covered     
+0   1   0   -   0   -                -   -   -   -    -    -    -    Not Covered 
+0   0   -   -   -   -                -   -   -   -    -    -    -    Covered     
+0   -   -   -   -   CTRL_IDLE        -   -   -   -    -    -    -    Covered     
+0   -   -   -   -   CTRL_ACTIVE      1   -   -   -    -    -    -    Covered     
+0   -   -   -   -   CTRL_ACTIVE      0   -   -   -    -    -    -    Covered     
+0   -   -   -   -   CTRL_DRAIN       -   1   -   -    -    -    -    Covered     
+0   -   -   -   -   CTRL_DRAIN       -   0   -   -    -    -    -    Covered     
+0   -   -   -   -   CTRL_WRITEBACK   -   -   1   -    -    -    -    Covered     
+0   -   -   -   -   CTRL_WRITEBACK   -   -   0   -    -    -    -    Covered     
+0   -   -   -   -   CTRL_INVALIDATE  -   -   -   1    -    -    -    Covered     
+0   -   -   -   -   CTRL_INVALIDATE  -   -   -   0    -    -    -    Covered     
+0   -   -   -   -   CTRL_SEND_DONE   -   -   -   -    1    -    -    Covered     
+0   -   -   -   -   CTRL_SEND_DONE   -   -   -   -    0    -    -    Covered     
+0   -   -   -   -   CTRL_WAIT_ACK    -   -   -   -    -    1    1    Covered     
+0   -   -   -   -   CTRL_WAIT_ACK    -   -   -   -    -    1    0    Covered     
+0   -   -   -   -   CTRL_WAIT_ACK    -   -   -   -    -    0    -    Covered     
+0   -   -   -   -   default          -   -   -   -    -    -    -    Not Covered 
+
+
+262            if (control_state_r == CTRL_IDLE || control_state_r == CTRL_INVALIDATE)
+               -1-  
+263              control_if.control.cache_invalidate = 1'b1;
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : control
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_1 6        6              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : control_tb.i_dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 88.28  98.96  84.09  69.23  89.13 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 88.28  98.96  84.09  69.23  89.13 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME    
+ 88.28  98.96  84.09  69.23  89.13 100.00 control 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 --     --     --     --     100.00 control_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : reset_sync
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/control/reset/reset_sync.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                         
+100.00 100.00 --     --     100.00 --     control_tb.i_chip_reset_sync 
+100.00 100.00 --     --     100.00 --     control_tb.i_scan_reset_sync 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : reset_sync
+
+             Line No.   Total   Covered  Percent
+TOTAL                        3        3   100.00
+ALWAYS             13        3        3   100.00
+
+12                        always_ff @(posedge clk_i or negedge arst_ni) begin
+13         2/2              if (!arst_ni) reset_sync_r <= '0;
+14         1/1              else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : reset_sync
+         Line No. Total Covered Percent 
+Branches          2     2       100.00  
+IF       13       2     2       100.00  
+
+
+13             if (!arst_ni) reset_sync_r <= '0;
+               -1-  
+               ==>
+14             else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : control_tb.i_chip_reset_sync
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 100.00 --     --     100.00 --     reset_sync 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 --     --     --     --     100.00 control_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : control_tb.i_chip_reset_sync
+
+             Line No.   Total   Covered  Percent
+TOTAL                        3        3   100.00
+ALWAYS             13        3        3   100.00
+
+12                        always_ff @(posedge clk_i or negedge arst_ni) begin
+13         2/2              if (!arst_ni) reset_sync_r <= '0;
+14         1/1              else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : control_tb.i_chip_reset_sync
+         Line No. Total Covered Percent 
+Branches          2     2       100.00  
+IF       13       2     2       100.00  
+
+
+13             if (!arst_ni) reset_sync_r <= '0;
+               -1-  
+               ==>
+14             else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : control_tb.i_scan_reset_sync
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 100.00 --     --     100.00 --     reset_sync 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 --     --     --     --     100.00 control_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : control_tb.i_scan_reset_sync
+
+             Line No.   Total   Covered  Percent
+TOTAL                        3        3   100.00
+ALWAYS             13        3        3   100.00
+
+12                        always_ff @(posedge clk_i or negedge arst_ni) begin
+13         2/2              if (!arst_ni) reset_sync_r <= '0;
+14         1/1              else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : control_tb.i_scan_reset_sync
+         Line No. Total Covered Percent 
+Branches          2     2       100.00  
+IF       13       2     2       100.00  
+
+
+13             if (!arst_ni) reset_sync_r <= '0;
+               -1-  
+               ==>
+14             else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+===============================================================================
+Module : control_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/control/epoch/control_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 --     --     --     --     100.00 control_tb 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : control_tb
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       9     9         100.00  9                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            9     9         100.00  9                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                              Attempts Real Successes Failures Incomplete 
+g_control_contract[0].unnamed$$_0 122262   122166         0        0          
+g_control_contract[1].unnamed$$_0 122262   122166         0        0          
+g_control_contract[2].unnamed$$_0 122262   122166         0        0          
+g_control_contract[3].unnamed$$_0 122262   122166         0        0          
+unnamed$$_15                      122262   122166         0        0          
+unnamed$$_16                      122262   122166         0        0          
+unnamed$$_17                      122262   122166         0        0          
+unnamed$$_18                      122262   122166         0        0          
+unnamed$$_19                      122262   122166         0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : control_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 83.13  99.02  84.09  69.23  90.00  73.33 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 --     --     --     --     100.00 control_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME              
+100.00 100.00 --     --     100.00 --     i_chip_reset_sync 
+ 88.28  98.96  84.09  69.23  89.13 100.00 i_dut             
+ 20.00 --     --     --     --      20.00 i_scan_access     
+100.00 100.00 --     --     100.00 --     i_scan_reset_sync 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

@@ -1,0 +1,390 @@
+Group : mem_io_subsystem_tb::integration_cg
+
+===============================================================================
+Group : mem_io_subsystem_tb::integration_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/mem_io_subsystem_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
+100.00 1      100    1        64           64            coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   mem_io_subsystem_tb::integration_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 20       0         20      100.00  
+Crosses   5        0         5       100.00  
+
+
+Variables for Group  mem_io_subsystem_tb::integration_cg
+
+
+VARIABLE          EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+boundary_phase    3        0         3       100.00  100  1      1        0                    
+cache_observation 2        0         2       100.00  100  1      1        0                    
+destination_tile  4        0         4       100.00  100  1      1        0                    
+end_to_end_path   11       0         11      100.00  100  1      1        0                    
+
+
+Crosses for Group  mem_io_subsystem_tb::integration_cg
+
+
+CROSS                 EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+path_x_tile           3        0         3       100.00  100  1      1        0                     
+memory_path_x_result  1        0         1       100.00  100  1      1        0                     
+boundary_path_x_phase 1        0         1       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable boundary_phase
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for boundary_phase
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+epoch_ack       12    1        
+stimulus_update 12    1        
+host_cycle_end  12    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cache_observation
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cache_observation
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+cache_hit    12    1        
+miss_to_fpga 144   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable destination_tile
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for destination_tile
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+tiles_0 78    1        
+tiles_1 330   1        
+tiles_2 140   1        
+tiles_3 188   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable end_to_end_path
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 11       0         11      100.00  
+
+
+User Defined Bins for end_to_end_path
+
+
+Bins
+
+NAME                    COUNT AT LEAST 
+cache_invalidation      12    1        
+boundary_writeback      12    1        
+epoch_boundary          36    1        
+concurrent_incoming_cdc 18    1        
+full_write              12    1        
+masked_write            12    1        
+ordered_memory_response 144   1        
+credit_return           60    1        
+tile_completion         147   1        
+vs_read                 156   1        
+program_path            529   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross path_x_tile
+
+
+Samples crossed: end_to_end_path destination_tile
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 3        0         3       100.00          
+
+
+User Defined Cross Bins for path_x_tile
+
+
+Bins
+
+NAME              COUNT AT LEAST 
+program_routes    529   1        
+completion_routes 147   1        
+credit_routes     60    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross memory_path_x_result
+
+
+Samples crossed: end_to_end_path cache_observation
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 1        0         1       100.00          
+
+
+User Defined Cross Bins for memory_path_x_result
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+read_results 156   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross boundary_path_x_phase
+
+
+Samples crossed: end_to_end_path boundary_phase
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 1        0         1       100.00          
+
+
+User Defined Cross Bins for boundary_path_x_phase
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+boundary_phases 36    1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                                
+100.00 100.00    1      100    1        1            64           64                    mem_io_subsystem_tb::integration_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 20       0         20      100.00  
+Crosses   5        0         5       100.00  
+
+
+Variables for Group Instance  coverage
+
+
+VARIABLE          EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+boundary_phase    3        0         3       100.00  100  1      1        0                    
+cache_observation 2        0         2       100.00  100  1      1        0                    
+destination_tile  4        0         4       100.00  100  1      1        0                    
+end_to_end_path   11       0         11      100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  coverage
+
+
+CROSS                 EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+path_x_tile           3        0         3       100.00  100  1      1        0                     
+memory_path_x_result  1        0         1       100.00  100  1      1        0                     
+boundary_path_x_phase 1        0         1       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable boundary_phase
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for boundary_phase
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+epoch_ack       12    1        
+stimulus_update 12    1        
+host_cycle_end  12    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cache_observation
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cache_observation
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+cache_hit    12    1        
+miss_to_fpga 144   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable destination_tile
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for destination_tile
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+tiles_0 78    1        
+tiles_1 330   1        
+tiles_2 140   1        
+tiles_3 188   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable end_to_end_path
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 11       0         11      100.00  
+
+
+User Defined Bins for end_to_end_path
+
+
+Bins
+
+NAME                    COUNT AT LEAST 
+cache_invalidation      12    1        
+boundary_writeback      12    1        
+epoch_boundary          36    1        
+concurrent_incoming_cdc 18    1        
+full_write              12    1        
+masked_write            12    1        
+ordered_memory_response 144   1        
+credit_return           60    1        
+tile_completion         147   1        
+vs_read                 156   1        
+program_path            529   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross path_x_tile
+
+
+Samples crossed: end_to_end_path destination_tile
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 3        0         3       100.00          
+
+
+User Defined Cross Bins for path_x_tile
+
+
+Bins
+
+NAME              COUNT AT LEAST 
+program_routes    529   1        
+completion_routes 147   1        
+credit_routes     60    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross memory_path_x_result
+
+
+Samples crossed: end_to_end_path cache_observation
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 1        0         1       100.00          
+
+
+User Defined Cross Bins for memory_path_x_result
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+read_results 156   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross boundary_path_x_phase
+
+
+Samples crossed: end_to_end_path boundary_phase
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 1        0         1       100.00          
+
+
+User Defined Cross Bins for boundary_path_x_phase
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+boundary_phases 36    1        
+
+

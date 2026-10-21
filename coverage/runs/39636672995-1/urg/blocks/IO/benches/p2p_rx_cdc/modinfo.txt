@@ -1,0 +1,1303 @@
+===============================================================================
+Module : tx_cdc
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/io/cdc/tx_cdc.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                 
+100.00 100.00 100.00 --     100.00 --     p2p_rx_cdc_tb.i_dut.i_event_tx_fifo  
+100.00 100.00 100.00 --     100.00 --     p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : tx_cdc
+
+             Line No.   Total   Covered  Percent
+TOTAL                       17       17   100.00
+ALWAYS             39        9        9   100.00
+ALWAYS             55        8        8   100.00
+
+38                        always_ff @(posedge io_clk_i or negedge io_rst_ni) begin
+39         1/1              if (!io_rst_ni) begin
+40         1/1                data_o <= '0;
+41         1/1                valid_o <= 1'b0;
+42         1/1                consumed_bin_r <= '0;
+43         1/1                consumed_gray_r <= '0;
+44                          end else begin
+45         1/1                valid_o <= fifo_valid;
+46         1/1                data_o <= fifo_valid ? fifo_data : '0;
+47         1/1                consumed_bin_r <= consumed_bin_next;
+48         1/1                consumed_gray_r <= (consumed_bin_next >> 1) ^ consumed_bin_next;
+49                          end
+50                        end
+51                      
+52                        // At most DEPTH+1 units are outstanding, below the 2*DEPTH counter modulus.
+53                        // Gray synchronization can delay idle but cannot announce an early drain.
+54                        always_ff @(posedge chip_clk_i or negedge chip_rst_ni) begin
+55         1/1              if (!chip_rst_ni) begin
+56         1/1                accepted_bin_r <= '0;
+57         1/1                consumed_sync1_r <= '0;
+58         1/1                consumed_sync2_r <= '0;
+59                          end else begin
+60         2/2                if (valid_i && ready_o) accepted_bin_r <= accepted_bin_r + 1'b1;
+                        MISSING_ELSE
+61         1/1                consumed_sync1_r <= consumed_gray_r;
+62         1/1                consumed_sync2_r <= consumed_sync1_r;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : tx_cdc ( parameter WIDTH=4,DEPTH=4,PTR_W=3 ) 
+Cond Coverage for Module self-instances : 
+p2p_rx_cdc_tb.i_dut.i_event_tx_fifo
+----------------
+SCORE  COND   
+100.00 100.00 
+
+
+               Total   Covered  Percent
+Conditions          7        7   100.00
+Logical             7        7   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       46
+ EXPRESSION (fifo_valid ? fifo_data : '0)
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       60
+ EXPRESSION (valid_i && ready_o)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       36
+ EXPRESSION (((accepted_bin_r >> 1) ^ accepted_bin_r) == consumed_sync2_r)
+            -------------------------------1------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : tx_cdc ( parameter WIDTH=8,DEPTH=4,PTR_W=3 ) 
+Cond Coverage for Module self-instances : 
+p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo
+----------------
+SCORE  COND   
+100.00 100.00 
+
+
+               Total   Covered  Percent
+Conditions          7        7   100.00
+Logical             7        7   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       46
+ EXPRESSION (fifo_valid ? fifo_data : '0)
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       60
+ EXPRESSION (valid_i && ready_o)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       36
+ EXPRESSION (((accepted_bin_r >> 1) ^ accepted_bin_r) == consumed_sync2_r)
+            -------------------------------1------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : tx_cdc
+         Line No. Total Covered Percent 
+Branches          6     6       100.00  
+IF       39       3     3       100.00  
+IF       55       3     3       100.00  
+
+
+39             if (!io_rst_ni) begin
+               -1-  
+40               data_o <= '0;
+                 ==>
+41               valid_o <= 1'b0;
+42               consumed_bin_r <= '0;
+43               consumed_gray_r <= '0;
+44             end else begin
+45               valid_o <= fifo_valid;
+46               data_o <= fifo_valid ? fifo_data : '0;
+                                      -2-  
+                                      ==>  
+                                      ==>  
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+55             if (!chip_rst_ni) begin
+               -1-  
+56               accepted_bin_r <= '0;
+                 ==>
+57               consumed_sync1_r <= '0;
+58               consumed_sync2_r <= '0;
+59             end else begin
+60               if (valid_i && ready_o) accepted_bin_r <= accepted_bin_r + 1'b1;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : p2p_rx_cdc_tb.i_dut.i_event_tx_fifo
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 100.00 100.00 --     100.00 --     tx_cdc 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+--     --     --     --     --     --     i_dut 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 100.00 100.00 --     100.00 100.00 i_fifo 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_event_tx_fifo
+
+             Line No.   Total   Covered  Percent
+TOTAL                       17       17   100.00
+ALWAYS             39        9        9   100.00
+ALWAYS             55        8        8   100.00
+
+38                        always_ff @(posedge io_clk_i or negedge io_rst_ni) begin
+39         1/1              if (!io_rst_ni) begin
+40         1/1                data_o <= '0;
+41         1/1                valid_o <= 1'b0;
+42         1/1                consumed_bin_r <= '0;
+43         1/1                consumed_gray_r <= '0;
+44                          end else begin
+45         1/1                valid_o <= fifo_valid;
+46         1/1                data_o <= fifo_valid ? fifo_data : '0;
+47         1/1                consumed_bin_r <= consumed_bin_next;
+48         1/1                consumed_gray_r <= (consumed_bin_next >> 1) ^ consumed_bin_next;
+49                          end
+50                        end
+51                      
+52                        // At most DEPTH+1 units are outstanding, below the 2*DEPTH counter modulus.
+53                        // Gray synchronization can delay idle but cannot announce an early drain.
+54                        always_ff @(posedge chip_clk_i or negedge chip_rst_ni) begin
+55         1/1              if (!chip_rst_ni) begin
+56         1/1                accepted_bin_r <= '0;
+57         1/1                consumed_sync1_r <= '0;
+58         1/1                consumed_sync2_r <= '0;
+59                          end else begin
+60         2/2                if (valid_i && ready_o) accepted_bin_r <= accepted_bin_r + 1'b1;
+                        MISSING_ELSE
+61         1/1                consumed_sync1_r <= consumed_gray_r;
+62         1/1                consumed_sync2_r <= consumed_sync1_r;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_event_tx_fifo
+
+               Total   Covered  Percent
+Conditions          7        7   100.00
+Logical             7        7   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       46
+ EXPRESSION (fifo_valid ? fifo_data : '0)
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       60
+ EXPRESSION (valid_i && ready_o)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       36
+ EXPRESSION (((accepted_bin_r >> 1) ^ accepted_bin_r) == consumed_sync2_r)
+            -------------------------------1------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_event_tx_fifo
+         Line No. Total Covered Percent 
+Branches          6     6       100.00  
+IF       39       3     3       100.00  
+IF       55       3     3       100.00  
+
+
+39             if (!io_rst_ni) begin
+               -1-  
+40               data_o <= '0;
+                 ==>
+41               valid_o <= 1'b0;
+42               consumed_bin_r <= '0;
+43               consumed_gray_r <= '0;
+44             end else begin
+45               valid_o <= fifo_valid;
+46               data_o <= fifo_valid ? fifo_data : '0;
+                                      -2-  
+                                      ==>  
+                                      ==>  
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+55             if (!chip_rst_ni) begin
+               -1-  
+56               accepted_bin_r <= '0;
+                 ==>
+57               consumed_sync1_r <= '0;
+58               consumed_sync2_r <= '0;
+59             end else begin
+60               if (valid_i && ready_o) accepted_bin_r <= accepted_bin_r + 1'b1;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 100.00 100.00 --     100.00 --     tx_cdc 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+--     --     --     --     --     --     i_dut 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 100.00 100.00 --     100.00 100.00 i_fifo 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo
+
+             Line No.   Total   Covered  Percent
+TOTAL                       17       17   100.00
+ALWAYS             39        9        9   100.00
+ALWAYS             55        8        8   100.00
+
+38                        always_ff @(posedge io_clk_i or negedge io_rst_ni) begin
+39         1/1              if (!io_rst_ni) begin
+40         1/1                data_o <= '0;
+41         1/1                valid_o <= 1'b0;
+42         1/1                consumed_bin_r <= '0;
+43         1/1                consumed_gray_r <= '0;
+44                          end else begin
+45         1/1                valid_o <= fifo_valid;
+46         1/1                data_o <= fifo_valid ? fifo_data : '0;
+47         1/1                consumed_bin_r <= consumed_bin_next;
+48         1/1                consumed_gray_r <= (consumed_bin_next >> 1) ^ consumed_bin_next;
+49                          end
+50                        end
+51                      
+52                        // At most DEPTH+1 units are outstanding, below the 2*DEPTH counter modulus.
+53                        // Gray synchronization can delay idle but cannot announce an early drain.
+54                        always_ff @(posedge chip_clk_i or negedge chip_rst_ni) begin
+55         1/1              if (!chip_rst_ni) begin
+56         1/1                accepted_bin_r <= '0;
+57         1/1                consumed_sync1_r <= '0;
+58         1/1                consumed_sync2_r <= '0;
+59                          end else begin
+60         2/2                if (valid_i && ready_o) accepted_bin_r <= accepted_bin_r + 1'b1;
+                        MISSING_ELSE
+61         1/1                consumed_sync1_r <= consumed_gray_r;
+62         1/1                consumed_sync2_r <= consumed_sync1_r;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo
+
+               Total   Covered  Percent
+Conditions          7        7   100.00
+Logical             7        7   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       46
+ EXPRESSION (fifo_valid ? fifo_data : '0)
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       60
+ EXPRESSION (valid_i && ready_o)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       36
+ EXPRESSION (((accepted_bin_r >> 1) ^ accepted_bin_r) == consumed_sync2_r)
+            -------------------------------1------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo
+         Line No. Total Covered Percent 
+Branches          6     6       100.00  
+IF       39       3     3       100.00  
+IF       55       3     3       100.00  
+
+
+39             if (!io_rst_ni) begin
+               -1-  
+40               data_o <= '0;
+                 ==>
+41               valid_o <= 1'b0;
+42               consumed_bin_r <= '0;
+43               consumed_gray_r <= '0;
+44             end else begin
+45               valid_o <= fifo_valid;
+46               data_o <= fifo_valid ? fifo_data : '0;
+                                      -2-  
+                                      ==>  
+                                      ==>  
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+55             if (!chip_rst_ni) begin
+               -1-  
+56               accepted_bin_r <= '0;
+                 ==>
+57               consumed_sync1_r <= '0;
+58               consumed_sync2_r <= '0;
+59             end else begin
+60               if (valid_i && ready_o) accepted_bin_r <= accepted_bin_r + 1'b1;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+===============================================================================
+Module : async_fifo
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/io/cdc/async_fifo.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                        
+100.00 100.00 100.00 --     100.00 100.00 p2p_rx_cdc_tb.i_dut.i_memory_response_fifo  
+100.00 100.00 100.00 --     100.00 100.00 p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo  
+100.00 100.00 100.00 --     100.00 100.00 p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : async_fifo
+
+             Line No.   Total   Covered  Percent
+TOTAL                       22       22   100.00
+ALWAYS             50       13       13   100.00
+ALWAYS             67        9        9   100.00
+INITIAL            82        0        0
+
+49                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+50         1/1              if (!w_rst_ni) begin
+51         1/1                wptr_bin_r <= '0;
+52         1/1                wptr_gray_r <= '0;
+53         1/1                wfull_r <= 1'b0;
+54         1/1                rgray_wsync1_r <= '0;
+55         1/1                rgray_wsync2_r <= '0;
+56                          end else begin
+57         1/1                rgray_wsync1_r <= rptr_gray_r;
+58         1/1                rgray_wsync2_r <= rgray_wsync1_r;
+59         2/2                if (w_valid_i && w_ready_o) memory[wptr_bin_r[ADDR_W-1:0]] <= w_data_i;
+                        MISSING_ELSE
+60         1/1                wptr_bin_r <= wptr_bin_next;
+61         1/1                wptr_gray_r <= wptr_gray_next;
+62         1/1                wfull_r <= wfull_next;
+63                          end
+64                        end
+65                      
+66                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+67         1/1              if (!r_rst_ni) begin
+68         1/1                rptr_bin_r <= '0;
+69         1/1                rptr_gray_r <= '0;
+70         1/1                wgray_rsync1_r <= '0;
+71         1/1                wgray_rsync2_r <= '0;
+72                          end else begin
+73         1/1                wgray_rsync1_r <= wptr_gray_r;
+74         1/1                wgray_rsync2_r <= wgray_rsync1_r;
+75         1/1                rptr_bin_r <= rptr_bin_next;
+76         1/1                rptr_gray_r <= rptr_gray_next;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : async_fifo
+
+               Total   Covered  Percent
+Conditions          7        7   100.00
+Logical             7        7   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       59
+ EXPRESSION (w_valid_i && w_ready_o)
+             ----1----    ----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       44
+ EXPRESSION (wptr_gray_next == (rgray_wsync2_r ^ FULL_XOR))
+            -----------------------1-----------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       46
+ EXPRESSION (rptr_gray_r != wgray_rsync2_r)
+            ---------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : async_fifo
+         Line No. Total Covered Percent 
+Branches          5     5       100.00  
+IF       50       3     3       100.00  
+IF       67       2     2       100.00  
+
+
+50             if (!w_rst_ni) begin
+               -1-  
+51               wptr_bin_r <= '0;
+                 ==>
+52               wptr_gray_r <= '0;
+53               wfull_r <= 1'b0;
+54               rgray_wsync1_r <= '0;
+55               rgray_wsync2_r <= '0;
+56             end else begin
+57               rgray_wsync1_r <= rptr_gray_r;
+58               rgray_wsync2_r <= rgray_wsync1_r;
+59               if (w_valid_i && w_ready_o) memory[wptr_bin_r[ADDR_W-1:0]] <= w_data_i;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+67             if (!r_rst_ni) begin
+               -1-  
+68               rptr_bin_r <= '0;
+                 ==>
+69               rptr_gray_r <= '0;
+70               wgray_rsync1_r <= '0;
+71               wgray_rsync2_r <= '0;
+72             end else begin
+73               wgray_rsync1_r <= wptr_gray_r;
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : async_fifo
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 63       63             0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : p2p_rx_cdc_tb.i_dut.i_memory_response_fifo
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 100.00 100.00 --     100.00 100.00 async_fifo 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+--     --     --     --     --     --     i_dut 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_memory_response_fifo
+
+             Line No.   Total   Covered  Percent
+TOTAL                       22       22   100.00
+ALWAYS             50       13       13   100.00
+ALWAYS             67        9        9   100.00
+INITIAL            82        0        0
+
+49                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+50         1/1              if (!w_rst_ni) begin
+51         1/1                wptr_bin_r <= '0;
+52         1/1                wptr_gray_r <= '0;
+53         1/1                wfull_r <= 1'b0;
+54         1/1                rgray_wsync1_r <= '0;
+55         1/1                rgray_wsync2_r <= '0;
+56                          end else begin
+57         1/1                rgray_wsync1_r <= rptr_gray_r;
+58         1/1                rgray_wsync2_r <= rgray_wsync1_r;
+59         2/2                if (w_valid_i && w_ready_o) memory[wptr_bin_r[ADDR_W-1:0]] <= w_data_i;
+                        MISSING_ELSE
+60         1/1                wptr_bin_r <= wptr_bin_next;
+61         1/1                wptr_gray_r <= wptr_gray_next;
+62         1/1                wfull_r <= wfull_next;
+63                          end
+64                        end
+65                      
+66                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+67         1/1              if (!r_rst_ni) begin
+68         1/1                rptr_bin_r <= '0;
+69         1/1                rptr_gray_r <= '0;
+70         1/1                wgray_rsync1_r <= '0;
+71         1/1                wgray_rsync2_r <= '0;
+72                          end else begin
+73         1/1                wgray_rsync1_r <= wptr_gray_r;
+74         1/1                wgray_rsync2_r <= wgray_rsync1_r;
+75         1/1                rptr_bin_r <= rptr_bin_next;
+76         1/1                rptr_gray_r <= rptr_gray_next;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_memory_response_fifo
+
+               Total   Covered  Percent
+Conditions          7        7   100.00
+Logical             7        7   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       59
+ EXPRESSION (w_valid_i && w_ready_o)
+             ----1----    ----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       44
+ EXPRESSION (wptr_gray_next == (rgray_wsync2_r ^ FULL_XOR))
+            -----------------------1-----------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       46
+ EXPRESSION (rptr_gray_r != wgray_rsync2_r)
+            ---------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_memory_response_fifo
+         Line No. Total Covered Percent 
+Branches          5     5       100.00  
+IF       50       3     3       100.00  
+IF       67       2     2       100.00  
+
+
+50             if (!w_rst_ni) begin
+               -1-  
+51               wptr_bin_r <= '0;
+                 ==>
+52               wptr_gray_r <= '0;
+53               wfull_r <= 1'b0;
+54               rgray_wsync1_r <= '0;
+55               rgray_wsync2_r <= '0;
+56             end else begin
+57               rgray_wsync1_r <= rptr_gray_r;
+58               rgray_wsync2_r <= rgray_wsync1_r;
+59               if (w_valid_i && w_ready_o) memory[wptr_bin_r[ADDR_W-1:0]] <= w_data_i;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+67             if (!r_rst_ni) begin
+               -1-  
+68               rptr_bin_r <= '0;
+                 ==>
+69               rptr_gray_r <= '0;
+70               wgray_rsync1_r <= '0;
+71               wgray_rsync2_r <= '0;
+72             end else begin
+73               wgray_rsync1_r <= wptr_gray_r;
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_memory_response_fifo
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 21       21             0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 100.00 100.00 --     100.00 100.00 async_fifo 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME            
+100.00 100.00 100.00 --     100.00 --     i_event_tx_fifo 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo
+
+             Line No.   Total   Covered  Percent
+TOTAL                       22       22   100.00
+ALWAYS             50       13       13   100.00
+ALWAYS             67        9        9   100.00
+INITIAL            82        0        0
+
+49                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+50         1/1              if (!w_rst_ni) begin
+51         1/1                wptr_bin_r <= '0;
+52         1/1                wptr_gray_r <= '0;
+53         1/1                wfull_r <= 1'b0;
+54         1/1                rgray_wsync1_r <= '0;
+55         1/1                rgray_wsync2_r <= '0;
+56                          end else begin
+57         1/1                rgray_wsync1_r <= rptr_gray_r;
+58         1/1                rgray_wsync2_r <= rgray_wsync1_r;
+59         2/2                if (w_valid_i && w_ready_o) memory[wptr_bin_r[ADDR_W-1:0]] <= w_data_i;
+                        MISSING_ELSE
+60         1/1                wptr_bin_r <= wptr_bin_next;
+61         1/1                wptr_gray_r <= wptr_gray_next;
+62         1/1                wfull_r <= wfull_next;
+63                          end
+64                        end
+65                      
+66                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+67         1/1              if (!r_rst_ni) begin
+68         1/1                rptr_bin_r <= '0;
+69         1/1                rptr_gray_r <= '0;
+70         1/1                wgray_rsync1_r <= '0;
+71         1/1                wgray_rsync2_r <= '0;
+72                          end else begin
+73         1/1                wgray_rsync1_r <= wptr_gray_r;
+74         1/1                wgray_rsync2_r <= wgray_rsync1_r;
+75         1/1                rptr_bin_r <= rptr_bin_next;
+76         1/1                rptr_gray_r <= rptr_gray_next;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo
+
+               Total   Covered  Percent
+Conditions          7        7   100.00
+Logical             7        7   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       59
+ EXPRESSION (w_valid_i && w_ready_o)
+             ----1----    ----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       44
+ EXPRESSION (wptr_gray_next == (rgray_wsync2_r ^ FULL_XOR))
+            -----------------------1-----------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       46
+ EXPRESSION (rptr_gray_r != wgray_rsync2_r)
+            ---------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo
+         Line No. Total Covered Percent 
+Branches          5     5       100.00  
+IF       50       3     3       100.00  
+IF       67       2     2       100.00  
+
+
+50             if (!w_rst_ni) begin
+               -1-  
+51               wptr_bin_r <= '0;
+                 ==>
+52               wptr_gray_r <= '0;
+53               wfull_r <= 1'b0;
+54               rgray_wsync1_r <= '0;
+55               rgray_wsync2_r <= '0;
+56             end else begin
+57               rgray_wsync1_r <= rptr_gray_r;
+58               rgray_wsync2_r <= rgray_wsync1_r;
+59               if (w_valid_i && w_ready_o) memory[wptr_bin_r[ADDR_W-1:0]] <= w_data_i;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+67             if (!r_rst_ni) begin
+               -1-  
+68               rptr_bin_r <= '0;
+                 ==>
+69               rptr_gray_r <= '0;
+70               wgray_rsync1_r <= '0;
+71               wgray_rsync2_r <= '0;
+72             end else begin
+73               wgray_rsync1_r <= wptr_gray_r;
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 21       21             0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 100.00 100.00 --     100.00 100.00 async_fifo 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME             
+100.00 100.00 100.00 --     100.00 --     i_memory_tx_fifo 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo
+
+             Line No.   Total   Covered  Percent
+TOTAL                       22       22   100.00
+ALWAYS             50       13       13   100.00
+ALWAYS             67        9        9   100.00
+INITIAL            82        0        0
+
+49                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+50         1/1              if (!w_rst_ni) begin
+51         1/1                wptr_bin_r <= '0;
+52         1/1                wptr_gray_r <= '0;
+53         1/1                wfull_r <= 1'b0;
+54         1/1                rgray_wsync1_r <= '0;
+55         1/1                rgray_wsync2_r <= '0;
+56                          end else begin
+57         1/1                rgray_wsync1_r <= rptr_gray_r;
+58         1/1                rgray_wsync2_r <= rgray_wsync1_r;
+59         2/2                if (w_valid_i && w_ready_o) memory[wptr_bin_r[ADDR_W-1:0]] <= w_data_i;
+                        MISSING_ELSE
+60         1/1                wptr_bin_r <= wptr_bin_next;
+61         1/1                wptr_gray_r <= wptr_gray_next;
+62         1/1                wfull_r <= wfull_next;
+63                          end
+64                        end
+65                      
+66                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+67         1/1              if (!r_rst_ni) begin
+68         1/1                rptr_bin_r <= '0;
+69         1/1                rptr_gray_r <= '0;
+70         1/1                wgray_rsync1_r <= '0;
+71         1/1                wgray_rsync2_r <= '0;
+72                          end else begin
+73         1/1                wgray_rsync1_r <= wptr_gray_r;
+74         1/1                wgray_rsync2_r <= wgray_rsync1_r;
+75         1/1                rptr_bin_r <= rptr_bin_next;
+76         1/1                rptr_gray_r <= rptr_gray_next;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo
+
+               Total   Covered  Percent
+Conditions          7        7   100.00
+Logical             7        7   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       59
+ EXPRESSION (w_valid_i && w_ready_o)
+             ----1----    ----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       44
+ EXPRESSION (wptr_gray_next == (rgray_wsync2_r ^ FULL_XOR))
+            -----------------------1-----------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       46
+ EXPRESSION (rptr_gray_r != wgray_rsync2_r)
+            ---------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo
+         Line No. Total Covered Percent 
+Branches          5     5       100.00  
+IF       50       3     3       100.00  
+IF       67       2     2       100.00  
+
+
+50             if (!w_rst_ni) begin
+               -1-  
+51               wptr_bin_r <= '0;
+                 ==>
+52               wptr_gray_r <= '0;
+53               wfull_r <= 1'b0;
+54               rgray_wsync1_r <= '0;
+55               rgray_wsync2_r <= '0;
+56             end else begin
+57               rgray_wsync1_r <= rptr_gray_r;
+58               rgray_wsync2_r <= rgray_wsync1_r;
+59               if (w_valid_i && w_ready_o) memory[wptr_bin_r[ADDR_W-1:0]] <= w_data_i;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+67             if (!r_rst_ni) begin
+               -1-  
+68               rptr_bin_r <= '0;
+                 ==>
+69               rptr_gray_r <= '0;
+70               wgray_rsync1_r <= '0;
+71               wgray_rsync2_r <= '0;
+72             end else begin
+73               wgray_rsync1_r <= wptr_gray_r;
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Instance : p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 21       21             0        0          
+
+
+===============================================================================
+Module : p2p_rx_cdc_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/cdc/p2p_rx_cdc_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     p2p_rx_cdc_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : p2p_rx_cdc_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     p2p_rx_cdc_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+100.00 100.00 100.00 --     100.00 100.00 i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : p2p_rx_cdc
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/io/cdc/p2p_rx_cdc.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                
+--     --     --     --     --     --     p2p_rx_cdc_tb.i_dut 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : p2p_rx_cdc_tb.i_dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+--     --     --     --     --     --     p2p_rx_cdc 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     p2p_rx_cdc_tb 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                   
+100.00 100.00 100.00 --     100.00 100.00 i_event_tx_fifo        
+100.00 100.00 100.00 --     100.00 100.00 i_memory_response_fifo 
+100.00 100.00 100.00 --     100.00 100.00 i_memory_tx_fifo       
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

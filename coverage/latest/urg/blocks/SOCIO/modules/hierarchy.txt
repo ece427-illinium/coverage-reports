@@ -1,0 +1,1111 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                     
+ 73.89  90.98  69.23  30.95  83.86  94.44 mem_io_subsystem_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT       
+   99.29 100.00  97.14 --     100.00 100.00 i_cdc 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+    100.00 100.00 100.00 --     100.00 100.00 i_event_tx_fifo 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+      100.00 100.00 100.00 --     100.00 100.00 i_fifo 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                        
+     96.43 100.00  85.71 --     100.00 100.00 i_memory_response_fifo 
+    100.00 100.00 100.00 --     100.00 100.00 i_memory_tx_fifo       
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+      100.00 100.00 100.00 --     100.00 100.00 i_fifo 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT                     
+   83.33 100.00  33.33 --     100.00 100.00 i_completion_router 
+   92.23  93.44  89.74 --      85.71 100.00 i_event_tx          
+   96.83 100.00  87.30 --     100.00 100.00 i_mem_link          
+   90.79  96.88  87.72 --      78.57 100.00 i_program_rx        
+   72.97  77.78  41.38 --      72.73 100.00 i_vs_arbiter        
+   67.44  87.09  60.32  30.95  75.49  83.33 i_vs_service        
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+     81.82 100.00  77.27 --     100.00  50.00 i_vs_cache_bank 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+      100.00 100.00 --     --     100.00 --     i_data 
+      100.00 100.00 --     --     100.00 --     i_tag  
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                           
+ 80.68  95.28  86.89 --      85.00  55.56 program_credit_default_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT      
+   80.68  95.28  86.89 --      85.00  55.56 test 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     68.52 --      83.33 --     --      53.70 g_tile[0].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       91.67 --      83.33 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     66.44 --      79.17 --     --      53.70 g_tile[1].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       89.58 --      79.17 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     66.44 --      79.17 --     --      53.70 g_tile[2].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       89.58 --      79.17 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     66.44 --      79.17 --     --      53.70 g_tile[3].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       89.58 --      79.17 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT            
+     89.74  97.06  78.57 --      83.33 100.00 i_boundary 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+      100.00 100.00 100.00 --     100.00 100.00 i_event_tx_fifo 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+        100.00 --     --     --     --     100.00 i_fifo 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                        
+      100.00 --     --     --     --     100.00 i_memory_response_fifo 
+       79.48  94.12  57.14 --      66.67 100.00 i_memory_tx_fifo       
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+        100.00 --     --     --     --     100.00 i_fifo 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT          
+     92.87  93.44  92.31 --      85.71 100.00 i_events 
+    100.00 --     --     --     --     100.00 i_router 
+     94.77  96.88  96.49 --      85.71 100.00 i_rx     
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                       
+ 79.63  94.49  83.50 --      85.00  55.56 program_credit_one_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT      
+   79.63  94.49  83.50 --      85.00  55.56 test 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     66.44 --      79.17 --     --      53.70 g_tile[0].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       89.58 --      79.17 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     62.27 --      70.83 --     --      53.70 g_tile[1].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       85.42 --      70.83 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     62.27 --      70.83 --     --      53.70 g_tile[2].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       85.42 --      70.83 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     62.27 --      70.83 --     --      53.70 g_tile[3].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       85.42 --      70.83 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT            
+     89.74  97.06  78.57 --      83.33 100.00 i_boundary 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+      100.00 100.00 100.00 --     100.00 100.00 i_event_tx_fifo 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+        100.00 --     --     --     --     100.00 i_fifo 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                        
+      100.00 --     --     --     --     100.00 i_memory_response_fifo 
+       79.48  94.12  57.14 --      66.67 100.00 i_memory_tx_fifo       
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+        100.00 --     --     --     --     100.00 i_fifo 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT          
+     92.46  91.80  92.31 --      85.71 100.00 i_events 
+    100.00 --     --     --     --     100.00 i_router 
+     94.77  96.88  96.49 --      85.71 100.00 i_rx     
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                         
+ 79.88  94.49  84.47 --      85.00  55.56 program_credit_small_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT      
+   79.88  94.49  84.47 --      85.00  55.56 test 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     66.44 --      79.17 --     --      53.70 g_tile[0].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       89.58 --      79.17 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     64.35 --      75.00 --     --      53.70 g_tile[1].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       87.50 --      75.00 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     64.35 --      75.00 --     --      53.70 g_tile[2].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       87.50 --      75.00 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+     64.35 --      75.00 --     --      53.70 g_tile[3].worker 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       51.35 --     --     --     --      51.35 commit_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+         60.00 --     --     --     --      60.00 back_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT         
+           80.00 --     --     --     --      80.00 delta_u 
+           60.00 --     --     --     --      60.00 vsp_u   
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT             
+         30.77 --     --     --     --      30.77 front_end_u 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT              
+           20.00 --     --     --     --      20.00 word_paint_u 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT         
+       50.00 --     --     --     --      50.00 control 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT               
+         50.00 --     --     --     --      50.00 context_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT          
+      100.00 --     --     --     --     100.00 datapath 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       87.50 --      75.00 --     --     100.00 frontend    
+       60.00 --     --     --     --      60.00 load_engine 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+         50.00 --     --     --     --      50.00 packer 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                
+        0.00 --     --     --     --       0.00 memory_arbiter 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT            
+     89.74  97.06  78.57 --      83.33 100.00 i_boundary 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+      100.00 100.00 100.00 --     100.00 100.00 i_event_tx_fifo 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+        100.00 --     --     --     --     100.00 i_fifo 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                        
+      100.00 --     --     --     --     100.00 i_memory_response_fifo 
+       79.48  94.12  57.14 --      66.67 100.00 i_memory_tx_fifo       
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT        
+        100.00 --     --     --     --     100.00 i_fifo 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT          
+     91.82  91.80  89.74 --      85.71 100.00 i_events 
+    100.00 --     --     --     --     100.00 i_router 
+     94.77  96.88  96.49 --      85.71 100.00 i_rx     
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                   
+ 80.68  95.28  86.89 --      85.00  55.56 program_credit_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+   68.52 --      83.33 --     --      53.70 g_tile[0].worker 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT               
+     51.35 --     --     --     --      51.35 commit_engine 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT            
+       60.00 --     --     --     --      60.00 back_end_u 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT         
+         80.00 --     --     --     --      80.00 delta_u 
+         60.00 --     --     --     --      60.00 vsp_u   
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       30.77 --     --     --     --      30.77 front_end_u 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT              
+         20.00 --     --     --     --      20.00 word_paint_u 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT         
+     50.00 --     --     --     --      50.00 control 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       50.00 --     --     --     --      50.00 context_state 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT          
+    100.00 --     --     --     --     100.00 datapath 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT            
+      100.00 --     --     --     --     100.00 arch_state 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT             
+     91.67 --      83.33 --     --     100.00 frontend    
+     60.00 --     --     --     --      60.00 load_engine 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+       50.00 --     --     --     --      50.00 packer 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                
+      0.00 --     --     --     --       0.00 memory_arbiter 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+   66.44 --      79.17 --     --      53.70 g_tile[1].worker 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT               
+     51.35 --     --     --     --      51.35 commit_engine 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT            
+       60.00 --     --     --     --      60.00 back_end_u 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT         
+         80.00 --     --     --     --      80.00 delta_u 
+         60.00 --     --     --     --      60.00 vsp_u   
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       30.77 --     --     --     --      30.77 front_end_u 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT              
+         20.00 --     --     --     --      20.00 word_paint_u 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT         
+     50.00 --     --     --     --      50.00 control 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       50.00 --     --     --     --      50.00 context_state 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT          
+    100.00 --     --     --     --     100.00 datapath 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT            
+      100.00 --     --     --     --     100.00 arch_state 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT             
+     89.58 --      79.17 --     --     100.00 frontend    
+     60.00 --     --     --     --      60.00 load_engine 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+       50.00 --     --     --     --      50.00 packer 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                
+      0.00 --     --     --     --       0.00 memory_arbiter 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+   66.44 --      79.17 --     --      53.70 g_tile[2].worker 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT               
+     51.35 --     --     --     --      51.35 commit_engine 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT            
+       60.00 --     --     --     --      60.00 back_end_u 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT         
+         80.00 --     --     --     --      80.00 delta_u 
+         60.00 --     --     --     --      60.00 vsp_u   
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       30.77 --     --     --     --      30.77 front_end_u 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT              
+         20.00 --     --     --     --      20.00 word_paint_u 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT         
+     50.00 --     --     --     --      50.00 control 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       50.00 --     --     --     --      50.00 context_state 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT          
+    100.00 --     --     --     --     100.00 datapath 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT            
+      100.00 --     --     --     --     100.00 arch_state 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT             
+     89.58 --      79.17 --     --     100.00 frontend    
+     60.00 --     --     --     --      60.00 load_engine 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+       50.00 --     --     --     --      50.00 packer 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                
+      0.00 --     --     --     --       0.00 memory_arbiter 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+   66.44 --      79.17 --     --      53.70 g_tile[3].worker 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT               
+     51.35 --     --     --     --      51.35 commit_engine 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT            
+       60.00 --     --     --     --      60.00 back_end_u 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT         
+         80.00 --     --     --     --      80.00 delta_u 
+         60.00 --     --     --     --      60.00 vsp_u   
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+       30.77 --     --     --     --      30.77 front_end_u 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT              
+         20.00 --     --     --     --      20.00 word_paint_u 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT         
+     50.00 --     --     --     --      50.00 control 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       50.00 --     --     --     --      50.00 context_state 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT          
+    100.00 --     --     --     --     100.00 datapath 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT            
+      100.00 --     --     --     --     100.00 arch_state 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT             
+     89.58 --      79.17 --     --     100.00 frontend    
+     60.00 --     --     --     --      60.00 load_engine 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+       50.00 --     --     --     --      50.00 packer 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                
+      0.00 --     --     --     --       0.00 memory_arbiter 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT            
+   89.74  97.06  78.57 --      83.33 100.00 i_boundary 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+    100.00 100.00 100.00 --     100.00 100.00 i_event_tx_fifo 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+      100.00 --     --     --     --     100.00 i_fifo 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                        
+    100.00 --     --     --     --     100.00 i_memory_response_fifo 
+     79.48  94.12  57.14 --      66.67 100.00 i_memory_tx_fifo       
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+      100.00 --     --     --     --     100.00 i_fifo 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT          
+   92.87  93.44  92.31 --      85.71 100.00 i_events 
+  100.00 --     --     --     --     100.00 i_router 
+   94.77  96.88  96.49 --      85.71 100.00 i_rx     
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT             
+ 51.71  63.29  40.07  30.68  48.06  76.47 soc_boot_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT       
+   51.42  63.29  40.07  30.68  48.06  75.00 i_dut 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                   
+    100.00 100.00 --     --     100.00 --     i_chip_reset_sync 
+     37.55  52.50  28.57   3.64  31.05  72.00 i_core            
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                     
+      100.00 --     --     --     --     100.00 i_completion_router 
+       53.67  71.88  39.77  15.38  41.30 100.00 i_control           
+       57.48  55.74  38.46 --      35.71 100.00 i_event_tx          
+       49.96  41.54  28.57 --      29.73 100.00 i_mem_link          
+      100.00 --     --     --     --     100.00 i_p2p_rx_cdc        
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+        100.00 --     --     --     --     100.00 i_event_tx_fifo 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT        
+          100.00 --     --     --     --     100.00 i_fifo 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT                        
+        100.00 --     --     --     --     100.00 i_memory_response_fifo 
+        100.00 --     --     --     --     100.00 i_memory_tx_fifo       
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT        
+          100.00 --     --     --     --     100.00 i_fifo 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT              
+       36.65  53.12  31.58 --      28.57  33.33 i_program_rx 
+       50.00 --     --     --     --      50.00 i_vs_arbiter 
+       38.78  47.72  20.87   0.00  25.32 100.00 i_vs_service 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+        100.00 --     --     --     --     100.00 i_vs_cache_bank 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                        
+     92.74 100.00  85.94  77.78 100.00 100.00 i_dft_clock_controller 
+    100.00 100.00 --     --     100.00 --     i_io_reset_sync        
+     88.22  98.89  95.12  75.00  92.11  80.00 i_scan_access          
+    100.00 100.00 --     --     100.00 --     i_scan_reset_sync      
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT        
+ 95.47  99.37  88.68 --      93.85 100.00 top_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT              
+   96.79 100.00  87.18 --     100.00 100.00 i_event_tx   
+   94.68 100.00  84.13 --      94.59 100.00 i_mem_link   
+   94.33  96.88  94.74 --      85.71 100.00 i_program_rx 
+

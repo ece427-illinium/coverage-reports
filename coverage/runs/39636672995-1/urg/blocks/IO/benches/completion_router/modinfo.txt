@@ -1,0 +1,251 @@
+===============================================================================
+Module : completion_router
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/io/events/completion_router.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                       
+100.00 100.00 100.00 --     100.00 100.00 completion_router_tb.i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : completion_router
+
+             Line No.   Total   Covered  Percent
+TOTAL                       20       20   100.00
+ALWAYS             37        6        6   100.00
+ALWAYS             50       10       10   100.00
+ALWAYS             64        4        4   100.00
+INITIAL            73        0        0
+
+36                        always_comb begin
+37         1/1              completion_found = 1'b0;
+38         1/1              completion_owner = completion_rr_r;
+39         1/1              for (int unsigned offset = 0; offset < NTILES; offset++) begin
+40         1/1                if (!completion_found && tile_completion_valid[(completion_rr_r + offset) % NTILES]) begin
+41         1/1                  completion_found = 1'b1;
+42         1/1                  completion_owner = (completion_rr_r + offset) % NTILES;
+43                            end
+                        MISSING_ELSE
+44                          end
+45                        end
+46                      
+47                        always_comb begin
+48                          // Build the single event source record. No completion is consumed merely
+49                          // by being selected; the ready handshake is the consuming event.
+50         1/1              selected_completion = '0;
+51         1/1              selected_completion.valid = completion_found;
+52         1/1              selected_completion.tid = completion_owner;
+53         1/1              if (completion_found)
+54         1/1                selected_completion.activation_mask = tile_activation_mask[completion_owner];
+                        MISSING_ELSE
+55                      
+56         1/1              event_if.completion = selected_completion;
+57         1/1              for (int unsigned tile = 0; tile < NTILES; tile++)
+58         1/1                tile_completion_ready[tile] = 1'b0;
+59         1/1              if (completion_found)
+60         1/1                tile_completion_ready[completion_owner] = event_if.completion_ready;
+                        MISSING_ELSE
+61                        end
+62                      
+63                        always_ff @(posedge clk_i or negedge rst_ni) begin
+64         1/1              if (!rst_ni) begin
+65         1/1                completion_rr_r <= '0;
+66         1/1              end else if (completion_found && event_if.completion_ready) begin
+67         1/1                completion_rr_r <= completion_owner + 2'd1;
+68                          end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : completion_router
+
+               Total   Covered  Percent
+Conditions          3        3   100.00
+Logical             3        3   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       66
+ EXPRESSION (completion_found && event_if.completion_ready)
+             --------1-------    ------------2------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : completion_router
+         Line No. Total Covered Percent 
+Branches          7     7       100.00  
+IF       53       2     2       100.00  
+IF       59       2     2       100.00  
+IF       64       3     3       100.00  
+
+
+53             if (completion_found)
+               -1-  
+54               selected_completion.activation_mask = tile_activation_mask[completion_owner];
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+59             if (completion_found)
+               -1-  
+60               tile_completion_ready[completion_owner] = event_if.completion_ready;
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+64             if (!rst_ni) begin
+               -1-  
+65               completion_rr_r <= '0;
+                 ==>
+66             end else if (completion_found && event_if.completion_ready) begin
+                        -2-                              
+67               completion_rr_r <= completion_owner + 2'd1;
+                 ==>
+68             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : completion_router
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_2 6        6              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : completion_router_tb.i_dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME              
+100.00 100.00 100.00 --     100.00 100.00 completion_router 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+--     --     --     --     --     --     completion_router_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : completion_router_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/events/completion_router_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+--     --     --     --     --     --     completion_router_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : completion_router_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+--     --     --     --     --     --     completion_router_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+100.00 100.00 100.00 --     100.00 100.00 i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

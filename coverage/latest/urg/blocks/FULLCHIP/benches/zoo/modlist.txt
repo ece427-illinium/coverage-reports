@@ -1,0 +1,91 @@
+Design Module List
+
+Total Module Definition Coverage Summary 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 76.79  89.56  80.75  77.78  44.59  87.08  80.95 
+
+
+Total modules in report: 53
+-------------------------------------------------------------------------------
+SCORE              LINE     COND     TOGGLE   FSM      BRANCH   ASSERT   NAME                                                         
+ 40.81              72.97    38.46    21.85   --        30.77    40.00   word_paint                                                   
+ 44.44              60.00    45.45    27.88   --       --       --       index_store                                                  
+ 51.20              78.89    60.98    42.50    41.67    63.16    20.00   scan_access                                                  
+ 55.23              71.19    60.80    26.10   --        55.56    62.50   front_end                                                    
+ 57.23              88.71    54.69    87.50    33.33    79.17     0.00   dft_clock_controller                                         
+ 63.75             --       --        63.75   --       --       --       tile_control                                                 
+ 66.91              80.00   --        54.07   --        66.67   --       command_adapter                                              
+ 71.85              94.79    69.32    31.54    61.54    73.91   100.00   control                                                      
+ 72.78              81.13    75.42    54.27    46.15    79.71   100.00   tile_lde                                                     
+ 73.45              85.96    68.26    79.96    31.82    74.68   100.00   vs_service                                                   
+ 75.91              91.67    46.15    97.62   --        68.18   --       length_decode                                                
+ 76.84              90.00    61.90    46.56   --        85.71   100.00   tile_cmte                                                    
+ 77.08             --        66.67    87.50   --       --       --       top_soc                                                      
+ 78.08              79.39    77.16    95.31   --        60.47   --       decode                                                       
+ 79.77              97.30    76.32    59.18    66.67    95.83    83.33   context_control                                              
+ 80.70              98.61    83.53    62.13    61.54    88.37    90.00   back_end                                                     
+ 81.03             100.00    77.27    77.89   --       100.00    50.00   mem_io_cache                                                 
+ 81.33             100.00   --        44.00   --       100.00   --       cache_array                                                  
+                   
+  ---------------- 
+  SCORE              LINE     COND     TOGGLE   FSM      BRANCH   ASSERT   NAME                                                       
+  100.00             100.00   --       --       --       100.00   --       cache_array                                                
+   18.18             --       --        18.18   --       --       --       cache_array ( parameter DEPTH=128,WIDTH=15,ADDR_W=7 )      
+   69.81             --       --        69.81   --       --       --       cache_array ( parameter DEPTH=128,WIDTH=32,ADDR_W=7 )      
+                   
+----------------   
+SCORE              LINE     COND     TOGGLE   FSM      BRANCH   ASSERT   NAME                                                         
+ 81.75             --        66.67    78.57   --       --       100.00   soc_core                                                     
+ 82.00             100.00    88.89    41.13   --       100.00    80.00   delta                                                        
+ 83.04             100.00    75.00    73.84   --        83.33   --       multiply_unit                                                
+ 85.11              93.75    81.16    97.32    66.67    86.67   --       execution_control                                            
+ 85.84              85.71    83.33    93.05   --        81.25   --       datapath_func_units                                          
+ 86.27             100.00    66.67    64.71   --       100.00   100.00   completion_router                                            
+ 88.58              60.00   100.00    96.16   --        98.16   --       logic_unit                                                   
+ 89.21              90.91    80.00    97.03   --        88.89   --       datapath_merge_unit                                          
+ 89.93             100.00    89.69    78.71   --        81.25   100.00   rf_packer                                                    
+ 90.00              96.88    91.23    83.33   --        78.57   100.00   program_rx                                                   
+ 90.07             100.00    75.00    85.29   --       100.00   --       issue_control                                                
+ 91.18             --       --        82.36   --       --       100.00   tile_worker                                                  
+ 91.61             --        90.91    98.20   --        85.71   --       tile_datapath                                                
+ 91.72             --        79.17    95.98   --       --       100.00   tile_frontend                                                
+ 92.72             100.00    94.83    68.79   --       100.00   100.00   vs_arbiter                                                   
+ 93.21              88.89    87.96    99.84   --        96.15   --       shift_unit                                                   
+ 93.32             100.00    84.38    88.89   --       100.00   --       window_fed                                                   
+ 93.48             100.00    93.65    73.73   --       100.00   100.00   mem_link                                                     
+ 94.12             100.00   100.00    76.47   --       100.00   --       reduce_unit                                                  
+ 94.24             100.00    87.50    83.68   --       100.00   100.00   engine_arbiter                                               
+ 94.61             100.00    93.10    74.58   100.00   100.00   100.00   vsp                                                          
+ 95.62             100.00    83.33    99.14   --       100.00   --       stream_window                                                
+ 95.72             100.00    84.62    98.25   --       100.00   --       beat_fifo                                                    
+ 96.63             100.00    91.25    95.27   --       100.00   --       arithmetic_unit                                              
+ 97.92             100.00    91.67   100.00   --       100.00   --       masks                                                        
+ 99.49             100.00    97.44   100.00   --       100.00   100.00   event_tx                                                     
+ 99.81             100.00   100.00    99.07   --       100.00   100.00   async_fifo                                                   
+                   
+  ---------------- 
+  SCORE              LINE     COND     TOGGLE   FSM      BRANCH   ASSERT   NAME                                                       
+  100.00             100.00   100.00   --       --       100.00   100.00   async_fifo                                                 
+   98.15             --       --        98.15   --       --       --       async_fifo ( parameter WIDTH=4,DEPTH=4,ADDR_W=2,PTR_W=3 )  
+  100.00             --       --       100.00   --       --       --       async_fifo ( parameter WIDTH=8,DEPTH=4,ADDR_W=2,PTR_W=3 )  
+                   
+----------------   
+SCORE              LINE     COND     TOGGLE   FSM      BRANCH   ASSERT   NAME                                                         
+ 99.82             100.00   100.00    99.08   --       100.00   100.00   datapath_arch_state                                          
+100.00             100.00   100.00   100.00   --       100.00   --       accumulator                                                  
+100.00             100.00   100.00   100.00   --       100.00   --       tx_cdc                                                       
+                   
+  ---------------- 
+  SCORE              LINE     COND     TOGGLE   FSM      BRANCH   ASSERT   NAME                                                       
+  100.00             100.00   --       --       --       100.00   --       tx_cdc                                                     
+  100.00             --       100.00   100.00   --       --       --       tx_cdc ( parameter WIDTH=4,DEPTH=4,PTR_W=3 )               
+  100.00             --       100.00   100.00   --       --       --       tx_cdc ( parameter WIDTH=8,DEPTH=4,PTR_W=3 )               
+                   
+----------------   
+SCORE              LINE     COND     TOGGLE   FSM      BRANCH   ASSERT   NAME                                                         
+100.00             100.00   --       100.00   --       100.00   --       reset_sync                                                   
+100.00             --       --       100.00   --       --       --       p2p_rx_cdc                                                   
+100.00             --       100.00   100.00   --       100.00   --       index_unit                                                   
+100.00             100.00   --       100.00   --       100.00   --       register_file                                                
+--                 --       --       --       --       --       --       fullchip_tb                                                  
+

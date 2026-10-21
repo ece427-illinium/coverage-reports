@@ -1,0 +1,46 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                     
+ 73.89  90.98  69.23  30.95  83.86  94.44 mem_io_subsystem_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT       
+   99.29 100.00  97.14 --     100.00 100.00 i_cdc 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+    100.00 100.00 100.00 --     100.00 100.00 i_event_tx_fifo 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+      100.00 100.00 100.00 --     100.00 100.00 i_fifo 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                        
+     96.43 100.00  85.71 --     100.00 100.00 i_memory_response_fifo 
+    100.00 100.00 100.00 --     100.00 100.00 i_memory_tx_fifo       
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+      100.00 100.00 100.00 --     100.00 100.00 i_fifo 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT                     
+   83.33 100.00  33.33 --     100.00 100.00 i_completion_router 
+   92.23  93.44  89.74 --      85.71 100.00 i_event_tx          
+   96.83 100.00  87.30 --     100.00 100.00 i_mem_link          
+   90.79  96.88  87.72 --      78.57 100.00 i_program_rx        
+   72.97  77.78  41.38 --      72.73 100.00 i_vs_arbiter        
+   67.44  87.09  60.32  30.95  75.49  83.33 i_vs_service        
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+     81.82 100.00  77.27 --     100.00  50.00 i_vs_cache_bank 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+      100.00 100.00 --     --     100.00 --     i_data 
+      100.00 100.00 --     --     100.00 --     i_tag  
+

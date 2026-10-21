@@ -1,0 +1,459 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+ 73.29  83.48  77.31  62.55  52.05  81.67  82.66 fullchip_tb 
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT     
+   73.29  83.48  77.31  62.55  52.05  81.67  82.66 dut 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                   
+    100.00 100.00 --     100.00 --     100.00 --     i_chip_reset_sync 
+     73.96  83.47  77.59  62.58  53.67  81.84  84.65 i_core            
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+       80.72  87.65  82.84  79.71  62.22  88.55  83.33 g_tile[0].i_worker 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                
+         66.91  80.00 --      54.07 --      66.67 --     commit_command 
+         71.28  86.38  70.92  45.71  70.59  75.68  78.38 commit_engine  
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           83.14  99.07  86.18  60.81  70.59  92.19  90.00 back_end_u 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT         
+             82.00 100.00  88.89  41.13 --     100.00  80.00 delta_u 
+             94.61 100.00  93.10  74.58 100.00 100.00 100.00 vsp_u   
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+           51.22  71.88  58.70  24.18 --      47.50  53.85 front_end_u 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT              
+             40.81  72.97  38.46  21.85 --      30.77  40.00 word_paint_u 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT         
+         81.12  97.67  77.42  65.09  66.67  96.55  83.33 control 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+           79.99  97.30  77.63  59.18  66.67  95.83  83.33 context_state 
+           90.59 100.00  77.08  85.29 --     100.00 --     issue         
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT          
+         91.06  95.43  92.28  95.22  66.67  96.76 100.00 datapath 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           99.61 100.00  98.57  99.47 --     100.00 100.00 arch_state 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                         
+            100.00 100.00 100.00 100.00 --     100.00 --     accumulator             
+            100.00 100.00 --     100.00 --     100.00 --     g_bank[0].register_file 
+            100.00 100.00 --     100.00 --     100.00 --     g_bank[1].register_file 
+             97.92 100.00  91.67 100.00 --     100.00 --     masks                   
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           85.11  93.75  81.16  97.32  66.67  86.67 --     control    
+           94.16  94.57  92.97  91.99 --      97.13 --     func_units 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+             96.63 100.00  91.25  95.27 --     100.00 --     arithmetic 
+            100.00 --     100.00 100.00 --     100.00 --     indexed    
+             88.58  60.00 100.00  96.16 --      98.16 --     logic_leaf 
+             83.04 100.00  75.00  73.84 --      83.33 --     multiply   
+             94.12 100.00 100.00  76.47 --     100.00 --     reduce     
+             93.21  88.89  87.96  99.84 --      96.15 --     shift      
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT       
+           89.21  90.91  80.00  97.03 --      88.89 --     merge 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT          
+         84.82  82.62  77.60  95.41 --      68.46 100.00 frontend 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+           78.08  79.39  77.16  95.31 --      60.47 --     decode 
+           83.50  93.75  73.33  90.26 --      76.67 --     fed    
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+             75.91  91.67  46.15  97.62 --      68.18 --     length_decode 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+           95.72 100.00  84.62  98.25 --     100.00 --     fifo          
+           95.62 100.00  83.33  99.14 --     100.00 --     window_buffer 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+         45.96  60.00  50.00  27.88 --     --     --     index_store 
+         75.39  87.95  79.53  58.52  46.15  80.20 100.00 load_engine 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+           89.93 100.00  89.69  78.71 --      81.25 100.00 packer 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                
+         94.24 100.00  87.50  83.68 --     100.00 100.00 memory_arbiter 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+       79.80  86.94  81.84  77.09  62.22  87.38  83.33 g_tile[1].i_worker 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                
+         65.93  80.00 --      51.11 --      66.67 --     commit_command 
+         70.93  86.38  70.57  44.01  70.59  75.68  78.38 commit_engine  
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           82.89  99.07  86.18  59.32  70.59  92.19  90.00 back_end_u 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT         
+             82.00 100.00  88.89  41.13 --     100.00  80.00 delta_u 
+             93.99 100.00  93.10  70.83 100.00 100.00 100.00 vsp_u   
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+           50.59  71.88  57.97  21.77 --      47.50  53.85 front_end_u 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT              
+             40.14  72.97  38.46  18.49 --      30.77  40.00 word_paint_u 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT         
+         80.85  97.67  75.81  65.09  66.67  96.55  83.33 control 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+           79.77  97.30  76.32  59.18  66.67  95.83  83.33 context_state 
+           90.07 100.00  75.00  85.29 --     100.00 --     issue         
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT          
+         89.93  94.42  91.19  92.16  66.67  95.14 100.00 datapath 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           99.61 100.00  98.57  99.47 --     100.00 100.00 arch_state 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                         
+            100.00 100.00 100.00 100.00 --     100.00 --     accumulator             
+            100.00 100.00 --     100.00 --     100.00 --     g_bank[0].register_file 
+            100.00 100.00 --     100.00 --     100.00 --     g_bank[1].register_file 
+             97.92 100.00  91.67 100.00 --     100.00 --     masks                   
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           83.46  93.75  81.16  89.05  66.67  86.67 --     control    
+           92.63  93.02  91.60  90.64 --      95.28 --     func_units 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+             95.57  96.92  91.25  95.27 --      98.84 --     arithmetic 
+             97.70 --     100.00  93.10 --     100.00 --     indexed    
+             86.64  60.00  96.15  95.92 --      94.47 --     logic_leaf 
+             83.04 100.00  75.00  73.84 --      83.33 --     multiply   
+             91.36 100.00 100.00  65.44 --     100.00 --     reduce     
+             93.09  88.89  87.96  99.37 --      96.15 --     shift      
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT       
+           85.02  90.91  80.00  80.27 --      88.89 --     merge 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT          
+         83.28  81.21  75.20  93.06 --      66.92 100.00 frontend 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+           75.95  78.07  74.69  91.75 --      59.30 --     decode 
+           81.33  90.62  71.11  90.26 --      73.33 --     fed    
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+             71.80  87.50  38.46  97.62 --      63.64 --     length_decode 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+           95.72 100.00  84.62  98.25 --     100.00 --     fifo          
+           95.62 100.00  83.33  99.14 --     100.00 --     window_buffer 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+         44.44  60.00  45.45  27.88 --     --     --     index_store 
+         74.64  87.95  79.53  54.04  46.15  80.20 100.00 load_engine 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+           89.16 100.00  89.69  74.84 --      81.25 100.00 packer 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                
+         94.13 100.00  87.50  83.16 --     100.00 100.00 memory_arbiter 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+       68.24  74.94  72.46  45.93  57.78  74.97  83.33 g_tile[2].i_worker 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                
+         59.75  80.00 --      32.59 --      66.67 --     commit_command 
+         66.10  83.57  66.31  24.76  70.59  72.97  78.38 commit_engine  
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           75.58  93.46  80.49  31.44  70.59  87.50  90.00 back_end_u 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT         
+             77.89 100.00  88.89  20.57 --     100.00  80.00 delta_u 
+             88.55 100.00  89.66  41.67 100.00 100.00 100.00 vsp_u   
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+           48.37  71.88  54.35  14.30 --      47.50  53.85 front_end_u 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT              
+             36.92  72.97  30.77  10.08 --      30.77  40.00 word_paint_u 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT         
+         79.54  97.67  75.00  58.02  66.67  96.55  83.33 control 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+           78.24  97.30  76.32  50.00  66.67  95.83  83.33 context_state 
+           89.55 100.00  72.92  85.29 --     100.00 --     issue         
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT          
+         71.20  76.14  74.93  52.38  44.44  79.32 100.00 datapath 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           87.31  92.68  92.86  58.90 --      92.11 100.00 arch_state 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                         
+             88.75 100.00 100.00  55.00 --     100.00 --     accumulator             
+             85.67 100.00 --      57.02 --     100.00 --     g_bank[0].register_file 
+             85.67 100.00 --      57.02 --     100.00 --     g_bank[1].register_file 
+             80.43  80.00  83.33  78.38 --      80.00 --     masks                   
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           61.14  81.25  72.46  40.88  44.44  66.67 --     control    
+           67.88  68.99  72.73  51.38 --      78.44 --     func_units 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+             68.70  81.54  57.50  65.98 --      69.77 --     arithmetic 
+             86.21 --     100.00  58.62 --     100.00 --     indexed    
+             54.59  30.00  74.52  41.49 --      72.35 --     logic_leaf 
+             34.96  46.15  50.00  10.35 --      33.33 --     multiply   
+             85.66 100.00 100.00  42.65 --     100.00 --     reduce     
+             84.42  77.78  85.34  79.05 --      95.51 --     shift      
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT       
+           76.98  90.91  80.00  48.11 --      88.89 --     merge 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT          
+         67.59  59.93  64.80  64.00 --      49.23 100.00 frontend 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+           50.65  54.82  59.88  49.51 --      38.37 --     decode 
+           67.58  68.75  68.89  76.03 --      56.67 --     fed    
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+             56.91  58.33  30.77  97.62 --      40.91 --     length_decode 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+           94.40 100.00  84.62  92.98 --     100.00 --     fifo          
+           95.62 100.00  83.33  99.14 --     100.00 --     window_buffer 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+         42.83  60.00  45.45  23.03 --     --     --     index_store 
+         69.38  87.95  76.56  28.36  46.15  77.23 100.00 load_engine 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+           81.10 100.00  83.51  43.87 --      78.12 100.00 packer 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                
+         87.29 100.00  87.50  48.95 --     100.00 100.00 memory_arbiter 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+       68.24  74.94  72.46  45.93  57.78  74.97  83.33 g_tile[3].i_worker 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                
+         59.75  80.00 --      32.59 --      66.67 --     commit_command 
+         66.10  83.57  66.31  24.76  70.59  72.97  78.38 commit_engine  
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           75.58  93.46  80.49  31.44  70.59  87.50  90.00 back_end_u 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT         
+             77.89 100.00  88.89  20.57 --     100.00  80.00 delta_u 
+             88.55 100.00  89.66  41.67 100.00 100.00 100.00 vsp_u   
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+           48.37  71.88  54.35  14.30 --      47.50  53.85 front_end_u 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT              
+             36.92  72.97  30.77  10.08 --      30.77  40.00 word_paint_u 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT         
+         79.54  97.67  75.00  58.02  66.67  96.55  83.33 control 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+           78.24  97.30  76.32  50.00  66.67  95.83  83.33 context_state 
+           89.55 100.00  72.92  85.29 --     100.00 --     issue         
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT          
+         71.20  76.14  74.93  52.38  44.44  79.32 100.00 datapath 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           87.31  92.68  92.86  58.90 --      92.11 100.00 arch_state 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                         
+             88.75 100.00 100.00  55.00 --     100.00 --     accumulator             
+             85.67 100.00 --      57.02 --     100.00 --     g_bank[0].register_file 
+             85.67 100.00 --      57.02 --     100.00 --     g_bank[1].register_file 
+             80.43  80.00  83.33  78.38 --      80.00 --     masks                   
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+           61.14  81.25  72.46  40.88  44.44  66.67 --     control    
+           67.88  68.99  72.73  51.38 --      78.44 --     func_units 
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+             68.70  81.54  57.50  65.98 --      69.77 --     arithmetic 
+             86.21 --     100.00  58.62 --     100.00 --     indexed    
+             54.59  30.00  74.52  41.49 --      72.35 --     logic_leaf 
+             34.96  46.15  50.00  10.35 --      33.33 --     multiply   
+             85.66 100.00 100.00  42.65 --     100.00 --     reduce     
+             84.42  77.78  85.34  79.05 --      95.51 --     shift      
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT       
+           76.98  90.91  80.00  48.11 --      88.89 --     merge 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT          
+         67.59  59.93  64.80  64.00 --      49.23 100.00 frontend 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+           50.65  54.82  59.88  49.51 --      38.37 --     decode 
+           67.58  68.75  68.89  76.03 --      56.67 --     fed    
+            
+            ----------------
+            SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+             56.91  58.33  30.77  97.62 --      40.91 --     length_decode 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT               
+           94.40 100.00  84.62  92.98 --     100.00 --     fifo          
+           95.62 100.00  83.33  99.14 --     100.00 --     window_buffer 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+         42.83  60.00  45.45  23.03 --     --     --     index_store 
+         69.38  87.95  76.56  28.36  46.15  77.23 100.00 load_engine 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+           81.10 100.00  83.51  43.87 --      78.12 100.00 packer 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                
+         87.29 100.00  87.50  48.95 --     100.00 100.00 memory_arbiter 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+       86.27 100.00  66.67  64.71 --     100.00 100.00 i_completion_router 
+       73.13  94.79  69.32  31.54  69.23  73.91 100.00 i_control           
+       99.49 100.00  97.44 100.00 --     100.00 100.00 i_event_tx          
+       93.48 100.00  93.65  73.73 --     100.00 100.00 i_mem_link          
+       99.86 100.00 100.00  99.28 --     100.00 100.00 i_p2p_rx_cdc        
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                 
+         99.78 100.00 100.00  98.92 --     100.00 100.00 i_event_tx_fifo 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+           99.63 100.00 100.00  98.15 --     100.00 100.00 i_fifo 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                        
+        100.00 100.00 100.00 100.00 --     100.00 100.00 i_memory_response_fifo 
+         99.82 100.00 100.00  99.12 --     100.00 100.00 i_memory_tx_fifo       
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+           99.68 100.00 100.00  98.39 --     100.00 100.00 i_fifo 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT              
+       90.00  96.88  91.23  83.33 --      78.57 100.00 i_program_rx 
+       92.72 100.00  94.83  68.79 --     100.00 100.00 i_vs_arbiter 
+       71.35  87.99  69.05  74.00  33.33  80.39  83.33 i_vs_service 
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                 
+         78.34 100.00  77.27  64.45 --     100.00  50.00 i_vs_cache_bank 
+          
+          ----------------
+          SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+           89.94 100.00 --      69.81 --     100.00 --     i_data 
+           72.73 100.00 --      18.18 --     100.00 --     i_tag  
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                        
+     57.23  88.71  54.69  87.50  33.33  79.17   0.00 i_dft_clock_controller 
+    100.00 100.00 --     100.00 --     100.00 --     i_io_reset_sync        
+     51.20  78.89  60.98  42.50  41.67  63.16  20.00 i_scan_access          
+    100.00 100.00 --     100.00 --     100.00 --     i_scan_reset_sync      
+
