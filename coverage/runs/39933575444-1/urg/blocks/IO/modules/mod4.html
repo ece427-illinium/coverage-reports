@@ -1,0 +1,3575 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: async_fifo</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+<link rel="stylesheet" href="../../../illinium-coverage.css">
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_async_fifo'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_async_fifo')">async_fifo</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod4.html#Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/io/cdc/async_fifo.sv')">/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/io/cdc/async_fifo.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_41"  onclick="showContent('inst_tag_41')">async_fifo_dft_reset_tb.i_fifo</a></td>
+<td class="s9 cl rt"> 96.05</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_41_Line" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod4.html#inst_tag_41_Cond" > 84.21</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_41_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_41_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_42"  onclick="showContent('inst_tag_42')">async_fifo_startup_tb.i_dut</a></td>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_42_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_42_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_42_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_42_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_43"  onclick="showContent('inst_tag_43')">async_fifo_startup16_tb.i_test.i_dut</a></td>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_43_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_43_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_43_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_43_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_44"  onclick="showContent('inst_tag_44')">p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo</a></td>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_44_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_44_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_44_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_44_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_45"  onclick="showContent('inst_tag_45')">p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo</a></td>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_45_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_45_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_45_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_45_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_47"  onclick="showContent('inst_tag_47')">tx_cdc_tb.i_event.i_fifo</a></td>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_47_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_47_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_47_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_47_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_48"  onclick="showContent('inst_tag_48')">tx_cdc_tb.i_memory.i_fifo</a></td>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_48_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_48_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_48_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_48_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_39"  onclick="showContent('inst_tag_39')">async_fifo_tb.i_dut</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_39_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_39_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_39_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_39_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_40"  onclick="showContent('inst_tag_40')">async_fifo8_tb.i_test.i_dut</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_40_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_40_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_40_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_40_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_46"  onclick="showContent('inst_tag_46')">p2p_rx_cdc_tb.i_dut.i_memory_response_fifo</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_46_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_46_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_46_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_46_Assert" >100.00</a></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='inst_tag_41'>
+<hr>
+<a name="inst_tag_41"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_41" >async_fifo_dft_reset_tb.i_fifo</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 96.05</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_41_Line" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod4.html#inst_tag_41_Cond" > 84.21</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_41_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_41_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 96.05</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 84.21</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod12.html#inst_tag_104" >async_fifo_dft_reset_tb</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_93" id="tag_urg_inst_93">i_fifo</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_42'>
+<hr>
+<a name="inst_tag_42"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_42" >async_fifo_startup_tb.i_dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_42_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_42_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_42_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_42_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 94.74</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod19.html#inst_tag_124" >async_fifo_startup_tb</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_94" id="tag_urg_inst_94">i_fifo</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_43'>
+<hr>
+<a name="inst_tag_43"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_43" >async_fifo_startup16_tb.i_test.i_dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_43_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_43_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_43_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_43_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 94.74</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod19.html#inst_tag_125" >i_test</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_95" id="tag_urg_inst_95">i_fifo</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_44'>
+<hr>
+<a name="inst_tag_44"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_44" >p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_44_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_44_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_44_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_44_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 94.74</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td><a href="mod40.html#inst_tag_169" >i_event_tx_fifo</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_96" id="tag_urg_inst_96">i_fifo</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_45'>
+<hr>
+<a name="inst_tag_45"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_45" >p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_45_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_45_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_45_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_45_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 94.74</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td><a href="mod40.html#inst_tag_170" >i_memory_tx_fifo</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_97" id="tag_urg_inst_97">i_fifo</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_47'>
+<hr>
+<a name="inst_tag_47"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_47" >tx_cdc_tb.i_event.i_fifo</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_47_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_47_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_47_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_47_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 94.74</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td><a href="mod40.html#inst_tag_171" >i_event</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_99" id="tag_urg_inst_99">i_fifo</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_48'>
+<hr>
+<a name="inst_tag_48"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_48" >tx_cdc_tb.i_memory.i_fifo</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_48_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_48_Cond" > 94.74</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_48_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_48_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.68</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 94.74</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td><a href="mod40.html#inst_tag_172" >i_memory</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_100" id="tag_urg_inst_100">i_fifo</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_39'>
+<hr>
+<a name="inst_tag_39"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_39" >async_fifo_tb.i_dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_39_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_39_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_39_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_39_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod10.html#inst_tag_101" >async_fifo_tb</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_91" id="tag_urg_inst_91">i_fifo</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_40'>
+<hr>
+<a name="inst_tag_40"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_40" >async_fifo8_tb.i_test.i_dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_40_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_40_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_40_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_40_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod10.html#inst_tag_102" >i_test</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_92" id="tag_urg_inst_92">i_fifo</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_46'>
+<hr>
+<a name="inst_tag_46"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_46" >p2p_rx_cdc_tb.i_dut.i_memory_response_fifo</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_46_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_46_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_46_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_46_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod39.html#inst_tag_168" >i_dut</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_98" id="tag_urg_inst_98">i_fifo</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_async_fifo'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod4.html" >async_fifo</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>38</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>50</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">INITIAL</td><td>89</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<pre class="code"><br clear=all>
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r &lt;= '0;
+40         1/1                r_active_wsync_r &lt;= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r &lt;= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r &lt;= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r &lt;= '0;
+52                          else
+53         1/1                w_released_rsync_r &lt;= {
+</pre>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod4.html" >async_fifo</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>19</td><td>19</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>19</td><td>19</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (w_rst_ni &amp;&amp; r_released_wsync_r[(STARTUP_STAGES - 1)] &amp;&amp; r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       62
+ EXPRESSION (r_rst_ni &amp;&amp; w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       63
+ EXPRESSION (w_active &amp;&amp; ((!fifo_full)))
+             ----1---    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (r_active &amp;&amp; fifo_valid)
+             ----1---    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       65
+ EXPRESSION (w_valid_i &amp;&amp; w_ready_o)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       66
+ EXPRESSION (r_valid_o &amp;&amp; r_ready_i)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod4.html" >async_fifo</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">38</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">50</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+38             if (!w_rst_ni) begin
+               <font color = "green">-1-</font>  
+39               r_released_wsync_r <= '0;
+           <font color = "green">      ==></font>
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+50             if (!r_rst_ni)
+               <font color = "green">-1-</font>  
+51               w_released_rsync_r <= '0;
+           <font color = "green">      ==></font>
+52             else
+53               w_released_rsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Assert"></a>
+Assert Coverage for Module : <a href="mod4.html" >async_fifo</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#774504640" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#341206677" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#1694170054" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="774504640"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="1017535630"></a>
+unnamed$$_0</td>
+<td class="s9 cl rt">112</td>
+<td class="s9 cl rt">112</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1020520659"></a>
+unnamed$$_1</td>
+<td class="s9 cl rt">112</td>
+<td class="s9 cl rt">112</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_41'>
+<a name="inst_tag_41_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_41" >async_fifo_dft_reset_tb.i_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>38</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>50</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">INITIAL</td><td>89</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<pre class="code"><br clear=all>
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r &lt;= '0;
+40         1/1                r_active_wsync_r &lt;= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r &lt;= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r &lt;= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r &lt;= '0;
+52                          else
+53         1/1                w_released_rsync_r &lt;= {
+</pre>
+<hr>
+<a name="inst_tag_41_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_41" >async_fifo_dft_reset_tb.i_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">Conditions</td><td>19</td><td>16</td><td>84.21</td></tr>
+<tr class="s8"><td class="lf">Logical</td><td>19</td><td>16</td><td>84.21</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (w_rst_ni &amp;&amp; r_released_wsync_r[(STARTUP_STAGES - 1)] &amp;&amp; r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       62
+ EXPRESSION (r_rst_ni &amp;&amp; w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       63
+ EXPRESSION (w_active &amp;&amp; ((!fifo_full)))
+             ----1---    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (r_active &amp;&amp; fifo_valid)
+             ----1---    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       65
+ EXPRESSION (w_valid_i &amp;&amp; w_ready_o)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       66
+ EXPRESSION (r_valid_o &amp;&amp; r_ready_i)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_41_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_41" >async_fifo_dft_reset_tb.i_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">38</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">50</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+38             if (!w_rst_ni) begin
+               <font color = "green">-1-</font>  
+39               r_released_wsync_r <= '0;
+           <font color = "green">      ==></font>
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+50             if (!r_rst_ni)
+               <font color = "green">-1-</font>  
+51               w_released_rsync_r <= '0;
+           <font color = "green">      ==></font>
+52             else
+53               w_released_rsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_41_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod4.html#inst_tag_41" >async_fifo_dft_reset_tb.i_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#232483366" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#1372258129" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#16164396" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="232483366"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="1019166760"></a>
+unnamed$$_0</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1143240007"></a>
+unnamed$$_1</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_42'>
+<a name="inst_tag_42_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_42" >async_fifo_startup_tb.i_dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>38</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>50</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">INITIAL</td><td>89</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<pre class="code"><br clear=all>
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r &lt;= '0;
+40         1/1                r_active_wsync_r &lt;= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r &lt;= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r &lt;= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r &lt;= '0;
+52                          else
+53         1/1                w_released_rsync_r &lt;= {
+</pre>
+<hr>
+<a name="inst_tag_42_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_42" >async_fifo_startup_tb.i_dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (w_rst_ni &amp;&amp; r_released_wsync_r[(STARTUP_STAGES - 1)] &amp;&amp; r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       62
+ EXPRESSION (r_rst_ni &amp;&amp; w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       63
+ EXPRESSION (w_active &amp;&amp; ((!fifo_full)))
+             ----1---    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (r_active &amp;&amp; fifo_valid)
+             ----1---    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       65
+ EXPRESSION (w_valid_i &amp;&amp; w_ready_o)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       66
+ EXPRESSION (r_valid_o &amp;&amp; r_ready_i)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_42_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_42" >async_fifo_startup_tb.i_dut</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">38</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">50</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+38             if (!w_rst_ni) begin
+               <font color = "green">-1-</font>  
+39               r_released_wsync_r <= '0;
+           <font color = "green">      ==></font>
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+50             if (!r_rst_ni)
+               <font color = "green">-1-</font>  
+51               w_released_rsync_r <= '0;
+           <font color = "green">      ==></font>
+52             else
+53               w_released_rsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_42_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod4.html#inst_tag_42" >async_fifo_startup_tb.i_dut</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#696756336" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#631053093" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#282548778" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="696756336"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="1228963842"></a>
+unnamed$$_0</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="306280259"></a>
+unnamed$$_1</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_43'>
+<a name="inst_tag_43_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_43" >async_fifo_startup16_tb.i_test.i_dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>38</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>50</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">INITIAL</td><td>89</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<pre class="code"><br clear=all>
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r &lt;= '0;
+40         1/1                r_active_wsync_r &lt;= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r &lt;= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r &lt;= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r &lt;= '0;
+52                          else
+53         1/1                w_released_rsync_r &lt;= {
+</pre>
+<hr>
+<a name="inst_tag_43_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_43" >async_fifo_startup16_tb.i_test.i_dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (w_rst_ni &amp;&amp; r_released_wsync_r[(STARTUP_STAGES - 1)] &amp;&amp; r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       62
+ EXPRESSION (r_rst_ni &amp;&amp; w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       63
+ EXPRESSION (w_active &amp;&amp; ((!fifo_full)))
+             ----1---    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (r_active &amp;&amp; fifo_valid)
+             ----1---    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       65
+ EXPRESSION (w_valid_i &amp;&amp; w_ready_o)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       66
+ EXPRESSION (r_valid_o &amp;&amp; r_ready_i)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_43_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_43" >async_fifo_startup16_tb.i_test.i_dut</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">38</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">50</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+38             if (!w_rst_ni) begin
+               <font color = "green">-1-</font>  
+39               r_released_wsync_r <= '0;
+           <font color = "green">      ==></font>
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+50             if (!r_rst_ni)
+               <font color = "green">-1-</font>  
+51               w_released_rsync_r <= '0;
+           <font color = "green">      ==></font>
+52             else
+53               w_released_rsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_43_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod4.html#inst_tag_43" >async_fifo_startup16_tb.i_test.i_dut</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#1685421035" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#1672657706" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#1969677455" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="1685421035"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="203668451"></a>
+unnamed$$_0</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1173249474"></a>
+unnamed$$_1</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">1</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_44'>
+<a name="inst_tag_44_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_44" >p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>38</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>50</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">INITIAL</td><td>89</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<pre class="code"><br clear=all>
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r &lt;= '0;
+40         1/1                r_active_wsync_r &lt;= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r &lt;= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r &lt;= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r &lt;= '0;
+52                          else
+53         1/1                w_released_rsync_r &lt;= {
+</pre>
+<hr>
+<a name="inst_tag_44_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_44" >p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (w_rst_ni &amp;&amp; r_released_wsync_r[(STARTUP_STAGES - 1)] &amp;&amp; r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       62
+ EXPRESSION (r_rst_ni &amp;&amp; w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       63
+ EXPRESSION (w_active &amp;&amp; ((!fifo_full)))
+             ----1---    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (r_active &amp;&amp; fifo_valid)
+             ----1---    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       65
+ EXPRESSION (w_valid_i &amp;&amp; w_ready_o)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       66
+ EXPRESSION (r_valid_o &amp;&amp; r_ready_i)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_44_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_44" >p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">38</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">50</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+38             if (!w_rst_ni) begin
+               <font color = "green">-1-</font>  
+39               r_released_wsync_r <= '0;
+           <font color = "green">      ==></font>
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+50             if (!r_rst_ni)
+               <font color = "green">-1-</font>  
+51               w_released_rsync_r <= '0;
+           <font color = "green">      ==></font>
+52             else
+53               w_released_rsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_44_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod4.html#inst_tag_44" >p2p_rx_cdc_tb.i_dut.i_event_tx_fifo.i_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#145084719" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#529816444" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#1720553943" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="145084719"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="360876419"></a>
+unnamed$$_0</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="77133084"></a>
+unnamed$$_1</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_45'>
+<a name="inst_tag_45_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_45" >p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>38</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>50</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">INITIAL</td><td>89</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<pre class="code"><br clear=all>
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r &lt;= '0;
+40         1/1                r_active_wsync_r &lt;= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r &lt;= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r &lt;= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r &lt;= '0;
+52                          else
+53         1/1                w_released_rsync_r &lt;= {
+</pre>
+<hr>
+<a name="inst_tag_45_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_45" >p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (w_rst_ni &amp;&amp; r_released_wsync_r[(STARTUP_STAGES - 1)] &amp;&amp; r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       62
+ EXPRESSION (r_rst_ni &amp;&amp; w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       63
+ EXPRESSION (w_active &amp;&amp; ((!fifo_full)))
+             ----1---    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (r_active &amp;&amp; fifo_valid)
+             ----1---    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       65
+ EXPRESSION (w_valid_i &amp;&amp; w_ready_o)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       66
+ EXPRESSION (r_valid_o &amp;&amp; r_ready_i)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_45_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_45" >p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">38</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">50</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+38             if (!w_rst_ni) begin
+               <font color = "green">-1-</font>  
+39               r_released_wsync_r <= '0;
+           <font color = "green">      ==></font>
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+50             if (!r_rst_ni)
+               <font color = "green">-1-</font>  
+51               w_released_rsync_r <= '0;
+           <font color = "green">      ==></font>
+52             else
+53               w_released_rsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_45_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod4.html#inst_tag_45" >p2p_rx_cdc_tb.i_dut.i_memory_tx_fifo.i_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#236102266" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#316798161" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#2058641356" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="236102266"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="1258971640"></a>
+unnamed$$_0</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1952364345"></a>
+unnamed$$_1</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_47'>
+<a name="inst_tag_47_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_47" >tx_cdc_tb.i_event.i_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>38</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>50</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">INITIAL</td><td>89</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<pre class="code"><br clear=all>
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r &lt;= '0;
+40         1/1                r_active_wsync_r &lt;= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r &lt;= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r &lt;= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r &lt;= '0;
+52                          else
+53         1/1                w_released_rsync_r &lt;= {
+</pre>
+<hr>
+<a name="inst_tag_47_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_47" >tx_cdc_tb.i_event.i_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (w_rst_ni &amp;&amp; r_released_wsync_r[(STARTUP_STAGES - 1)] &amp;&amp; r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       62
+ EXPRESSION (r_rst_ni &amp;&amp; w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       63
+ EXPRESSION (w_active &amp;&amp; ((!fifo_full)))
+             ----1---    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (r_active &amp;&amp; fifo_valid)
+             ----1---    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       65
+ EXPRESSION (w_valid_i &amp;&amp; w_ready_o)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       66
+ EXPRESSION (r_valid_o &amp;&amp; r_ready_i)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_47_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_47" >tx_cdc_tb.i_event.i_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">38</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">50</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+38             if (!w_rst_ni) begin
+               <font color = "green">-1-</font>  
+39               r_released_wsync_r <= '0;
+           <font color = "green">      ==></font>
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+50             if (!r_rst_ni)
+               <font color = "green">-1-</font>  
+51               w_released_rsync_r <= '0;
+           <font color = "green">      ==></font>
+52             else
+53               w_released_rsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_47_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod4.html#inst_tag_47" >tx_cdc_tb.i_event.i_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#994980965" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#993248720" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#2106561301" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="994980965"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="435538025"></a>
+unnamed$$_0</td>
+<td class="s9 cl rt">20</td>
+<td class="s9 cl rt">20</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1909129016"></a>
+unnamed$$_1</td>
+<td class="s9 cl rt">20</td>
+<td class="s9 cl rt">20</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_48'>
+<a name="inst_tag_48_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_48" >tx_cdc_tb.i_memory.i_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>38</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>50</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">INITIAL</td><td>89</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<pre class="code"><br clear=all>
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r &lt;= '0;
+40         1/1                r_active_wsync_r &lt;= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r &lt;= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r &lt;= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r &lt;= '0;
+52                          else
+53         1/1                w_released_rsync_r &lt;= {
+</pre>
+<hr>
+<a name="inst_tag_48_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_48" >tx_cdc_tb.i_memory.i_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (w_rst_ni &amp;&amp; r_released_wsync_r[(STARTUP_STAGES - 1)] &amp;&amp; r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       62
+ EXPRESSION (r_rst_ni &amp;&amp; w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       63
+ EXPRESSION (w_active &amp;&amp; ((!fifo_full)))
+             ----1---    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (r_active &amp;&amp; fifo_valid)
+             ----1---    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       65
+ EXPRESSION (w_valid_i &amp;&amp; w_ready_o)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       66
+ EXPRESSION (r_valid_o &amp;&amp; r_ready_i)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_48_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_48" >tx_cdc_tb.i_memory.i_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">38</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">50</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+38             if (!w_rst_ni) begin
+               <font color = "green">-1-</font>  
+39               r_released_wsync_r <= '0;
+           <font color = "green">      ==></font>
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+50             if (!r_rst_ni)
+               <font color = "green">-1-</font>  
+51               w_released_rsync_r <= '0;
+           <font color = "green">      ==></font>
+52             else
+53               w_released_rsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_48_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod4.html#inst_tag_48" >tx_cdc_tb.i_memory.i_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#1165180162" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#1218879757" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#1471257400" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="1165180162"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="1733371404"></a>
+unnamed$$_0</td>
+<td class="s9 cl rt">20</td>
+<td class="s9 cl rt">20</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1403605643"></a>
+unnamed$$_1</td>
+<td class="s9 cl rt">20</td>
+<td class="s9 cl rt">20</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_39'>
+<a name="inst_tag_39_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_39" >async_fifo_tb.i_dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>38</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>50</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">INITIAL</td><td>89</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<pre class="code"><br clear=all>
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r &lt;= '0;
+40         1/1                r_active_wsync_r &lt;= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r &lt;= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r &lt;= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r &lt;= '0;
+52                          else
+53         1/1                w_released_rsync_r &lt;= {
+</pre>
+<hr>
+<a name="inst_tag_39_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_39" >async_fifo_tb.i_dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>19</td><td>19</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>19</td><td>19</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (w_rst_ni &amp;&amp; r_released_wsync_r[(STARTUP_STAGES - 1)] &amp;&amp; r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       62
+ EXPRESSION (r_rst_ni &amp;&amp; w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       63
+ EXPRESSION (w_active &amp;&amp; ((!fifo_full)))
+             ----1---    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (r_active &amp;&amp; fifo_valid)
+             ----1---    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       65
+ EXPRESSION (w_valid_i &amp;&amp; w_ready_o)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       66
+ EXPRESSION (r_valid_o &amp;&amp; r_ready_i)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_39_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_39" >async_fifo_tb.i_dut</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">38</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">50</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+38             if (!w_rst_ni) begin
+               <font color = "green">-1-</font>  
+39               r_released_wsync_r <= '0;
+           <font color = "green">      ==></font>
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+50             if (!r_rst_ni)
+               <font color = "green">-1-</font>  
+51               w_released_rsync_r <= '0;
+           <font color = "green">      ==></font>
+52             else
+53               w_released_rsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_39_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod4.html#inst_tag_39" >async_fifo_tb.i_dut</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#28741518" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#941397977" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#756775980" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="28741518"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="580957696"></a>
+unnamed$$_0</td>
+<td class="s9 cl rt">3</td>
+<td class="s9 cl rt">3</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="230157759"></a>
+unnamed$$_1</td>
+<td class="s9 cl rt">3</td>
+<td class="s9 cl rt">3</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_40'>
+<a name="inst_tag_40_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_40" >async_fifo8_tb.i_test.i_dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>38</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>50</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">INITIAL</td><td>89</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<pre class="code"><br clear=all>
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r &lt;= '0;
+40         1/1                r_active_wsync_r &lt;= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r &lt;= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r &lt;= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r &lt;= '0;
+52                          else
+53         1/1                w_released_rsync_r &lt;= {
+</pre>
+<hr>
+<a name="inst_tag_40_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_40" >async_fifo8_tb.i_test.i_dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>19</td><td>19</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>19</td><td>19</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (w_rst_ni &amp;&amp; r_released_wsync_r[(STARTUP_STAGES - 1)] &amp;&amp; r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       62
+ EXPRESSION (r_rst_ni &amp;&amp; w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       63
+ EXPRESSION (w_active &amp;&amp; ((!fifo_full)))
+             ----1---    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (r_active &amp;&amp; fifo_valid)
+             ----1---    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       65
+ EXPRESSION (w_valid_i &amp;&amp; w_ready_o)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       66
+ EXPRESSION (r_valid_o &amp;&amp; r_ready_i)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_40_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_40" >async_fifo8_tb.i_test.i_dut</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">38</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">50</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+38             if (!w_rst_ni) begin
+               <font color = "green">-1-</font>  
+39               r_released_wsync_r <= '0;
+           <font color = "green">      ==></font>
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+50             if (!r_rst_ni)
+               <font color = "green">-1-</font>  
+51               w_released_rsync_r <= '0;
+           <font color = "green">      ==></font>
+52             else
+53               w_released_rsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_40_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod4.html#inst_tag_40" >async_fifo8_tb.i_test.i_dut</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#790797278" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#725094035" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#376589720" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="790797278"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="1134922900"></a>
+unnamed$$_0</td>
+<td class="s9 cl rt">3</td>
+<td class="s9 cl rt">3</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="212239317"></a>
+unnamed$$_1</td>
+<td class="s9 cl rt">3</td>
+<td class="s9 cl rt">3</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_46'>
+<a name="inst_tag_46_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_46" >p2p_rx_cdc_tb.i_dut.i_memory_response_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>38</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>50</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">INITIAL</td><td>89</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<pre class="code"><br clear=all>
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r &lt;= '0;
+40         1/1                r_active_wsync_r &lt;= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r &lt;= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r &lt;= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r &lt;= '0;
+52                          else
+53         1/1                w_released_rsync_r &lt;= {
+</pre>
+<hr>
+<a name="inst_tag_46_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_46" >p2p_rx_cdc_tb.i_dut.i_memory_response_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>19</td><td>19</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>19</td><td>19</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (w_rst_ni &amp;&amp; r_released_wsync_r[(STARTUP_STAGES - 1)] &amp;&amp; r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       62
+ EXPRESSION (r_rst_ni &amp;&amp; w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       63
+ EXPRESSION (w_active &amp;&amp; ((!fifo_full)))
+             ----1---    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (r_active &amp;&amp; fifo_valid)
+             ----1---    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       65
+ EXPRESSION (w_valid_i &amp;&amp; w_ready_o)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       66
+ EXPRESSION (r_valid_o &amp;&amp; r_ready_i)
+             ----1----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_46_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_46" >p2p_rx_cdc_tb.i_dut.i_memory_response_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">38</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">50</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+38             if (!w_rst_ni) begin
+               <font color = "green">-1-</font>  
+39               r_released_wsync_r <= '0;
+           <font color = "green">      ==></font>
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+50             if (!r_rst_ni)
+               <font color = "green">-1-</font>  
+51               w_released_rsync_r <= '0;
+           <font color = "green">      ==></font>
+52             else
+53               w_released_rsync_r <= {
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_46_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod4.html#inst_tag_46" >p2p_rx_cdc_tb.i_dut.i_memory_response_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#84881359" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#759782522" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#1950520021" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="84881359"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="590842497"></a>
+unnamed$$_0</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="152832994"></a>
+unnamed$$_1</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">21</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_39">
+    <li>
+      <a href="#inst_tag_39_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_39_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_39_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_39_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_40">
+    <li>
+      <a href="#inst_tag_40_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_40_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_40_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_40_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_41">
+    <li>
+      <a href="#inst_tag_41_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_41_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_41_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_41_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_42">
+    <li>
+      <a href="#inst_tag_42_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_42_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_42_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_42_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_43">
+    <li>
+      <a href="#inst_tag_43_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_43_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_43_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_43_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_44">
+    <li>
+      <a href="#inst_tag_44_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_44_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_44_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_44_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_45">
+    <li>
+      <a href="#inst_tag_45_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_45_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_45_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_45_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_46">
+    <li>
+      <a href="#inst_tag_46_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_46_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_46_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_46_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_47">
+    <li>
+      <a href="#inst_tag_47_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_47_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_47_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_47_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_48">
+    <li>
+      <a href="#inst_tag_48_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_48_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_48_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_48_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="tag_async_fifo">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+    <li>
+      <a href="#Assert">Assert</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

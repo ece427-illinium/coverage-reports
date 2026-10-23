@@ -1,0 +1,4172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: word_paint</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+<link rel="stylesheet" href="../../../../illinium-coverage.css">
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | groups | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_word_paint'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_word_paint')">word_paint</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s4 cl rt"> 41.45</td>
+<td class="s7 cl rt"><a href="mod44.html#Line" > 72.97</a></td>
+<td class="s3 cl rt"><a href="mod44.html#Cond" > 38.46</a></td>
+<td class="s2 cl rt"><a href="mod44.html#Toggle" > 25.07</a></td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"><a href="mod44.html#Branch" > 30.77</a></td>
+<td class="s4 cl rt"><a href="mod44.html#Assert" > 40.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/word_paint.sv')">/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/word_paint.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod44.html#inst_tag_131"  onclick="showContent('inst_tag_131')">fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine.front_end_u.word_paint_u</a></td>
+<td class="s3 cl rt"> 35.71</td>
+<td class="s7 cl rt"><a href="mod44.html#inst_tag_131_Line" > 72.97</a></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_131_Cond" > 30.77</a></td>
+<td class="s0 cl rt"><a href="mod44.html#inst_tag_131_Toggle" >  4.06</a></td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_131_Branch" > 30.77</a></td>
+<td class="s4 cl rt"><a href="mod44.html#inst_tag_131_Assert" > 40.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod44.html#inst_tag_130"  onclick="showContent('inst_tag_130')">fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine.front_end_u.word_paint_u</a></td>
+<td class="s4 cl rt"> 40.84</td>
+<td class="s7 cl rt"><a href="mod44.html#inst_tag_130_Line" > 72.97</a></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_130_Cond" > 38.46</a></td>
+<td class="s2 cl rt"><a href="mod44.html#inst_tag_130_Toggle" > 21.99</a></td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_130_Branch" > 30.77</a></td>
+<td class="s4 cl rt"><a href="mod44.html#inst_tag_130_Assert" > 40.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod44.html#inst_tag_129"  onclick="showContent('inst_tag_129')">fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine.front_end_u.word_paint_u</a></td>
+<td class="s4 cl rt"> 41.23</td>
+<td class="s7 cl rt"><a href="mod44.html#inst_tag_129_Line" > 72.97</a></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_129_Cond" > 38.46</a></td>
+<td class="s2 cl rt"><a href="mod44.html#inst_tag_129_Toggle" > 23.95</a></td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_129_Branch" > 30.77</a></td>
+<td class="s4 cl rt"><a href="mod44.html#inst_tag_129_Assert" > 40.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod44.html#inst_tag_128"  onclick="showContent('inst_tag_128')">fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine.front_end_u.word_paint_u</a></td>
+<td class="s4 cl rt"> 41.40</td>
+<td class="s7 cl rt"><a href="mod44.html#inst_tag_128_Line" > 72.97</a></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_128_Cond" > 38.46</a></td>
+<td class="s2 cl rt"><a href="mod44.html#inst_tag_128_Toggle" > 24.79</a></td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_128_Branch" > 30.77</a></td>
+<td class="s4 cl rt"><a href="mod44.html#inst_tag_128_Assert" > 40.00</a></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='inst_tag_131'>
+<hr>
+<a name="inst_tag_131"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_131" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine.front_end_u.word_paint_u</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s3 cl rt"> 35.71</td>
+<td class="s7 cl rt"><a href="mod44.html#inst_tag_131_Line" > 72.97</a></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_131_Cond" > 30.77</a></td>
+<td class="s0 cl rt"><a href="mod44.html#inst_tag_131_Toggle" >  4.06</a></td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_131_Branch" > 30.77</a></td>
+<td class="s4 cl rt"><a href="mod44.html#inst_tag_131_Assert" > 40.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s3 cl rt"> 35.71</td>
+<td class="s7 cl rt"> 72.97</td>
+<td class="s3 cl rt"> 30.77</td>
+<td class="s0 cl rt">  4.06</td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"> 30.77</td>
+<td class="s4 cl rt"> 40.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s5 cl rt"> 53.41</td>
+<td class="s7 cl rt"> 71.19</td>
+<td class="s5 cl rt"> 59.20</td>
+<td class="s1 cl rt"> 18.59</td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"> 55.56</td>
+<td class="s6 cl rt"> 62.50</td>
+<td><a href="mod65.html#inst_tag_243" >front_end_u</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_130'>
+<hr>
+<a name="inst_tag_130"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_130" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine.front_end_u.word_paint_u</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s4 cl rt"> 40.84</td>
+<td class="s7 cl rt"><a href="mod44.html#inst_tag_130_Line" > 72.97</a></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_130_Cond" > 38.46</a></td>
+<td class="s2 cl rt"><a href="mod44.html#inst_tag_130_Toggle" > 21.99</a></td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_130_Branch" > 30.77</a></td>
+<td class="s4 cl rt"><a href="mod44.html#inst_tag_130_Assert" > 40.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s4 cl rt"> 40.84</td>
+<td class="s7 cl rt"> 72.97</td>
+<td class="s3 cl rt"> 38.46</td>
+<td class="s2 cl rt"> 21.99</td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"> 30.77</td>
+<td class="s4 cl rt"> 40.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s5 cl rt"> 56.06</td>
+<td class="s7 cl rt"> 71.19</td>
+<td class="s6 cl rt"> 60.00</td>
+<td class="s3 cl rt"> 31.06</td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"> 55.56</td>
+<td class="s6 cl rt"> 62.50</td>
+<td><a href="mod65.html#inst_tag_242" >front_end_u</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_129'>
+<hr>
+<a name="inst_tag_129"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_129" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine.front_end_u.word_paint_u</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s4 cl rt"> 41.23</td>
+<td class="s7 cl rt"><a href="mod44.html#inst_tag_129_Line" > 72.97</a></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_129_Cond" > 38.46</a></td>
+<td class="s2 cl rt"><a href="mod44.html#inst_tag_129_Toggle" > 23.95</a></td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_129_Branch" > 30.77</a></td>
+<td class="s4 cl rt"><a href="mod44.html#inst_tag_129_Assert" > 40.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s4 cl rt"> 41.23</td>
+<td class="s7 cl rt"> 72.97</td>
+<td class="s3 cl rt"> 38.46</td>
+<td class="s2 cl rt"> 23.95</td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"> 30.77</td>
+<td class="s4 cl rt"> 40.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s5 cl rt"> 56.06</td>
+<td class="s7 cl rt"> 71.19</td>
+<td class="s6 cl rt"> 60.00</td>
+<td class="s3 cl rt"> 31.06</td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"> 55.56</td>
+<td class="s6 cl rt"> 62.50</td>
+<td><a href="mod65.html#inst_tag_241" >front_end_u</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_128'>
+<hr>
+<a name="inst_tag_128"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_128" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine.front_end_u.word_paint_u</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s4 cl rt"> 41.40</td>
+<td class="s7 cl rt"><a href="mod44.html#inst_tag_128_Line" > 72.97</a></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_128_Cond" > 38.46</a></td>
+<td class="s2 cl rt"><a href="mod44.html#inst_tag_128_Toggle" > 24.79</a></td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"><a href="mod44.html#inst_tag_128_Branch" > 30.77</a></td>
+<td class="s4 cl rt"><a href="mod44.html#inst_tag_128_Assert" > 40.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s4 cl rt"> 41.40</td>
+<td class="s7 cl rt"> 72.97</td>
+<td class="s3 cl rt"> 38.46</td>
+<td class="s2 cl rt"> 24.79</td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"> 30.77</td>
+<td class="s4 cl rt"> 40.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s5 cl rt"> 56.06</td>
+<td class="s7 cl rt"> 71.19</td>
+<td class="s6 cl rt"> 60.00</td>
+<td class="s3 cl rt"> 31.06</td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"> 55.56</td>
+<td class="s6 cl rt"> 62.50</td>
+<td><a href="mod65.html#inst_tag_240" >front_end_u</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_word_paint'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod44.html" >word_paint</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s7"><td class="lf">TOTAL</td><td></td><td>37</td><td>27</td><td>72.97</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>11</td><td>11</td><td>100.00</td></tr>
+<tr class="s6"><td class="lf">ALWAYS</td><td>96</td><td>26</td><td>16</td><td>61.54</td></tr>
+</table>
+<pre class="code"><br clear=all>
+71                      
+72         1/1              cell_width = {1'b0, cell_width_m1_i} + 6'h1;
+73                      
+74         1/1              new_cell_bounds = '0;
+75         1/1              new_bit_pos     = bit_pos_r;   // overwritten below -- j always reaches num_cells_m1_i
+76         1/1              cell_start      = bit_pos_r;
+77         1/1              for (j = 0; j &lt; 8; j = j + 1) begin
+78         2/2                if (j &lt;= num_cells_m1_i) new_cell_bounds[cell_start[4:0]] = 1'b1;
+                        MISSING_ELSE
+79         1/1                cell_start = cell_start + cell_width;
+80         2/2                if (j == num_cells_m1_i) new_bit_pos = cell_start;
+                        MISSING_ELSE
+81                          end
+82                      
+83         1/1              span_mask = ((32'h1 &lt;&lt; new_bit_pos) - 32'h1) ^ ((32'h1 &lt;&lt; bit_pos_r) - 32'h1);
+84                        end
+85                      
+86                        assign narrow_fills_word_o = (new_bit_pos == 6'd32);
+87                      
+88                        // wide_last_bits_m1_i is already the &quot;-1&quot; form (0..31, 5b) -- last_bits
+89                        // itself (1..32) only needs widening here, at the one place it's
+90                        // consumed, same idiom as cell_width above.
+91                        assign wide_last_bits  = {1'b0, wide_last_bits_m1_i} + 6'h1;
+92                        assign wide_final_mask = (32'h1 &lt;&lt; wide_last_bits) - 32'h1;
+93                      
+94                        // ================= state =================
+95                        always_ff @(posedge clk_i) begin
+96         1/1              if (reset_i || clear_i) begin
+97         1/1                bit_pos_r          &lt;= '0;
+98         1/1                limb_start_r       &lt;= '0;
+99         1/1                cell_bounds_r       &lt;= '0;
+100        1/1                guard_field_r       &lt;= '0;
+101        1/1                no_compare_field_r  &lt;= '0;
+102                         end else begin
+103        1/1                unique case (action_i)
+104                             PAINT_HOLD: begin
+105                               // no change -- wide region's continuing full-limb repaint
+106                             end
+107                     
+108                             PAINT_NARROW: begin
+109        1/1                    cell_bounds_r      &lt;= cell_bounds_r | new_cell_bounds;
+110        1/1                    guard_field_r      &lt;= guard_field_r      | (guarded_i    ? span_mask : '0);
+111        1/1                    no_compare_field_r &lt;= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112        1/1                    bit_pos_r          &lt;= new_bit_pos;
+113                             end
+114                     
+115                             PAINT_SETC: begin
+116        <font color = "red">0/1     ==>            bit_pos_r    &lt;= {1'b0, setc_pos_i};</font>
+117        <font color = "red">0/1     ==>            limb_start_r &lt;= setc_pos_i;</font>
+118                             end
+119                     
+120                             PAINT_WIDE_FIRST: begin
+121        <font color = "red">0/1     ==>            cell_bounds_r      &lt;= 32'h1;</font>
+122        <font color = "red">0/1     ==>            limb_start_r       &lt;= '0;</font>
+123        <font color = "red">0/1     ==>            bit_pos_r          &lt;= 6'd32;</font>
+124        <font color = "red">0/1     ==>            guard_field_r      &lt;= guarded_i    ? '1 : '0;</font>
+125        <font color = "red">0/1     ==>            no_compare_field_r &lt;= no_compare_i ? '1 : '0;</font>
+126                             end
+127                     
+128                             PAINT_WIDE_FINAL: begin
+129        <font color = "red">0/1     ==>            bit_pos_r          &lt;= wide_last_bits;</font>
+130        <font color = "red">0/1     ==>            guard_field_r      &lt;= wide_guarded_i    ? wide_final_mask : '0;</font>
+131        <font color = "red">0/1     ==>            no_compare_field_r &lt;= wide_no_compare_i ? wide_final_mask : '0;</font>
+132                               // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                             end
+134                     
+135                             PAINT_CLEAR: begin
+136        1/1                    bit_pos_r          &lt;= '0;
+137        1/1                    limb_start_r       &lt;= '0;
+138        1/1                    cell_bounds_r      &lt;= '0;
+139        1/1                    guard_field_r      &lt;= '0;
+140        1/1                    no_compare_field_r &lt;= '0;
+</pre>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod44.html" >word_paint</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s3"><td class="lf">Conditions</td><td>13</td><td>5</td><td>38.46</td></tr>
+<tr class="s3"><td class="lf">Logical</td><td>13</td><td>5</td><td>38.46</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       86
+ EXPRESSION (new_bit_pos == 6'd32)
+            -----------1----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       96
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       124
+ EXPRESSION (guarded_i ? '1 : '0)
+             ----1----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       125
+ EXPRESSION (no_compare_i ? '1 : '0)
+             ------1-----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       130
+ EXPRESSION (wide_guarded_i ? wide_final_mask : '0)
+             -------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       131
+ EXPRESSION (wide_no_compare_i ? wide_final_mask : '0)
+             --------1--------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod44.html" >word_paint</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s3">
+<td>Totals</td>
+<td class="rt">29</td>
+<td class="rt">9</td>
+<td class="rt">31.03 </td>
+</tr><tr class="s2">
+<td>Total Bits</td>
+<td class="rt">714</td>
+<td class="rt">179</td>
+<td class="rt">25.07 </td>
+</tr><tr class="s2">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">357</td>
+<td class="rt">89</td>
+<td class="rt">24.93 </td>
+</tr><tr class="s2">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">357</td>
+<td class="rt">90</td>
+<td class="rt">25.21 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s2">
+<td>Ports</td>
+<td class="rt">18</td>
+<td class="rt">5</td>
+<td class="rt">27.78 </td>
+</tr><tr class="s1">
+<td>Port Bits</td>
+<td class="rt">272</td>
+<td class="rt">35</td>
+<td class="rt">12.87 </td>
+</tr><tr class="s1">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">136</td>
+<td class="rt">17</td>
+<td class="rt">12.50 </td>
+</tr><tr class="s1">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">136</td>
+<td class="rt">18</td>
+<td class="rt">13.24 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s3">
+<td>Signals</td>
+<td class="rt">11</td>
+<td class="rt">4</td>
+<td class="rt">36.36 </td>
+</tr><tr class="s3">
+<td>Signal Bits</td>
+<td class="rt">442</td>
+<td class="rt">144</td>
+<td class="rt">32.58 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">221</td>
+<td class="rt">72</td>
+<td class="rt">32.58 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">221</td>
+<td class="rt">72</td>
+<td class="rt">32.58 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cell_width_m1_i[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>num_cells_m1_i[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>guarded_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>no_compare_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>setc_pos_i[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_last_bits_m1_i[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_guarded_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_no_compare_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bit_pos_o[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>limb_start_o[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cell_bounds_o[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cell_bounds_o[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>guard_field_o[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>no_compare_field_o[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>narrow_fills_word_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>bit_pos_r[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>limb_start_r[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cell_bounds_r[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>cell_bounds_r[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>guard_field_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>no_compare_field_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cell_width[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_bit_pos[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wide_last_bits[5:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[8:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[10:9]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[13:11]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[15:14]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[18:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[21:19]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[25:22]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[30:26]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[31]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>span_mask[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wide_final_mask[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod44.html" >word_paint</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s3">
+<td>Branches</td>
+<td></td>
+<td class="rt">13</td>
+<td class="rt">4</td>
+<td class="rt">30.77 </td>
+</tr><tr class="s3">
+<td>IF</td>
+<td class="rt">96</td>
+<td class="rt">13</td>
+<td class="rt">4</td>
+<td class="rt">30.77 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+96             if (reset_i || clear_i) begin
+               <font color = "green">-1-</font>  
+97               bit_pos_r          <= '0;
+           <font color = "green">      ==></font>
+98               limb_start_r       <= '0;
+99               cell_bounds_r       <= '0;
+100              guard_field_r       <= '0;
+101              no_compare_field_r  <= '0;
+102            end else begin
+103              unique case (action_i)
+                        <font color = "red">-2-</font>  
+104                PAINT_HOLD: begin
+           <font color = "green">        ==></font>
+105                  // no change -- wide region's continuing full-limb repaint
+106                end
+107        
+108                PAINT_NARROW: begin
+109                  cell_bounds_r      <= cell_bounds_r | new_cell_bounds;
+           <font color = "green">          ==></font>
+110                  guard_field_r      <= guard_field_r      | (guarded_i    ? span_mask : '0);
+111                  no_compare_field_r <= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112                  bit_pos_r          <= new_bit_pos;
+113                end
+114        
+115                PAINT_SETC: begin
+116                  bit_pos_r    <= {1'b0, setc_pos_i};
+           <font color = "red">          ==></font>
+117                  limb_start_r <= setc_pos_i;
+118                end
+119        
+120                PAINT_WIDE_FIRST: begin
+121                  cell_bounds_r      <= 32'h1;
+122                  limb_start_r       <= '0;
+123                  bit_pos_r          <= 6'd32;
+124                  guard_field_r      <= guarded_i    ? '1 : '0;
+                                                        <font color = "red">-3-</font>  
+                                                        <font color = "red">==></font>  
+                                                        <font color = "red">==></font>  
+125                  no_compare_field_r <= no_compare_i ? '1 : '0;
+                                                        <font color = "red">-4-</font>  
+                                                        <font color = "red">==></font>  
+                                                        <font color = "red">==></font>  
+126                end
+127        
+128                PAINT_WIDE_FINAL: begin
+129                  bit_pos_r          <= wide_last_bits;
+130                  guard_field_r      <= wide_guarded_i    ? wide_final_mask : '0;
+                                                             <font color = "red">-5-</font>  
+                                                             <font color = "red">==></font>  
+                                                             <font color = "red">==></font>  
+131                  no_compare_field_r <= wide_no_compare_i ? wide_final_mask : '0;
+                                                             <font color = "red">-6-</font>  
+                                                             <font color = "red">==></font>  
+                                                             <font color = "red">==></font>  
+132                  // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                end
+134        
+135                PAINT_CLEAR: begin
+136                  bit_pos_r          <= '0;
+           <font color = "green">          ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_HOLD </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_NARROW </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_SETC </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_CLEAR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Assert"></a>
+Assert Coverage for Module : <a href="mod44.html" >word_paint</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#1303306950" >Assertions</a></td>
+<td class="wht cl rt">5</td>
+<td class="s10 cl rt">5</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt">2</td>
+<td class="s4 cl rt">40.00 </td>
+</tr><tr>
+<td class="wht cl"><a href="#1875949029" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#383641536" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">5</td>
+<td class="s10 cl rt">5</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt">2</td>
+<td class="s4 cl rt">40.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="1303306950"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="720999072"></a>
+paint_action_known</td>
+<td class="s9 cl rt">4452324</td>
+<td class="s9 cl rt">4448328</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="977958656"></a>
+paint_narrow_fits</td>
+<td class="s9 cl rt">4452324</td>
+<td class="s9 cl rt">13110</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="145872892"></a>
+paint_setc_on_empty_word</td>
+<td class="s9 cl rt">4452324</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="83603856"></a>
+paint_wide_final_after_full_limb</td>
+<td class="s9 cl rt">4452324</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1099258361"></a>
+paint_wide_first_on_empty_word</td>
+<td class="s9 cl rt">4452324</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_131'>
+<a name="inst_tag_131_Line"></a>
+<b>Line Coverage for Instance : <a href="mod44.html#inst_tag_131" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s7"><td class="lf">TOTAL</td><td></td><td>37</td><td>27</td><td>72.97</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>11</td><td>11</td><td>100.00</td></tr>
+<tr class="s6"><td class="lf">ALWAYS</td><td>96</td><td>26</td><td>16</td><td>61.54</td></tr>
+</table>
+<pre class="code"><br clear=all>
+71                      
+72         1/1              cell_width = {1'b0, cell_width_m1_i} + 6'h1;
+73                      
+74         1/1              new_cell_bounds = '0;
+75         1/1              new_bit_pos     = bit_pos_r;   // overwritten below -- j always reaches num_cells_m1_i
+76         1/1              cell_start      = bit_pos_r;
+77         1/1              for (j = 0; j &lt; 8; j = j + 1) begin
+78         2/2                if (j &lt;= num_cells_m1_i) new_cell_bounds[cell_start[4:0]] = 1'b1;
+                        MISSING_ELSE
+79         1/1                cell_start = cell_start + cell_width;
+80         2/2                if (j == num_cells_m1_i) new_bit_pos = cell_start;
+                        MISSING_ELSE
+81                          end
+82                      
+83         1/1              span_mask = ((32'h1 &lt;&lt; new_bit_pos) - 32'h1) ^ ((32'h1 &lt;&lt; bit_pos_r) - 32'h1);
+84                        end
+85                      
+86                        assign narrow_fills_word_o = (new_bit_pos == 6'd32);
+87                      
+88                        // wide_last_bits_m1_i is already the &quot;-1&quot; form (0..31, 5b) -- last_bits
+89                        // itself (1..32) only needs widening here, at the one place it's
+90                        // consumed, same idiom as cell_width above.
+91                        assign wide_last_bits  = {1'b0, wide_last_bits_m1_i} + 6'h1;
+92                        assign wide_final_mask = (32'h1 &lt;&lt; wide_last_bits) - 32'h1;
+93                      
+94                        // ================= state =================
+95                        always_ff @(posedge clk_i) begin
+96         1/1              if (reset_i || clear_i) begin
+97         1/1                bit_pos_r          &lt;= '0;
+98         1/1                limb_start_r       &lt;= '0;
+99         1/1                cell_bounds_r       &lt;= '0;
+100        1/1                guard_field_r       &lt;= '0;
+101        1/1                no_compare_field_r  &lt;= '0;
+102                         end else begin
+103        1/1                unique case (action_i)
+104                             PAINT_HOLD: begin
+105                               // no change -- wide region's continuing full-limb repaint
+106                             end
+107                     
+108                             PAINT_NARROW: begin
+109        1/1                    cell_bounds_r      &lt;= cell_bounds_r | new_cell_bounds;
+110        1/1                    guard_field_r      &lt;= guard_field_r      | (guarded_i    ? span_mask : '0);
+111        1/1                    no_compare_field_r &lt;= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112        1/1                    bit_pos_r          &lt;= new_bit_pos;
+113                             end
+114                     
+115                             PAINT_SETC: begin
+116        <font color = "red">0/1     ==>            bit_pos_r    &lt;= {1'b0, setc_pos_i};</font>
+117        <font color = "red">0/1     ==>            limb_start_r &lt;= setc_pos_i;</font>
+118                             end
+119                     
+120                             PAINT_WIDE_FIRST: begin
+121        <font color = "red">0/1     ==>            cell_bounds_r      &lt;= 32'h1;</font>
+122        <font color = "red">0/1     ==>            limb_start_r       &lt;= '0;</font>
+123        <font color = "red">0/1     ==>            bit_pos_r          &lt;= 6'd32;</font>
+124        <font color = "red">0/1     ==>            guard_field_r      &lt;= guarded_i    ? '1 : '0;</font>
+125        <font color = "red">0/1     ==>            no_compare_field_r &lt;= no_compare_i ? '1 : '0;</font>
+126                             end
+127                     
+128                             PAINT_WIDE_FINAL: begin
+129        <font color = "red">0/1     ==>            bit_pos_r          &lt;= wide_last_bits;</font>
+130        <font color = "red">0/1     ==>            guard_field_r      &lt;= wide_guarded_i    ? wide_final_mask : '0;</font>
+131        <font color = "red">0/1     ==>            no_compare_field_r &lt;= wide_no_compare_i ? wide_final_mask : '0;</font>
+132                               // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                             end
+134                     
+135                             PAINT_CLEAR: begin
+136        1/1                    bit_pos_r          &lt;= '0;
+137        1/1                    limb_start_r       &lt;= '0;
+138        1/1                    cell_bounds_r      &lt;= '0;
+139        1/1                    guard_field_r      &lt;= '0;
+140        1/1                    no_compare_field_r &lt;= '0;
+</pre>
+<hr>
+<a name="inst_tag_131_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod44.html#inst_tag_131" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s3"><td class="lf">Conditions</td><td>13</td><td>4</td><td>30.77</td></tr>
+<tr class="s3"><td class="lf">Logical</td><td>13</td><td>4</td><td>30.77</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       86
+ EXPRESSION (new_bit_pos == 6'd32)
+            -----------1----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       96
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       124
+ EXPRESSION (guarded_i ? '1 : '0)
+             ----1----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       125
+ EXPRESSION (no_compare_i ? '1 : '0)
+             ------1-----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       130
+ EXPRESSION (wide_guarded_i ? wide_final_mask : '0)
+             -------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       131
+ EXPRESSION (wide_no_compare_i ? wide_final_mask : '0)
+             --------1--------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_131_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod44.html#inst_tag_131" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s0">
+<td>Totals</td>
+<td class="rt">29</td>
+<td class="rt">2</td>
+<td class="rt">6.90  </td>
+</tr><tr class="s0">
+<td>Total Bits</td>
+<td class="rt">714</td>
+<td class="rt">29</td>
+<td class="rt">4.06  </td>
+</tr><tr class="s0">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">357</td>
+<td class="rt">14</td>
+<td class="rt">3.92  </td>
+</tr><tr class="s0">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">357</td>
+<td class="rt">15</td>
+<td class="rt">4.20  </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s1">
+<td>Ports</td>
+<td class="rt">18</td>
+<td class="rt">2</td>
+<td class="rt">11.11 </td>
+</tr><tr class="s0">
+<td>Port Bits</td>
+<td class="rt">272</td>
+<td class="rt">13</td>
+<td class="rt">4.78  </td>
+</tr><tr class="s0">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">136</td>
+<td class="rt">6</td>
+<td class="rt">4.41  </td>
+</tr><tr class="s0">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">136</td>
+<td class="rt">7</td>
+<td class="rt">5.15  </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s0">
+<td>Signals</td>
+<td class="rt">11</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="s0">
+<td>Signal Bits</td>
+<td class="rt">442</td>
+<td class="rt">16</td>
+<td class="rt">3.62  </td>
+</tr><tr class="s0">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">221</td>
+<td class="rt">8</td>
+<td class="rt">3.62  </td>
+</tr><tr class="s0">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">221</td>
+<td class="rt">8</td>
+<td class="rt">3.62  </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cell_width_m1_i[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>num_cells_m1_i[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>guarded_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>no_compare_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>setc_pos_i[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_last_bits_m1_i[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_guarded_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_no_compare_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bit_pos_o[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>bit_pos_o[5:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>limb_start_o[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cell_bounds_o[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cell_bounds_o[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>guard_field_o[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>no_compare_field_o[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>narrow_fills_word_o</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>bit_pos_r[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>bit_pos_r[5:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>limb_start_r[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cell_bounds_r[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>cell_bounds_r[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>guard_field_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>no_compare_field_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cell_width[5:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_bit_pos[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_bit_pos[5:2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>wide_last_bits[5:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[31:2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>span_mask[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>span_mask[31:2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>wide_final_mask[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_131_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod44.html#inst_tag_131" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s3">
+<td>Branches</td>
+<td></td>
+<td class="rt">13</td>
+<td class="rt">4</td>
+<td class="rt">30.77 </td>
+</tr><tr class="s3">
+<td>IF</td>
+<td class="rt">96</td>
+<td class="rt">13</td>
+<td class="rt">4</td>
+<td class="rt">30.77 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+96             if (reset_i || clear_i) begin
+               <font color = "green">-1-</font>  
+97               bit_pos_r          <= '0;
+           <font color = "green">      ==></font>
+98               limb_start_r       <= '0;
+99               cell_bounds_r       <= '0;
+100              guard_field_r       <= '0;
+101              no_compare_field_r  <= '0;
+102            end else begin
+103              unique case (action_i)
+                        <font color = "red">-2-</font>  
+104                PAINT_HOLD: begin
+           <font color = "green">        ==></font>
+105                  // no change -- wide region's continuing full-limb repaint
+106                end
+107        
+108                PAINT_NARROW: begin
+109                  cell_bounds_r      <= cell_bounds_r | new_cell_bounds;
+           <font color = "green">          ==></font>
+110                  guard_field_r      <= guard_field_r      | (guarded_i    ? span_mask : '0);
+111                  no_compare_field_r <= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112                  bit_pos_r          <= new_bit_pos;
+113                end
+114        
+115                PAINT_SETC: begin
+116                  bit_pos_r    <= {1'b0, setc_pos_i};
+           <font color = "red">          ==></font>
+117                  limb_start_r <= setc_pos_i;
+118                end
+119        
+120                PAINT_WIDE_FIRST: begin
+121                  cell_bounds_r      <= 32'h1;
+122                  limb_start_r       <= '0;
+123                  bit_pos_r          <= 6'd32;
+124                  guard_field_r      <= guarded_i    ? '1 : '0;
+                                                        <font color = "red">-3-</font>  
+                                                        <font color = "red">==></font>  
+                                                        <font color = "red">==></font>  
+125                  no_compare_field_r <= no_compare_i ? '1 : '0;
+                                                        <font color = "red">-4-</font>  
+                                                        <font color = "red">==></font>  
+                                                        <font color = "red">==></font>  
+126                end
+127        
+128                PAINT_WIDE_FINAL: begin
+129                  bit_pos_r          <= wide_last_bits;
+130                  guard_field_r      <= wide_guarded_i    ? wide_final_mask : '0;
+                                                             <font color = "red">-5-</font>  
+                                                             <font color = "red">==></font>  
+                                                             <font color = "red">==></font>  
+131                  no_compare_field_r <= wide_no_compare_i ? wide_final_mask : '0;
+                                                             <font color = "red">-6-</font>  
+                                                             <font color = "red">==></font>  
+                                                             <font color = "red">==></font>  
+132                  // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                end
+134        
+135                PAINT_CLEAR: begin
+136                  bit_pos_r          <= '0;
+           <font color = "green">          ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_HOLD </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_NARROW </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_SETC </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_CLEAR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_131_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod44.html#inst_tag_131" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#886785696" >Assertions</a></td>
+<td class="wht cl rt">5</td>
+<td class="s10 cl rt">5</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt">2</td>
+<td class="s4 cl rt">40.00 </td>
+</tr><tr>
+<td class="wht cl"><a href="#809919733" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#1150143194" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">5</td>
+<td class="s10 cl rt">5</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt">2</td>
+<td class="s4 cl rt">40.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="886785696"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="196005306"></a>
+paint_action_known</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s9 cl rt">1113045</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1154317338"></a>
+paint_narrow_fits</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s9 cl rt">5</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="714495970"></a>
+paint_setc_on_empty_word</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="466978646"></a>
+paint_wide_final_after_full_limb</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1465040865"></a>
+paint_wide_first_on_empty_word</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_130'>
+<a name="inst_tag_130_Line"></a>
+<b>Line Coverage for Instance : <a href="mod44.html#inst_tag_130" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s7"><td class="lf">TOTAL</td><td></td><td>37</td><td>27</td><td>72.97</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>11</td><td>11</td><td>100.00</td></tr>
+<tr class="s6"><td class="lf">ALWAYS</td><td>96</td><td>26</td><td>16</td><td>61.54</td></tr>
+</table>
+<pre class="code"><br clear=all>
+71                      
+72         1/1              cell_width = {1'b0, cell_width_m1_i} + 6'h1;
+73                      
+74         1/1              new_cell_bounds = '0;
+75         1/1              new_bit_pos     = bit_pos_r;   // overwritten below -- j always reaches num_cells_m1_i
+76         1/1              cell_start      = bit_pos_r;
+77         1/1              for (j = 0; j &lt; 8; j = j + 1) begin
+78         2/2                if (j &lt;= num_cells_m1_i) new_cell_bounds[cell_start[4:0]] = 1'b1;
+                        MISSING_ELSE
+79         1/1                cell_start = cell_start + cell_width;
+80         2/2                if (j == num_cells_m1_i) new_bit_pos = cell_start;
+                        MISSING_ELSE
+81                          end
+82                      
+83         1/1              span_mask = ((32'h1 &lt;&lt; new_bit_pos) - 32'h1) ^ ((32'h1 &lt;&lt; bit_pos_r) - 32'h1);
+84                        end
+85                      
+86                        assign narrow_fills_word_o = (new_bit_pos == 6'd32);
+87                      
+88                        // wide_last_bits_m1_i is already the &quot;-1&quot; form (0..31, 5b) -- last_bits
+89                        // itself (1..32) only needs widening here, at the one place it's
+90                        // consumed, same idiom as cell_width above.
+91                        assign wide_last_bits  = {1'b0, wide_last_bits_m1_i} + 6'h1;
+92                        assign wide_final_mask = (32'h1 &lt;&lt; wide_last_bits) - 32'h1;
+93                      
+94                        // ================= state =================
+95                        always_ff @(posedge clk_i) begin
+96         1/1              if (reset_i || clear_i) begin
+97         1/1                bit_pos_r          &lt;= '0;
+98         1/1                limb_start_r       &lt;= '0;
+99         1/1                cell_bounds_r       &lt;= '0;
+100        1/1                guard_field_r       &lt;= '0;
+101        1/1                no_compare_field_r  &lt;= '0;
+102                         end else begin
+103        1/1                unique case (action_i)
+104                             PAINT_HOLD: begin
+105                               // no change -- wide region's continuing full-limb repaint
+106                             end
+107                     
+108                             PAINT_NARROW: begin
+109        1/1                    cell_bounds_r      &lt;= cell_bounds_r | new_cell_bounds;
+110        1/1                    guard_field_r      &lt;= guard_field_r      | (guarded_i    ? span_mask : '0);
+111        1/1                    no_compare_field_r &lt;= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112        1/1                    bit_pos_r          &lt;= new_bit_pos;
+113                             end
+114                     
+115                             PAINT_SETC: begin
+116        <font color = "red">0/1     ==>            bit_pos_r    &lt;= {1'b0, setc_pos_i};</font>
+117        <font color = "red">0/1     ==>            limb_start_r &lt;= setc_pos_i;</font>
+118                             end
+119                     
+120                             PAINT_WIDE_FIRST: begin
+121        <font color = "red">0/1     ==>            cell_bounds_r      &lt;= 32'h1;</font>
+122        <font color = "red">0/1     ==>            limb_start_r       &lt;= '0;</font>
+123        <font color = "red">0/1     ==>            bit_pos_r          &lt;= 6'd32;</font>
+124        <font color = "red">0/1     ==>            guard_field_r      &lt;= guarded_i    ? '1 : '0;</font>
+125        <font color = "red">0/1     ==>            no_compare_field_r &lt;= no_compare_i ? '1 : '0;</font>
+126                             end
+127                     
+128                             PAINT_WIDE_FINAL: begin
+129        <font color = "red">0/1     ==>            bit_pos_r          &lt;= wide_last_bits;</font>
+130        <font color = "red">0/1     ==>            guard_field_r      &lt;= wide_guarded_i    ? wide_final_mask : '0;</font>
+131        <font color = "red">0/1     ==>            no_compare_field_r &lt;= wide_no_compare_i ? wide_final_mask : '0;</font>
+132                               // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                             end
+134                     
+135                             PAINT_CLEAR: begin
+136        1/1                    bit_pos_r          &lt;= '0;
+137        1/1                    limb_start_r       &lt;= '0;
+138        1/1                    cell_bounds_r      &lt;= '0;
+139        1/1                    guard_field_r      &lt;= '0;
+140        1/1                    no_compare_field_r &lt;= '0;
+</pre>
+<hr>
+<a name="inst_tag_130_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod44.html#inst_tag_130" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s3"><td class="lf">Conditions</td><td>13</td><td>5</td><td>38.46</td></tr>
+<tr class="s3"><td class="lf">Logical</td><td>13</td><td>5</td><td>38.46</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       86
+ EXPRESSION (new_bit_pos == 6'd32)
+            -----------1----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       96
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       124
+ EXPRESSION (guarded_i ? '1 : '0)
+             ----1----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       125
+ EXPRESSION (no_compare_i ? '1 : '0)
+             ------1-----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       130
+ EXPRESSION (wide_guarded_i ? wide_final_mask : '0)
+             -------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       131
+ EXPRESSION (wide_no_compare_i ? wide_final_mask : '0)
+             --------1--------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_130_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod44.html#inst_tag_130" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s3">
+<td>Totals</td>
+<td class="rt">29</td>
+<td class="rt">9</td>
+<td class="rt">31.03 </td>
+</tr><tr class="s2">
+<td>Total Bits</td>
+<td class="rt">714</td>
+<td class="rt">157</td>
+<td class="rt">21.99 </td>
+</tr><tr class="s2">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">357</td>
+<td class="rt">78</td>
+<td class="rt">21.85 </td>
+</tr><tr class="s2">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">357</td>
+<td class="rt">79</td>
+<td class="rt">22.13 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s2">
+<td>Ports</td>
+<td class="rt">18</td>
+<td class="rt">5</td>
+<td class="rt">27.78 </td>
+</tr><tr class="s1">
+<td>Port Bits</td>
+<td class="rt">272</td>
+<td class="rt">35</td>
+<td class="rt">12.87 </td>
+</tr><tr class="s1">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">136</td>
+<td class="rt">17</td>
+<td class="rt">12.50 </td>
+</tr><tr class="s1">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">136</td>
+<td class="rt">18</td>
+<td class="rt">13.24 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s3">
+<td>Signals</td>
+<td class="rt">11</td>
+<td class="rt">4</td>
+<td class="rt">36.36 </td>
+</tr><tr class="s2">
+<td>Signal Bits</td>
+<td class="rt">442</td>
+<td class="rt">122</td>
+<td class="rt">27.60 </td>
+</tr><tr class="s2">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">221</td>
+<td class="rt">61</td>
+<td class="rt">27.60 </td>
+</tr><tr class="s2">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">221</td>
+<td class="rt">61</td>
+<td class="rt">27.60 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cell_width_m1_i[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>num_cells_m1_i[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>guarded_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>no_compare_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>setc_pos_i[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_last_bits_m1_i[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_guarded_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_no_compare_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bit_pos_o[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>limb_start_o[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cell_bounds_o[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cell_bounds_o[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>guard_field_o[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>no_compare_field_o[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>narrow_fills_word_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>bit_pos_r[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>limb_start_r[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cell_bounds_r[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>cell_bounds_r[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>guard_field_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>no_compare_field_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cell_width[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_bit_pos[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wide_last_bits[5:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[5:3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[6]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[8:7]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[10:9]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[11]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[15:12]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[25:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[26]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[31:27]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>span_mask[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wide_final_mask[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_130_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod44.html#inst_tag_130" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s3">
+<td>Branches</td>
+<td></td>
+<td class="rt">13</td>
+<td class="rt">4</td>
+<td class="rt">30.77 </td>
+</tr><tr class="s3">
+<td>IF</td>
+<td class="rt">96</td>
+<td class="rt">13</td>
+<td class="rt">4</td>
+<td class="rt">30.77 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+96             if (reset_i || clear_i) begin
+               <font color = "green">-1-</font>  
+97               bit_pos_r          <= '0;
+           <font color = "green">      ==></font>
+98               limb_start_r       <= '0;
+99               cell_bounds_r       <= '0;
+100              guard_field_r       <= '0;
+101              no_compare_field_r  <= '0;
+102            end else begin
+103              unique case (action_i)
+                        <font color = "red">-2-</font>  
+104                PAINT_HOLD: begin
+           <font color = "green">        ==></font>
+105                  // no change -- wide region's continuing full-limb repaint
+106                end
+107        
+108                PAINT_NARROW: begin
+109                  cell_bounds_r      <= cell_bounds_r | new_cell_bounds;
+           <font color = "green">          ==></font>
+110                  guard_field_r      <= guard_field_r      | (guarded_i    ? span_mask : '0);
+111                  no_compare_field_r <= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112                  bit_pos_r          <= new_bit_pos;
+113                end
+114        
+115                PAINT_SETC: begin
+116                  bit_pos_r    <= {1'b0, setc_pos_i};
+           <font color = "red">          ==></font>
+117                  limb_start_r <= setc_pos_i;
+118                end
+119        
+120                PAINT_WIDE_FIRST: begin
+121                  cell_bounds_r      <= 32'h1;
+122                  limb_start_r       <= '0;
+123                  bit_pos_r          <= 6'd32;
+124                  guard_field_r      <= guarded_i    ? '1 : '0;
+                                                        <font color = "red">-3-</font>  
+                                                        <font color = "red">==></font>  
+                                                        <font color = "red">==></font>  
+125                  no_compare_field_r <= no_compare_i ? '1 : '0;
+                                                        <font color = "red">-4-</font>  
+                                                        <font color = "red">==></font>  
+                                                        <font color = "red">==></font>  
+126                end
+127        
+128                PAINT_WIDE_FINAL: begin
+129                  bit_pos_r          <= wide_last_bits;
+130                  guard_field_r      <= wide_guarded_i    ? wide_final_mask : '0;
+                                                             <font color = "red">-5-</font>  
+                                                             <font color = "red">==></font>  
+                                                             <font color = "red">==></font>  
+131                  no_compare_field_r <= wide_no_compare_i ? wide_final_mask : '0;
+                                                             <font color = "red">-6-</font>  
+                                                             <font color = "red">==></font>  
+                                                             <font color = "red">==></font>  
+132                  // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                end
+134        
+135                PAINT_CLEAR: begin
+136                  bit_pos_r          <= '0;
+           <font color = "green">          ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_HOLD </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_NARROW </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_SETC </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_CLEAR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_130_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod44.html#inst_tag_130" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#1237585633" >Assertions</a></td>
+<td class="wht cl rt">5</td>
+<td class="s10 cl rt">5</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt">2</td>
+<td class="s4 cl rt">40.00 </td>
+</tr><tr>
+<td class="wht cl"><a href="#459119796" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#799343257" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">5</td>
+<td class="s10 cl rt">5</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt">2</td>
+<td class="s4 cl rt">40.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="1237585633"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="154794631"></a>
+paint_action_known</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s9 cl rt">1112361</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="803517401"></a>
+paint_narrow_fits</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s9 cl rt">1733</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1065295907"></a>
+paint_setc_on_empty_word</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="817778583"></a>
+paint_wide_final_after_full_limb</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1114240928"></a>
+paint_wide_first_on_empty_word</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_129'>
+<a name="inst_tag_129_Line"></a>
+<b>Line Coverage for Instance : <a href="mod44.html#inst_tag_129" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s7"><td class="lf">TOTAL</td><td></td><td>37</td><td>27</td><td>72.97</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>11</td><td>11</td><td>100.00</td></tr>
+<tr class="s6"><td class="lf">ALWAYS</td><td>96</td><td>26</td><td>16</td><td>61.54</td></tr>
+</table>
+<pre class="code"><br clear=all>
+71                      
+72         1/1              cell_width = {1'b0, cell_width_m1_i} + 6'h1;
+73                      
+74         1/1              new_cell_bounds = '0;
+75         1/1              new_bit_pos     = bit_pos_r;   // overwritten below -- j always reaches num_cells_m1_i
+76         1/1              cell_start      = bit_pos_r;
+77         1/1              for (j = 0; j &lt; 8; j = j + 1) begin
+78         2/2                if (j &lt;= num_cells_m1_i) new_cell_bounds[cell_start[4:0]] = 1'b1;
+                        MISSING_ELSE
+79         1/1                cell_start = cell_start + cell_width;
+80         2/2                if (j == num_cells_m1_i) new_bit_pos = cell_start;
+                        MISSING_ELSE
+81                          end
+82                      
+83         1/1              span_mask = ((32'h1 &lt;&lt; new_bit_pos) - 32'h1) ^ ((32'h1 &lt;&lt; bit_pos_r) - 32'h1);
+84                        end
+85                      
+86                        assign narrow_fills_word_o = (new_bit_pos == 6'd32);
+87                      
+88                        // wide_last_bits_m1_i is already the &quot;-1&quot; form (0..31, 5b) -- last_bits
+89                        // itself (1..32) only needs widening here, at the one place it's
+90                        // consumed, same idiom as cell_width above.
+91                        assign wide_last_bits  = {1'b0, wide_last_bits_m1_i} + 6'h1;
+92                        assign wide_final_mask = (32'h1 &lt;&lt; wide_last_bits) - 32'h1;
+93                      
+94                        // ================= state =================
+95                        always_ff @(posedge clk_i) begin
+96         1/1              if (reset_i || clear_i) begin
+97         1/1                bit_pos_r          &lt;= '0;
+98         1/1                limb_start_r       &lt;= '0;
+99         1/1                cell_bounds_r       &lt;= '0;
+100        1/1                guard_field_r       &lt;= '0;
+101        1/1                no_compare_field_r  &lt;= '0;
+102                         end else begin
+103        1/1                unique case (action_i)
+104                             PAINT_HOLD: begin
+105                               // no change -- wide region's continuing full-limb repaint
+106                             end
+107                     
+108                             PAINT_NARROW: begin
+109        1/1                    cell_bounds_r      &lt;= cell_bounds_r | new_cell_bounds;
+110        1/1                    guard_field_r      &lt;= guard_field_r      | (guarded_i    ? span_mask : '0);
+111        1/1                    no_compare_field_r &lt;= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112        1/1                    bit_pos_r          &lt;= new_bit_pos;
+113                             end
+114                     
+115                             PAINT_SETC: begin
+116        <font color = "red">0/1     ==>            bit_pos_r    &lt;= {1'b0, setc_pos_i};</font>
+117        <font color = "red">0/1     ==>            limb_start_r &lt;= setc_pos_i;</font>
+118                             end
+119                     
+120                             PAINT_WIDE_FIRST: begin
+121        <font color = "red">0/1     ==>            cell_bounds_r      &lt;= 32'h1;</font>
+122        <font color = "red">0/1     ==>            limb_start_r       &lt;= '0;</font>
+123        <font color = "red">0/1     ==>            bit_pos_r          &lt;= 6'd32;</font>
+124        <font color = "red">0/1     ==>            guard_field_r      &lt;= guarded_i    ? '1 : '0;</font>
+125        <font color = "red">0/1     ==>            no_compare_field_r &lt;= no_compare_i ? '1 : '0;</font>
+126                             end
+127                     
+128                             PAINT_WIDE_FINAL: begin
+129        <font color = "red">0/1     ==>            bit_pos_r          &lt;= wide_last_bits;</font>
+130        <font color = "red">0/1     ==>            guard_field_r      &lt;= wide_guarded_i    ? wide_final_mask : '0;</font>
+131        <font color = "red">0/1     ==>            no_compare_field_r &lt;= wide_no_compare_i ? wide_final_mask : '0;</font>
+132                               // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                             end
+134                     
+135                             PAINT_CLEAR: begin
+136        1/1                    bit_pos_r          &lt;= '0;
+137        1/1                    limb_start_r       &lt;= '0;
+138        1/1                    cell_bounds_r      &lt;= '0;
+139        1/1                    guard_field_r      &lt;= '0;
+140        1/1                    no_compare_field_r &lt;= '0;
+</pre>
+<hr>
+<a name="inst_tag_129_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod44.html#inst_tag_129" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s3"><td class="lf">Conditions</td><td>13</td><td>5</td><td>38.46</td></tr>
+<tr class="s3"><td class="lf">Logical</td><td>13</td><td>5</td><td>38.46</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       86
+ EXPRESSION (new_bit_pos == 6'd32)
+            -----------1----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       96
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       124
+ EXPRESSION (guarded_i ? '1 : '0)
+             ----1----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       125
+ EXPRESSION (no_compare_i ? '1 : '0)
+             ------1-----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       130
+ EXPRESSION (wide_guarded_i ? wide_final_mask : '0)
+             -------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       131
+ EXPRESSION (wide_no_compare_i ? wide_final_mask : '0)
+             --------1--------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_129_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod44.html#inst_tag_129" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s3">
+<td>Totals</td>
+<td class="rt">29</td>
+<td class="rt">9</td>
+<td class="rt">31.03 </td>
+</tr><tr class="s2">
+<td>Total Bits</td>
+<td class="rt">714</td>
+<td class="rt">171</td>
+<td class="rt">23.95 </td>
+</tr><tr class="s2">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">357</td>
+<td class="rt">85</td>
+<td class="rt">23.81 </td>
+</tr><tr class="s2">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">357</td>
+<td class="rt">86</td>
+<td class="rt">24.09 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s2">
+<td>Ports</td>
+<td class="rt">18</td>
+<td class="rt">5</td>
+<td class="rt">27.78 </td>
+</tr><tr class="s1">
+<td>Port Bits</td>
+<td class="rt">272</td>
+<td class="rt">35</td>
+<td class="rt">12.87 </td>
+</tr><tr class="s1">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">136</td>
+<td class="rt">17</td>
+<td class="rt">12.50 </td>
+</tr><tr class="s1">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">136</td>
+<td class="rt">18</td>
+<td class="rt">13.24 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s3">
+<td>Signals</td>
+<td class="rt">11</td>
+<td class="rt">4</td>
+<td class="rt">36.36 </td>
+</tr><tr class="s3">
+<td>Signal Bits</td>
+<td class="rt">442</td>
+<td class="rt">136</td>
+<td class="rt">30.77 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">221</td>
+<td class="rt">68</td>
+<td class="rt">30.77 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">221</td>
+<td class="rt">68</td>
+<td class="rt">30.77 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cell_width_m1_i[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>num_cells_m1_i[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>guarded_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>no_compare_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>setc_pos_i[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_last_bits_m1_i[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_guarded_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_no_compare_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bit_pos_o[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>limb_start_o[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cell_bounds_o[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cell_bounds_o[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>guard_field_o[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>no_compare_field_o[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>narrow_fills_word_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>bit_pos_r[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>limb_start_r[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cell_bounds_r[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>cell_bounds_r[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>guard_field_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>no_compare_field_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cell_width[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_bit_pos[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wide_last_bits[5:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[7]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[8]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[10:9]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[11]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[12]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[13]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[15:14]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[18:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[21:19]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[26:22]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[29:27]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[31:30]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>span_mask[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wide_final_mask[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_129_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod44.html#inst_tag_129" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s3">
+<td>Branches</td>
+<td></td>
+<td class="rt">13</td>
+<td class="rt">4</td>
+<td class="rt">30.77 </td>
+</tr><tr class="s3">
+<td>IF</td>
+<td class="rt">96</td>
+<td class="rt">13</td>
+<td class="rt">4</td>
+<td class="rt">30.77 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+96             if (reset_i || clear_i) begin
+               <font color = "green">-1-</font>  
+97               bit_pos_r          <= '0;
+           <font color = "green">      ==></font>
+98               limb_start_r       <= '0;
+99               cell_bounds_r       <= '0;
+100              guard_field_r       <= '0;
+101              no_compare_field_r  <= '0;
+102            end else begin
+103              unique case (action_i)
+                        <font color = "red">-2-</font>  
+104                PAINT_HOLD: begin
+           <font color = "green">        ==></font>
+105                  // no change -- wide region's continuing full-limb repaint
+106                end
+107        
+108                PAINT_NARROW: begin
+109                  cell_bounds_r      <= cell_bounds_r | new_cell_bounds;
+           <font color = "green">          ==></font>
+110                  guard_field_r      <= guard_field_r      | (guarded_i    ? span_mask : '0);
+111                  no_compare_field_r <= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112                  bit_pos_r          <= new_bit_pos;
+113                end
+114        
+115                PAINT_SETC: begin
+116                  bit_pos_r    <= {1'b0, setc_pos_i};
+           <font color = "red">          ==></font>
+117                  limb_start_r <= setc_pos_i;
+118                end
+119        
+120                PAINT_WIDE_FIRST: begin
+121                  cell_bounds_r      <= 32'h1;
+122                  limb_start_r       <= '0;
+123                  bit_pos_r          <= 6'd32;
+124                  guard_field_r      <= guarded_i    ? '1 : '0;
+                                                        <font color = "red">-3-</font>  
+                                                        <font color = "red">==></font>  
+                                                        <font color = "red">==></font>  
+125                  no_compare_field_r <= no_compare_i ? '1 : '0;
+                                                        <font color = "red">-4-</font>  
+                                                        <font color = "red">==></font>  
+                                                        <font color = "red">==></font>  
+126                end
+127        
+128                PAINT_WIDE_FINAL: begin
+129                  bit_pos_r          <= wide_last_bits;
+130                  guard_field_r      <= wide_guarded_i    ? wide_final_mask : '0;
+                                                             <font color = "red">-5-</font>  
+                                                             <font color = "red">==></font>  
+                                                             <font color = "red">==></font>  
+131                  no_compare_field_r <= wide_no_compare_i ? wide_final_mask : '0;
+                                                             <font color = "red">-6-</font>  
+                                                             <font color = "red">==></font>  
+                                                             <font color = "red">==></font>  
+132                  // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                end
+134        
+135                PAINT_CLEAR: begin
+136                  bit_pos_r          <= '0;
+           <font color = "green">          ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_HOLD </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_NARROW </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_SETC </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_CLEAR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_129_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod44.html#inst_tag_129" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#1588385570" >Assertions</a></td>
+<td class="wht cl rt">5</td>
+<td class="s10 cl rt">5</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt">2</td>
+<td class="s4 cl rt">40.00 </td>
+</tr><tr>
+<td class="wht cl"><a href="#108319859" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#448543320" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">5</td>
+<td class="s10 cl rt">5</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt">2</td>
+<td class="s4 cl rt">40.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="1588385570"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="505594568"></a>
+paint_action_known</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s9 cl rt">1111961</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="452717464"></a>
+paint_narrow_fits</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s9 cl rt">3825</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1416095844"></a>
+paint_setc_on_empty_word</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1168578520"></a>
+paint_wide_final_after_full_limb</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="763440991"></a>
+paint_wide_first_on_empty_word</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_128'>
+<a name="inst_tag_128_Line"></a>
+<b>Line Coverage for Instance : <a href="mod44.html#inst_tag_128" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s7"><td class="lf">TOTAL</td><td></td><td>37</td><td>27</td><td>72.97</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>11</td><td>11</td><td>100.00</td></tr>
+<tr class="s6"><td class="lf">ALWAYS</td><td>96</td><td>26</td><td>16</td><td>61.54</td></tr>
+</table>
+<pre class="code"><br clear=all>
+71                      
+72         1/1              cell_width = {1'b0, cell_width_m1_i} + 6'h1;
+73                      
+74         1/1              new_cell_bounds = '0;
+75         1/1              new_bit_pos     = bit_pos_r;   // overwritten below -- j always reaches num_cells_m1_i
+76         1/1              cell_start      = bit_pos_r;
+77         1/1              for (j = 0; j &lt; 8; j = j + 1) begin
+78         2/2                if (j &lt;= num_cells_m1_i) new_cell_bounds[cell_start[4:0]] = 1'b1;
+                        MISSING_ELSE
+79         1/1                cell_start = cell_start + cell_width;
+80         2/2                if (j == num_cells_m1_i) new_bit_pos = cell_start;
+                        MISSING_ELSE
+81                          end
+82                      
+83         1/1              span_mask = ((32'h1 &lt;&lt; new_bit_pos) - 32'h1) ^ ((32'h1 &lt;&lt; bit_pos_r) - 32'h1);
+84                        end
+85                      
+86                        assign narrow_fills_word_o = (new_bit_pos == 6'd32);
+87                      
+88                        // wide_last_bits_m1_i is already the &quot;-1&quot; form (0..31, 5b) -- last_bits
+89                        // itself (1..32) only needs widening here, at the one place it's
+90                        // consumed, same idiom as cell_width above.
+91                        assign wide_last_bits  = {1'b0, wide_last_bits_m1_i} + 6'h1;
+92                        assign wide_final_mask = (32'h1 &lt;&lt; wide_last_bits) - 32'h1;
+93                      
+94                        // ================= state =================
+95                        always_ff @(posedge clk_i) begin
+96         1/1              if (reset_i || clear_i) begin
+97         1/1                bit_pos_r          &lt;= '0;
+98         1/1                limb_start_r       &lt;= '0;
+99         1/1                cell_bounds_r       &lt;= '0;
+100        1/1                guard_field_r       &lt;= '0;
+101        1/1                no_compare_field_r  &lt;= '0;
+102                         end else begin
+103        1/1                unique case (action_i)
+104                             PAINT_HOLD: begin
+105                               // no change -- wide region's continuing full-limb repaint
+106                             end
+107                     
+108                             PAINT_NARROW: begin
+109        1/1                    cell_bounds_r      &lt;= cell_bounds_r | new_cell_bounds;
+110        1/1                    guard_field_r      &lt;= guard_field_r      | (guarded_i    ? span_mask : '0);
+111        1/1                    no_compare_field_r &lt;= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112        1/1                    bit_pos_r          &lt;= new_bit_pos;
+113                             end
+114                     
+115                             PAINT_SETC: begin
+116        <font color = "red">0/1     ==>            bit_pos_r    &lt;= {1'b0, setc_pos_i};</font>
+117        <font color = "red">0/1     ==>            limb_start_r &lt;= setc_pos_i;</font>
+118                             end
+119                     
+120                             PAINT_WIDE_FIRST: begin
+121        <font color = "red">0/1     ==>            cell_bounds_r      &lt;= 32'h1;</font>
+122        <font color = "red">0/1     ==>            limb_start_r       &lt;= '0;</font>
+123        <font color = "red">0/1     ==>            bit_pos_r          &lt;= 6'd32;</font>
+124        <font color = "red">0/1     ==>            guard_field_r      &lt;= guarded_i    ? '1 : '0;</font>
+125        <font color = "red">0/1     ==>            no_compare_field_r &lt;= no_compare_i ? '1 : '0;</font>
+126                             end
+127                     
+128                             PAINT_WIDE_FINAL: begin
+129        <font color = "red">0/1     ==>            bit_pos_r          &lt;= wide_last_bits;</font>
+130        <font color = "red">0/1     ==>            guard_field_r      &lt;= wide_guarded_i    ? wide_final_mask : '0;</font>
+131        <font color = "red">0/1     ==>            no_compare_field_r &lt;= wide_no_compare_i ? wide_final_mask : '0;</font>
+132                               // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                             end
+134                     
+135                             PAINT_CLEAR: begin
+136        1/1                    bit_pos_r          &lt;= '0;
+137        1/1                    limb_start_r       &lt;= '0;
+138        1/1                    cell_bounds_r      &lt;= '0;
+139        1/1                    guard_field_r      &lt;= '0;
+140        1/1                    no_compare_field_r &lt;= '0;
+</pre>
+<hr>
+<a name="inst_tag_128_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod44.html#inst_tag_128" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s3"><td class="lf">Conditions</td><td>13</td><td>5</td><td>38.46</td></tr>
+<tr class="s3"><td class="lf">Logical</td><td>13</td><td>5</td><td>38.46</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       86
+ EXPRESSION (new_bit_pos == 6'd32)
+            -----------1----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       96
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       124
+ EXPRESSION (guarded_i ? '1 : '0)
+             ----1----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       125
+ EXPRESSION (no_compare_i ? '1 : '0)
+             ------1-----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       130
+ EXPRESSION (wide_guarded_i ? wide_final_mask : '0)
+             -------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       131
+ EXPRESSION (wide_no_compare_i ? wide_final_mask : '0)
+             --------1--------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_128_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod44.html#inst_tag_128" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s3">
+<td>Totals</td>
+<td class="rt">29</td>
+<td class="rt">9</td>
+<td class="rt">31.03 </td>
+</tr><tr class="s2">
+<td>Total Bits</td>
+<td class="rt">714</td>
+<td class="rt">177</td>
+<td class="rt">24.79 </td>
+</tr><tr class="s2">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">357</td>
+<td class="rt">88</td>
+<td class="rt">24.65 </td>
+</tr><tr class="s2">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">357</td>
+<td class="rt">89</td>
+<td class="rt">24.93 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s2">
+<td>Ports</td>
+<td class="rt">18</td>
+<td class="rt">5</td>
+<td class="rt">27.78 </td>
+</tr><tr class="s1">
+<td>Port Bits</td>
+<td class="rt">272</td>
+<td class="rt">35</td>
+<td class="rt">12.87 </td>
+</tr><tr class="s1">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">136</td>
+<td class="rt">17</td>
+<td class="rt">12.50 </td>
+</tr><tr class="s1">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">136</td>
+<td class="rt">18</td>
+<td class="rt">13.24 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s3">
+<td>Signals</td>
+<td class="rt">11</td>
+<td class="rt">4</td>
+<td class="rt">36.36 </td>
+</tr><tr class="s3">
+<td>Signal Bits</td>
+<td class="rt">442</td>
+<td class="rt">142</td>
+<td class="rt">32.13 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">221</td>
+<td class="rt">71</td>
+<td class="rt">32.13 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">221</td>
+<td class="rt">71</td>
+<td class="rt">32.13 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>action_i[2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cell_width_m1_i[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>num_cells_m1_i[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>guarded_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>no_compare_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>setc_pos_i[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_last_bits_m1_i[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_guarded_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wide_no_compare_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bit_pos_o[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>limb_start_o[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cell_bounds_o[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cell_bounds_o[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>guard_field_o[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>no_compare_field_o[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>narrow_fills_word_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>bit_pos_r[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>limb_start_r[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cell_bounds_r[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>cell_bounds_r[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>guard_field_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>no_compare_field_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cell_width[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_bit_pos[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wide_last_bits[5:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[8:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[10:9]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[13:11]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[15:14]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[19:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[21:20]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[25:22]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>new_cell_bounds[30:26]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>new_cell_bounds[31]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>span_mask[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wide_final_mask[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_128_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod44.html#inst_tag_128" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s3">
+<td>Branches</td>
+<td></td>
+<td class="rt">13</td>
+<td class="rt">4</td>
+<td class="rt">30.77 </td>
+</tr><tr class="s3">
+<td>IF</td>
+<td class="rt">96</td>
+<td class="rt">13</td>
+<td class="rt">4</td>
+<td class="rt">30.77 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+96             if (reset_i || clear_i) begin
+               <font color = "green">-1-</font>  
+97               bit_pos_r          <= '0;
+           <font color = "green">      ==></font>
+98               limb_start_r       <= '0;
+99               cell_bounds_r       <= '0;
+100              guard_field_r       <= '0;
+101              no_compare_field_r  <= '0;
+102            end else begin
+103              unique case (action_i)
+                        <font color = "red">-2-</font>  
+104                PAINT_HOLD: begin
+           <font color = "green">        ==></font>
+105                  // no change -- wide region's continuing full-limb repaint
+106                end
+107        
+108                PAINT_NARROW: begin
+109                  cell_bounds_r      <= cell_bounds_r | new_cell_bounds;
+           <font color = "green">          ==></font>
+110                  guard_field_r      <= guard_field_r      | (guarded_i    ? span_mask : '0);
+111                  no_compare_field_r <= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112                  bit_pos_r          <= new_bit_pos;
+113                end
+114        
+115                PAINT_SETC: begin
+116                  bit_pos_r    <= {1'b0, setc_pos_i};
+           <font color = "red">          ==></font>
+117                  limb_start_r <= setc_pos_i;
+118                end
+119        
+120                PAINT_WIDE_FIRST: begin
+121                  cell_bounds_r      <= 32'h1;
+122                  limb_start_r       <= '0;
+123                  bit_pos_r          <= 6'd32;
+124                  guard_field_r      <= guarded_i    ? '1 : '0;
+                                                        <font color = "red">-3-</font>  
+                                                        <font color = "red">==></font>  
+                                                        <font color = "red">==></font>  
+125                  no_compare_field_r <= no_compare_i ? '1 : '0;
+                                                        <font color = "red">-4-</font>  
+                                                        <font color = "red">==></font>  
+                                                        <font color = "red">==></font>  
+126                end
+127        
+128                PAINT_WIDE_FINAL: begin
+129                  bit_pos_r          <= wide_last_bits;
+130                  guard_field_r      <= wide_guarded_i    ? wide_final_mask : '0;
+                                                             <font color = "red">-5-</font>  
+                                                             <font color = "red">==></font>  
+                                                             <font color = "red">==></font>  
+131                  no_compare_field_r <= wide_no_compare_i ? wide_final_mask : '0;
+                                                             <font color = "red">-6-</font>  
+                                                             <font color = "red">==></font>  
+                                                             <font color = "red">==></font>  
+132                  // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                end
+134        
+135                PAINT_CLEAR: begin
+136                  bit_pos_r          <= '0;
+           <font color = "green">          ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_HOLD </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_NARROW </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_SETC </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FIRST </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>PAINT_WIDE_FINAL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>PAINT_CLEAR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_128_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod44.html#inst_tag_128" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine.front_end_u.word_paint_u</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#1939185507" >Assertions</a></td>
+<td class="wht cl rt">5</td>
+<td class="s10 cl rt">5</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt">2</td>
+<td class="s4 cl rt">40.00 </td>
+</tr><tr>
+<td class="wht cl"><a href="#242480078" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#97743383" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">5</td>
+<td class="s10 cl rt">5</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt">2</td>
+<td class="s4 cl rt">40.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="1939185507"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="856394505"></a>
+paint_action_known</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s9 cl rt">1110961</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="101917527"></a>
+paint_narrow_fits</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s9 cl rt">7547</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1766895781"></a>
+paint_setc_on_empty_word</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1519378457"></a>
+paint_wide_final_after_full_limb</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="412641054"></a>
+paint_wide_first_on_empty_word</td>
+<td class="s9 cl rt">1113081</td>
+<td class="s3 cl rt">0</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_128">
+    <li>
+      <a href="#inst_tag_128_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_128_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_128_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_128_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_128_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_129">
+    <li>
+      <a href="#inst_tag_129_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_129_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_129_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_129_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_129_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_130">
+    <li>
+      <a href="#inst_tag_130_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_130_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_130_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_130_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_130_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_131">
+    <li>
+      <a href="#inst_tag_131_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_131_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_131_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_131_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_131_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="tag_word_paint">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+    <li>
+      <a href="#Assert">Assert</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

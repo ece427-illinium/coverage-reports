@@ -1,0 +1,65 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT           
+ 99.04 100.00  96.15 --     100.00 100.00 tx_cdc_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT         
+   99.04 100.00  96.15 --     100.00 100.00 i_event 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT        
+     98.68 100.00  94.74 --     100.00 100.00 i_fifo 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+      100.00 --     --     --     --     100.00 i_fifo 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 MSYNC_1r1w 
+        100.00 --     --     --     --     100.00 bapg_rd    
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT          
+          100.00 --     --     --     --     100.00 ptr_sync 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT         
+        100.00 --     --     --     --     100.00 bapg_wr 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT          
+          100.00 --     --     --     --     100.00 ptr_sync 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT          
+   99.04 100.00  96.15 --     100.00 100.00 i_memory 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT        
+     98.68 100.00  94.74 --     100.00 100.00 i_fifo 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+      100.00 --     --     --     --     100.00 i_fifo 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT            
+        100.00 --     --     --     --     100.00 MSYNC_1r1w 
+        100.00 --     --     --     --     100.00 bapg_rd    
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT          
+          100.00 --     --     --     --     100.00 ptr_sync 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT         
+        100.00 --     --     --     --     100.00 bapg_wr 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT          
+          100.00 --     --     --     --     100.00 ptr_sync 
+

@@ -1,0 +1,124 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT             
+ 51.33  63.29  40.07  30.68  48.06  74.55 soc_boot_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT       
+   51.14  63.29  40.07  30.68  48.06  73.58 i_dut 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                   
+    100.00 100.00 --     --     100.00 --     i_chip_reset_sync 
+     37.50  52.50  28.57   3.64  31.05  71.74 i_core            
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                     
+      100.00 --     --     --     --     100.00 i_completion_router 
+       53.67  71.88  39.77  15.38  41.30 100.00 i_control           
+       57.48  55.74  38.46 --      35.71 100.00 i_event_tx          
+       49.96  41.54  28.57 --      29.73 100.00 i_mem_link          
+       75.00 --     --     --     --      75.00 i_p2p_rx_cdc        
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+         75.00 --     --     --     --      75.00 i_event_tx_fifo 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT        
+           75.00 --     --     --     --      75.00 i_fifo 
+            
+            ----------------
+            SCORE  LINE   COND   FSM    BRANCH ASSERT        
+             66.67 --     --     --     --      66.67 i_fifo 
+              
+              ----------------
+              SCORE  LINE   COND   FSM    BRANCH ASSERT            
+                0.00 --     --     --     --       0.00 MSYNC_1r1w 
+              100.00 --     --     --     --     100.00 bapg_rd    
+                
+                ----------------
+                SCORE  LINE   COND   FSM    BRANCH ASSERT          
+                100.00 --     --     --     --     100.00 ptr_sync 
+              
+              ----------------
+              SCORE  LINE   COND   FSM    BRANCH ASSERT         
+              100.00 --     --     --     --     100.00 bapg_wr 
+                
+                ----------------
+                SCORE  LINE   COND   FSM    BRANCH ASSERT          
+                100.00 --     --     --     --     100.00 ptr_sync 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT                        
+         75.00 --     --     --     --      75.00 i_memory_response_fifo 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT        
+           66.67 --     --     --     --      66.67 i_fifo 
+            
+            ----------------
+            SCORE  LINE   COND   FSM    BRANCH ASSERT            
+              0.00 --     --     --     --       0.00 MSYNC_1r1w 
+            100.00 --     --     --     --     100.00 bapg_rd    
+              
+              ----------------
+              SCORE  LINE   COND   FSM    BRANCH ASSERT          
+              100.00 --     --     --     --     100.00 ptr_sync 
+            
+            ----------------
+            SCORE  LINE   COND   FSM    BRANCH ASSERT         
+            100.00 --     --     --     --     100.00 bapg_wr 
+              
+              ----------------
+              SCORE  LINE   COND   FSM    BRANCH ASSERT          
+              100.00 --     --     --     --     100.00 ptr_sync 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+         75.00 --     --     --     --      75.00 i_memory_tx_fifo 
+          
+          ----------------
+          SCORE  LINE   COND   FSM    BRANCH ASSERT        
+           75.00 --     --     --     --      75.00 i_fifo 
+            
+            ----------------
+            SCORE  LINE   COND   FSM    BRANCH ASSERT        
+             66.67 --     --     --     --      66.67 i_fifo 
+              
+              ----------------
+              SCORE  LINE   COND   FSM    BRANCH ASSERT            
+                0.00 --     --     --     --       0.00 MSYNC_1r1w 
+              100.00 --     --     --     --     100.00 bapg_rd    
+                
+                ----------------
+                SCORE  LINE   COND   FSM    BRANCH ASSERT          
+                100.00 --     --     --     --     100.00 ptr_sync 
+              
+              ----------------
+              SCORE  LINE   COND   FSM    BRANCH ASSERT         
+              100.00 --     --     --     --     100.00 bapg_wr 
+                
+                ----------------
+                SCORE  LINE   COND   FSM    BRANCH ASSERT          
+                100.00 --     --     --     --     100.00 ptr_sync 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT              
+       36.65  53.12  31.58 --      28.57  33.33 i_program_rx 
+       50.00 --     --     --     --      50.00 i_vs_arbiter 
+       38.78  47.72  20.87   0.00  25.32 100.00 i_vs_service 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT                 
+        100.00 --     --     --     --     100.00 i_vs_cache_bank 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                        
+     92.74 100.00  85.94  77.78 100.00 100.00 i_dft_clock_controller 
+    100.00 100.00 --     --     100.00 --     i_io_reset_sync        
+     88.22  98.89  95.12  75.00  92.11  80.00 i_scan_access          
+    100.00 100.00 --     --     100.00 --     i_scan_reset_sync      
+

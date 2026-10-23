@@ -1,3 +1,1063 @@
+Group : async_fifo8_tb.i_test::fifo_cg
+
+===============================================================================
+Group : async_fifo8_tb.i_test::fifo_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+ 99.21  99.21    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/cdc/async_fifo_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
+ 99.21 1      100    1        64           64            coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   async_fifo8_tb.i_test::fifo_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 18       0         18      100.00  
+Crosses   17       1         16      96.43   
+
+
+Variables for Group  async_fifo8_tb.i_test::fifo_cg
+
+
+VARIABLE           EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+clocks             3        0         3       100.00  100  1      1        0                    
+data_width         1        0         1       100.00  100  1      1        0                    
+occupancy_state    4        0         4       100.00  100  1      1        0                    
+read_pointer_wrap  1        0         1       100.00  100  1      1        0                    
+reset_context      2        0         2       100.00  100  1      1        0                    
+transfer           6        0         6       100.00  100  1      1        0                    
+write_pointer_wrap 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group  async_fifo8_tb.i_test::fifo_cg
+
+
+CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+clocks_x_transfer    3        0         3       100.00  100  1      1        0                     
+occupancy_x_transfer 14       1         13      92.86   100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable clocks
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for clocks
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+reader_faster 1073  1        
+writer_faster 2049  1        
+unrelated     1479  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable data_width
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for data_width
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+configured 4601  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable occupancy_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for occupancy_state
+
+
+Bins
+
+NAME        COUNT AT LEAST 
+full        1296  1        
+almost_full 2052  1        
+partial     1080  1        
+empty       173   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable read_pointer_wrap
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for read_pointer_wrap
+
+
+Bins
+
+NAME COUNT AT LEAST 
+seen 103   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable reset_context
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for reset_context
+
+
+Bins
+
+NAME                   COUNT AT LEAST 
+reset_with_queued_data 3     1        
+reset_while_empty      6     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable transfer
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        0         6       100.00  
+
+
+User Defined Bins for transfer
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+blocked_read  99    1        
+blocked_write 1746  1        
+simultaneous  27    1        
+read_only     805   1        
+write_only    852   1        
+idle          1072  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_pointer_wrap
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for write_pointer_wrap
+
+
+Bins
+
+NAME COUNT AT LEAST 
+seen 105   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross clocks_x_transfer
+
+
+Samples crossed: clocks transfer
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 3        0         3       100.00          
+
+
+User Defined Cross Bins for clocks_x_transfer
+
+
+Bins
+
+NAME               COUNT AT LEAST 
+unrelated_activity 560   1        
+writer_pressure    1430  1        
+reader_pressure    343   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross occupancy_x_transfer
+
+
+Samples crossed: occupancy_state transfer
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              14       1         13      92.86   1       
+Automatically Generated Cross Bins 14       1         13      92.86   1       
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for occupancy_x_transfer
+
+
+Uncovered bins
+
+occupancy_state transfer       COUNT AT LEAST NUMBER 
+[almost_full]   [simultaneous] 0     1        1      
+
+
+Covered bins
+
+occupancy_state transfer      COUNT AT LEAST 
+full            blocked_write 636   1        
+full            read_only     537   1        
+full            idle          123   1        
+almost_full     read_only     3     1        
+almost_full     write_only    539   1        
+almost_full     idle          441   1        
+partial         simultaneous  27    1        
+partial         read_only     265   1        
+partial         write_only    253   1        
+partial         idle          450   1        
+empty           blocked_read  15    1        
+empty           write_only    60    1        
+empty           idle          58    1        
+
+
+User Defined Cross Bins for occupancy_x_transfer
+
+
+Excluded/Illegal bins
+
+NAME                           COUNT STATUS   
+empty_accepts_read             0     Excluded 
+empty_is_not_simultaneous      0     Excluded 
+full_accepts_write             0     Excluded 
+full_is_not_simultaneous       0     Excluded 
+empty_cannot_block_write       0     Excluded 
+partial_cannot_block_write     0     Excluded 
+almost_full_cannot_block_write 0     Excluded 
+partial_blocked_read           0     Excluded 
+almost_full_blocked_read       0     Excluded 
+full_blocked_read              0     Excluded 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+ 99.21 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                           
+ 99.21  99.21    1      100    1        1            64           64                    async_fifo8_tb.i_test::fifo_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 18       0         18      100.00  
+Crosses   17       1         16      96.43   
+
+
+Variables for Group Instance  coverage
+
+
+VARIABLE           EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+clocks             3        0         3       100.00  100  1      1        0                    
+data_width         1        0         1       100.00  100  1      1        0                    
+occupancy_state    4        0         4       100.00  100  1      1        0                    
+read_pointer_wrap  1        0         1       100.00  100  1      1        0                    
+reset_context      2        0         2       100.00  100  1      1        0                    
+transfer           6        0         6       100.00  100  1      1        0                    
+write_pointer_wrap 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  coverage
+
+
+CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+clocks_x_transfer    3        0         3       100.00  100  1      1        0                     
+occupancy_x_transfer 14       1         13      92.86   100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable clocks
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for clocks
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+reader_faster 1073  1        
+writer_faster 2049  1        
+unrelated     1479  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable data_width
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for data_width
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+configured 4601  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable occupancy_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for occupancy_state
+
+
+Bins
+
+NAME        COUNT AT LEAST 
+full        1296  1        
+almost_full 2052  1        
+partial     1080  1        
+empty       173   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable read_pointer_wrap
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for read_pointer_wrap
+
+
+Bins
+
+NAME COUNT AT LEAST 
+seen 103   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable reset_context
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for reset_context
+
+
+Bins
+
+NAME                   COUNT AT LEAST 
+reset_with_queued_data 3     1        
+reset_while_empty      6     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable transfer
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        0         6       100.00  
+
+
+User Defined Bins for transfer
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+blocked_read  99    1        
+blocked_write 1746  1        
+simultaneous  27    1        
+read_only     805   1        
+write_only    852   1        
+idle          1072  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_pointer_wrap
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for write_pointer_wrap
+
+
+Bins
+
+NAME COUNT AT LEAST 
+seen 105   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross clocks_x_transfer
+
+
+Samples crossed: clocks transfer
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 3        0         3       100.00          
+
+
+User Defined Cross Bins for clocks_x_transfer
+
+
+Bins
+
+NAME               COUNT AT LEAST 
+unrelated_activity 560   1        
+writer_pressure    1430  1        
+reader_pressure    343   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross occupancy_x_transfer
+
+
+Samples crossed: occupancy_state transfer
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              14       1         13      92.86   1       
+Automatically Generated Cross Bins 14       1         13      92.86   1       
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for occupancy_x_transfer
+
+
+Uncovered bins
+
+occupancy_state transfer       COUNT AT LEAST NUMBER 
+[almost_full]   [simultaneous] 0     1        1      
+
+
+Covered bins
+
+occupancy_state transfer      COUNT AT LEAST 
+full            blocked_write 636   1        
+full            read_only     537   1        
+full            idle          123   1        
+almost_full     read_only     3     1        
+almost_full     write_only    539   1        
+almost_full     idle          441   1        
+partial         simultaneous  27    1        
+partial         read_only     265   1        
+partial         write_only    253   1        
+partial         idle          450   1        
+empty           blocked_read  15    1        
+empty           write_only    60    1        
+empty           idle          58    1        
+
+
+User Defined Cross Bins for occupancy_x_transfer
+
+
+Excluded/Illegal bins
+
+NAME                           COUNT STATUS   
+empty_accepts_read             0     Excluded 
+empty_is_not_simultaneous      0     Excluded 
+full_accepts_write             0     Excluded 
+full_is_not_simultaneous       0     Excluded 
+empty_cannot_block_write       0     Excluded 
+partial_cannot_block_write     0     Excluded 
+almost_full_cannot_block_write 0     Excluded 
+partial_blocked_read           0     Excluded 
+almost_full_blocked_read       0     Excluded 
+full_blocked_read              0     Excluded 
+
+
+Group : async_fifo_tb::fifo_cg
+
+===============================================================================
+Group : async_fifo_tb::fifo_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+ 99.21  99.21    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/cdc/async_fifo_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
+ 99.21 1      100    1        64           64            coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   async_fifo_tb::fifo_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 18       0         18      100.00  
+Crosses   17       1         16      96.43   
+
+
+Variables for Group  async_fifo_tb::fifo_cg
+
+
+VARIABLE           EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+clocks             3        0         3       100.00  100  1      1        0                    
+data_width         1        0         1       100.00  100  1      1        0                    
+occupancy_state    4        0         4       100.00  100  1      1        0                    
+read_pointer_wrap  1        0         1       100.00  100  1      1        0                    
+reset_context      2        0         2       100.00  100  1      1        0                    
+transfer           6        0         6       100.00  100  1      1        0                    
+write_pointer_wrap 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group  async_fifo_tb::fifo_cg
+
+
+CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+occupancy_x_transfer 14       1         13      92.86   100  1      1        0                     
+clocks_x_transfer    3        0         3       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable clocks
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for clocks
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+reader_faster 381   1        
+writer_faster 667   1        
+unrelated     491   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable data_width
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for data_width
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+configured 1539  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable occupancy_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for occupancy_state
+
+
+Bins
+
+NAME        COUNT AT LEAST 
+full        385   1        
+almost_full 593   1        
+partial     427   1        
+empty       134   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable read_pointer_wrap
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for read_pointer_wrap
+
+
+Bins
+
+NAME COUNT AT LEAST 
+seen 31    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable reset_context
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for reset_context
+
+
+Bins
+
+NAME                   COUNT AT LEAST 
+reset_with_queued_data 3     1        
+reset_while_empty      6     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable transfer
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        0         6       100.00  
+
+
+User Defined Bins for transfer
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+blocked_read  41    1        
+blocked_write 528   1        
+simultaneous  7     1        
+read_only     249   1        
+write_only    276   1        
+idle          438   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_pointer_wrap
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for write_pointer_wrap
+
+
+Bins
+
+NAME COUNT AT LEAST 
+seen 33    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross occupancy_x_transfer
+
+
+Samples crossed: occupancy_state transfer
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              14       1         13      92.86   1       
+Automatically Generated Cross Bins 14       1         13      92.86   1       
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for occupancy_x_transfer
+
+
+Uncovered bins
+
+occupancy_state transfer       COUNT AT LEAST NUMBER 
+[almost_full]   [simultaneous] 0     1        1      
+
+
+Covered bins
+
+occupancy_state transfer      COUNT AT LEAST 
+full            blocked_write 186   1        
+full            read_only     153   1        
+full            idle          46    1        
+almost_full     read_only     3     1        
+almost_full     write_only    155   1        
+almost_full     idle          134   1        
+partial         simultaneous  7     1        
+partial         read_only     93    1        
+partial         write_only    99    1        
+partial         idle          201   1        
+empty           blocked_read  15    1        
+empty           write_only    22    1        
+empty           idle          57    1        
+
+
+User Defined Cross Bins for occupancy_x_transfer
+
+
+Excluded/Illegal bins
+
+NAME                           COUNT STATUS   
+empty_accepts_read             0     Excluded 
+empty_is_not_simultaneous      0     Excluded 
+full_accepts_write             0     Excluded 
+full_is_not_simultaneous       0     Excluded 
+empty_cannot_block_write       0     Excluded 
+partial_cannot_block_write     0     Excluded 
+almost_full_cannot_block_write 0     Excluded 
+partial_blocked_read           0     Excluded 
+almost_full_blocked_read       0     Excluded 
+full_blocked_read              0     Excluded 
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross clocks_x_transfer
+
+
+Samples crossed: clocks transfer
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 3        0         3       100.00          
+
+
+User Defined Cross Bins for clocks_x_transfer
+
+
+Bins
+
+NAME               COUNT AT LEAST 
+unrelated_activity 176   1        
+writer_pressure    431   1        
+reader_pressure    113   1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+ 99.21 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                   
+ 99.21  99.21    1      100    1        1            64           64                    async_fifo_tb::fifo_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 18       0         18      100.00  
+Crosses   17       1         16      96.43   
+
+
+Variables for Group Instance  coverage
+
+
+VARIABLE           EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+clocks             3        0         3       100.00  100  1      1        0                    
+data_width         1        0         1       100.00  100  1      1        0                    
+occupancy_state    4        0         4       100.00  100  1      1        0                    
+read_pointer_wrap  1        0         1       100.00  100  1      1        0                    
+reset_context      2        0         2       100.00  100  1      1        0                    
+transfer           6        0         6       100.00  100  1      1        0                    
+write_pointer_wrap 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  coverage
+
+
+CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+occupancy_x_transfer 14       1         13      92.86   100  1      1        0                     
+clocks_x_transfer    3        0         3       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable clocks
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for clocks
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+reader_faster 381   1        
+writer_faster 667   1        
+unrelated     491   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable data_width
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for data_width
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+configured 1539  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable occupancy_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for occupancy_state
+
+
+Bins
+
+NAME        COUNT AT LEAST 
+full        385   1        
+almost_full 593   1        
+partial     427   1        
+empty       134   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable read_pointer_wrap
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for read_pointer_wrap
+
+
+Bins
+
+NAME COUNT AT LEAST 
+seen 31    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable reset_context
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for reset_context
+
+
+Bins
+
+NAME                   COUNT AT LEAST 
+reset_with_queued_data 3     1        
+reset_while_empty      6     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable transfer
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        0         6       100.00  
+
+
+User Defined Bins for transfer
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+blocked_read  41    1        
+blocked_write 528   1        
+simultaneous  7     1        
+read_only     249   1        
+write_only    276   1        
+idle          438   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_pointer_wrap
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for write_pointer_wrap
+
+
+Bins
+
+NAME COUNT AT LEAST 
+seen 33    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross occupancy_x_transfer
+
+
+Samples crossed: occupancy_state transfer
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              14       1         13      92.86   1       
+Automatically Generated Cross Bins 14       1         13      92.86   1       
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for occupancy_x_transfer
+
+
+Uncovered bins
+
+occupancy_state transfer       COUNT AT LEAST NUMBER 
+[almost_full]   [simultaneous] 0     1        1      
+
+
+Covered bins
+
+occupancy_state transfer      COUNT AT LEAST 
+full            blocked_write 186   1        
+full            read_only     153   1        
+full            idle          46    1        
+almost_full     read_only     3     1        
+almost_full     write_only    155   1        
+almost_full     idle          134   1        
+partial         simultaneous  7     1        
+partial         read_only     93    1        
+partial         write_only    99    1        
+partial         idle          201   1        
+empty           blocked_read  15    1        
+empty           write_only    22    1        
+empty           idle          57    1        
+
+
+User Defined Cross Bins for occupancy_x_transfer
+
+
+Excluded/Illegal bins
+
+NAME                           COUNT STATUS   
+empty_accepts_read             0     Excluded 
+empty_is_not_simultaneous      0     Excluded 
+full_accepts_write             0     Excluded 
+full_is_not_simultaneous       0     Excluded 
+empty_cannot_block_write       0     Excluded 
+partial_cannot_block_write     0     Excluded 
+almost_full_cannot_block_write 0     Excluded 
+partial_blocked_read           0     Excluded 
+almost_full_blocked_read       0     Excluded 
+full_blocked_read              0     Excluded 
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross clocks_x_transfer
+
+
+Samples crossed: clocks transfer
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 3        0         3       100.00          
+
+
+User Defined Cross Bins for clocks_x_transfer
+
+
+Bins
+
+NAME               COUNT AT LEAST 
+unrelated_activity 176   1        
+writer_pressure    431   1        
+reader_pressure    113   1        
+
+
 Group : async_fifo8_tb.i_test::data_cg
 
 ===============================================================================
@@ -60,7 +1120,7 @@ User Defined Bins for data_width
 Bins
 
 NAME       COUNT AT LEAST 
-configured 834   1        
+configured 832   1        
 
 
 -------------------------------------------------------------------------------
@@ -81,7 +1141,7 @@ NAME          COUNT AT LEAST
 rollover_zero 6     1        
 maximum       6     1        
 minimum       6     1        
-ordinary      816   1        
+ordinary      814   1        
 
 
 -------------------------------------------------------------------------------
@@ -103,7 +1163,7 @@ data_width delivered_value COUNT AT LEAST
 configured rollover_zero   6     1        
 configured maximum         6     1        
 configured minimum         6     1        
-configured ordinary        816   1        
+configured ordinary        814   1        
 
 
 -------------------------------------------------------------------------------
@@ -162,7 +1222,7 @@ User Defined Bins for data_width
 Bins
 
 NAME       COUNT AT LEAST 
-configured 834   1        
+configured 832   1        
 
 
 -------------------------------------------------------------------------------
@@ -183,7 +1243,7 @@ NAME          COUNT AT LEAST
 rollover_zero 6     1        
 maximum       6     1        
 minimum       6     1        
-ordinary      816   1        
+ordinary      814   1        
 
 
 -------------------------------------------------------------------------------
@@ -205,7 +1265,7 @@ data_width delivered_value COUNT AT LEAST
 configured rollover_zero   6     1        
 configured maximum         6     1        
 configured minimum         6     1        
-configured ordinary        816   1        
+configured ordinary        814   1        
 
 
 Group : async_fifo_tb::data_cg
@@ -270,7 +1330,7 @@ User Defined Bins for data_width
 Bins
 
 NAME       COUNT AT LEAST 
-configured 258   1        
+configured 256   1        
 
 
 -------------------------------------------------------------------------------
@@ -291,7 +1351,7 @@ NAME          COUNT AT LEAST
 rollover_zero 6     1        
 maximum       6     1        
 minimum       6     1        
-ordinary      240   1        
+ordinary      238   1        
 
 
 -------------------------------------------------------------------------------
@@ -313,7 +1373,7 @@ data_width delivered_value COUNT AT LEAST
 configured rollover_zero   6     1        
 configured maximum         6     1        
 configured minimum         6     1        
-configured ordinary        240   1        
+configured ordinary        238   1        
 
 
 -------------------------------------------------------------------------------
@@ -372,7 +1432,7 @@ User Defined Bins for data_width
 Bins
 
 NAME       COUNT AT LEAST 
-configured 258   1        
+configured 256   1        
 
 
 -------------------------------------------------------------------------------
@@ -393,7 +1453,7 @@ NAME          COUNT AT LEAST
 rollover_zero 6     1        
 maximum       6     1        
 minimum       6     1        
-ordinary      240   1        
+ordinary      238   1        
 
 
 -------------------------------------------------------------------------------
@@ -415,1047 +1475,7 @@ data_width delivered_value COUNT AT LEAST
 configured rollover_zero   6     1        
 configured maximum         6     1        
 configured minimum         6     1        
-configured ordinary        240   1        
-
-
-Group : async_fifo8_tb.i_test::fifo_cg
-
-===============================================================================
-Group : async_fifo8_tb.i_test::fifo_cg
-===============================================================================
-SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
-100.00 100.00    1      100    1        1            64           64            
-
-
-Source File(s) : 
-
-/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/cdc/async_fifo_tb.sv
-
-1 Instances:
-
-SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
-100.00 1      100    1        64           64            coverage 
-
-
-
-
--------------------------------------------------------------------------------
-
-Summary for Group   async_fifo8_tb.i_test::fifo_cg
-
-
-
-CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
-Variables 18       0         18      100.00  
-Crosses   17       0         17      100.00  
-
-
-Variables for Group  async_fifo8_tb.i_test::fifo_cg
-
-
-VARIABLE           EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
-clocks             3        0         3       100.00  100  1      1        0                    
-data_width         1        0         1       100.00  100  1      1        0                    
-occupancy_state    4        0         4       100.00  100  1      1        0                    
-read_pointer_wrap  1        0         1       100.00  100  1      1        0                    
-reset_context      2        0         2       100.00  100  1      1        0                    
-transfer           6        0         6       100.00  100  1      1        0                    
-write_pointer_wrap 1        0         1       100.00  100  1      1        0                    
-
-
-Crosses for Group  async_fifo8_tb.i_test::fifo_cg
-
-
-CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
-clocks_x_transfer    3        0         3       100.00  100  1      1        0                     
-occupancy_x_transfer 14       0         14      100.00  100  1      1        0                     
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable clocks
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 3        0         3       100.00  
-
-
-User Defined Bins for clocks
-
-
-Bins
-
-NAME          COUNT AT LEAST 
-reader_faster 1055  1        
-writer_faster 2030  1        
-unrelated     1458  1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable data_width
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for data_width
-
-
-Bins
-
-NAME       COUNT AT LEAST 
-configured 4543  1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable occupancy_state
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 4        0         4       100.00  
-
-
-User Defined Bins for occupancy_state
-
-
-Bins
-
-NAME        COUNT AT LEAST 
-full        621   1        
-almost_full 2512  1        
-partial     1308  1        
-empty       102   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable read_pointer_wrap
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for read_pointer_wrap
-
-
-Bins
-
-NAME COUNT AT LEAST 
-seen 103   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable reset_context
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 2        0         2       100.00  
-
-
-User Defined Bins for reset_context
-
-
-Bins
-
-NAME                   COUNT AT LEAST 
-reset_with_queued_data 3     1        
-reset_while_empty      6     1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable transfer
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 6        0         6       100.00  
-
-
-User Defined Bins for transfer
-
-
-Bins
-
-NAME          COUNT AT LEAST 
-blocked_read  92    1        
-blocked_write 1718  1        
-simultaneous  66    1        
-read_only     806   1        
-write_only    814   1        
-idle          1047  1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable write_pointer_wrap
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for write_pointer_wrap
-
-
-Bins
-
-NAME COUNT AT LEAST 
-seen 105   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Cross clocks_x_transfer
-
-
-Samples crossed: clocks transfer
-CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
-User Defined Cross Bins 3        0         3       100.00          
-
-
-User Defined Cross Bins for clocks_x_transfer
-
-
-Bins
-
-NAME               COUNT AT LEAST 
-unrelated_activity 561   1        
-writer_pressure    1418  1        
-reader_pressure    339   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Cross occupancy_x_transfer
-
-
-Samples crossed: occupancy_state transfer
-CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
-TOTAL                              14       0         14      100.00          
-Automatically Generated Cross Bins 14       0         14      100.00          
-User Defined Cross Bins            0        0         0                       
-
-
-Automatically Generated Cross Bins for occupancy_x_transfer
-
-
-Bins
-
-occupancy_state transfer      COUNT AT LEAST 
-full            blocked_write 336   1        
-full            read_only     271   1        
-full            idle          13    1        
-almost_full     simultaneous  38    1        
-almost_full     read_only     272   1        
-almost_full     write_only    272   1        
-almost_full     idle          550   1        
-partial         simultaneous  28    1        
-partial         read_only     263   1        
-partial         write_only    482   1        
-partial         idle          450   1        
-empty           blocked_read  8     1        
-empty           write_only    60    1        
-empty           idle          34    1        
-
-
-User Defined Cross Bins for occupancy_x_transfer
-
-
-Excluded/Illegal bins
-
-NAME                           COUNT STATUS   
-empty_accepts_read             0     Excluded 
-empty_is_not_simultaneous      0     Excluded 
-full_accepts_write             0     Excluded 
-full_is_not_simultaneous       0     Excluded 
-empty_cannot_block_write       0     Excluded 
-partial_cannot_block_write     0     Excluded 
-almost_full_cannot_block_write 0     Excluded 
-partial_blocked_read           0     Excluded 
-almost_full_blocked_read       0     Excluded 
-full_blocked_read              0     Excluded 
-
-
--------------------------------------------------------------------------------
-===============================================================================
-Group Instance : coverage
-===============================================================================
-SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
-100.00 1      100    1        64           64            
-
-
-Group:
-
-SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                           
-100.00 100.00    1      100    1        1            64           64                    async_fifo8_tb.i_test::fifo_cg 
-
-
-
--------------------------------------------------------------------------------
-
-Summary for Group Instance   coverage
-
-
-
-CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
-Variables 18       0         18      100.00  
-Crosses   17       0         17      100.00  
-
-
-Variables for Group Instance  coverage
-
-
-VARIABLE           EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
-clocks             3        0         3       100.00  100  1      1        0                    
-data_width         1        0         1       100.00  100  1      1        0                    
-occupancy_state    4        0         4       100.00  100  1      1        0                    
-read_pointer_wrap  1        0         1       100.00  100  1      1        0                    
-reset_context      2        0         2       100.00  100  1      1        0                    
-transfer           6        0         6       100.00  100  1      1        0                    
-write_pointer_wrap 1        0         1       100.00  100  1      1        0                    
-
-
-Crosses for Group Instance  coverage
-
-
-CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
-clocks_x_transfer    3        0         3       100.00  100  1      1        0                     
-occupancy_x_transfer 14       0         14      100.00  100  1      1        0                     
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable clocks
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 3        0         3       100.00  
-
-
-User Defined Bins for clocks
-
-
-Bins
-
-NAME          COUNT AT LEAST 
-reader_faster 1055  1        
-writer_faster 2030  1        
-unrelated     1458  1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable data_width
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for data_width
-
-
-Bins
-
-NAME       COUNT AT LEAST 
-configured 4543  1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable occupancy_state
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 4        0         4       100.00  
-
-
-User Defined Bins for occupancy_state
-
-
-Bins
-
-NAME        COUNT AT LEAST 
-full        621   1        
-almost_full 2512  1        
-partial     1308  1        
-empty       102   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable read_pointer_wrap
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for read_pointer_wrap
-
-
-Bins
-
-NAME COUNT AT LEAST 
-seen 103   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable reset_context
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 2        0         2       100.00  
-
-
-User Defined Bins for reset_context
-
-
-Bins
-
-NAME                   COUNT AT LEAST 
-reset_with_queued_data 3     1        
-reset_while_empty      6     1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable transfer
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 6        0         6       100.00  
-
-
-User Defined Bins for transfer
-
-
-Bins
-
-NAME          COUNT AT LEAST 
-blocked_read  92    1        
-blocked_write 1718  1        
-simultaneous  66    1        
-read_only     806   1        
-write_only    814   1        
-idle          1047  1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable write_pointer_wrap
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for write_pointer_wrap
-
-
-Bins
-
-NAME COUNT AT LEAST 
-seen 105   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Cross clocks_x_transfer
-
-
-Samples crossed: clocks transfer
-CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
-User Defined Cross Bins 3        0         3       100.00          
-
-
-User Defined Cross Bins for clocks_x_transfer
-
-
-Bins
-
-NAME               COUNT AT LEAST 
-unrelated_activity 561   1        
-writer_pressure    1418  1        
-reader_pressure    339   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Cross occupancy_x_transfer
-
-
-Samples crossed: occupancy_state transfer
-CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
-TOTAL                              14       0         14      100.00          
-Automatically Generated Cross Bins 14       0         14      100.00          
-User Defined Cross Bins            0        0         0                       
-
-
-Automatically Generated Cross Bins for occupancy_x_transfer
-
-
-Bins
-
-occupancy_state transfer      COUNT AT LEAST 
-full            blocked_write 336   1        
-full            read_only     271   1        
-full            idle          13    1        
-almost_full     simultaneous  38    1        
-almost_full     read_only     272   1        
-almost_full     write_only    272   1        
-almost_full     idle          550   1        
-partial         simultaneous  28    1        
-partial         read_only     263   1        
-partial         write_only    482   1        
-partial         idle          450   1        
-empty           blocked_read  8     1        
-empty           write_only    60    1        
-empty           idle          34    1        
-
-
-User Defined Cross Bins for occupancy_x_transfer
-
-
-Excluded/Illegal bins
-
-NAME                           COUNT STATUS   
-empty_accepts_read             0     Excluded 
-empty_is_not_simultaneous      0     Excluded 
-full_accepts_write             0     Excluded 
-full_is_not_simultaneous       0     Excluded 
-empty_cannot_block_write       0     Excluded 
-partial_cannot_block_write     0     Excluded 
-almost_full_cannot_block_write 0     Excluded 
-partial_blocked_read           0     Excluded 
-almost_full_blocked_read       0     Excluded 
-full_blocked_read              0     Excluded 
-
-
-Group : async_fifo_tb::fifo_cg
-
-===============================================================================
-Group : async_fifo_tb::fifo_cg
-===============================================================================
-SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
-100.00 100.00    1      100    1        1            64           64            
-
-
-Source File(s) : 
-
-/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/cdc/async_fifo_tb.sv
-
-1 Instances:
-
-SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
-100.00 1      100    1        64           64            coverage 
-
-
-
-
--------------------------------------------------------------------------------
-
-Summary for Group   async_fifo_tb::fifo_cg
-
-
-
-CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
-Variables 18       0         18      100.00  
-Crosses   17       0         17      100.00  
-
-
-Variables for Group  async_fifo_tb::fifo_cg
-
-
-VARIABLE           EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
-clocks             3        0         3       100.00  100  1      1        0                    
-data_width         1        0         1       100.00  100  1      1        0                    
-occupancy_state    4        0         4       100.00  100  1      1        0                    
-read_pointer_wrap  1        0         1       100.00  100  1      1        0                    
-reset_context      2        0         2       100.00  100  1      1        0                    
-transfer           6        0         6       100.00  100  1      1        0                    
-write_pointer_wrap 1        0         1       100.00  100  1      1        0                    
-
-
-Crosses for Group  async_fifo_tb::fifo_cg
-
-
-CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
-occupancy_x_transfer 14       0         14      100.00  100  1      1        0                     
-clocks_x_transfer    3        0         3       100.00  100  1      1        0                     
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable clocks
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 3        0         3       100.00  
-
-
-User Defined Bins for clocks
-
-
-Bins
-
-NAME          COUNT AT LEAST 
-reader_faster 363   1        
-writer_faster 648   1        
-unrelated     471   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable data_width
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for data_width
-
-
-Bins
-
-NAME       COUNT AT LEAST 
-configured 1482  1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable occupancy_state
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 4        0         4       100.00  
-
-
-User Defined Bins for occupancy_state
-
-
-Bins
-
-NAME        COUNT AT LEAST 
-full        198   1        
-almost_full 730   1        
-partial     489   1        
-empty       65    1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable read_pointer_wrap
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for read_pointer_wrap
-
-
-Bins
-
-NAME COUNT AT LEAST 
-seen 31    1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable reset_context
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 2        0         2       100.00  
-
-
-User Defined Bins for reset_context
-
-
-Bins
-
-NAME                   COUNT AT LEAST 
-reset_with_queued_data 3     1        
-reset_while_empty      6     1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable transfer
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 6        0         6       100.00  
-
-
-User Defined Bins for transfer
-
-
-Bins
-
-NAME          COUNT AT LEAST 
-blocked_read  34    1        
-blocked_write 499   1        
-simultaneous  18    1        
-read_only     250   1        
-write_only    266   1        
-idle          415   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable write_pointer_wrap
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for write_pointer_wrap
-
-
-Bins
-
-NAME COUNT AT LEAST 
-seen 33    1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Cross occupancy_x_transfer
-
-
-Samples crossed: occupancy_state transfer
-CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
-TOTAL                              14       0         14      100.00          
-Automatically Generated Cross Bins 14       0         14      100.00          
-User Defined Cross Bins            0        0         0                       
-
-
-Automatically Generated Cross Bins for occupancy_x_transfer
-
-
-Bins
-
-occupancy_state transfer      COUNT AT LEAST 
-full            blocked_write 105   1        
-full            read_only     79    1        
-full            idle          13    1        
-almost_full     simultaneous  10    1        
-almost_full     read_only     80    1        
-almost_full     write_only    80    1        
-almost_full     idle          168   1        
-partial         simultaneous  8     1        
-partial         read_only     91    1        
-partial         write_only    164   1        
-partial         idle          199   1        
-empty           blocked_read  8     1        
-empty           write_only    22    1        
-empty           idle          35    1        
-
-
-User Defined Cross Bins for occupancy_x_transfer
-
-
-Excluded/Illegal bins
-
-NAME                           COUNT STATUS   
-empty_accepts_read             0     Excluded 
-empty_is_not_simultaneous      0     Excluded 
-full_accepts_write             0     Excluded 
-full_is_not_simultaneous       0     Excluded 
-empty_cannot_block_write       0     Excluded 
-partial_cannot_block_write     0     Excluded 
-almost_full_cannot_block_write 0     Excluded 
-partial_blocked_read           0     Excluded 
-almost_full_blocked_read       0     Excluded 
-full_blocked_read              0     Excluded 
-
-
--------------------------------------------------------------------------------
-
-Summary for Cross clocks_x_transfer
-
-
-Samples crossed: clocks transfer
-CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
-User Defined Cross Bins 3        0         3       100.00          
-
-
-User Defined Cross Bins for clocks_x_transfer
-
-
-Bins
-
-NAME               COUNT AT LEAST 
-unrelated_activity 177   1        
-writer_pressure    419   1        
-reader_pressure    109   1        
-
-
--------------------------------------------------------------------------------
-===============================================================================
-Group Instance : coverage
-===============================================================================
-SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
-100.00 1      100    1        64           64            
-
-
-Group:
-
-SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                   
-100.00 100.00    1      100    1        1            64           64                    async_fifo_tb::fifo_cg 
-
-
-
--------------------------------------------------------------------------------
-
-Summary for Group Instance   coverage
-
-
-
-CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
-Variables 18       0         18      100.00  
-Crosses   17       0         17      100.00  
-
-
-Variables for Group Instance  coverage
-
-
-VARIABLE           EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
-clocks             3        0         3       100.00  100  1      1        0                    
-data_width         1        0         1       100.00  100  1      1        0                    
-occupancy_state    4        0         4       100.00  100  1      1        0                    
-read_pointer_wrap  1        0         1       100.00  100  1      1        0                    
-reset_context      2        0         2       100.00  100  1      1        0                    
-transfer           6        0         6       100.00  100  1      1        0                    
-write_pointer_wrap 1        0         1       100.00  100  1      1        0                    
-
-
-Crosses for Group Instance  coverage
-
-
-CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
-occupancy_x_transfer 14       0         14      100.00  100  1      1        0                     
-clocks_x_transfer    3        0         3       100.00  100  1      1        0                     
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable clocks
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 3        0         3       100.00  
-
-
-User Defined Bins for clocks
-
-
-Bins
-
-NAME          COUNT AT LEAST 
-reader_faster 363   1        
-writer_faster 648   1        
-unrelated     471   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable data_width
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for data_width
-
-
-Bins
-
-NAME       COUNT AT LEAST 
-configured 1482  1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable occupancy_state
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 4        0         4       100.00  
-
-
-User Defined Bins for occupancy_state
-
-
-Bins
-
-NAME        COUNT AT LEAST 
-full        198   1        
-almost_full 730   1        
-partial     489   1        
-empty       65    1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable read_pointer_wrap
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for read_pointer_wrap
-
-
-Bins
-
-NAME COUNT AT LEAST 
-seen 31    1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable reset_context
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 2        0         2       100.00  
-
-
-User Defined Bins for reset_context
-
-
-Bins
-
-NAME                   COUNT AT LEAST 
-reset_with_queued_data 3     1        
-reset_while_empty      6     1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable transfer
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 6        0         6       100.00  
-
-
-User Defined Bins for transfer
-
-
-Bins
-
-NAME          COUNT AT LEAST 
-blocked_read  34    1        
-blocked_write 499   1        
-simultaneous  18    1        
-read_only     250   1        
-write_only    266   1        
-idle          415   1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable write_pointer_wrap
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 1        0         1       100.00  
-
-
-User Defined Bins for write_pointer_wrap
-
-
-Bins
-
-NAME COUNT AT LEAST 
-seen 33    1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Cross occupancy_x_transfer
-
-
-Samples crossed: occupancy_state transfer
-CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
-TOTAL                              14       0         14      100.00          
-Automatically Generated Cross Bins 14       0         14      100.00          
-User Defined Cross Bins            0        0         0                       
-
-
-Automatically Generated Cross Bins for occupancy_x_transfer
-
-
-Bins
-
-occupancy_state transfer      COUNT AT LEAST 
-full            blocked_write 105   1        
-full            read_only     79    1        
-full            idle          13    1        
-almost_full     simultaneous  10    1        
-almost_full     read_only     80    1        
-almost_full     write_only    80    1        
-almost_full     idle          168   1        
-partial         simultaneous  8     1        
-partial         read_only     91    1        
-partial         write_only    164   1        
-partial         idle          199   1        
-empty           blocked_read  8     1        
-empty           write_only    22    1        
-empty           idle          35    1        
-
-
-User Defined Cross Bins for occupancy_x_transfer
-
-
-Excluded/Illegal bins
-
-NAME                           COUNT STATUS   
-empty_accepts_read             0     Excluded 
-empty_is_not_simultaneous      0     Excluded 
-full_accepts_write             0     Excluded 
-full_is_not_simultaneous       0     Excluded 
-empty_cannot_block_write       0     Excluded 
-partial_cannot_block_write     0     Excluded 
-almost_full_cannot_block_write 0     Excluded 
-partial_blocked_read           0     Excluded 
-almost_full_blocked_read       0     Excluded 
-full_blocked_read              0     Excluded 
-
-
--------------------------------------------------------------------------------
-
-Summary for Cross clocks_x_transfer
-
-
-Samples crossed: clocks transfer
-CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
-User Defined Cross Bins 3        0         3       100.00          
-
-
-User Defined Cross Bins for clocks_x_transfer
-
-
-Bins
-
-NAME               COUNT AT LEAST 
-unrelated_activity 177   1        
-writer_pressure    419   1        
-reader_pressure    109   1        
+configured ordinary        238   1        
 
 
 Group : completion_router_tb::completion_cg
@@ -4143,9 +4163,9 @@ User Defined Bins for backpressure
 Bins
 
 NAME          COUNT AT LEAST 
-chip_consumer 5475  1        
-io_fifo_full  9224  1        
-none          22302 1        
+chip_consumer 4814  1        
+io_fifo_full  9498  1        
+none          22798 1        
 
 
 -------------------------------------------------------------------------------
@@ -4163,8 +4183,8 @@ User Defined Bins for crossing_side
 Bins
 
 NAME            COUNT AT LEAST 
-chip_deliver    16605 1        
-boundary_accept 20396 1        
+chip_deliver    16192 1        
+boundary_accept 20918 1        
 
 
 -------------------------------------------------------------------------------
@@ -4182,7 +4202,7 @@ User Defined Bins for delivery_after_stall
 Bins
 
 NAME     COUNT AT LEAST 
-observed 2211  1        
+observed 2248  1        
 
 
 -------------------------------------------------------------------------------
@@ -4218,8 +4238,8 @@ User Defined Bins for payload_stream
 Bins
 
 NAME            COUNT AT LEAST 
-memory_response 25766 1        
-program_stream  11235 1        
+memory_response 25421 1        
+program_stream  11689 1        
 
 
 -------------------------------------------------------------------------------
@@ -4255,7 +4275,7 @@ User Defined Bins for simultaneous_streams
 Bins
 
 NAME     COUNT AT LEAST 
-observed 15378 1        
+observed 15523 1        
 
 
 -------------------------------------------------------------------------------
@@ -4274,10 +4294,10 @@ Automatically Generated Cross Bins for stream_x_side
 Bins
 
 payload_stream  crossing_side   COUNT AT LEAST 
-memory_response chip_deliver    10998 1        
-memory_response boundary_accept 14768 1        
-program_stream  chip_deliver    5607  1        
-program_stream  boundary_accept 5628  1        
+memory_response chip_deliver    10358 1        
+memory_response boundary_accept 15063 1        
+program_stream  chip_deliver    5834  1        
+program_stream  boundary_accept 5855  1        
 
 
 -------------------------------------------------------------------------------
@@ -4298,12 +4318,12 @@ Automatically Generated Cross Bins for stream_x_side_x_stall
 Bins
 
 payload_stream  crossing_side   backpressure  COUNT AT LEAST 
-memory_response chip_deliver    chip_consumer 5475  1        
-memory_response chip_deliver    none          5523  1        
-memory_response boundary_accept io_fifo_full  9224  1        
-memory_response boundary_accept none          5544  1        
-program_stream  chip_deliver    none          5607  1        
-program_stream  boundary_accept none          5628  1        
+memory_response chip_deliver    chip_consumer 4814  1        
+memory_response chip_deliver    none          5544  1        
+memory_response boundary_accept io_fifo_full  9498  1        
+memory_response boundary_accept none          5565  1        
+program_stream  chip_deliver    none          5834  1        
+program_stream  boundary_accept none          5855  1        
 
 
 User Defined Cross Bins for stream_x_side_x_stall
@@ -4333,9 +4353,9 @@ Automatically Generated Cross Bins for concurrency_x_chip_stall
 Bins
 
 simultaneous_streams backpressure  COUNT AT LEAST 
-observed             chip_consumer 1666  1        
-observed             io_fifo_full  3874  1        
-observed             none          9838  1        
+observed             chip_consumer 1661  1        
+observed             io_fifo_full  3921  1        
+observed             none          9941  1        
 
 
 -------------------------------------------------------------------------------
@@ -4401,9 +4421,9 @@ User Defined Bins for backpressure
 Bins
 
 NAME          COUNT AT LEAST 
-chip_consumer 5475  1        
-io_fifo_full  9224  1        
-none          22302 1        
+chip_consumer 4814  1        
+io_fifo_full  9498  1        
+none          22798 1        
 
 
 -------------------------------------------------------------------------------
@@ -4421,8 +4441,8 @@ User Defined Bins for crossing_side
 Bins
 
 NAME            COUNT AT LEAST 
-chip_deliver    16605 1        
-boundary_accept 20396 1        
+chip_deliver    16192 1        
+boundary_accept 20918 1        
 
 
 -------------------------------------------------------------------------------
@@ -4440,7 +4460,7 @@ User Defined Bins for delivery_after_stall
 Bins
 
 NAME     COUNT AT LEAST 
-observed 2211  1        
+observed 2248  1        
 
 
 -------------------------------------------------------------------------------
@@ -4476,8 +4496,8 @@ User Defined Bins for payload_stream
 Bins
 
 NAME            COUNT AT LEAST 
-memory_response 25766 1        
-program_stream  11235 1        
+memory_response 25421 1        
+program_stream  11689 1        
 
 
 -------------------------------------------------------------------------------
@@ -4513,7 +4533,7 @@ User Defined Bins for simultaneous_streams
 Bins
 
 NAME     COUNT AT LEAST 
-observed 15378 1        
+observed 15523 1        
 
 
 -------------------------------------------------------------------------------
@@ -4532,10 +4552,10 @@ Automatically Generated Cross Bins for stream_x_side
 Bins
 
 payload_stream  crossing_side   COUNT AT LEAST 
-memory_response chip_deliver    10998 1        
-memory_response boundary_accept 14768 1        
-program_stream  chip_deliver    5607  1        
-program_stream  boundary_accept 5628  1        
+memory_response chip_deliver    10358 1        
+memory_response boundary_accept 15063 1        
+program_stream  chip_deliver    5834  1        
+program_stream  boundary_accept 5855  1        
 
 
 -------------------------------------------------------------------------------
@@ -4556,12 +4576,12 @@ Automatically Generated Cross Bins for stream_x_side_x_stall
 Bins
 
 payload_stream  crossing_side   backpressure  COUNT AT LEAST 
-memory_response chip_deliver    chip_consumer 5475  1        
-memory_response chip_deliver    none          5523  1        
-memory_response boundary_accept io_fifo_full  9224  1        
-memory_response boundary_accept none          5544  1        
-program_stream  chip_deliver    none          5607  1        
-program_stream  boundary_accept none          5628  1        
+memory_response chip_deliver    chip_consumer 4814  1        
+memory_response chip_deliver    none          5544  1        
+memory_response boundary_accept io_fifo_full  9498  1        
+memory_response boundary_accept none          5565  1        
+program_stream  chip_deliver    none          5834  1        
+program_stream  boundary_accept none          5855  1        
 
 
 User Defined Cross Bins for stream_x_side_x_stall
@@ -4591,9 +4611,9 @@ Automatically Generated Cross Bins for concurrency_x_chip_stall
 Bins
 
 simultaneous_streams backpressure  COUNT AT LEAST 
-observed             chip_consumer 1666  1        
-observed             io_fifo_full  3874  1        
-observed             none          9838  1        
+observed             chip_consumer 1661  1        
+observed             io_fifo_full  3921  1        
+observed             none          9941  1        
 
 
 Group : program_rx_tb::program_cg

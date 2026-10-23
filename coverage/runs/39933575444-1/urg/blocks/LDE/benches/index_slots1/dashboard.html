@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Dashboard</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.colResizable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    }  });
+  $("table").colResizable({    liveDrag:true,
+    fixed:false,
+    draggingClass:"dragging"
+  });
+});
+</script>
+<link rel="stylesheet" href="../../../../illinium-coverage.css">
+</head>
+<body><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Dashboard</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-center">
+Date: Fri Oct 23 05:08:37 2026
+<br clear=all>
+User: sbrown16
+<br clear=all>
+Version: V-2023.12-SP2<br clear=all>
+Command line: urg -full64 -lca -flex_merge union -flex_merge modules -dir /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s1/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s10/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s11/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s12/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s13/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s14/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s15/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s16/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s17/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s18/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s19/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s2/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s20/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s21/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s22/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s23/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s24/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s25/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s26/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s27/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s28/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s29/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s3/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s30/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s31/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s32/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s33/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s34/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s35/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s36/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s37/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s38/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s39/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s4/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s40/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s41/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s42/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s43/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s44/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s45/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s46/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s47/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s48/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s49/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s5/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s50/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s6/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s7/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s8/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.random/s9/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.smoke/s1/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.smoke/s2/coverage.vdb /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/index_slots1/index_slots1.smoke/s3/coverage.vdb -dbname /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/coverage/benches/index_slots1/merged.vdb -report /home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/build/dv/runs/R-20261023-045757-009-X620/coverage/urgReport/benches/index_slots1 -format both 
+<br clear=all>
+Number of tests: 53<br clear=all>
+<hr>
+<b>Total Coverage Summary</b>&nbsp;<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td nowrap width=65>SCORE</td><td nowrap width=65>LINE</td><td nowrap width=65>COND</td><td nowrap width=65>FSM</td><td nowrap width=65>BRANCH</td><td nowrap width=65>ASSERT</td><td nowrap width=65>GROUP</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<hr>
+<b>Hierarchical coverage data for top-level instances</b>&nbsp;<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td nowrap width=65>SCORE</td><td nowrap width=65>LINE</td><td nowrap width=65>COND</td><td nowrap width=65>FSM</td><td nowrap width=65>BRANCH</td><td nowrap width=65>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wordwrap"><a href="mod5.html#inst_tag_5" >index_store_slots1_tb</a></td>
+</tr></table><br clear=all>
+<hr>
+<b>Total Module Definition Coverage Summary</b>&nbsp;<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td nowrap width=65>SCORE</td><td nowrap width=65>LINE</td><td nowrap width=65>COND</td><td nowrap width=65>FSM</td><td nowrap width=65>BRANCH</td><td nowrap width=65>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<hr>
+<b>Total Groups Coverage Summary</b>&nbsp;<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td nowrap width=65>SCORE</td><td nowrap width=65>INST SCORE</td><td nowrap width=65>WEIGHT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+</tr></table></div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

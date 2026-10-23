@@ -1,4 +1,78 @@
 ===============================================================================
+Module : bsg_mem_1r1w
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/third_party/basejump_stl/bsg_mem/bsg_mem_1r1w.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                  
+100.00 --     --     --     --     100.00 async_fifo_tb.i_dut.i_fifo.MSYNC_1r1w 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : bsg_mem_1r1w
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       2     2         100.00  2                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            2     2         100.00  2                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 276      276            0        0          
+unnamed$$_1 276      276            0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : async_fifo_tb.i_dut.i_fifo.MSYNC_1r1w
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME         
+100.00 --     --     --     --     100.00 bsg_mem_1r1w 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 --     --     --     --     100.00 i_fifo 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
 Module : async_fifo
 ===============================================================================
 SCORE  LINE   COND   FSM    BRANCH ASSERT 
@@ -19,51 +93,76 @@ SCORE  LINE   COND   FSM    BRANCH ASSERT NAME
 Line Coverage for Module : async_fifo
 
              Line No.   Total   Covered  Percent
-TOTAL                       22       22   100.00
-ALWAYS             50       13       13   100.00
-ALWAYS             67        9        9   100.00
-INITIAL            82        0        0
+TOTAL                        8        8   100.00
+ALWAYS             38        5        5   100.00
+ALWAYS             50        3        3   100.00
+INITIAL            89        0        0
 
-49                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
-50         1/1              if (!w_rst_ni) begin
-51         1/1                wptr_bin_r <= '0;
-52         1/1                wptr_gray_r <= '0;
-53         1/1                wfull_r <= 1'b0;
-54         1/1                rgray_wsync1_r <= '0;
-55         1/1                rgray_wsync2_r <= '0;
-56                          end else begin
-57         1/1                rgray_wsync1_r <= rptr_gray_r;
-58         1/1                rgray_wsync2_r <= rgray_wsync1_r;
-59         2/2                if (w_valid_i && w_ready_o) memory[wptr_bin_r[ADDR_W-1:0]] <= w_data_i;
-                        MISSING_ELSE
-60         1/1                wptr_bin_r <= wptr_bin_next;
-61         1/1                wptr_gray_r <= wptr_gray_next;
-62         1/1                wfull_r <= wfull_next;
-63                          end
-64                        end
-65                      
-66                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
-67         1/1              if (!r_rst_ni) begin
-68         1/1                rptr_bin_r <= '0;
-69         1/1                rptr_gray_r <= '0;
-70         1/1                wgray_rsync1_r <= '0;
-71         1/1                wgray_rsync2_r <= '0;
-72                          end else begin
-73         1/1                wgray_rsync1_r <= wptr_gray_r;
-74         1/1                wgray_rsync2_r <= wgray_rsync1_r;
-75         1/1                rptr_bin_r <= rptr_bin_next;
-76         1/1                rptr_gray_r <= rptr_gray_next;
+37                        always_ff @(posedge w_clk_i or negedge w_rst_ni) begin
+38         1/1              if (!w_rst_ni) begin
+39         1/1                r_released_wsync_r <= '0;
+40         1/1                r_active_wsync_r <= '0;
+41                          end else begin
+42         1/1                r_released_wsync_r <= {
+43                              r_released_wsync_r[STARTUP_STAGES-2:0], r_rst_ni
+44                            };
+45         1/1                r_active_wsync_r <= {r_active_wsync_r[ACK_STAGES-2:0], r_active};
+46                          end
+47                        end
+48                      
+49                        always_ff @(posedge r_clk_i or negedge r_rst_ni) begin
+50         1/1              if (!r_rst_ni)
+51         1/1                w_released_rsync_r <= '0;
+52                          else
+53         1/1                w_released_rsync_r <= {
 
 -------------------------------------------------------------------------------
 Cond Coverage for Module : async_fifo
 
                Total   Covered  Percent
-Conditions          7        7   100.00
-Logical             7        7   100.00
+Conditions         19       19   100.00
+Logical            19       19   100.00
 Non-Logical         0        0
 Event               0        0
 
- LINE       59
+ LINE       60
+ EXPRESSION (w_rst_ni && r_released_wsync_r[(STARTUP_STAGES - 1)] && r_active_wsync_r[(ACK_STAGES - 1)])
+             ----1---    --------------------2-------------------    -----------------3----------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       62
+ EXPRESSION (r_rst_ni && w_released_rsync_r[(STARTUP_STAGES - 1)])
+             ----1---    --------------------2-------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       63
+ EXPRESSION (w_active && ((!fifo_full)))
+             ----1---    -------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       64
+ EXPRESSION (r_active && fifo_valid)
+             ----1---    -----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       65
  EXPRESSION (w_valid_i && w_ready_o)
              ----1----    ----2----
 
@@ -72,64 +171,45 @@ Event               0        0
  1   0  Covered
  1   1  Covered
 
- LINE       44
- EXPRESSION (wptr_gray_next == (rgray_wsync2_r ^ FULL_XOR))
-            -----------------------1-----------------------
+ LINE       66
+ EXPRESSION (r_valid_o && r_ready_i)
+             ----1----    ----2----
 
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       46
- EXPRESSION (rptr_gray_r != wgray_rsync2_r)
-            ---------------1---------------
-
--1- Status
- 0  Covered
- 1  Covered
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
 
 -------------------------------------------------------------------------------
 Branch Coverage for Module : async_fifo
          Line No. Total Covered Percent 
-Branches          5     5       100.00  
-IF       50       3     3       100.00  
-IF       67       2     2       100.00  
+Branches          4     4       100.00  
+IF       38       2     2       100.00  
+IF       50       2     2       100.00  
 
 
-50             if (!w_rst_ni) begin
+38             if (!w_rst_ni) begin
                -1-  
-51               wptr_bin_r <= '0;
+39               r_released_wsync_r <= '0;
                  ==>
-52               wptr_gray_r <= '0;
-53               wfull_r <= 1'b0;
-54               rgray_wsync1_r <= '0;
-55               rgray_wsync2_r <= '0;
-56             end else begin
-57               rgray_wsync1_r <= rptr_gray_r;
-58               rgray_wsync2_r <= rgray_wsync1_r;
-59               if (w_valid_i && w_ready_o) memory[wptr_bin_r[ADDR_W-1:0]] <= w_data_i;
-                 -2-  
-                 ==>
-                 MISSING_ELSE
+40               r_active_wsync_r <= '0;
+41             end else begin
+42               r_released_wsync_r <= {
                  ==>
 
 Branches:
 
--1- -2- Status  
-1   -   Covered 
-0   1   Covered 
-0   0   Covered 
+-1- Status  
+1   Covered 
+0   Covered 
 
 
-67             if (!r_rst_ni) begin
+50             if (!r_rst_ni)
                -1-  
-68               rptr_bin_r <= '0;
+51               w_released_rsync_r <= '0;
                  ==>
-69               rptr_gray_r <= '0;
-70               wgray_rsync1_r <= '0;
-71               wgray_rsync2_r <= '0;
-72             end else begin
-73               wgray_rsync1_r <= wptr_gray_r;
+52             else
+53               w_released_rsync_r <= {
                  ==>
 
 Branches:
@@ -142,10 +222,10 @@ Branches:
 -------------------------------------------------------------------------------
 Assert Coverage for Module : async_fifo
                  Total Attempted Percent Succeeded/Matched Percent 
-Assertions       1     1         100.00  1                 100.00  
+Assertions       2     2         100.00  2                 100.00  
 Cover properties 0     0                 0                         
 Cover sequences  0     0                 0                         
-Total            1     1         100.00  1                 100.00  
+Total            2     2         100.00  2                 100.00  
 
 
 
@@ -155,6 +235,7 @@ Assertion Details
 
 Name        Attempts Real Successes Failures Incomplete 
 unnamed$$_0 3        3              0        0          
+unnamed$$_1 3        3              0        0          
 
 
 -------------------------------------------------------------------------------
@@ -188,9 +269,229 @@ SCORE  LINE   COND   FSM    BRANCH ASSERT NAME
 
 Subtrees :
 
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 --     --     --     --     100.00 i_fifo 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : bsg_launch_sync_sync
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/third_party/basejump_stl/bsg_async/bsg_launch_sync_sync.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                        
+100.00 --     --     --     --     100.00 async_fifo_tb.i_dut.i_fifo.bapg_wr.ptr_sync 
+100.00 --     --     --     --     100.00 async_fifo_tb.i_dut.i_fifo.bapg_rd.ptr_sync 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : bsg_launch_sync_sync
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 6        6              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : async_fifo_tb.i_dut.i_fifo.bapg_wr.ptr_sync
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+100.00 --     --     --     --     100.00 bsg_launch_sync_sync 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME    
+--     --     --     --     --     --     bapg_wr 
+
+
+Subtrees :
+
 
 no children
 ----------------
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Instance : async_fifo_tb.i_dut.i_fifo.bapg_wr.ptr_sync
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 3        3              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : async_fifo_tb.i_dut.i_fifo.bapg_rd.ptr_sync
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+100.00 --     --     --     --     100.00 bsg_launch_sync_sync 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME    
+--     --     --     --     --     --     bapg_rd 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Instance : async_fifo_tb.i_dut.i_fifo.bapg_rd.ptr_sync
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 3        3              0        0          
+
+
+===============================================================================
+Module : bsg_async_fifo
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/third_party/basejump_stl/bsg_async/bsg_async_fifo.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                       
+100.00 --     --     --     --     100.00 async_fifo_tb.i_dut.i_fifo 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : bsg_async_fifo
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       2     2         100.00  2                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            2     2         100.00  2                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 909      909            0        0          
+unnamed$$_1 669      669            0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : async_fifo_tb.i_dut.i_fifo
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+100.00 --     --     --     --     100.00 bsg_async_fifo 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+100.00 100.00 100.00 --     100.00 100.00 i_dut 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 --     --     --     --     100.00 MSYNC_1r1w 
+100.00 --     --     --     --     100.00 bapg_rd    
+100.00 --     --     --     --     100.00 bapg_wr    
+
 
 
 -------------------------------------------------------------------------------
@@ -227,7 +528,7 @@ Total            1     1         100.00  1                 100.00
 Assertion Details
 
 Name        Attempts Real Successes Failures Incomplete 
-unnamed$$_0 258      258            0        0          
+unnamed$$_0 256      256            0        0          
 
 
 -------------------------------------------------------------------------------
@@ -268,3 +569,93 @@ SCORE  LINE   COND   FSM    BRANCH ASSERT NAME
 
 -------------------------------------------------------------------------------
 Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : bsg_async_ptr_gray
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/third_party/basejump_stl/bsg_async/bsg_async_ptr_gray.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                               
+--     --     --     --     --     --     async_fifo_tb.i_dut.i_fifo.bapg_wr 
+--     --     --     --     --     --     async_fifo_tb.i_dut.i_fifo.bapg_rd 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : async_fifo_tb.i_dut.i_fifo.bapg_wr
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME               
+--     --     --     --     --     --     bsg_async_ptr_gray 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 --     --     --     --     100.00 i_fifo 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME     
+100.00 --     --     --     --     100.00 ptr_sync 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : async_fifo_tb.i_dut.i_fifo.bapg_rd
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME               
+--     --     --     --     --     --     bsg_async_ptr_gray 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 --     --     --     --     100.00 i_fifo 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME     
+100.00 --     --     --     --     100.00 ptr_sync 
+
+
+

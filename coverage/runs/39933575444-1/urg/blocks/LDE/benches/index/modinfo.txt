@@ -1,0 +1,275 @@
+===============================================================================
+Module : index_store
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/lde/index_store.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                            
+100.00 100.00 100.00 --     --     --     index_store_cr_tb.test_case.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : index_store
+
+             Line No.   Total   Covered  Percent
+TOTAL                       15       15   100.00
+ALWAYS             66        2        2   100.00
+ALWAYS             72       13       13   100.00
+
+65                        always_comb
+66         1/1              for (int bank = 0; bank < NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank < NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] <= 1'b0;
+75         1/1                  capture_ptr_r[bank] <= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i && back_ready_o && back_op_i == IDX_SET &&
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] <= back_data_i;
+80         1/1                    index_valid_r[bank] <= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture && back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] <= back_resolved;
+84         1/1                    capture_ptr_r[bank] <= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push && front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] <= front_resolved;
+88         1/1                    capture_ptr_r[bank] <= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : index_store
+
+               Total   Covered  Percent
+Conditions         22       22   100.00
+Logical            22       22   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       54
+ EXPRESSION (((!reset_i)) && back_enable_i && ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       55
+ EXPRESSION (((!reset_i)) && front_enable_i && ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       56
+ EXPRESSION (back_valid_i && back_ready_o && ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       58
+ EXPRESSION (front_valid_i && front_ready_o)
+             ------1------    ------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : index_store_cr_tb.test_case.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     --     --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 100.00 100.00 --     --     --     index_store 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+--     --     --     --     --     --     test_case 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : index_random_case
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/lde/index_store_cr_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                        
+--     --     --     --     --     --     index_store_cr_tb.test_case 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : index_store_cr_tb.test_case
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     --     --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME              
+--     --     --     --     --     --     index_random_case 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME              
+--     --     --     --     --     --     index_store_cr_tb 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 100.00 100.00 --     --     --     dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : index_store_cr_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/lde/index_store_cr_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME              
+--     --     --     --     --     --     index_store_cr_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : index_store_cr_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     --     --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME              
+--     --     --     --     --     --     index_store_cr_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+100.00 100.00 100.00 --     --     --     test_case 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

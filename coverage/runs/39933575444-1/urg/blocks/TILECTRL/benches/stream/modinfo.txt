@@ -1,0 +1,783 @@
+===============================================================================
+Module : tile_frontend
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 89.58 --      79.17 --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/frontend/tile_frontend.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                   
+ 89.58 --      79.17 --     --     100.00 frontend_stream_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : tile_frontend
+
+               Total   Covered  Percent
+Conditions         24       19    79.17
+Logical            24       19    79.17
+Non-Logical         0        0
+Event               0        0
+
+ LINE       46
+ EXPRESSION (((!reset_i)) && ((!clear_i)) && fifo_ready)
+             ------1-----    ------2-----    -----3----
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Not Covered
+ 1   1   1  Covered
+
+ LINE       47
+ EXPRESSION (program_valid_i && program_ready_o)
+             -------1-------    -------2-------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       48
+ EXPRESSION (((!reset_i)) && ((!clear_i)) && window_ready)
+             ------1-----    ------2-----    ------3-----
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       49
+ EXPRESSION (((!reset_i)) && ((!clear_i)) && stream_valid)
+             ------1-----    ------2-----    ------3-----
+
+-1- -2- -3- Status
+ 0   1   1  Not Covered
+ 1   0   1  Not Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       50
+ EXPRESSION (stream_valid && stream_ready)
+             ------1-----    ------2-----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       51
+ EXPRESSION (((!stream_valid)) && (window_count == '0) && ((!valid_o)))
+             --------1--------    ----------2---------    ------3-----
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Not Covered
+ 1   1   1  Covered
+
+ LINE       51
+ SUB-EXPRESSION (window_count == '0)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : tile_frontend
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 31       13             0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : frontend_stream_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 89.58 --      79.17 --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 97.00 100.00  88.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+ 89.58 --      79.17 --     --     100.00 tile_frontend 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME               
+--     --     --     --     --     --     frontend_stream_tb 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+ 96.88 100.00  90.62 --     100.00 --     fed           
+ 97.44 100.00  92.31 --     100.00 --     fifo          
+100.00 100.00 100.00 --     100.00 --     window_buffer 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : window_fed
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.88 100.00  90.62 --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/frontend/window_fed.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                       
+ 96.88 100.00  90.62 --     100.00 --     frontend_stream_tb.dut.fed 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : window_fed
+
+             Line No.   Total   Covered  Percent
+TOTAL                        8        8   100.00
+ALWAYS             63        8        8   100.00
+
+62                        always_ff @(posedge clk_i) begin
+63         1/1              if (reset_i || clear_i) begin
+64         1/1                valid_o <= 0;
+65         1/1                instruction_o <= '0;
+66                          end else begin
+67         2/2                if (valid_o && ready_i) valid_o <= 0;
+                        MISSING_ELSE
+68         1/1                if (capture_instruction) begin
+69         1/1                  instruction_o <= instruction_bytes_padded;
+70         1/1                  valid_o <= 1;
+71                            end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : window_fed
+
+               Total   Covered  Percent
+Conditions         32       29    90.62
+Logical            32       29    90.62
+Non-Logical         0        0
+Event               0        0
+
+ LINE       63
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       67
+ EXPRESSION (valid_o && ready_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       41
+ EXPRESSION (length_known && (count_i >= instruction_bytes))
+             ------1-----    ---------------2--------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       51
+ EXPRESSION (((!valid_o)) || ready_i)
+             ------1-----    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       52
+ EXPRESSION ((count_i != 4'b0) && output_available && ((!reset_i)) && ((!clear_i)))
+             --------1--------    --------2-------    ------3-----    ------4-----
+
+-1- -2- -3- -4- Status
+ 0   1   1   1  Covered
+ 1   0   1   1  Covered
+ 1   1   0   1  Not Covered
+ 1   1   1   0  Not Covered
+ 1   1   1   1  Covered
+
+ LINE       52
+ SUB-EXPRESSION (count_i != 4'b0)
+                --------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       54
+ EXPRESSION (prefix[7:0] == tile_pkg::TILE_PAD_BYTE)
+            --------------------1-------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       55
+ EXPRESSION (can_extract && is_padding)
+             -----1-----    -----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       56
+ EXPRESSION (can_extract && ((!is_padding)) && instruction_complete)
+             -----1-----    -------2-------    ----------3---------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       58
+ EXPRESSION (discard_padding ? (4'(1)) : (capture_instruction ? instruction_bytes : '0))
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       58
+ SUB-EXPRESSION (capture_instruction ? instruction_bytes : '0)
+                 ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : window_fed
+         Line No. Total Covered Percent 
+Branches          8     8       100.00  
+TERNARY  58       3     3       100.00  
+IF       63       5     5       100.00  
+
+
+58           assign consume_o = discard_padding     ? CW'(1) :
+                                                    -1-  
+                                                    ==>  
+59                              capture_instruction ? instruction_bytes : '0;
+                                                    -2-  
+                                                    ==>  
+                                                    ==>  
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+63             if (reset_i || clear_i) begin
+               -1-  
+64               valid_o <= 0;
+                 ==>
+65               instruction_o <= '0;
+66             end else begin
+67               if (valid_o && ready_i) valid_o <= 0;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+68               if (capture_instruction) begin
+                 -3-  
+69                 instruction_o <= instruction_bytes_padded;
+                   ==>
+70                 valid_o <= 1;
+71               end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   -   Covered 
+0   -   1   Covered 
+0   -   0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : frontend_stream_tb.dut.fed
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.88 100.00  90.62 --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.88 100.00  90.62 --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+ 96.88 100.00  90.62 --     100.00 --     window_fed 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 89.58 --      79.17 --     --     100.00 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : beat_fifo
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 97.44 100.00  92.31 --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/frontend/beat_fifo.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                        
+ 97.44 100.00  92.31 --     100.00 --     frontend_stream_tb.dut.fifo 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : beat_fifo
+
+             Line No.   Total   Covered  Percent
+TOTAL                       12       12   100.00
+ALWAYS             30       12       12   100.00
+
+29                        always_ff @(posedge clk_i) begin
+30         1/1              if (reset_i || clear_i) begin
+31         1/1                head_r <= '0;
+32         1/1                tail_r <= '0;
+33         1/1                count_r <= '0;
+34                          end else begin
+35         1/1                if (push) begin
+36         1/1                  entries_r[tail_r] <= data_i;
+37         1/1                  tail_r <= tail_r == PW'(unsigned'(DEPTH-1)) ? '0 : tail_r + 1'b1;
+38                            end
+                        MISSING_ELSE
+39         1/1                if (pop)
+40         1/1                  head_r <= head_r == PW'(unsigned'(DEPTH-1)) ? '0 : head_r + 1'b1;
+                        MISSING_ELSE
+41         1/1                case ({push,pop})
+42         1/1                  2'b10: count_r <= count_r + 1'b1;
+43         1/1                  2'b01: count_r <= count_r - 1'b1;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : beat_fifo
+
+               Total   Covered  Percent
+Conditions         13       12    92.31
+Logical            13       12    92.31
+Non-Logical         0        0
+Event               0        0
+
+ LINE       30
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       23
+ EXPRESSION (count_r != 2'b0)
+            --------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       24
+ EXPRESSION (valid_o && ready_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       26
+ EXPRESSION (valid_i && ready_o)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       27
+ EXPRESSION (valid_o ? entries_r[head_r] : '0)
+             ---1---
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : beat_fifo
+         Line No. Total Covered Percent 
+Branches          10    10      100.00  
+TERNARY  27       2     2       100.00  
+IF       30       8     8       100.00  
+
+
+27           assign data_o = valid_o ? entries_r[head_r] : '0;
+                                     -1-  
+                                     ==>  
+                                     ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+30             if (reset_i || clear_i) begin
+               -1-  
+31               head_r <= '0;
+                 ==>
+32               tail_r <= '0;
+33               count_r <= '0;
+34             end else begin
+35               if (push) begin
+                 -2-  
+36                 entries_r[tail_r] <= data_i;
+                   ==>
+37                 tail_r <= tail_r == PW'(unsigned'(DEPTH-1)) ? '0 : tail_r + 1'b1;
+38               end
+                 MISSING_ELSE
+                 ==>
+39               if (pop)
+                 -3-  
+40                 head_r <= head_r == PW'(unsigned'(DEPTH-1)) ? '0 : head_r + 1'b1;
+                   ==>
+                   MISSING_ELSE
+                   ==>
+41               case ({push,pop})
+                 -4-  
+42                 2'b10: count_r <= count_r + 1'b1;
+                   ==>
+43                 2'b01: count_r <= count_r - 1'b1;
+                   ==>
+44                 default: begin end
+                   ==>
+
+Branches:
+
+-1- -2- -3- -4-     Status  
+1   -   -   -       Covered 
+0   1   -   -       Covered 
+0   0   -   -       Covered 
+0   -   1   -       Covered 
+0   -   0   -       Covered 
+0   -   -   2'b10   Covered 
+0   -   -   2'b01   Covered 
+0   -   -   default Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : frontend_stream_tb.dut.fifo
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 97.44 100.00  92.31 --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 97.44 100.00  92.31 --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+ 97.44 100.00  92.31 --     100.00 --     beat_fifo 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 89.58 --      79.17 --     --     100.00 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : stream_window
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/frontend/stream_window.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                 
+100.00 100.00 100.00 --     100.00 --     frontend_stream_tb.dut.window_buffer 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : stream_window
+
+             Line No.   Total   Covered  Percent
+TOTAL                       10       10   100.00
+ALWAYS             23        5        5   100.00
+ALWAYS             31        5        5   100.00
+
+22                        always_comb begin
+23         1/1              data_n = data_r >> (8*consume_i);
+24         1/1              count_n = remaining;
+25         1/1              if (valid_i && ready_o) begin
+26         1/1                data_n[8*int'(remaining) +: 8*INPUT_BYTES] = data_i;
+27         1/1                count_n = remaining + WCW'(unsigned'(INPUT_BYTES));
+28                          end
+                        MISSING_ELSE
+29                        end
+30                        always_ff @(posedge clk_i) begin
+31         1/1              if (reset_i || clear_i) begin
+32         1/1                data_r <= '0;
+33         1/1                count_r <= '0;
+34                          end else begin
+35         1/1                data_r <= data_n;
+36         1/1                count_r <= count_n;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : stream_window
+
+               Total   Covered  Percent
+Conditions          6        6   100.00
+Logical             6        6   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       25
+ EXPRESSION (valid_i && ready_o)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       31
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : stream_window
+         Line No. Total Covered Percent 
+Branches          4     4       100.00  
+IF       25       2     2       100.00  
+IF       31       2     2       100.00  
+
+
+25             if (valid_i && ready_o) begin
+               -1-  
+26               data_n[8*int'(remaining) +: 8*INPUT_BYTES] = data_i;
+                 ==>
+27               count_n = remaining + WCW'(unsigned'(INPUT_BYTES));
+28             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31             if (reset_i || clear_i) begin
+               -1-  
+32               data_r <= '0;
+                 ==>
+33               count_r <= '0;
+34             end else begin
+35               data_r <= data_n;
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : frontend_stream_tb.dut.window_buffer
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+100.00 100.00 100.00 --     100.00 --     stream_window 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 89.58 --      79.17 --     --     100.00 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : frontend_stream_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/control/frontend_stream_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME               
+--     --     --     --     --     --     frontend_stream_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : frontend_stream_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 97.00 100.00  88.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME               
+--     --     --     --     --     --     frontend_stream_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 97.00 100.00  88.00 --     100.00 100.00 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
