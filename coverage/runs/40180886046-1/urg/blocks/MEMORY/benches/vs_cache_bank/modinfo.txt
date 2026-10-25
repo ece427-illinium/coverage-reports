@@ -1,0 +1,666 @@
+===============================================================================
+Module : mem_io_cache
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 97.73 100.00  90.91 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/memory/cache/mem_io_cache.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                   
+ 97.73 100.00  90.91 --     100.00 100.00 vs_cache_bank_tb.i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : mem_io_cache
+
+             Line No.   Total   Covered  Percent
+TOTAL                       40       40   100.00
+ALWAYS             56        6        6   100.00
+ALWAYS             83       20       20   100.00
+ALWAYS            124       14       14   100.00
+
+55                        always_comb begin
+56         1/1              dirty_any_o = 1'b0;
+57         1/1              dirty_set_o = '0;
+58         1/1              for (int unsigned set = 0; set < SETS; set++) begin
+59         1/1                if (!dirty_any_o && valid_r[set] && dirty_r[set]) begin
+60         1/1                  dirty_any_o = 1'b1;
+61         1/1                  dirty_set_o = set[SET_W-1:0];
+62                            end
+                        MISSING_ELSE
+63                          end
+64                        end
+65                      
+66                        // Tags are always replaced as a complete value, so the physical tag SRAM
+67                        // needs only its global write enable and no per-bit write mask.
+68                        cache_array #(
+69                          .DEPTH (SETS), .WIDTH (TAG_W)
+70                        ) i_tag (
+71                          .clk_i,
+72                          .enable_i (array_enable),
+73                          .write_i  (array_write),
+74                          .addr_i   (write_i ? write_set_i : lookup_set_i),
+75                          .wdata_i  (write_tag_i),
+76                          .wmask_i  ('1),
+77                          .rdata_o  (lookup_tag_o)
+78                        );
+79                      
+80                        // These registered lookup outputs align with the one-cycle tag and data
+81                        // SRAM results. Scrubbing clears only valid/dirty; old tags are harmless.
+82                        always_ff @(posedge clk_i or negedge rst_ni) begin
+83         1/1              if (!rst_ni) begin
+84         1/1                lookup_valid_o <= 1'b0;
+85         1/1                lookup_dirty_o <= 1'b0;
+86         1/1              end else if (scrub_r) begin
+87         1/1                valid_r[scrub_set_r] <= 1'b0;
+88         1/1                dirty_r[scrub_set_r] <= 1'b0;
+89         1/1              end else if (invalidate_i) begin
+90                            // The tag and data SRAMs retain stale values, but clearing all metadata
+91                            // makes every entry invalid in one cycle.
+92         1/1                for (int unsigned set = 0; set < SETS; set++) begin
+93         1/1                  valid_r[set] <= 1'b0;
+94         1/1                  dirty_r[set] <= 1'b0;
+95                            end
+96         1/1                lookup_valid_o <= 1'b0;
+97         1/1                lookup_dirty_o <= 1'b0;
+98         1/1              end else if (write_i) begin
+99         1/1                valid_r[write_set_i] <= write_valid_i;
+100        1/1                dirty_r[write_set_i] <= write_dirty_i;
+101        1/1              end else if (clear_dirty_i) begin
+102        1/1                dirty_r[clear_dirty_set_i] <= 1'b0;
+103        1/1              end else if (lookup_i) begin
+104        1/1                lookup_valid_o <= valid_r[lookup_set_i];
+105        1/1                lookup_dirty_o <= dirty_r[lookup_set_i];
+106                         end
+                        MISSING_ELSE
+107                       end
+108                     
+109                       cache_array #(
+110                         .DEPTH (SETS), .WIDTH (32)
+111                       ) i_data (
+112                         .clk_i,
+113                         .enable_i (array_enable),
+114                         .write_i  (array_write),
+115                         .addr_i   (write_i ? write_set_i : lookup_set_i),
+116                         .wdata_i  (write_data_i),
+117                         .wmask_i  ('1),
+118                         .rdata_o  (lookup_data_o)
+119                       );
+120                     
+121                       // Reset alone uses the serial scrub. Boundary invalidation is a parallel
+122                       // metadata clear above, so it completes after one active clock edge.
+123                       always_ff @(posedge clk_i or negedge rst_ni) begin
+124        1/1              if (!rst_ni) begin
+125        1/1                scrub_r <= 1'b1;
+126        1/1                scrub_set_r <= '0;
+127        1/1                known_invalid_r <= 1'b0;
+128        1/1              end else if (scrub_r) begin
+129        1/1                if (scrub_set_r == SETS-1) begin
+130        1/1                  scrub_r <= 1'b0;
+131        1/1                  scrub_set_r <= '0;
+132        1/1                  known_invalid_r <= 1'b1;
+133                           end else begin
+134        1/1                  scrub_set_r <= scrub_set_r + 1'b1;
+135                           end
+136        1/1              end else if (invalidate_i) begin
+137        1/1                known_invalid_r <= 1'b1;
+138        1/1              end else if (write_i && write_valid_i) begin
+139        1/1                known_invalid_r <= 1'b0;
+140                         end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : mem_io_cache
+
+               Total   Covered  Percent
+Conditions         22       20    90.91
+Logical            22       20    90.91
+Non-Logical         0        0
+Event               0        0
+
+ LINE       129
+ EXPRESSION (scrub_set_r == (SETS - 1))
+            -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       138
+ EXPRESSION (write_i && write_valid_i)
+             ---1---    ------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       70
+ EXPRESSION (write_i ? write_set_i : lookup_set_i)
+             ---1---
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       111
+ EXPRESSION (write_i ? write_set_i : lookup_set_i)
+             ---1---
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       46
+ EXPRESSION (known_invalid_r && ((!scrub_r)))
+             -------1-------    ------2-----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       50
+ EXPRESSION (((!dft_shift_i)) && ((!scrub_r)) && (write_i || lookup_i))
+             --------1-------    ------2-----    ----------3----------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Not Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       50
+ SUB-EXPRESSION (write_i || lookup_i)
+                 ---1---    ----2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       51
+ EXPRESSION (((!dft_shift_i)) && write_i)
+             --------1-------    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : mem_io_cache
+         Line No. Total Covered Percent 
+Branches          17    17      100.00  
+TERNARY  70       2     2       100.00  
+TERNARY  111      2     2       100.00  
+IF       83       7     7       100.00  
+IF       124      6     6       100.00  
+
+
+70           ) i_tag (
+                      
+71             .clk_i,
+                      
+72             .enable_i (array_enable),
+                                        
+73             .write_i  (array_write),
+                                       
+74             .addr_i   (write_i ? write_set_i : lookup_set_i),
+                                  -1-  
+                                  ==>  
+                                  ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+111          ) i_data (
+                       
+112            .clk_i,
+                      
+113            .enable_i (array_enable),
+                                        
+114            .write_i  (array_write),
+                                       
+115            .addr_i   (write_i ? write_set_i : lookup_set_i),
+                                  -1-  
+                                  ==>  
+                                  ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+83             if (!rst_ni) begin
+               -1-  
+84               lookup_valid_o <= 1'b0;
+                 ==>
+85               lookup_dirty_o <= 1'b0;
+86             end else if (scrub_r) begin
+                        -2-  
+87               valid_r[scrub_set_r] <= 1'b0;
+                 ==>
+88               dirty_r[scrub_set_r] <= 1'b0;
+89             end else if (invalidate_i) begin
+                        -3-  
+90               // The tag and data SRAMs retain stale values, but clearing all metadata
+91               // makes every entry invalid in one cycle.
+92               for (int unsigned set = 0; set < SETS; set++) begin
+                 ==>
+93                 valid_r[set] <= 1'b0;
+94                 dirty_r[set] <= 1'b0;
+95               end
+96               lookup_valid_o <= 1'b0;
+97               lookup_dirty_o <= 1'b0;
+98             end else if (write_i) begin
+                        -4-  
+99               valid_r[write_set_i] <= write_valid_i;
+                 ==>
+100              dirty_r[write_set_i] <= write_dirty_i;
+101            end else if (clear_dirty_i) begin
+                        -5-  
+102              dirty_r[clear_dirty_set_i] <= 1'b0;
+                 ==>
+103            end else if (lookup_i) begin
+                        -6-  
+104              lookup_valid_o <= valid_r[lookup_set_i];
+                 ==>
+105              lookup_dirty_o <= dirty_r[lookup_set_i];
+106            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- -6- Status  
+1   -   -   -   -   -   Covered 
+0   1   -   -   -   -   Covered 
+0   0   1   -   -   -   Covered 
+0   0   0   1   -   -   Covered 
+0   0   0   0   1   -   Covered 
+0   0   0   0   0   1   Covered 
+0   0   0   0   0   0   Covered 
+
+
+124            if (!rst_ni) begin
+               -1-  
+125              scrub_r <= 1'b1;
+                 ==>
+126              scrub_set_r <= '0;
+127              known_invalid_r <= 1'b0;
+128            end else if (scrub_r) begin
+                        -2-  
+129              if (scrub_set_r == SETS-1) begin
+                 -3-  
+130                scrub_r <= 1'b0;
+                   ==>
+131                scrub_set_r <= '0;
+132                known_invalid_r <= 1'b1;
+133              end else begin
+134                scrub_set_r <= scrub_set_r + 1'b1;
+                   ==>
+135              end
+136            end else if (invalidate_i) begin
+                        -4-  
+137              known_invalid_r <= 1'b1;
+                 ==>
+138            end else if (write_i && write_valid_i) begin
+                        -5-  
+139              known_invalid_r <= 1'b0;
+                 ==>
+140            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- Status  
+1   -   -   -   -   Covered 
+0   1   1   -   -   Covered 
+0   1   0   -   -   Covered 
+0   0   -   1   -   Covered 
+0   0   -   0   1   Covered 
+0   0   -   0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : mem_io_cache
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       2     2         100.00  2                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            2     2         100.00  2                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name         Attempts Real Successes Failures Incomplete 
+unnamed$$_2  6        6              0        0          
+unnamed$$_21 1158     112            0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : vs_cache_bank_tb.i_dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 97.73 100.00  90.91 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 97.73 100.00  90.91 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME         
+ 97.73 100.00  90.91 --     100.00 100.00 mem_io_cache 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME             
+--     --     --     --     --     --     vs_cache_bank_tb 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 100.00 --     --     100.00 --     i_data 
+100.00 100.00 --     --     100.00 --     i_tag  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : cache_array
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/memory/cache/cache_array.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                          
+100.00 100.00 --     --     100.00 --     vs_cache_bank_tb.i_dut.i_tag  
+100.00 100.00 --     --     100.00 --     vs_cache_bank_tb.i_dut.i_data 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : cache_array
+
+             Line No.   Total   Covered  Percent
+TOTAL                        4        4   100.00
+ALWAYS             26        4        4   100.00
+
+25                        always_ff @(posedge clk_i) begin
+26         1/1              if (enable_i) begin
+27         1/1                if (write_i)
+28         1/1                  memory[addr_i] <= (memory[addr_i] & ~wmask_i) | (wdata_i & wmask_i);
+29         1/1                else rdata_o <= memory[addr_i];
+30                          end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : cache_array
+         Line No. Total Covered Percent 
+Branches          3     3       100.00  
+IF       26       3     3       100.00  
+
+
+26             if (enable_i) begin
+               -1-  
+27               if (write_i)
+                 -2-  
+28                 memory[addr_i] <= (memory[addr_i] & ~wmask_i) | (wdata_i & wmask_i);
+                   ==>
+29               else rdata_o <= memory[addr_i];
+                 ==>
+30             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   1   Covered 
+1   0   Covered 
+0   -   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : vs_cache_bank_tb.i_dut.i_tag
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 100.00 --     --     100.00 --     cache_array 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+ 97.73 100.00  90.91 --     100.00 100.00 i_dut 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : vs_cache_bank_tb.i_dut.i_tag
+
+             Line No.   Total   Covered  Percent
+TOTAL                        4        4   100.00
+ALWAYS             26        4        4   100.00
+
+25                        always_ff @(posedge clk_i) begin
+26         1/1              if (enable_i) begin
+27         1/1                if (write_i)
+28         1/1                  memory[addr_i] <= (memory[addr_i] & ~wmask_i) | (wdata_i & wmask_i);
+29         1/1                else rdata_o <= memory[addr_i];
+30                          end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : vs_cache_bank_tb.i_dut.i_tag
+         Line No. Total Covered Percent 
+Branches          3     3       100.00  
+IF       26       3     3       100.00  
+
+
+26             if (enable_i) begin
+               -1-  
+27               if (write_i)
+                 -2-  
+28                 memory[addr_i] <= (memory[addr_i] & ~wmask_i) | (wdata_i & wmask_i);
+                   ==>
+29               else rdata_o <= memory[addr_i];
+                 ==>
+30             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   1   Covered 
+1   0   Covered 
+0   -   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : vs_cache_bank_tb.i_dut.i_data
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 100.00 --     --     100.00 --     cache_array 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+ 97.73 100.00  90.91 --     100.00 100.00 i_dut 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : vs_cache_bank_tb.i_dut.i_data
+
+             Line No.   Total   Covered  Percent
+TOTAL                        4        4   100.00
+ALWAYS             26        4        4   100.00
+
+25                        always_ff @(posedge clk_i) begin
+26         1/1              if (enable_i) begin
+27         1/1                if (write_i)
+28         1/1                  memory[addr_i] <= (memory[addr_i] & ~wmask_i) | (wdata_i & wmask_i);
+29         1/1                else rdata_o <= memory[addr_i];
+30                          end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : vs_cache_bank_tb.i_dut.i_data
+         Line No. Total Covered Percent 
+Branches          3     3       100.00  
+IF       26       3     3       100.00  
+
+
+26             if (enable_i) begin
+               -1-  
+27               if (write_i)
+                 -2-  
+28                 memory[addr_i] <= (memory[addr_i] & ~wmask_i) | (wdata_i & wmask_i);
+                   ==>
+29               else rdata_o <= memory[addr_i];
+                 ==>
+30             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   1   Covered 
+1   0   Covered 
+0   -   Covered 
+
+
+===============================================================================
+Module : vs_cache_bank_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/cache/vs_cache_bank_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME             
+--     --     --     --     --     --     vs_cache_bank_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : vs_cache_bank_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 97.73 100.00  90.91 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME             
+--     --     --     --     --     --     vs_cache_bank_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+ 97.73 100.00  90.91 --     100.00 100.00 i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

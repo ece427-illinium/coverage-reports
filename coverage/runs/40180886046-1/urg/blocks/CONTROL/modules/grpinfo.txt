@@ -1,0 +1,2028 @@
+Group : control_tb::scan_cg
+
+===============================================================================
+Group : control_tb::scan_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+ 80.00  80.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/control/epoch/control_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME          
+ 80.00 1      100    1        64           64            scan_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   control_tb::scan_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 10       1         9       83.33   
+Crosses   10       2         8       75.00   
+
+
+Variables for Group  control_tb::scan_cg
+
+
+VARIABLE          EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+csr_address       5        0         5       100.00  100  1      1        0                    
+execution_context 2        1         1       50.00   100  1      1        0                    
+scan_operation    3        0         3       100.00  100  1      1        0                    
+
+
+Crosses for Group  control_tb::scan_cg
+
+
+CROSS                   EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+csr_address_x_operation 6        0         6       100.00  100  1      1        0                     
+operation_x_context     4        2         2       50.00   100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable csr_address
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for csr_address
+
+
+Bins
+
+NAME           COUNT AT LEAST 
+reserved       12    1        
+maps_04        100   1        
+maps_08        80    1        
+maps_0c        74    1        
+control_status 616   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable execution_context
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        1         1       50.00   
+
+
+User Defined Bins for execution_context
+
+
+Uncovered bins
+
+NAME COUNT AT LEAST NUMBER 
+idle 0     1        1      
+
+
+Covered bins
+
+NAME               COUNT AT LEAST 
+active_or_boundary 882   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable scan_operation
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for scan_operation
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+parser_reset 6     1        
+csr_write    492   1        
+csr_read     390   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross csr_address_x_operation
+
+
+Samples crossed: csr_address scan_operation
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 6        0         6       100.00          
+
+
+User Defined Cross Bins for csr_address_x_operation
+
+
+Bins
+
+NAME           COUNT AT LEAST 
+read_control   272   1        
+write_control  344   1        
+read_maps      112   1        
+write_maps     142   1        
+read_reserved  6     1        
+write_reserved 6     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross operation_x_context
+
+
+Samples crossed: scan_operation execution_context
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        2         2       50.00           
+
+
+User Defined Cross Bins for operation_x_context
+
+
+Uncovered bins
+
+NAME       COUNT AT LEAST NUMBER 
+idle_read  0     1        1      
+idle_write 0     1        1      
+
+
+Covered bins
+
+NAME         COUNT AT LEAST 
+active_read  390   1        
+active_write 492   1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : scan_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+ 80.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                
+ 80.00  80.00    1      100    1        1            64           64                    control_tb::scan_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   scan_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 10       1         9       83.33   
+Crosses   10       2         8       75.00   
+
+
+Variables for Group Instance  scan_coverage
+
+
+VARIABLE          EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+csr_address       5        0         5       100.00  100  1      1        0                    
+execution_context 2        1         1       50.00   100  1      1        0                    
+scan_operation    3        0         3       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  scan_coverage
+
+
+CROSS                   EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+csr_address_x_operation 6        0         6       100.00  100  1      1        0                     
+operation_x_context     4        2         2       50.00   100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable csr_address
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for csr_address
+
+
+Bins
+
+NAME           COUNT AT LEAST 
+reserved       12    1        
+maps_04        100   1        
+maps_08        80    1        
+maps_0c        74    1        
+control_status 616   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable execution_context
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        1         1       50.00   
+
+
+User Defined Bins for execution_context
+
+
+Uncovered bins
+
+NAME COUNT AT LEAST NUMBER 
+idle 0     1        1      
+
+
+Covered bins
+
+NAME               COUNT AT LEAST 
+active_or_boundary 882   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable scan_operation
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for scan_operation
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+parser_reset 6     1        
+csr_write    492   1        
+csr_read     390   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross csr_address_x_operation
+
+
+Samples crossed: csr_address scan_operation
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 6        0         6       100.00          
+
+
+User Defined Cross Bins for csr_address_x_operation
+
+
+Bins
+
+NAME           COUNT AT LEAST 
+read_control   272   1        
+write_control  344   1        
+read_maps      112   1        
+write_maps     142   1        
+read_reserved  6     1        
+write_reserved 6     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross operation_x_context
+
+
+Samples crossed: scan_operation execution_context
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        2         2       50.00           
+
+
+User Defined Cross Bins for operation_x_context
+
+
+Uncovered bins
+
+NAME       COUNT AT LEAST NUMBER 
+idle_read  0     1        1      
+idle_write 0     1        1      
+
+
+Covered bins
+
+NAME         COUNT AT LEAST 
+active_read  390   1        
+active_write 492   1        
+
+
+Group : control_tb::config_cg
+
+===============================================================================
+Group : control_tb::config_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/control/epoch/control_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME            
+100.00 1      100    1        64           64            config_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   control_tb::config_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 9        0         9       100.00  
+Crosses   20       0         20      100.00  
+
+
+Variables for Group  control_tb::config_cg
+
+
+VARIABLE      EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+enabled_tiles 5        0         5       100.00  100  1      1        0                    
+features      4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group  control_tb::config_cg
+
+
+CROSS            EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+features_x_tiles 20       0         20      100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable enabled_tiles
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for enabled_tiles
+
+
+Bins
+
+NAME      COUNT AT LEAST 
+one_hot_1 37    1        
+one_hot_2 37    1        
+one_hot_4 64    1        
+one_hot_8 41    1        
+all_tiles 63    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable features
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for features
+
+
+Bins
+
+NAME           COUNT AT LEAST 
+combinations_0 38    1        
+combinations_1 52    1        
+combinations_2 52    1        
+combinations_3 100   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross features_x_tiles
+
+
+Samples crossed: features enabled_tiles
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 20       0         20      100.00          
+
+
+Automatically Generated Cross Bins for features_x_tiles
+
+
+Bins
+
+features       enabled_tiles COUNT AT LEAST 
+combinations_0 one_hot_1     7     1        
+combinations_0 one_hot_2     8     1        
+combinations_0 one_hot_4     7     1        
+combinations_0 one_hot_8     7     1        
+combinations_0 all_tiles     9     1        
+combinations_1 one_hot_1     8     1        
+combinations_1 one_hot_2     7     1        
+combinations_1 one_hot_4     7     1        
+combinations_1 one_hot_8     11    1        
+combinations_1 all_tiles     19    1        
+combinations_2 one_hot_1     10    1        
+combinations_2 one_hot_2     7     1        
+combinations_2 one_hot_4     8     1        
+combinations_2 one_hot_8     10    1        
+combinations_2 all_tiles     17    1        
+combinations_3 one_hot_1     12    1        
+combinations_3 one_hot_2     15    1        
+combinations_3 one_hot_4     42    1        
+combinations_3 one_hot_8     13    1        
+combinations_3 all_tiles     18    1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : config_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                  
+100.00 100.00    1      100    1        1            64           64                    control_tb::config_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   config_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 9        0         9       100.00  
+Crosses   20       0         20      100.00  
+
+
+Variables for Group Instance  config_coverage
+
+
+VARIABLE      EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+enabled_tiles 5        0         5       100.00  100  1      1        0                    
+features      4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  config_coverage
+
+
+CROSS            EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+features_x_tiles 20       0         20      100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable enabled_tiles
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for enabled_tiles
+
+
+Bins
+
+NAME      COUNT AT LEAST 
+one_hot_1 37    1        
+one_hot_2 37    1        
+one_hot_4 64    1        
+one_hot_8 41    1        
+all_tiles 63    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable features
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for features
+
+
+Bins
+
+NAME           COUNT AT LEAST 
+combinations_0 38    1        
+combinations_1 52    1        
+combinations_2 52    1        
+combinations_3 100   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross features_x_tiles
+
+
+Samples crossed: features enabled_tiles
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 20       0         20      100.00          
+
+
+Automatically Generated Cross Bins for features_x_tiles
+
+
+Bins
+
+features       enabled_tiles COUNT AT LEAST 
+combinations_0 one_hot_1     7     1        
+combinations_0 one_hot_2     8     1        
+combinations_0 one_hot_4     7     1        
+combinations_0 one_hot_8     7     1        
+combinations_0 all_tiles     9     1        
+combinations_1 one_hot_1     8     1        
+combinations_1 one_hot_2     7     1        
+combinations_1 one_hot_4     7     1        
+combinations_1 one_hot_8     11    1        
+combinations_1 all_tiles     19    1        
+combinations_2 one_hot_1     10    1        
+combinations_2 one_hot_2     7     1        
+combinations_2 one_hot_4     8     1        
+combinations_2 one_hot_8     10    1        
+combinations_2 all_tiles     17    1        
+combinations_3 one_hot_1     12    1        
+combinations_3 one_hot_2     15    1        
+combinations_3 one_hot_4     42    1        
+combinations_3 one_hot_8     13    1        
+combinations_3 all_tiles     18    1        
+
+
+Group : control_tb::control_fsm_cg
+
+===============================================================================
+Group : control_tb::control_fsm_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/control/epoch/control_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME         
+100.00 1      100    1        64           64            fsm_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   control_tb::control_fsm_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 24       0         24      100.00  
+Crosses   14       0         14      100.00  
+
+
+Variables for Group  control_tb::control_fsm_cg
+
+
+VARIABLE         EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+admission_state  3        0         3       100.00  100  1      1        0                    
+boundary_event   3        0         3       100.00  100  1      1        0                    
+enabled_tiles    5        0         5       100.00  100  1      1        0                    
+mode             3        0         3       100.00  100  1      1        0                    
+status_readiness 2        0         2       100.00  100  1      1        0                    
+transition       8        0         8       100.00  100  1      1        0                    
+
+
+Crosses for Group  control_tb::control_fsm_cg
+
+
+CROSS                     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+enabled_tiles_x_readiness 10       0         10      100.00  100  1      1        0                     
+transition_x_event        4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable admission_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for admission_state
+
+
+Bins
+
+NAME          COUNT  AT LEAST 
+work_and_vs   4428   1        
+drain_only_vs 42     1        
+blocked       120342 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable boundary_event
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for boundary_event
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+ack      2598  1        
+done     894   1        
+host_end 174   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable enabled_tiles
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for enabled_tiles
+
+
+Bins
+
+NAME      COUNT AT LEAST 
+one_hot_1 11562 1        
+one_hot_2 9024  1        
+one_hot_4 56748 1        
+one_hot_8 9588  1        
+all_tiles 37890 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mode
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for mode
+
+
+Bins
+
+NAME    COUNT  AT LEAST 
+run     4554   1        
+verbose 942    1        
+idle    119322 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable status_readiness
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for status_readiness
+
+
+Bins
+
+NAME            COUNT  AT LEAST 
+quiescent_ready 100158 1        
+busy_not_ready  23790  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable transition
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 8        0         8       100.00  
+
+
+User Defined Bins for transition
+
+
+Bins
+
+NAME                    COUNT AT LEAST 
+wait_ack_to_idle        12    1        
+wait_ack_to_active      6     1        
+send_done_to_wait_ack   18    1        
+invalidate_to_send_done 18    1        
+writeback_to_invalidate 18    1        
+drain_to_writeback      18    1        
+active_to_drain         24    1        
+idle_to_active          12    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross enabled_tiles_x_readiness
+
+
+Samples crossed: enabled_tiles status_readiness
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 10       0         10      100.00          
+
+
+Automatically Generated Cross Bins for enabled_tiles_x_readiness
+
+
+Bins
+
+enabled_tiles status_readiness COUNT AT LEAST 
+one_hot_1     quiescent_ready  10716 1        
+one_hot_1     busy_not_ready   846   1        
+one_hot_2     quiescent_ready  8178  1        
+one_hot_2     busy_not_ready   846   1        
+one_hot_4     quiescent_ready  35478 1        
+one_hot_4     busy_not_ready   20406 1        
+one_hot_8     quiescent_ready  8742  1        
+one_hot_8     busy_not_ready   846   1        
+all_tiles     quiescent_ready  37044 1        
+all_tiles     busy_not_ready   846   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross transition_x_event
+
+
+Samples crossed: transition boundary_event
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        0         4       100.00          
+
+
+User Defined Cross Bins for transition_x_event
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+boundary_arrival 24    1        
+done_accepted    18    1        
+next_epoch       6     1        
+graceful_stop    12    1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : fsm_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                       
+100.00 100.00    1      100    1        1            64           64                    control_tb::control_fsm_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   fsm_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 24       0         24      100.00  
+Crosses   14       0         14      100.00  
+
+
+Variables for Group Instance  fsm_coverage
+
+
+VARIABLE         EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+admission_state  3        0         3       100.00  100  1      1        0                    
+boundary_event   3        0         3       100.00  100  1      1        0                    
+enabled_tiles    5        0         5       100.00  100  1      1        0                    
+mode             3        0         3       100.00  100  1      1        0                    
+status_readiness 2        0         2       100.00  100  1      1        0                    
+transition       8        0         8       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  fsm_coverage
+
+
+CROSS                     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+enabled_tiles_x_readiness 10       0         10      100.00  100  1      1        0                     
+transition_x_event        4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable admission_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for admission_state
+
+
+Bins
+
+NAME          COUNT  AT LEAST 
+work_and_vs   4428   1        
+drain_only_vs 42     1        
+blocked       120342 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable boundary_event
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for boundary_event
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+ack      2598  1        
+done     894   1        
+host_end 174   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable enabled_tiles
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for enabled_tiles
+
+
+Bins
+
+NAME      COUNT AT LEAST 
+one_hot_1 11562 1        
+one_hot_2 9024  1        
+one_hot_4 56748 1        
+one_hot_8 9588  1        
+all_tiles 37890 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mode
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for mode
+
+
+Bins
+
+NAME    COUNT  AT LEAST 
+run     4554   1        
+verbose 942    1        
+idle    119322 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable status_readiness
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for status_readiness
+
+
+Bins
+
+NAME            COUNT  AT LEAST 
+quiescent_ready 100158 1        
+busy_not_ready  23790  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable transition
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 8        0         8       100.00  
+
+
+User Defined Bins for transition
+
+
+Bins
+
+NAME                    COUNT AT LEAST 
+wait_ack_to_idle        12    1        
+wait_ack_to_active      6     1        
+send_done_to_wait_ack   18    1        
+invalidate_to_send_done 18    1        
+writeback_to_invalidate 18    1        
+drain_to_writeback      18    1        
+active_to_drain         24    1        
+idle_to_active          12    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross enabled_tiles_x_readiness
+
+
+Samples crossed: enabled_tiles status_readiness
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 10       0         10      100.00          
+
+
+Automatically Generated Cross Bins for enabled_tiles_x_readiness
+
+
+Bins
+
+enabled_tiles status_readiness COUNT AT LEAST 
+one_hot_1     quiescent_ready  10716 1        
+one_hot_1     busy_not_ready   846   1        
+one_hot_2     quiescent_ready  8178  1        
+one_hot_2     busy_not_ready   846   1        
+one_hot_4     quiescent_ready  35478 1        
+one_hot_4     busy_not_ready   20406 1        
+one_hot_8     quiescent_ready  8742  1        
+one_hot_8     busy_not_ready   846   1        
+all_tiles     quiescent_ready  37044 1        
+all_tiles     busy_not_ready   846   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross transition_x_event
+
+
+Samples crossed: transition boundary_event
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        0         4       100.00          
+
+
+User Defined Cross Bins for transition_x_event
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+boundary_arrival 24    1        
+done_accepted    18    1        
+next_epoch       6     1        
+graceful_stop    12    1        
+
+
+Group : control_tb::control_request_cg
+
+===============================================================================
+Group : control_tb::control_request_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/control/epoch/control_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME             
+100.00 1      100    1        64           64            request_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   control_tb::control_request_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 9        0         9       100.00  
+
+
+Variables for Group  control_tb::control_request_cg
+
+
+VARIABLE       EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+request_result 9        0         9       100.00  100  1      1        0                    
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request_result
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 9        0         9       100.00  
+
+
+User Defined Bins for request_result
+
+
+Bins
+
+NAME                           COUNT AT LEAST 
+reset_during_boundary          6     1        
+idle_busy_config_write_ignored 6     1        
+active_config_write_ignored    6     1        
+stop_requested_wait_ack        6     1        
+stop_requested_active          6     1        
+start_rejected_invalid_cache   6     1        
+start_rejected_busy            60    1        
+verbose_started                6     1        
+run_started                    6     1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : request_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                           
+100.00 100.00    1      100    1        1            64           64                    control_tb::control_request_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   request_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 9        0         9       100.00  
+
+
+Variables for Group Instance  request_coverage
+
+
+VARIABLE       EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+request_result 9        0         9       100.00  100  1      1        0                    
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request_result
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 9        0         9       100.00  
+
+
+User Defined Bins for request_result
+
+
+Bins
+
+NAME                           COUNT AT LEAST 
+reset_during_boundary          6     1        
+idle_busy_config_write_ignored 6     1        
+active_config_write_ignored    6     1        
+stop_requested_wait_ack        6     1        
+stop_requested_active          6     1        
+start_rejected_invalid_cache   6     1        
+start_rejected_busy            60    1        
+verbose_started                6     1        
+run_started                    6     1        
+
+
+Group : control_tb::control_status_cg
+
+===============================================================================
+Group : control_tb::control_status_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/control/epoch/control_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME            
+100.00 1      100    1        64           64            status_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   control_tb::control_status_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 38       0         38      100.00  
+Crosses   5        0         5       100.00  
+
+
+Variables for Group  control_tb::control_status_cg
+
+
+VARIABLE         EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+boundary_wait_cp 2        0         2       100.00  100  1      1        0                    
+busy_source_cp   11       0         11      100.00  100  1      1        0                    
+outputs_cp       6        0         6       100.00  100  1      1        0                    
+quiescent_cp     2        0         2       100.00  100  1      1        0                    
+ready_cp         2        0         2       100.00  100  1      1        0                    
+stall_reason_cp  6        0         6       100.00  100  1      1        0                    
+state_cp         7        0         7       100.00  100  1      1        0                    
+stop_cp          2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group  control_tb::control_status_cg
+
+
+CROSS         EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+state_x_stall 5        0         5       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable boundary_wait_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for boundary_wait_cp
+
+
+Bins
+
+NAME    COUNT  AT LEAST 
+waiting 894    1        
+clear   123924 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable busy_source_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 11       0         11      100.00  
+
+
+User Defined Bins for busy_source_cp
+
+
+Bins
+
+NAME             COUNT  AT LEAST 
+tiles_7          3384   1        
+tiles_8          2538   1        
+tiles_9          3426   1        
+tiles_10         2538   1        
+memory_link      1752   1        
+vs_service       1692   1        
+vs_arbiter       1692   1        
+credit_returns   1692   1        
+event_serializer 1692   1        
+program_rx       3384   1        
+all_idle         101028 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable outputs_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        0         6       100.00  
+
+
+User Defined Bins for outputs_cp
+
+
+Bins
+
+NAME               COUNT  AT LEAST 
+wait_ack           894    1        
+send_done          30     1        
+writeback          30     1        
+drain              42     1        
+active             4428   1        
+idle_or_invalidate 119388 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable quiescent_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for quiescent_cp
+
+
+Bins
+
+NAME COUNT  AT LEAST 
+idle 101022 1        
+busy 23796  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable ready_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for ready_cp
+
+
+Bins
+
+NAME    COUNT  AT LEAST 
+ready   100158 1        
+blocked 24660  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable stall_reason_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        0         6       100.00  
+
+
+User Defined Bins for stall_reason_cp
+
+
+Bins
+
+NAME               COUNT  AT LEAST 
+epoch_ack_pending  894    1        
+done_backpressure  30     1        
+invalidate_pending 12     1        
+writeback_pending  18     1        
+drain_busy         30     1        
+none               123834 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable state_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 7        0         7       100.00  
+
+
+User Defined Bins for state_cp
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+wait_ack   894   1        
+send_done  30    1        
+invalidate 72    1        
+writeback  30    1        
+drain      42    1        
+active     4428  1        
+idle       1620  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable stop_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for stop_cp
+
+
+Bins
+
+NAME    COUNT  AT LEAST 
+pending 156    1        
+clear   124662 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross state_x_stall
+
+
+Samples crossed: state_cp stall_reason_cp
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 5        0         5       100.00          
+
+
+User Defined Cross Bins for state_x_stall
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+drain      30    1        
+writeback  18    1        
+invalidate 12    1        
+done       30    1        
+ack        894   1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : status_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                          
+100.00 100.00    1      100    1        1            64           64                    control_tb::control_status_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   status_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 38       0         38      100.00  
+Crosses   5        0         5       100.00  
+
+
+Variables for Group Instance  status_coverage
+
+
+VARIABLE         EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+boundary_wait_cp 2        0         2       100.00  100  1      1        0                    
+busy_source_cp   11       0         11      100.00  100  1      1        0                    
+outputs_cp       6        0         6       100.00  100  1      1        0                    
+quiescent_cp     2        0         2       100.00  100  1      1        0                    
+ready_cp         2        0         2       100.00  100  1      1        0                    
+stall_reason_cp  6        0         6       100.00  100  1      1        0                    
+state_cp         7        0         7       100.00  100  1      1        0                    
+stop_cp          2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  status_coverage
+
+
+CROSS         EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+state_x_stall 5        0         5       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable boundary_wait_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for boundary_wait_cp
+
+
+Bins
+
+NAME    COUNT  AT LEAST 
+waiting 894    1        
+clear   123924 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable busy_source_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 11       0         11      100.00  
+
+
+User Defined Bins for busy_source_cp
+
+
+Bins
+
+NAME             COUNT  AT LEAST 
+tiles_7          3384   1        
+tiles_8          2538   1        
+tiles_9          3426   1        
+tiles_10         2538   1        
+memory_link      1752   1        
+vs_service       1692   1        
+vs_arbiter       1692   1        
+credit_returns   1692   1        
+event_serializer 1692   1        
+program_rx       3384   1        
+all_idle         101028 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable outputs_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        0         6       100.00  
+
+
+User Defined Bins for outputs_cp
+
+
+Bins
+
+NAME               COUNT  AT LEAST 
+wait_ack           894    1        
+send_done          30     1        
+writeback          30     1        
+drain              42     1        
+active             4428   1        
+idle_or_invalidate 119388 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable quiescent_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for quiescent_cp
+
+
+Bins
+
+NAME COUNT  AT LEAST 
+idle 101022 1        
+busy 23796  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable ready_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for ready_cp
+
+
+Bins
+
+NAME    COUNT  AT LEAST 
+ready   100158 1        
+blocked 24660  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable stall_reason_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        0         6       100.00  
+
+
+User Defined Bins for stall_reason_cp
+
+
+Bins
+
+NAME               COUNT  AT LEAST 
+epoch_ack_pending  894    1        
+done_backpressure  30     1        
+invalidate_pending 12     1        
+writeback_pending  18     1        
+drain_busy         30     1        
+none               123834 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable state_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 7        0         7       100.00  
+
+
+User Defined Bins for state_cp
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+wait_ack   894   1        
+send_done  30    1        
+invalidate 72    1        
+writeback  30    1        
+drain      42    1        
+active     4428  1        
+idle       1620  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable stop_cp
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for stop_cp
+
+
+Bins
+
+NAME    COUNT  AT LEAST 
+pending 156    1        
+clear   124662 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross state_x_stall
+
+
+Samples crossed: state_cp stall_reason_cp
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 5        0         5       100.00          
+
+
+User Defined Cross Bins for state_x_stall
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+drain      30    1        
+writeback  18    1        
+invalidate 12    1        
+done       30    1        
+ack        894   1        
+
+
+Group : reset_sync_tb::reset_cg
+
+===============================================================================
+Group : reset_sync_tb::reset_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/control/reset/reset_sync_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
+100.00 1      100    1        64           64            coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   reset_sync_tb::reset_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 8        0         8       100.00  
+Crosses   15       0         15      100.00  
+
+
+Variables for Group  reset_sync_tb::reset_cg
+
+
+VARIABLE              EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+clock_domain          3        0         3       100.00  100  1      1        0                    
+local_release_latency 1        0         1       100.00  100  1      1        0                    
+reset_event           2        0         2       100.00  100  1      1        0                    
+reset_sequence        2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group  reset_sync_tb::reset_cg
+
+
+CROSS                    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+domain_x_event           6        0         6       100.00  100  1      1        0                     
+domain_x_sequence        6        0         6       100.00  100  1      1        0                     
+domain_x_release_latency 3        0         3       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable clock_domain
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for clock_domain
+
+
+Bins
+
+NAME COUNT AT LEAST 
+scan 5     1        
+io   5     1        
+chip 5     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable local_release_latency
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for local_release_latency
+
+
+Bins
+
+NAME      COUNT AT LEAST 
+two_edges 6     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable reset_event
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for reset_event
+
+
+Bins
+
+NAME                   COUNT AT LEAST 
+synchronized_release   6     1        
+asynchronous_assertion 9     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable reset_sequence
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for reset_sequence
+
+
+Bins
+
+NAME                   COUNT AT LEAST 
+reassert_after_release 12    1        
+power_on               3     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross domain_x_event
+
+
+Samples crossed: clock_domain reset_event
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 6        0         6       100.00          
+
+
+Automatically Generated Cross Bins for domain_x_event
+
+
+Bins
+
+clock_domain reset_event            COUNT AT LEAST 
+scan         asynchronous_assertion 3     1        
+scan         synchronized_release   2     1        
+io           asynchronous_assertion 3     1        
+io           synchronized_release   2     1        
+chip         asynchronous_assertion 3     1        
+chip         synchronized_release   2     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross domain_x_sequence
+
+
+Samples crossed: clock_domain reset_sequence
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 6        0         6       100.00          
+
+
+Automatically Generated Cross Bins for domain_x_sequence
+
+
+Bins
+
+clock_domain reset_sequence         COUNT AT LEAST 
+scan         reassert_after_release 4     1        
+scan         power_on               1     1        
+io           reassert_after_release 4     1        
+io           power_on               1     1        
+chip         reassert_after_release 4     1        
+chip         power_on               1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross domain_x_release_latency
+
+
+Samples crossed: clock_domain local_release_latency
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 3        0         3       100.00          
+
+
+Automatically Generated Cross Bins for domain_x_release_latency
+
+
+Bins
+
+clock_domain local_release_latency COUNT AT LEAST 
+scan         two_edges             2     1        
+io           two_edges             2     1        
+chip         two_edges             2     1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                    
+100.00 100.00    1      100    1        1            64           64                    reset_sync_tb::reset_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 8        0         8       100.00  
+Crosses   15       0         15      100.00  
+
+
+Variables for Group Instance  coverage
+
+
+VARIABLE              EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+clock_domain          3        0         3       100.00  100  1      1        0                    
+local_release_latency 1        0         1       100.00  100  1      1        0                    
+reset_event           2        0         2       100.00  100  1      1        0                    
+reset_sequence        2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  coverage
+
+
+CROSS                    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+domain_x_event           6        0         6       100.00  100  1      1        0                     
+domain_x_sequence        6        0         6       100.00  100  1      1        0                     
+domain_x_release_latency 3        0         3       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable clock_domain
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for clock_domain
+
+
+Bins
+
+NAME COUNT AT LEAST 
+scan 5     1        
+io   5     1        
+chip 5     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable local_release_latency
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for local_release_latency
+
+
+Bins
+
+NAME      COUNT AT LEAST 
+two_edges 6     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable reset_event
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for reset_event
+
+
+Bins
+
+NAME                   COUNT AT LEAST 
+synchronized_release   6     1        
+asynchronous_assertion 9     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable reset_sequence
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for reset_sequence
+
+
+Bins
+
+NAME                   COUNT AT LEAST 
+reassert_after_release 12    1        
+power_on               3     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross domain_x_event
+
+
+Samples crossed: clock_domain reset_event
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 6        0         6       100.00          
+
+
+Automatically Generated Cross Bins for domain_x_event
+
+
+Bins
+
+clock_domain reset_event            COUNT AT LEAST 
+scan         asynchronous_assertion 3     1        
+scan         synchronized_release   2     1        
+io           asynchronous_assertion 3     1        
+io           synchronized_release   2     1        
+chip         asynchronous_assertion 3     1        
+chip         synchronized_release   2     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross domain_x_sequence
+
+
+Samples crossed: clock_domain reset_sequence
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 6        0         6       100.00          
+
+
+Automatically Generated Cross Bins for domain_x_sequence
+
+
+Bins
+
+clock_domain reset_sequence         COUNT AT LEAST 
+scan         reassert_after_release 4     1        
+scan         power_on               1     1        
+io           reassert_after_release 4     1        
+io           power_on               1     1        
+chip         reassert_after_release 4     1        
+chip         power_on               1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross domain_x_release_latency
+
+
+Samples crossed: clock_domain local_release_latency
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 3        0         3       100.00          
+
+
+Automatically Generated Cross Bins for domain_x_release_latency
+
+
+Bins
+
+clock_domain local_release_latency COUNT AT LEAST 
+scan         two_edges             2     1        
+io           two_edges             2     1        
+chip         two_edges             2     1        
+
+

@@ -1,0 +1,2559 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: index_store</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+<link rel="stylesheet" href="../../../illinium-coverage.css">
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_index_store'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_index_store')">index_store</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod0.html#Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod0.html#Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/lde/index_store.sv')">/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/lde/index_store.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_0"  onclick="showContent('inst_tag_0')">lde_directed_depth1_tb.test_case.indices</a></td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_0_Line" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod0.html#inst_tag_0_Cond" > 81.82</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_1"  onclick="showContent('inst_tag_1')">lde_directed_depth3_tb.test_case.indices</a></td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_1_Line" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod0.html#inst_tag_1_Cond" > 81.82</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_2"  onclick="showContent('inst_tag_2')">lde_directed_depth4_tb.test_case.indices</a></td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_2_Line" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod0.html#inst_tag_2_Cond" > 81.82</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_4"  onclick="showContent('inst_tag_4')">top_tb.genblk1[1].test_case.dut</a></td>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_4_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod0.html#inst_tag_4_Cond" > 90.91</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_5"  onclick="showContent('inst_tag_5')">top_tb.genblk1[2].test_case.dut</a></td>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_5_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod0.html#inst_tag_5_Cond" > 90.91</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_6"  onclick="showContent('inst_tag_6')">top_tb.genblk1[3].test_case.dut</a></td>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_6_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod0.html#inst_tag_6_Cond" > 90.91</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_7"  onclick="showContent('inst_tag_7')">top_tb.genblk1[4].test_case.dut</a></td>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_7_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod0.html#inst_tag_7_Cond" > 90.91</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_3"  onclick="showContent('inst_tag_3')">index_store_cr_tb.test_case.dut</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_3_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_3_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_8"  onclick="showContent('inst_tag_8')">index_store_slots1_tb.test_case.dut</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_8_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_8_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_9"  onclick="showContent('inst_tag_9')">index_store_slots2_tb.test_case.dut</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_9_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_9_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_10"  onclick="showContent('inst_tag_10')">index_store_slots3_tb.test_case.dut</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_10_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_10_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='inst_tag_0'>
+<hr>
+<a name="inst_tag_0"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_0" >lde_directed_depth1_tb.test_case.indices</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_0_Line" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod0.html#inst_tag_0_Cond" > 81.82</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 81.82</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod9.html#inst_tag_32" >test_case</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_1'>
+<hr>
+<a name="inst_tag_1"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_1" >lde_directed_depth3_tb.test_case.indices</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_1_Line" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod0.html#inst_tag_1_Cond" > 81.82</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 81.82</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod9.html#inst_tag_33" >test_case</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_2'>
+<hr>
+<a name="inst_tag_2"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_2" >lde_directed_depth4_tb.test_case.indices</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_2_Line" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod0.html#inst_tag_2_Cond" > 81.82</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 81.82</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod9.html#inst_tag_34" >test_case</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_4'>
+<hr>
+<a name="inst_tag_4"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_4" >top_tb.genblk1[1].test_case.dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_4_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod0.html#inst_tag_4_Cond" > 90.91</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod14.html#inst_tag_43" >genblk1[1].test_case</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_5'>
+<hr>
+<a name="inst_tag_5"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_5" >top_tb.genblk1[2].test_case.dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_5_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod0.html#inst_tag_5_Cond" > 90.91</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod14.html#inst_tag_44" >genblk1[2].test_case</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_6'>
+<hr>
+<a name="inst_tag_6"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_6" >top_tb.genblk1[3].test_case.dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_6_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod0.html#inst_tag_6_Cond" > 90.91</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod14.html#inst_tag_45" >genblk1[3].test_case</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_7'>
+<hr>
+<a name="inst_tag_7"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_7" >top_tb.genblk1[4].test_case.dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_7_Line" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod0.html#inst_tag_7_Cond" > 90.91</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.45</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod14.html#inst_tag_46" >genblk1[4].test_case</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_3'>
+<hr>
+<a name="inst_tag_3"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_3" >index_store_cr_tb.test_case.dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_3_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_3_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod13.html#inst_tag_39" >test_case</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_8'>
+<hr>
+<a name="inst_tag_8"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_8" >index_store_slots1_tb.test_case.dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_8_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_8_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod13.html#inst_tag_40" >test_case</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_9'>
+<hr>
+<a name="inst_tag_9"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_9" >index_store_slots2_tb.test_case.dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_9_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_9_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod13.html#inst_tag_41" >test_case</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_10'>
+<hr>
+<a name="inst_tag_10"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_10" >index_store_slots3_tb.test_case.dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_10_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod0.html#inst_tag_10_Cond" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod13.html#inst_tag_42" >test_case</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_index_store'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod0.html" >index_store</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod0.html" >index_store</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>22</td><td>22</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>22</td><td>22</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div name='inst_tag_0'>
+<a name="inst_tag_0_Line"></a>
+<b>Line Coverage for Instance : <a href="mod0.html#inst_tag_0" >lde_directed_depth1_tb.test_case.indices</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_0_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod0.html#inst_tag_0" >lde_directed_depth1_tb.test_case.indices</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">Conditions</td><td>22</td><td>18</td><td>81.82</td></tr>
+<tr class="s8"><td class="lf">Logical</td><td>22</td><td>18</td><td>81.82</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div name='inst_tag_1'>
+<a name="inst_tag_1_Line"></a>
+<b>Line Coverage for Instance : <a href="mod0.html#inst_tag_1" >lde_directed_depth3_tb.test_case.indices</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_1_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod0.html#inst_tag_1" >lde_directed_depth3_tb.test_case.indices</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">Conditions</td><td>22</td><td>18</td><td>81.82</td></tr>
+<tr class="s8"><td class="lf">Logical</td><td>22</td><td>18</td><td>81.82</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div name='inst_tag_2'>
+<a name="inst_tag_2_Line"></a>
+<b>Line Coverage for Instance : <a href="mod0.html#inst_tag_2" >lde_directed_depth4_tb.test_case.indices</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_2_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod0.html#inst_tag_2" >lde_directed_depth4_tb.test_case.indices</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">Conditions</td><td>22</td><td>18</td><td>81.82</td></tr>
+<tr class="s8"><td class="lf">Logical</td><td>22</td><td>18</td><td>81.82</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div name='inst_tag_4'>
+<a name="inst_tag_4_Line"></a>
+<b>Line Coverage for Instance : <a href="mod0.html#inst_tag_4" >top_tb.genblk1[1].test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_4_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod0.html#inst_tag_4" >top_tb.genblk1[1].test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>22</td><td>20</td><td>90.91</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>22</td><td>20</td><td>90.91</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div name='inst_tag_5'>
+<a name="inst_tag_5_Line"></a>
+<b>Line Coverage for Instance : <a href="mod0.html#inst_tag_5" >top_tb.genblk1[2].test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_5_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod0.html#inst_tag_5" >top_tb.genblk1[2].test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>22</td><td>20</td><td>90.91</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>22</td><td>20</td><td>90.91</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div name='inst_tag_6'>
+<a name="inst_tag_6_Line"></a>
+<b>Line Coverage for Instance : <a href="mod0.html#inst_tag_6" >top_tb.genblk1[3].test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_6_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod0.html#inst_tag_6" >top_tb.genblk1[3].test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>22</td><td>20</td><td>90.91</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>22</td><td>20</td><td>90.91</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div name='inst_tag_7'>
+<a name="inst_tag_7_Line"></a>
+<b>Line Coverage for Instance : <a href="mod0.html#inst_tag_7" >top_tb.genblk1[4].test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_7_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod0.html#inst_tag_7" >top_tb.genblk1[4].test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>22</td><td>20</td><td>90.91</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>22</td><td>20</td><td>90.91</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div name='inst_tag_3'>
+<a name="inst_tag_3_Line"></a>
+<b>Line Coverage for Instance : <a href="mod0.html#inst_tag_3" >index_store_cr_tb.test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_3_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod0.html#inst_tag_3" >index_store_cr_tb.test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>22</td><td>22</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>22</td><td>22</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div name='inst_tag_8'>
+<a name="inst_tag_8_Line"></a>
+<b>Line Coverage for Instance : <a href="mod0.html#inst_tag_8" >index_store_slots1_tb.test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_8_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod0.html#inst_tag_8" >index_store_slots1_tb.test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>22</td><td>22</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>22</td><td>22</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div name='inst_tag_9'>
+<a name="inst_tag_9_Line"></a>
+<b>Line Coverage for Instance : <a href="mod0.html#inst_tag_9" >index_store_slots2_tb.test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_9_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod0.html#inst_tag_9" >index_store_slots2_tb.test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>22</td><td>22</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>22</td><td>22</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div name='inst_tag_10'>
+<a name="inst_tag_10_Line"></a>
+<b>Line Coverage for Instance : <a href="mod0.html#inst_tag_10" >index_store_slots3_tb.test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>66</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>72</td><td>13</td><td>13</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+65                        always_comb
+66         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank &lt; NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] &lt;= 1'b0;
+75         1/1                  capture_ptr_r[bank] &lt;= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i &amp;&amp; back_ready_o &amp;&amp; back_op_i == IDX_SET &amp;&amp;
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] &lt;= back_data_i;
+80         1/1                    index_valid_r[bank] &lt;= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture &amp;&amp; back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= back_resolved;
+84         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push &amp;&amp; front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] &lt;= front_resolved;
+88         1/1                    capture_ptr_r[bank] &lt;= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_10_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod0.html#inst_tag_10" >index_store_slots3_tb.test_case.dut</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>22</td><td>22</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>22</td><td>22</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       54
+ EXPRESSION (((!reset_i)) &amp;&amp; back_enable_i &amp;&amp; ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       55
+ EXPRESSION (((!reset_i)) &amp;&amp; front_enable_i &amp;&amp; ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ EXPRESSION (back_valid_i &amp;&amp; back_ready_o &amp;&amp; ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (front_valid_i &amp;&amp; front_ready_o)
+             ------1------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_0">
+    <li>
+      <a href="#inst_tag_0_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_0_Cond">Cond</a>    </li>
+  </ul>
+  <ul name="inst_tag_1">
+    <li>
+      <a href="#inst_tag_1_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_1_Cond">Cond</a>    </li>
+  </ul>
+  <ul name="inst_tag_10">
+    <li>
+      <a href="#inst_tag_10_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_10_Cond">Cond</a>    </li>
+  </ul>
+  <ul name="inst_tag_2">
+    <li>
+      <a href="#inst_tag_2_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_2_Cond">Cond</a>    </li>
+  </ul>
+  <ul name="inst_tag_3">
+    <li>
+      <a href="#inst_tag_3_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_3_Cond">Cond</a>    </li>
+  </ul>
+  <ul name="inst_tag_4">
+    <li>
+      <a href="#inst_tag_4_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_4_Cond">Cond</a>    </li>
+  </ul>
+  <ul name="inst_tag_5">
+    <li>
+      <a href="#inst_tag_5_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_5_Cond">Cond</a>    </li>
+  </ul>
+  <ul name="inst_tag_6">
+    <li>
+      <a href="#inst_tag_6_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_6_Cond">Cond</a>    </li>
+  </ul>
+  <ul name="inst_tag_7">
+    <li>
+      <a href="#inst_tag_7_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_7_Cond">Cond</a>    </li>
+  </ul>
+  <ul name="inst_tag_8">
+    <li>
+      <a href="#inst_tag_8_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_8_Cond">Cond</a>    </li>
+  </ul>
+  <ul name="inst_tag_9">
+    <li>
+      <a href="#inst_tag_9_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_9_Cond">Cond</a>    </li>
+  </ul>
+  <ul name="tag_index_store">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

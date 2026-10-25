@@ -1,0 +1,82 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                    
+ 91.18  84.62  99.38 --      89.53 --     arithmetic_unit_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+   91.18  84.62  99.38 --      89.53 --     dut 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT               
+100.00 --     100.00 --     100.00 --     index_unit_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+  100.00 --     100.00 --     100.00 --     dut 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT               
+100.00 100.00 100.00 --     100.00 --     logic_unit_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+  100.00 100.00 100.00 --     100.00 --     dut 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                
+100.00 100.00 100.00 --     100.00 --     reduce_unit_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+  100.00 100.00 100.00 --     100.00 --     dut 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT               
+100.00 100.00 100.00 --     100.00 --     shift_unit_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+  100.00 100.00 100.00 --     100.00 --     dut 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                   
+ 96.13  91.47  98.97 --      97.95 --     tile_fu_direct_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+   96.13  91.47  98.97 --      97.95 --     dut 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT            
+     91.18  84.62  99.38 --      89.53 --     arithmetic 
+    100.00 --     100.00 --     100.00 --     indexed    
+     96.51  90.00 100.00 --      99.54 --     logic_leaf 
+    100.00 100.00 100.00 --     100.00 --     multiply   
+    100.00 100.00 100.00 --     100.00 --     reduce     
+     99.13 100.00  97.38 --     100.00 --     shift      
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                    
+ 96.45  91.03  97.17 --      97.60 100.00 tile_func_units_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+   95.17  90.70  97.08 --      97.74 --     dut 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT            
+     90.55  84.62  97.50 --      89.53 --     arithmetic 
+    100.00 --     100.00 --     100.00 --     indexed    
+    100.00 100.00 100.00 --     100.00 --     logic_leaf 
+    100.00 100.00 100.00 --     100.00 --     multiply   
+    100.00 100.00 100.00 --     100.00 --     reduce     
+     89.90  77.78  93.19 --      98.72 --     shift      
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT           
+  100.00 100.00 100.00 --     100.00 --     mask_bank 
+   93.27  90.91 100.00 --      88.89 --     merge     
+

@@ -1,0 +1,1873 @@
+===============================================================================
+Module : engine_arbiter
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+  0.00 --     --     --     --       0.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/engine_arbiter.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                          
+  0.00 --     --     --     --       0.00 setup_overlap_isolation_tb.dut.memory_arbiter 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : engine_arbiter
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       2     1         50.00   0                 0.00    
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            2     1         50.00   0                 0.00    
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 0        0              0        0          
+unnamed$$_4 30       0              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.memory_arbiter
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+  0.00 --     --     --     --       0.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+  0.00 --     --     --     --       0.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+  0.00 --     --     --     --       0.00 engine_arbiter 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 --     --     --     --     100.00 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : front_end
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+  0.00 --     --     --     --       0.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/front_end.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                                     
+  0.00 --     --     --     --       0.00 setup_overlap_isolation_tb.dut.commit_engine.front_end_u 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : front_end
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       8     8         100.00  0                 0.00    
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            8     8         100.00  0                 0.00    
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                       Attempts Real Successes Failures Incomplete 
+fe_cmd_known               30       0              0        0          
+fe_cmd_legal               30       0              0        0          
+fe_endc_nothing_painted    30       0              0        0          
+fe_narrow_fits             30       0              0        0          
+fe_no_repoint_over_painted 30       0              0        0          
+fe_push_nonempty           30       0              0        0          
+fe_setc_on_empty_word      30       0              0        0          
+fe_wide_at_bit0            30       0              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.commit_engine.front_end_u
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+  0.00 --     --     --     --       0.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+  7.69 --     --     --     --       7.69 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+  0.00 --     --     --     --       0.00 front_end 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+ 50.00 --     --     --     --      50.00 commit_engine 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME         
+ 20.00 --     --     --     --      20.00 word_paint_u 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : back_end
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 20.00 --     --     --     --      20.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/back_end.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                                    
+ 20.00 --     --     --     --      20.00 setup_overlap_isolation_tb.dut.commit_engine.back_end_u 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : back_end
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       10    9         90.00   2                 20.00   
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            10    9         90.00   2                 20.00   
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                       Attempts Real Successes Failures Incomplete 
+be_bit_committed_once      0        0              0        0          
+be_done_sticky             30       0              0        0          
+be_dp_holds_until_ack      30       0              0        0          
+be_endc_after_seam_drained 30       0              0        0          
+be_fwd_keeps_order         30       26             0        0          
+be_fwd_never_dropped       30       0              0        0          
+be_push_into_free_back_reg 30       0              0        0          
+be_rsp_only_when_waiting   30       0              0        0          
+clear_needs_quiescent_be   30       0              0        0          
+commit_ship_mutex          30       26             0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.commit_engine.back_end_u
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 20.00 --     --     --     --      20.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 45.00 --     --     --     --      45.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME     
+ 20.00 --     --     --     --      20.00 back_end 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+ 50.00 --     --     --     --      50.00 commit_engine 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME    
+ 80.00 --     --     --     --      80.00 delta_u 
+ 60.00 --     --     --     --      60.00 vsp_u   
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : word_paint
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 20.00 --     --     --     --      20.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/word_paint.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                                                  
+ 20.00 --     --     --     --      20.00 setup_overlap_isolation_tb.dut.commit_engine.front_end_u.word_paint_u 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : word_paint
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       5     5         100.00  1                 20.00   
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            5     5         100.00  1                 20.00   
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                             Attempts Real Successes Failures Incomplete 
+paint_action_known               30       26             0        0          
+paint_narrow_fits                30       0              0        0          
+paint_setc_on_empty_word         30       0              0        0          
+paint_wide_final_after_full_limb 30       0              0        0          
+paint_wide_first_on_empty_word   30       0              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.commit_engine.front_end_u.word_paint_u
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 20.00 --     --     --     --      20.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 20.00 --     --     --     --      20.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+ 20.00 --     --     --     --      20.00 word_paint 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+  0.00 --     --     --     --       0.00 front_end_u 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : context_control
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 24.74  51.35  22.37   0.00  50.00   0.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/control/context_control.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                                 
+ 24.74  51.35  22.37   0.00  50.00   0.00 setup_overlap_isolation_tb.dut.control.context_state 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : context_control
+
+             Line No.   Total   Covered  Percent
+TOTAL                       37       19    51.35
+ALWAYS             63       31       13    41.94
+ALWAYS            103        6        6   100.00
+
+62                        always_ff @(posedge clk_i) begin
+63         1/1              if (reset_i) begin
+64         1/1                state_r <= CONTEXT_IDLE;
+65         1/1                front_bank_r <= '0;
+66         1/1                load_bank_r <= '0;
+67         1/1                context_valid_r <= '0;
+68         1/1                bank_ready_r <= '0;
+69         1/1                endl_pending_r <= 1'b0;
+70         1/1                completion_mask_r <= '0;
+71                          end else begin
+72         1/1                if (allocate) begin
+73         0/1     ==>          context_valid_r[load_bank_r] <= 1'b1;
+74         0/1     ==>          bank_ready_r[load_bank_r] <= 1'b0;
+75                            end
+                        MISSING_ELSE
+76         1/2     ==>        if (load_issue_i && dispatch_i.end_load) endl_pending_r <= 1'b1;
+                        MISSING_ELSE
+77         1/1                if (endl_complete) begin
+78         0/1     ==>          bank_ready_r[load_bank_r] <= 1'b1;
+79         0/1     ==>          endl_pending_r <= 1'b0;
+80         0/1     ==>          load_bank_r <= load_bank_r ^ double_buffer_enable_i;
+81                            end
+                        MISSING_ELSE
+82         1/1                case (state_r)
+83         1/2     ==>          CONTEXT_IDLE: if (activate) state_r <= CONTEXT_RUN;
+                        MISSING_ELSE
+84         0/2     ==>          CONTEXT_RUN: if (end_compute_accept_i) state_r <= CONTEXT_END_WAIT;
+                   ==>  MISSING_ELSE
+85         0/1     ==>          CONTEXT_END_WAIT: if (commit_done_i && !data_pending_i) begin
+86         0/1     ==>            completion_mask_r <= commit_delta_i;
+87         0/1     ==>            state_r <= CONTEXT_COMPLETE;
+88                              end
+                   ==>  MISSING_ELSE
+89         0/1     ==>          CONTEXT_COMPLETE: if (image_release_o) begin
+90         0/1     ==>            context_valid_r[front_bank_r] <= 1'b0;
+91         0/1     ==>            bank_ready_r[front_bank_r] <= 1'b0;
+92         0/1     ==>            front_bank_r <= front_bank_r ^ double_buffer_enable_i;
+93         0/1     ==>            state_r <= CONTEXT_IDLE;
+94                              end
+                   ==>  MISSING_ELSE
+95         0/1     ==>          default: state_r <= CONTEXT_IDLE;
+96                            endcase
+97                          end
+98                        end
+99                      `ifndef SYNTHESIS
+100                       assert property (@(posedge clk_i) disable iff (reset_i)
+101                         completion_valid_o && !completion_ready_i |=> completion_valid_o && $stable(activation_mask_o))
+102                         else $fatal(1,"completion changed while stalled");
+103        1/1            always @(posedge clk_i) if (!reset_i) begin
+104        1/1              if (load_write_i) assert (back_index_enable_o) else $fatal(1,"LDE write escaped its pinned bank");
+                        MISSING_ELSE
+105        1/1              if (datapath_done_i && compute_active_o)
+106                           assert (context_valid_r[front_bank_r] && bank_ready_r[front_bank_r]) else $fatal(1,"compute write before loaded operands");
+                        MISSING_ELSE
+107        1/1              if (endl_complete) assert (!load_pending_i && !back_index_valid_i) else $fatal(1,"ENDL advanced before load drain");
+                        MISSING_ELSE
+108        1/1              if (image_release_o) assert (!datapath_done_i && !data_pending_i && commit_done_i)
+109                           else $fatal(1,"compute bank released early");
+                        MISSING_ELSE
+110        1/1              if (compute_active_o && load_write_i)
+111                           assert (front_bank_r != load_bank_r)
+112                             else $fatal(1,"LDE wrote the active compute bank");
+                        MISSING_ELSE
+113                       end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : context_control
+
+               Total   Covered  Percent
+Conditions         76       17    22.37
+Logical            76       17    22.37
+Non-Logical         0        0
+Event               0        0
+
+ LINE       76
+ EXPRESSION (load_issue_i && dispatch_i.end_load)
+             ------1-----    ---------2---------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       80
+ EXPRESSION (load_bank_r ^ double_buffer_enable_i)
+             -----1-----   -----------2----------
+
+-1- -2- Status
+ 0   0  Not Covered
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       85
+ EXPRESSION (commit_done_i && ((!data_pending_i)))
+             ------1------    ---------2---------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       92
+ EXPRESSION (front_bank_r ^ double_buffer_enable_i)
+             ------1-----   -----------2----------
+
+-1- -2- Status
+ 0   0  Not Covered
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       105
+ EXPRESSION (datapath_done_i && compute_active_o)
+             -------1-------    --------2-------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       110
+ EXPRESSION (compute_active_o && load_write_i)
+             --------1-------    ------2-----
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       42
+ EXPRESSION (state_r == CONTEXT_RUN)
+            ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Not Covered
+
+ LINE       43
+ EXPRESSION (context_valid_r[load_bank_r] && ((!bank_ready_r[load_bank_r])) && ((!endl_pending_r)))
+             --------------1-------------    ---------------2--------------    ---------3---------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Not Covered
+ 1   1   0  Not Covered
+ 1   1   1  Not Covered
+
+ LINE       45
+ EXPRESSION (((!reset_i)) && (state_r == CONTEXT_COMPLETE))
+             ------1-----    --------------2--------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Not Covered
+
+ LINE       45
+ SUB-EXPRESSION (state_r == CONTEXT_COMPLETE)
+                --------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Not Covered
+
+ LINE       47
+ EXPRESSION (completion_valid_o && completion_ready_i)
+             ---------1--------    ---------2--------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       48
+ EXPRESSION 
+ Number  Term
+      1  ((!reset_i)) && 
+      2  (context_valid_r == '0) && 
+      3  (state_r == CONTEXT_IDLE) && 
+      4  frontend_idle_i && 
+      5  ((!load_busy_i)) && 
+      6  ((!load_pending_i)) && 
+      7  datapath_ready_i && 
+      8  ((!endl_pending_r)))
+
+-1- -2- -3- -4- -5- -6- -7- -8- Status
+ 0   1   1   1   1   1   1   1  Not Covered
+ 1   0   1   1   1   1   1   1  Not Covered
+ 1   1   0   1   1   1   1   1  Not Covered
+ 1   1   1   0   1   1   1   1  Covered
+ 1   1   1   1   0   1   1   1  Not Covered
+ 1   1   1   1   1   0   1   1  Not Covered
+ 1   1   1   1   1   1   0   1  Covered
+ 1   1   1   1   1   1   1   0  Not Covered
+ 1   1   1   1   1   1   1   1  Covered
+
+ LINE       48
+ SUB-EXPRESSION (context_valid_r == '0)
+                -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       48
+ SUB-EXPRESSION (state_r == CONTEXT_IDLE)
+                ------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       53
+ EXPRESSION (((!reset_i)) && valid_i && ((!context_valid_r[load_bank_r])) && ((!endl_pending_r)) && dispatch_i.target.load)
+             ------1-----    ---2---    ----------------3----------------    ---------4---------    -----------5----------
+
+-1- -2- -3- -4- -5- Status
+ 0   1   1   1   1  Not Covered
+ 1   0   1   1   1  Covered
+ 1   1   0   1   1  Not Covered
+ 1   1   1   0   1  Not Covered
+ 1   1   1   1   0  Covered
+ 1   1   1   1   1  Not Covered
+
+ LINE       55
+ EXPRESSION (allocate ? ((2'((unsigned'(1))) << load_bank_r)) : '0)
+             ----1---
+
+-1- Status
+ 0  Covered
+ 1  Not Covered
+
+ LINE       56
+ EXPRESSION ((state_r == CONTEXT_IDLE) && context_valid_r[front_bank_r] && bank_ready_r[front_bank_r])
+             ------------1------------    --------------2--------------    -------------3------------
+
+-1- -2- -3- Status
+ 0   1   1  Not Covered
+ 1   0   1  Not Covered
+ 1   1   0  Not Covered
+ 1   1   1  Not Covered
+
+ LINE       56
+ SUB-EXPRESSION (state_r == CONTEXT_IDLE)
+                ------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       57
+ EXPRESSION (((!reset_i)) && endl_pending_r && context_valid_r[load_bank_r] && ((!load_pending_i)))
+             ------1-----    -------2------    --------------3-------------    ---------4---------
+
+-1- -2- -3- -4- Status
+ 0   1   1   1  Not Covered
+ 1   0   1   1  Not Covered
+ 1   1   0   1  Not Covered
+ 1   1   1   0  Not Covered
+ 1   1   1   1  Not Covered
+
+ LINE       58
+ EXPRESSION (endl_valid_i && endl_ready_o)
+             ------1-----    ------2-----
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       59
+ EXPRESSION (context_valid_r[load_bank_r] && ((!bank_ready_r[load_bank_r])))
+             --------------1-------------    ---------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       60
+ EXPRESSION (context_valid_r[front_bank_r] && bank_ready_r[front_bank_r] && compute_active_o)
+             --------------1--------------    -------------2------------    --------3-------
+
+-1- -2- -3- Status
+ 0   1   1  Not Covered
+ 1   0   1  Not Covered
+ 1   1   0  Not Covered
+ 1   1   1  Not Covered
+
+-------------------------------------------------------------------------------
+FSM Coverage for Module : context_control
+Summary for FSM :: state_r
+            Total Covered Percent                         
+States      4     1       25.00   (Not included in score) 
+Transitions 6     0       0.00                            
+Sequences   0     0                                       
+
+State, Transition and Sequence Details for FSM :: state_r
+-------------------------------------------------------------------------------
+states           Line No. Covered     
+CONTEXT_COMPLETE 87       Not Covered 
+CONTEXT_END_WAIT 84       Not Covered 
+CONTEXT_IDLE     64       Covered     
+CONTEXT_RUN      83       Not Covered 
+
+transitions                        Line No. Covered     
+CONTEXT_COMPLETE->CONTEXT_IDLE     64       Not Covered 
+CONTEXT_END_WAIT->CONTEXT_COMPLETE 87       Not Covered 
+CONTEXT_END_WAIT->CONTEXT_IDLE     64       Not Covered 
+CONTEXT_IDLE->CONTEXT_RUN          83       Not Covered 
+CONTEXT_RUN->CONTEXT_END_WAIT      84       Not Covered 
+CONTEXT_RUN->CONTEXT_IDLE          64       Not Covered 
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : context_control
+         Line No. Total Covered Percent 
+Branches          24    12      50.00   
+TERNARY  55       2     1       50.00   
+IF       63       16    5       31.25   
+IF       103      6     6       100.00  
+
+
+55           assign clear_index_bank_o = allocate ? NUM_INDEX_BANKS'(unsigned'(1)) << load_bank_r : '0;
+                                                  -1-  
+                                                  ==>  
+                                                  ==>  
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+63             if (reset_i) begin
+               -1-  
+64               state_r <= CONTEXT_IDLE;
+                 ==>
+65               front_bank_r <= '0;
+66               load_bank_r <= '0;
+67               context_valid_r <= '0;
+68               bank_ready_r <= '0;
+69               endl_pending_r <= 1'b0;
+70               completion_mask_r <= '0;
+71             end else begin
+72               if (allocate) begin
+                 -2-  
+73                 context_valid_r[load_bank_r] <= 1'b1;
+                   ==>
+74                 bank_ready_r[load_bank_r] <= 1'b0;
+75               end
+                 MISSING_ELSE
+                 ==>
+76               if (load_issue_i && dispatch_i.end_load) endl_pending_r <= 1'b1;
+                 -3-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+77               if (endl_complete) begin
+                 -4-  
+78                 bank_ready_r[load_bank_r] <= 1'b1;
+                   ==>
+79                 endl_pending_r <= 1'b0;
+80                 load_bank_r <= load_bank_r ^ double_buffer_enable_i;
+81               end
+                 MISSING_ELSE
+                 ==>
+82               case (state_r)
+                 -5-  
+83                 CONTEXT_IDLE: if (activate) state_r <= CONTEXT_RUN;
+                                 -6-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+84                 CONTEXT_RUN: if (end_compute_accept_i) state_r <= CONTEXT_END_WAIT;
+                                -7-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+85                 CONTEXT_END_WAIT: if (commit_done_i && !data_pending_i) begin
+                                     -8-  
+86                   completion_mask_r <= commit_delta_i;
+                     ==>
+87                   state_r <= CONTEXT_COMPLETE;
+88                 end
+                   MISSING_ELSE
+                   ==>
+89                 CONTEXT_COMPLETE: if (image_release_o) begin
+                                     -9-  
+90                   context_valid_r[front_bank_r] <= 1'b0;
+                     ==>
+91                   bank_ready_r[front_bank_r] <= 1'b0;
+92                   front_bank_r <= front_bank_r ^ double_buffer_enable_i;
+93                   state_r <= CONTEXT_IDLE;
+94                 end
+                   MISSING_ELSE
+                   ==>
+95                 default: state_r <= CONTEXT_IDLE;
+                   ==>
+
+Branches:
+
+-1- -2- -3- -4- -5-               -6- -7- -8- -9- Status      
+1   -   -   -   -                 -   -   -   -   Covered     
+0   1   -   -   -                 -   -   -   -   Not Covered 
+0   0   -   -   -                 -   -   -   -   Covered     
+0   -   1   -   -                 -   -   -   -   Not Covered 
+0   -   0   -   -                 -   -   -   -   Covered     
+0   -   -   1   -                 -   -   -   -   Not Covered 
+0   -   -   0   -                 -   -   -   -   Covered     
+0   -   -   -   CONTEXT_IDLE      1   -   -   -   Not Covered 
+0   -   -   -   CONTEXT_IDLE      0   -   -   -   Covered     
+0   -   -   -   CONTEXT_RUN       -   1   -   -   Not Covered 
+0   -   -   -   CONTEXT_RUN       -   0   -   -   Not Covered 
+0   -   -   -   CONTEXT_END_WAIT  -   -   1   -   Not Covered 
+0   -   -   -   CONTEXT_END_WAIT  -   -   0   -   Not Covered 
+0   -   -   -   CONTEXT_COMPLETE  -   -   -   1   Not Covered 
+0   -   -   -   CONTEXT_COMPLETE  -   -   -   0   Not Covered 
+0   -   -   -   default           -   -   -   -   Not Covered 
+
+
+103          always @(posedge clk_i) if (!reset_i) begin
+                                     -1-  
+104            if (load_write_i) assert (back_index_enable_o) else $fatal(1,"LDE write escaped its pinned bank");
+               -2-  
+               MISSING_ELSE
+               ==>
+105            if (datapath_done_i && compute_active_o)
+               -3-  
+106              assert (context_valid_r[front_bank_r] && bank_ready_r[front_bank_r]) else $fatal(1,"compute write before loaded operands");
+                 MISSING_ELSE
+                 ==>
+107            if (endl_complete) assert (!load_pending_i && !back_index_valid_i) else $fatal(1,"ENDL advanced before load drain");
+               -4-  
+               MISSING_ELSE
+               ==>
+108            if (image_release_o) assert (!datapath_done_i && !data_pending_i && commit_done_i)
+               -5-  
+109              else $fatal(1,"compute bank released early");
+                 MISSING_ELSE
+                 ==>
+110            if (compute_active_o && load_write_i)
+               -6-  
+111              assert (front_bank_r != load_bank_r)
+112                else $fatal(1,"LDE wrote the active compute bank");
+                   MISSING_ELSE
+                   ==>
+113          end
+             MISSING_ELSE
+             ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- -6- Status  
+1   0   -   -   -   -   Covered 
+1   -   0   -   -   -   Covered 
+1   -   -   0   -   -   Covered 
+1   -   -   -   0   -   Covered 
+1   -   -   -   -   0   Covered 
+0   -   -   -   -   -   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : context_control
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       6     1         16.67   0                 0.00    
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            6     1         16.67   0                 0.00    
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 0        0              0        0          
+unnamed$$_1 0        0              0        0          
+unnamed$$_2 0        0              0        0          
+unnamed$$_3 0        0              0        0          
+unnamed$$_4 0        0              0        0          
+unnamed$$_7 30       0              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.control.context_state
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 24.74  51.35  22.37   0.00  50.00   0.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 24.74  51.35  22.37   0.00  50.00   0.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME            
+ 24.74  51.35  22.37   0.00  50.00   0.00 context_control 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME    
+--     --     --     --     --     --     control 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : tile_cmte
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 50.00 --     --     --     --      50.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/tile_cmte.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                         
+ 50.00 --     --     --     --      50.00 setup_overlap_isolation_tb.dut.commit_engine 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : tile_cmte
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       4     4         100.00  2                 50.00   
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            4     4         100.00  2                 50.00   
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                     Attempts Real Successes Failures Incomplete 
+clear_needs_quiescent_fe 30       0              0        0          
+handoff_deadlock         30       26             0        0          
+seam_one_word_forwarded  30       26             0        0          
+seam_push_has_forward    30       0              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.commit_engine
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 50.00 --     --     --     --      50.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 32.43 --     --     --     --      32.43 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+ 50.00 --     --     --     --      50.00 tile_cmte 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 --     --     --     --     100.00 dut  
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+ 45.00 --     --     --     --      45.00 back_end_u  
+  7.69 --     --     --     --       7.69 front_end_u 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : rf_packer
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 50.00 --     --     --     --      50.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/lde/rf_packer.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                              
+ 50.00 --     --     --     --      50.00 setup_overlap_isolation_tb.dut.load_engine.packer 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : rf_packer
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       4     2         50.00   2                 50.00   
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            4     2         50.00   2                 50.00   
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 1        1              0        0          
+unnamed$$_1 26       26             0        0          
+unnamed$$_2 0        0              0        0          
+unnamed$$_3 0        0              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.load_engine.packer
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 50.00 --     --     --     --      50.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 50.00 --     --     --     --      50.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+ 50.00 --     --     --     --      50.00 rf_packer 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 --     --     --     --     100.00 load_engine 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : issue_control
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 50.56  66.67  25.00 --      60.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/control/issue_control.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                         
+ 50.56  66.67  25.00 --      60.00 --     setup_overlap_isolation_tb.dut.control.issue 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : issue_control
+
+             Line No.   Total   Covered  Percent
+TOTAL                        6        4    66.67
+ALWAYS             44        6        4    66.67
+
+43                        always_ff @(posedge clk_i) begin
+44         2/2              if (reset_i || clear_i) data_valid_r <= 1'b0;
+45                          else begin
+46         1/2     ==>        if (data_ack_i) data_valid_r <= 1'b0;
+                        MISSING_ELSE
+47         1/2     ==>        if (datapath_publish_i) data_valid_r <= 1'b1;
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : issue_control
+
+               Total   Covered  Percent
+Conditions         48       12    25.00
+Logical            48       12    25.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       44
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Not Covered
+ 1   0  Covered
+
+ LINE       26
+ EXPRESSION (((!reset_i)) && valid_i)
+             ------1-----    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       27
+ EXPRESSION (issue_allowed && dispatch_i.target.load && load_context_ready_i)
+             ------1------    -----------2----------    ----------3---------
+
+-1- -2- -3- Status
+ 0   1   1  Not Covered
+ 1   0   1  Not Covered
+ 1   1   0  Not Covered
+ 1   1   1  Not Covered
+
+ LINE       28
+ EXPRESSION (load_valid_o && load_ready_i)
+             ------1-----    ------2-----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       29
+ EXPRESSION (issue_allowed && compute_active_i)
+             ------1------    --------2-------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Not Covered
+
+ LINE       30
+ EXPRESSION (front_issue && dispatch_i.target.commit && (((!dispatch_i.indexed_descriptor)) || front_index_ready_i))
+             -----1-----    ------------2-----------    -----------------------------3-----------------------------
+
+-1- -2- -3- Status
+ 0   1   1  Not Covered
+ 1   0   1  Not Covered
+ 1   1   0  Not Covered
+ 1   1   1  Not Covered
+
+ LINE       30
+ SUB-EXPRESSION (((!dispatch_i.indexed_descriptor)) || front_index_ready_i)
+                 -----------------1----------------    ---------2---------
+
+-1- -2- Status
+ 0   0  Not Covered
+ 0   1  Not Covered
+ 1   0  Covered
+
+ LINE       32
+ EXPRESSION (commit_valid_o && commit_ready_i)
+             -------1------    -------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       33
+ EXPRESSION (commit_accept && dispatch_i.end_compute)
+             ------1------    -----------2----------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+ LINE       34
+ EXPRESSION (front_issue && dispatch_i.target.index_push && ((!data_valid_r)) && front_index_ready_i)
+             -----1-----    --------------2-------------    --------3--------    ---------4---------
+
+-1- -2- -3- -4- Status
+ 0   1   1   1  Not Covered
+ 1   0   1   1  Not Covered
+ 1   1   0   1  Not Covered
+ 1   1   1   0  Not Covered
+ 1   1   1   1  Not Covered
+
+ LINE       35
+ EXPRESSION (issue_allowed && dispatch_i.target.datapath && compute_active_i && ((!data_valid_r)))
+             ------1------    -------------2------------    --------3-------    --------4--------
+
+-1- -2- -3- -4- Status
+ 0   1   1   1  Not Covered
+ 1   0   1   1  Not Covered
+ 1   1   0   1  Covered
+ 1   1   1   0  Not Covered
+ 1   1   1   1  Not Covered
+
+ LINE       37
+ EXPRESSION (load_issue_o || datapath_done_i || push_accept || (commit_accept && ((!dispatch_i.end_compute))) || clear_i)
+             ------1-----    -------2-------    -----3-----    -----------------------4----------------------    ---5---
+
+-1- -2- -3- -4- -5- Status
+ 0   0   0   0   0  Covered
+ 0   0   0   0   1  Not Covered
+ 0   0   0   1   0  Not Covered
+ 0   0   1   0   0  Not Covered
+ 0   1   0   0   0  Not Covered
+ 1   0   0   0   0  Not Covered
+
+ LINE       37
+ SUB-EXPRESSION (commit_accept && ((!dispatch_i.end_compute)))
+                 ------1------    -------------2-------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Not Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : issue_control
+         Line No. Total Covered Percent 
+Branches          5     3       60.00   
+IF       44       5     3       60.00   
+
+
+44             if (reset_i || clear_i) data_valid_r <= 1'b0;
+               -1-  
+               ==>
+45             else begin
+46               if (data_ack_i) data_valid_r <= 1'b0;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+47               if (datapath_publish_i) data_valid_r <= 1'b1;
+                 -3-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- Status      
+1   -   -   Covered     
+0   1   -   Not Covered 
+0   0   -   Covered     
+0   -   1   Not Covered 
+0   -   0   Covered     
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.control.issue
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 50.56  66.67  25.00 --      60.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 50.56  66.67  25.00 --      60.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+ 50.56  66.67  25.00 --      60.00 --     issue_control 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME    
+--     --     --     --     --     --     control 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : vsp
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 60.00 --     --     --     --      60.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/vsp.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                                          
+ 60.00 --     --     --     --      60.00 setup_overlap_isolation_tb.dut.commit_engine.back_end_u.vsp_u 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : vsp
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       5     5         100.00  3                 60.00   
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            5     5         100.00  3                 60.00   
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                        Attempts Real Successes Failures Incomplete 
+vsp_ack_needs_valid         30       0              0        0          
+vsp_no_ack_in_first_cycle   30       26             0        0          
+vsp_one_ack_owner           30       26             0        0          
+vsp_payload_holds_until_ack 30       0              0        0          
+vsp_state_legal             30       26             0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.commit_engine.back_end_u.vsp_u
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 60.00 --     --     --     --      60.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 60.00 --     --     --     --      60.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 60.00 --     --     --     --      60.00 vsp  
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+ 20.00 --     --     --     --      20.00 back_end_u 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : delta
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 80.00 --     --     --     --      80.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/delta.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                                            
+ 80.00 --     --     --     --      80.00 setup_overlap_isolation_tb.dut.commit_engine.back_end_u.delta_u 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : delta
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       5     5         100.00  4                 80.00   
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            5     5         100.00  4                 80.00   
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                       Attempts Real Successes Failures Incomplete 
+commit_ship_mutex          30       26             0        0          
+delta_ctrl_known           30       26             0        0          
+delta_no_commit_after_ship 30       26             0        0          
+delta_single_ship          30       26             0        0          
+delta_valid_holds          30       0              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.commit_engine.back_end_u.delta_u
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 80.00 --     --     --     --      80.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 80.00 --     --     --     --      80.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+ 80.00 --     --     --     --      80.00 delta 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+ 20.00 --     --     --     --      20.00 back_end_u 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : tile_worker
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/tile_worker.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                           
+100.00 --     --     --     --     100.00 setup_overlap_isolation_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : tile_worker
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                      Attempts Real Successes Failures Incomplete 
+a_program_credit_capacity 30       6              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 32.76  53.49  23.39   0.00  51.72  35.19 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 --     --     --     --     100.00 tile_worker 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                       
+--     --     --     --     --     --     setup_overlap_isolation_tb 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+ 32.43 --     --     --     --      32.43 commit_engine  
+ 25.72  53.49  23.39   0.00  51.72   0.00 control        
+100.00 --     --     --     --     100.00 datapath       
+100.00 --     --     --     --     100.00 frontend       
+ 60.00 --     --     --     --      60.00 load_engine    
+  0.00 --     --     --     --       0.00 memory_arbiter 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : tile_lde
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/lde/tile_lde.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                       
+100.00 --     --     --     --     100.00 setup_overlap_isolation_tb.dut.load_engine 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : tile_lde
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 1        1              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.load_engine
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 60.00 --     --     --     --      60.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME     
+100.00 --     --     --     --     100.00 tile_lde 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 --     --     --     --     100.00 dut  
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+ 50.00 --     --     --     --      50.00 packer 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : datapath_arch_state
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/arch_state/datapath_arch_state.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                               
+100.00 --     --     --     --     100.00 setup_overlap_isolation_tb.dut.datapath.arch_state 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : datapath_arch_state
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       2     2         100.00  2                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            2     2         100.00  2                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                  Attempts Real Successes Failures Incomplete 
+g_bank[0].unnamed$$_0 30       26             0        0          
+g_bank[1].unnamed$$_0 30       26             0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.datapath.arch_state
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                
+100.00 --     --     --     --     100.00 datapath_arch_state 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME     
+--     --     --     --     --     --     datapath 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : tile_frontend
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/frontend/tile_frontend.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                    
+100.00 --     --     --     --     100.00 setup_overlap_isolation_tb.dut.frontend 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : tile_frontend
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 30       8              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.frontend
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+100.00 --     --     --     --     100.00 tile_frontend 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 --     --     --     --     100.00 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : tile_control
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/control/tile_control.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                   
+--     --     --     --     --     --     setup_overlap_isolation_tb.dut.control 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.control
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 25.72  53.49  23.39   0.00  51.72   0.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME         
+--     --     --     --     --     --     tile_control 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 --     --     --     --     100.00 dut  
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+ 24.74  51.35  22.37   0.00  50.00   0.00 context_state 
+ 50.56  66.67  25.00 --      60.00 --     issue         
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : setup_overlap_isolation_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/control/setup_overlap_isolation_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                       
+--     --     --     --     --     --     setup_overlap_isolation_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 32.76  53.49  23.39   0.00  51.72  35.19 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                       
+--     --     --     --     --     --     setup_overlap_isolation_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 32.76  53.49  23.39   0.00  51.72  35.19 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : tile_datapath
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/tile_datapath.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                    
+--     --     --     --     --     --     setup_overlap_isolation_tb.dut.datapath 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : setup_overlap_isolation_tb.dut.datapath
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     tile_datapath 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 --     --     --     --     100.00 dut  
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 --     --     --     --     100.00 arch_state 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
