@@ -1,0 +1,1170 @@
+===============================================================================
+Module : front_end
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 95.67 100.00  95.20 --     100.00  87.50 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/front_end.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                
+ 95.67 100.00  95.20 --     100.00  87.50 cmte_fe_unit_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : front_end
+
+             Line No.   Total   Covered  Percent
+TOTAL                       59       59   100.00
+ALWAYS            122        5        5   100.00
+ALWAYS            135       13       13   100.00
+ALWAYS            152       35       35   100.00
+ALWAYS            220        5        5   100.00
+ROUTINE           246        1        1   100.00
+
+121                       always_comb begin
+122        1/1              unique case (cmd_i.amode)
+123        1/1                CMTE_AMODE_CONTIGUOUS: base_address_next = base_address_r;
+124        1/1                CMTE_AMODE_NEAR:       base_address_next = base_address_r +
+125                             ({{(ADDR_SPACE_WIDTH-8){cmd_i.desc_address[7]}}, cmd_i.desc_address[7:0]} <<< 2);
+126        1/1                CMTE_AMODE_ABSOLUTE:   base_address_next = cmd_i.desc_address;
+127        1/1                CMTE_AMODE_INDEXED:    base_address_next = cmd_i.desc_address;
+128                         endcase
+129                       end
+130                     
+131                       // ================= paint action dispatch =================
+132                       // The "accepted command" and "push" groups never coincide the same cycle:
+133                       // every accepted DESC and SETC needs armed_r=0, and push needs armed_r=1.
+134                       always_comb begin
+135        1/1              if (is_setc && ready_o)
+136        1/1                paint_action = PAINT_SETC;
+137        1/1              else if (is_desc && ready_o && !cmd_i.wide)
+138        1/1                paint_action = PAINT_NARROW;
+139        1/1              else if (is_desc && ready_o && cmd_i.wide)
+140        1/1                paint_action = PAINT_WIDE_FIRST;
+141        1/1              else if (push && wide_continues && !wide_entering_final)
+142        1/1                paint_action = PAINT_HOLD;
+143        1/1              else if (push && wide_entering_final)
+144        1/1                paint_action = PAINT_WIDE_FINAL;
+145        1/1              else if (push && !wide_continues)
+146        1/1                paint_action = PAINT_CLEAR;
+147                         else
+148        1/1                paint_action = PAINT_HOLD;
+149                       end
+150                     
+151                       always_ff @(posedge clk_i) begin
+152        1/1              if (reset_i || clear_i) begin
+153        1/1                base_address_r     <= '0;
+154        1/1                base_class_r       <= '0;
+155        1/1                wide_active_r       <= 1'b0;
+156        1/1                wide_left_r         <= '0;
+157        1/1                wide_last_bits_r    <= '0;
+158        1/1                wide_guarded_r      <= 1'b0;
+159        1/1                wide_no_compare_r   <= 1'b0;
+160        1/1                no_read_r           <= 1'b0;
+161        1/1                armed_r             <= 1'b0;
+162        1/1                wide_commit_r       <= 1'b0;
+163                         end else begin
+164                           // Every accepted narrow DESC arms/disarms -- new-word or continuing
+165                           // alike (tile_cmte.md's own Example 1 closes a word on its
+166                           // *second* descriptor, so this can't be new-word-only).
+167        1/1                if (is_desc && ready_o && !cmd_i.wide) begin
+168        1/1                  armed_r <= narrow_closes;
+169                           end
+                        MISSING_ELSE
+170                     
+171                           // First descriptor of a word, narrow or wide.
+172        1/1                if (new_word_cmd && ready_o) begin
+173        1/1                  base_address_r <= base_address_next;
+174        1/1                  no_read_r      <= cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare);
+175                     
+176        1/1                  if (cmd_i.wide) begin
+177        1/1                    wide_active_r     <= 1'b1;
+178        1/1                    wide_left_r        <= {1'b0, cmd_i.limb_count_m1} + 4'h2;
+179        1/1                    wide_last_bits_r    <= cmd_i.last_bits_m1;
+180        1/1                    wide_guarded_r       <= cmd_i.guarded;
+181        1/1                    wide_no_compare_r     <= cmd_i.no_compare;
+182                               // last_bits_m1 all-ones -> last_bits=32: the trailing limb is
+183                               // full-width, so nothing can ever be packed after it -- it must
+184                               // close like any other full limb, regardless of cmd_i.commit.
+185        1/1                    wide_commit_r           <= cmd_i.commit || (cmd_i.last_bits_m1 == '1);
+186        1/1                    armed_r                  <= 1'b1;   // full limb 0 always auto-arms
+187                             end
+                        MISSING_ELSE
+188                           end
+                        MISSING_ELSE
+189                     
+190                           // Word/limb closing and crossing the seam.
+191        1/1                if (push) begin
+192        1/1                  base_address_r <= base_address_r + 24'h4;
+193                     
+194        1/1                  if (wide_continues && !wide_entering_final) begin
+195        1/1                    wide_left_r <= wide_left_r - 4'h1;
+196        1/1                  end else if (wide_entering_final) begin
+197        1/1                    wide_left_r <= wide_left_r - 4'h1;
+198        1/1                    armed_r     <= wide_commit_r;
+199        1/1                    no_read_r   <= 1'b0;   // trailing limb's closure isn't known yet
+200                             end else begin
+201        1/1                    base_class_r  <= base_class_r + 4'($unsigned($countones(cell_bounds)));
+202        1/1                    wide_active_r <= 1'b0;
+203        1/1                    armed_r       <= 1'b0;
+204                             end
+205                           end
+                        MISSING_ELSE
+206                         end
+207                       end
+208                     
+209                       // ================= transfers to the back end =================
+210                       logic [ADDR_SPACE_WIDTH-1:0] base_address_plus4;
+211                       logic                        read_fwd_case1, read_fwd_case2;
+212                     
+213                       assign base_address_plus4 = base_address_r + 24'h4;
+214                       assign read_fwd_case1     = new_word_cmd && ready_o;
+215                       assign read_fwd_case2     = push && wide_continues;
+216                     
+217                       assign read_fwd_valid_o = read_fwd_case1 || read_fwd_case2;
+218                     
+219                       always_comb begin
+220        1/1              if (read_fwd_case1) begin
+221        1/1                read_fwd_o.addr    = base_address_next[ADDR_SPACE_WIDTH-1:2];
+222        1/1                read_fwd_o.no_read = cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare);
+223                         end else begin
+224        1/1                read_fwd_o.addr    = base_address_plus4[ADDR_SPACE_WIDTH-1:2];
+225        1/1                read_fwd_o.no_read = wide_entering_final ? 1'b0 : wide_no_compare_r;
+226                         end
+227                       end
+228                     
+229                       assign geom_data_valid_o = push;
+230                     
+231                       assign fe_geom_data_o.field            = ((32'h1 << bit_pos) - 32'h1) ^ ((32'h1 << limb_start) - 32'h1);
+232                       assign fe_geom_data_o.guard_field      = guard_field;
+233                       assign fe_geom_data_o.no_compare_field = no_compare_field;
+234                       assign fe_geom_data_o.cell_bounds      = cell_bounds;
+235                       assign fe_geom_data_o.base_class       = base_class_r;
+236                       assign fe_geom_data_o.no_read          = no_read_r;
+237                     
+238                     `ifndef SYNTHESIS
+239                       // Simulation-only checks are excluded by the SYNTHESIS define.
+240                       // Most of these catch programs the ISA declares malformed
+241                       // (tile_cmte.md#67-program-boundaries): the engine's behavior on them is
+242                       // undefined, so a firing check here means the producer is wrong, not the
+243                       // RTL.
+244                     
+245                       function automatic int narrow_paint_end(input int from_bit);
+246        1/1              return from_bit + (int'(cmd_i.cell_width_m1) + 1) * (int'(cmd_i.num_cells_m1) + 1);
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : front_end
+
+               Total   Covered  Percent
+Conditions        125      119    95.20
+Logical           125      119    95.20
+Non-Logical         0        0
+Event               0        0
+
+ LINE       135
+ EXPRESSION (is_setc && ready_o)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       137
+ EXPRESSION (is_desc && ready_o && ((!cmd_i.wide)))
+             ---1---    ---2---    -------3-------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       139
+ EXPRESSION (is_desc && ready_o && cmd_i.wide)
+             ---1---    ---2---    -----3----
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Not Covered
+ 1   1   1  Covered
+
+ LINE       141
+ EXPRESSION (push && wide_continues && ((!wide_entering_final)))
+             --1-    -------2------    ------------3-----------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       143
+ EXPRESSION (push && wide_entering_final)
+             --1-    ---------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       145
+ EXPRESSION (push && ((!wide_continues)))
+             --1-    ---------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       152
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       167
+ EXPRESSION (is_desc && ready_o && ((!cmd_i.wide)))
+             ---1---    ---2---    -------3-------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Not Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       172
+ EXPRESSION (new_word_cmd && ready_o)
+             ------1-----    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       174
+ EXPRESSION (cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare))
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       174
+ SUB-EXPRESSION (narrow_closes && cmd_i.no_compare)
+                 ------1------    --------2-------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       185
+ EXPRESSION (cmd_i.commit || (cmd_i.last_bits_m1 == '1))
+             ------1-----    -------------2------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       185
+ SUB-EXPRESSION (cmd_i.last_bits_m1 == '1)
+                -------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       194
+ EXPRESSION (wide_continues && ((!wide_entering_final)))
+             -------1------    ------------2-----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       222
+ EXPRESSION (cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare))
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       222
+ SUB-EXPRESSION (narrow_closes && cmd_i.no_compare)
+                 ------1------    --------2-------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       225
+ EXPRESSION (wide_entering_final ? 1'b0 : wide_no_compare_r)
+             ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       69
+ EXPRESSION (cmd_i.commit || narrow_fills_word)
+             ------1-----    --------2--------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       86
+ EXPRESSION (bit_pos == {1'b0, limb_start})
+            ---------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       87
+ EXPRESSION (valid_i && (cmd_i.command == cmte_pkg::CMTE_CMD_DESC))
+             ---1---    ---------------------2--------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       87
+ SUB-EXPRESSION (cmd_i.command == cmte_pkg::CMTE_CMD_DESC)
+                ---------------------1--------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       88
+ EXPRESSION (valid_i && (cmd_i.command == cmte_pkg::CMTE_CMD_ENDC))
+             ---1---    ---------------------2--------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       88
+ SUB-EXPRESSION (cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)
+                ---------------------1--------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       89
+ EXPRESSION (valid_i && (cmd_i.command == cmte_pkg::CMTE_CMD_SETC))
+             ---1---    ---------------------2--------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       89
+ SUB-EXPRESSION (cmd_i.command == cmte_pkg::CMTE_CMD_SETC)
+                ---------------------1--------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       90
+ EXPRESSION (is_desc && front_reg_empty)
+             ---1---    -------2-------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       95
+ EXPRESSION (armed_r && back_reg_free)
+             ---1---    ------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       96
+ EXPRESSION (wide_active_r && (wide_left_r > 4'b1))
+             ------1------    ----------2---------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       97
+ EXPRESSION (wide_active_r && (wide_left_r == 4'h2))
+             ------1------    ----------2----------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       97
+ SUB-EXPRESSION (wide_left_r == 4'h2)
+                ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       110
+ EXPRESSION 
+ Number  Term
+      1  ( ! (is_desc && (armed_r || (front_reg_empty && ((!read_fwd_ready_i))))) ) && 
+      2  ( ! (is_endc && (armed_r || ((!back_reg_free)))) ) && 
+      3  ( ! (is_setc && armed_r) ))
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       110
+ SUB-EXPRESSION ( ! (is_desc && (armed_r || (front_reg_empty && ((!read_fwd_ready_i))))) )
+                    ----------------------------------1---------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       110
+ SUB-EXPRESSION (is_desc && (armed_r || (front_reg_empty && ((!read_fwd_ready_i)))))
+                 ---1---    ---------------------------2---------------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       110
+ SUB-EXPRESSION (armed_r || (front_reg_empty && ((!read_fwd_ready_i))))
+                 ---1---    ---------------------2--------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       110
+ SUB-EXPRESSION (front_reg_empty && ((!read_fwd_ready_i)))
+                 -------1-------    ----------2----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       110
+ SUB-EXPRESSION ( ! (is_endc && (armed_r || ((!back_reg_free)))) )
+                    ----------------------1---------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       110
+ SUB-EXPRESSION (is_endc && (armed_r || ((!back_reg_free))))
+                 ---1---    ---------------2---------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       110
+ SUB-EXPRESSION (armed_r || ((!back_reg_free)))
+                 ---1---    ---------2--------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       110
+ SUB-EXPRESSION ( ! (is_setc && armed_r) )
+                    ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       110
+ SUB-EXPRESSION (is_setc && armed_r)
+                 ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       114
+ EXPRESSION (is_endc && ready_o)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       214
+ EXPRESSION (new_word_cmd && ready_o)
+             ------1-----    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       215
+ EXPRESSION (push && wide_continues)
+             --1-    -------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       217
+ EXPRESSION (read_fwd_case1 || read_fwd_case2)
+             -------1------    -------2------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : front_end
+         Line No. Total Covered Percent 
+Branches          27    27      100.00  
+CASE     122      4     4       100.00  
+IF       135      7     7       100.00  
+IF       152      12    12      100.00  
+IF       220      4     4       100.00  
+
+
+122            unique case (cmd_i.amode)
+                      -1-  
+123              CMTE_AMODE_CONTIGUOUS: base_address_next = base_address_r;
+                 ==>
+124              CMTE_AMODE_NEAR:       base_address_next = base_address_r +
+                 ==>
+125                ({{(ADDR_SPACE_WIDTH-8){cmd_i.desc_address[7]}}, cmd_i.desc_address[7:0]} <<< 2);
+126              CMTE_AMODE_ABSOLUTE:   base_address_next = cmd_i.desc_address;
+                 ==>
+127              CMTE_AMODE_INDEXED:    base_address_next = cmd_i.desc_address;
+                 ==>
+
+Branches:
+
+-1-                              Status  
+cmte_pkg::CMTE_AMODE_CONTIGUOUS  Covered 
+cmte_pkg::CMTE_AMODE_NEAR        Covered 
+cmte_pkg::CMTE_AMODE_ABSOLUTE    Covered 
+cmte_pkg::CMTE_AMODE_INDEXED     Covered 
+
+
+135            if (is_setc && ready_o)
+               -1-  
+136              paint_action = PAINT_SETC;
+                 ==>
+137            else if (is_desc && ready_o && !cmd_i.wide)
+                    -2-  
+138              paint_action = PAINT_NARROW;
+                 ==>
+139            else if (is_desc && ready_o && cmd_i.wide)
+                    -3-  
+140              paint_action = PAINT_WIDE_FIRST;
+                 ==>
+141            else if (push && wide_continues && !wide_entering_final)
+                    -4-  
+142              paint_action = PAINT_HOLD;
+                 ==>
+143            else if (push && wide_entering_final)
+                    -5-  
+144              paint_action = PAINT_WIDE_FINAL;
+                 ==>
+145            else if (push && !wide_continues)
+                    -6-  
+146              paint_action = PAINT_CLEAR;
+                 ==>
+147            else
+148              paint_action = PAINT_HOLD;
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- -6- Status  
+1   -   -   -   -   -   Covered 
+0   1   -   -   -   -   Covered 
+0   0   1   -   -   -   Covered 
+0   0   0   1   -   -   Covered 
+0   0   0   0   1   -   Covered 
+0   0   0   0   0   1   Covered 
+0   0   0   0   0   0   Covered 
+
+
+152            if (reset_i || clear_i) begin
+               -1-  
+153              base_address_r     <= '0;
+                 ==>
+154              base_class_r       <= '0;
+155              wide_active_r       <= 1'b0;
+156              wide_left_r         <= '0;
+157              wide_last_bits_r    <= '0;
+158              wide_guarded_r      <= 1'b0;
+159              wide_no_compare_r   <= 1'b0;
+160              no_read_r           <= 1'b0;
+161              armed_r             <= 1'b0;
+162              wide_commit_r       <= 1'b0;
+163            end else begin
+164              // Every accepted narrow DESC arms/disarms -- new-word or continuing
+165              // alike (tile_cmte.md's own Example 1 closes a word on its
+166              // *second* descriptor, so this can't be new-word-only).
+167              if (is_desc && ready_o && !cmd_i.wide) begin
+                 -2-  
+168                armed_r <= narrow_closes;
+                   ==>
+169              end
+                 MISSING_ELSE
+                 ==>
+170        
+171              // First descriptor of a word, narrow or wide.
+172              if (new_word_cmd && ready_o) begin
+                 -3-  
+173                base_address_r <= base_address_next;
+174                no_read_r      <= cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare);
+                                                -4-  
+                                                ==>  
+                                                ==>  
+175        
+176                if (cmd_i.wide) begin
+                   -5-  
+177                  wide_active_r     <= 1'b1;
+                     ==>
+178                  wide_left_r        <= {1'b0, cmd_i.limb_count_m1} + 4'h2;
+179                  wide_last_bits_r    <= cmd_i.last_bits_m1;
+180                  wide_guarded_r       <= cmd_i.guarded;
+181                  wide_no_compare_r     <= cmd_i.no_compare;
+182                  // last_bits_m1 all-ones -> last_bits=32: the trailing limb is
+183                  // full-width, so nothing can ever be packed after it -- it must
+184                  // close like any other full limb, regardless of cmd_i.commit.
+185                  wide_commit_r           <= cmd_i.commit || (cmd_i.last_bits_m1 == '1);
+186                  armed_r                  <= 1'b1;   // full limb 0 always auto-arms
+187                end
+                   MISSING_ELSE
+                   ==>
+188              end
+                 MISSING_ELSE
+                 ==>
+189        
+190              // Word/limb closing and crossing the seam.
+191              if (push) begin
+                 -6-  
+192                base_address_r <= base_address_r + 24'h4;
+193        
+194                if (wide_continues && !wide_entering_final) begin
+                   -7-  
+195                  wide_left_r <= wide_left_r - 4'h1;
+                     ==>
+196                end else if (wide_entering_final) begin
+                            -8-  
+197                  wide_left_r <= wide_left_r - 4'h1;
+                     ==>
+198                  armed_r     <= wide_commit_r;
+199                  no_read_r   <= 1'b0;   // trailing limb's closure isn't known yet
+200                end else begin
+201                  base_class_r  <= base_class_r + 4'($unsigned($countones(cell_bounds)));
+                     ==>
+202                  wide_active_r <= 1'b0;
+203                  armed_r       <= 1'b0;
+204                end
+205              end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- -6- -7- -8- Status  
+1   -   -   -   -   -   -   -   Covered 
+0   1   -   -   -   -   -   -   Covered 
+0   0   -   -   -   -   -   -   Covered 
+0   -   1   1   -   -   -   -   Covered 
+0   -   1   0   -   -   -   -   Covered 
+0   -   1   -   1   -   -   -   Covered 
+0   -   1   -   0   -   -   -   Covered 
+0   -   0   -   -   -   -   -   Covered 
+0   -   -   -   -   1   1   -   Covered 
+0   -   -   -   -   1   0   1   Covered 
+0   -   -   -   -   1   0   0   Covered 
+0   -   -   -   -   0   -   -   Covered 
+
+
+220            if (read_fwd_case1) begin
+               -1-  
+221              read_fwd_o.addr    = base_address_next[ADDR_SPACE_WIDTH-1:2];
+222              read_fwd_o.no_read = cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare);
+                                                 -2-  
+                                                 ==>  
+                                                 ==>  
+223            end else begin
+224              read_fwd_o.addr    = base_address_plus4[ADDR_SPACE_WIDTH-1:2];
+225              read_fwd_o.no_read = wide_entering_final ? 1'b0 : wide_no_compare_r;
+                                                          -3-  
+                                                          ==>  
+                                                          ==>  
+
+Branches:
+
+-1- -2- -3- Status  
+1   1   -   Covered 
+1   0   -   Covered 
+0   -   1   Covered 
+0   -   0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : front_end
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       8     8         100.00  7                 87.50   
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            8     8         100.00  7                 87.50   
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                       Attempts Real Successes Failures Incomplete 
+fe_cmd_known               227      45             0        0          
+fe_cmd_legal               227      45             0        0          
+fe_endc_nothing_painted    227      0              0        0          
+fe_narrow_fits             227      28             0        0          
+fe_no_repoint_over_painted 227      4              0        0          
+fe_push_nonempty           227      42             0        0          
+fe_setc_on_empty_word      227      7              0        0          
+fe_wide_at_bit0            227      5              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : cmte_fe_unit_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 95.67 100.00  95.20 --     100.00  87.50 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.99 100.00  95.65 --     100.00  92.31 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+ 95.67 100.00  95.20 --     100.00  87.50 front_end 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME            
+--     --     --     --     --     --     cmte_fe_unit_tb 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME         
+100.00 100.00 100.00 --     100.00 100.00 word_paint_u 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : word_paint
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/word_paint.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                             
+100.00 100.00 100.00 --     100.00 100.00 cmte_fe_unit_tb.dut.word_paint_u 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : word_paint
+
+             Line No.   Total   Covered  Percent
+TOTAL                       37       37   100.00
+ALWAYS             72       11       11   100.00
+ALWAYS             96       26       26   100.00
+
+71                      
+72         1/1              cell_width = {1'b0, cell_width_m1_i} + 6'h1;
+73                      
+74         1/1              new_cell_bounds = '0;
+75         1/1              new_bit_pos     = bit_pos_r;   // overwritten below -- j always reaches num_cells_m1_i
+76         1/1              cell_start      = bit_pos_r;
+77         1/1              for (j = 0; j < 8; j = j + 1) begin
+78         2/2                if (j <= num_cells_m1_i) new_cell_bounds[cell_start[4:0]] = 1'b1;
+                        MISSING_ELSE
+79         1/1                cell_start = cell_start + cell_width;
+80         2/2                if (j == num_cells_m1_i) new_bit_pos = cell_start;
+                        MISSING_ELSE
+81                          end
+82                      
+83         1/1              span_mask = ((32'h1 << new_bit_pos) - 32'h1) ^ ((32'h1 << bit_pos_r) - 32'h1);
+84                        end
+85                      
+86                        assign narrow_fills_word_o = (new_bit_pos == 6'd32);
+87                      
+88                        // wide_last_bits_m1_i is already the "-1" form (0..31, 5b) -- last_bits
+89                        // itself (1..32) only needs widening here, at the one place it's
+90                        // consumed, same idiom as cell_width above.
+91                        assign wide_last_bits  = {1'b0, wide_last_bits_m1_i} + 6'h1;
+92                        assign wide_final_mask = (32'h1 << wide_last_bits) - 32'h1;
+93                      
+94                        // ================= state =================
+95                        always_ff @(posedge clk_i) begin
+96         1/1              if (reset_i || clear_i) begin
+97         1/1                bit_pos_r          <= '0;
+98         1/1                limb_start_r       <= '0;
+99         1/1                cell_bounds_r       <= '0;
+100        1/1                guard_field_r       <= '0;
+101        1/1                no_compare_field_r  <= '0;
+102                         end else begin
+103        1/1                unique case (action_i)
+104                             PAINT_HOLD: begin
+105                               // no change -- wide region's continuing full-limb repaint
+106                             end
+107                     
+108                             PAINT_NARROW: begin
+109        1/1                    cell_bounds_r      <= cell_bounds_r | new_cell_bounds;
+110        1/1                    guard_field_r      <= guard_field_r      | (guarded_i    ? span_mask : '0);
+111        1/1                    no_compare_field_r <= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112        1/1                    bit_pos_r          <= new_bit_pos;
+113                             end
+114                     
+115                             PAINT_SETC: begin
+116        1/1                    bit_pos_r    <= {1'b0, setc_pos_i};
+117        1/1                    limb_start_r <= setc_pos_i;
+118                             end
+119                     
+120                             PAINT_WIDE_FIRST: begin
+121        1/1                    cell_bounds_r      <= 32'h1;
+122        1/1                    limb_start_r       <= '0;
+123        1/1                    bit_pos_r          <= 6'd32;
+124        1/1                    guard_field_r      <= guarded_i    ? '1 : '0;
+125        1/1                    no_compare_field_r <= no_compare_i ? '1 : '0;
+126                             end
+127                     
+128                             PAINT_WIDE_FINAL: begin
+129        1/1                    bit_pos_r          <= wide_last_bits;
+130        1/1                    guard_field_r      <= wide_guarded_i    ? wide_final_mask : '0;
+131        1/1                    no_compare_field_r <= wide_no_compare_i ? wide_final_mask : '0;
+132                               // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                             end
+134                     
+135                             PAINT_CLEAR: begin
+136        1/1                    bit_pos_r          <= '0;
+137        1/1                    limb_start_r       <= '0;
+138        1/1                    cell_bounds_r      <= '0;
+139        1/1                    guard_field_r      <= '0;
+140        1/1                    no_compare_field_r <= '0;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : word_paint
+
+               Total   Covered  Percent
+Conditions         13       13   100.00
+Logical            13       13   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       96
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       124
+ EXPRESSION (guarded_i ? '1 : '0)
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       125
+ EXPRESSION (no_compare_i ? '1 : '0)
+             ------1-----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       130
+ EXPRESSION (wide_guarded_i ? wide_final_mask : '0)
+             -------1------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       131
+ EXPRESSION (wide_no_compare_i ? wide_final_mask : '0)
+             --------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       86
+ EXPRESSION (new_bit_pos == 6'd32)
+            -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : word_paint
+         Line No. Total Covered Percent 
+Branches          13    13      100.00  
+IF       96       13    13      100.00  
+
+
+96             if (reset_i || clear_i) begin
+               -1-  
+97               bit_pos_r          <= '0;
+                 ==>
+98               limb_start_r       <= '0;
+99               cell_bounds_r       <= '0;
+100              guard_field_r       <= '0;
+101              no_compare_field_r  <= '0;
+102            end else begin
+103              unique case (action_i)
+                        -2-  
+104                PAINT_HOLD: begin
+                   ==>
+105                  // no change -- wide region's continuing full-limb repaint
+106                end
+107        
+108                PAINT_NARROW: begin
+109                  cell_bounds_r      <= cell_bounds_r | new_cell_bounds;
+                     ==>
+110                  guard_field_r      <= guard_field_r      | (guarded_i    ? span_mask : '0);
+111                  no_compare_field_r <= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112                  bit_pos_r          <= new_bit_pos;
+113                end
+114        
+115                PAINT_SETC: begin
+116                  bit_pos_r    <= {1'b0, setc_pos_i};
+                     ==>
+117                  limb_start_r <= setc_pos_i;
+118                end
+119        
+120                PAINT_WIDE_FIRST: begin
+121                  cell_bounds_r      <= 32'h1;
+122                  limb_start_r       <= '0;
+123                  bit_pos_r          <= 6'd32;
+124                  guard_field_r      <= guarded_i    ? '1 : '0;
+                                                        -3-  
+                                                        ==>  
+                                                        ==>  
+125                  no_compare_field_r <= no_compare_i ? '1 : '0;
+                                                        -4-  
+                                                        ==>  
+                                                        ==>  
+126                end
+127        
+128                PAINT_WIDE_FINAL: begin
+129                  bit_pos_r          <= wide_last_bits;
+130                  guard_field_r      <= wide_guarded_i    ? wide_final_mask : '0;
+                                                             -5-  
+                                                             ==>  
+                                                             ==>  
+131                  no_compare_field_r <= wide_no_compare_i ? wide_final_mask : '0;
+                                                             -6-  
+                                                             ==>  
+                                                             ==>  
+132                  // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                end
+134        
+135                PAINT_CLEAR: begin
+136                  bit_pos_r          <= '0;
+                     ==>
+
+Branches:
+
+-1- -2-               -3- -4- -5- -6- Status  
+1   -                 -   -   -   -   Covered 
+0   PAINT_HOLD        -   -   -   -   Covered 
+0   PAINT_NARROW      -   -   -   -   Covered 
+0   PAINT_SETC        -   -   -   -   Covered 
+0   PAINT_WIDE_FIRST  1   -   -   -   Covered 
+0   PAINT_WIDE_FIRST  0   -   -   -   Covered 
+0   PAINT_WIDE_FIRST  -   1   -   -   Covered 
+0   PAINT_WIDE_FIRST  -   0   -   -   Covered 
+0   PAINT_WIDE_FINAL  -   -   1   -   Covered 
+0   PAINT_WIDE_FINAL  -   -   0   -   Covered 
+0   PAINT_WIDE_FINAL  -   -   -   1   Covered 
+0   PAINT_WIDE_FINAL  -   -   -   0   Covered 
+0   PAINT_CLEAR       -   -   -   -   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : word_paint
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       5     5         100.00  5                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            5     5         100.00  5                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                             Attempts Real Successes Failures Incomplete 
+paint_action_known               227      210            0        0          
+paint_narrow_fits                227      28             0        0          
+paint_setc_on_empty_word         227      7              0        0          
+paint_wide_final_after_full_limb 227      5              0        0          
+paint_wide_first_on_empty_word   227      5              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : cmte_fe_unit_tb.dut.word_paint_u
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 100.00 100.00 --     100.00 100.00 word_paint 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 95.67 100.00  95.20 --     100.00  87.50 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : cmte_fe_unit_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/cmte/front_end/cmte_fe_unit_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME            
+--     --     --     --     --     --     cmte_fe_unit_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : cmte_fe_unit_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.99 100.00  95.65 --     100.00  92.31 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME            
+--     --     --     --     --     --     cmte_fe_unit_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 96.99 100.00  95.65 --     100.00  92.31 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

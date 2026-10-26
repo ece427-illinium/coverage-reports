@@ -1,0 +1,152 @@
+===============================================================================
+Module : register_file
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/arch_state/register_file.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+100.00 100.00 --     --     100.00 --     register_file_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : register_file
+
+             Line No.   Total   Covered  Percent
+TOTAL                        5        5   100.00
+ALWAYS             18        5        5   100.00
+
+17                        always_ff @(posedge clk_i) begin
+18         1/1              if (reset_i) begin
+19         2/2                for (int i = 0; i < NUM_REGS; i++) registers_r[i] <= '0;
+20         1/1              end else if (write_i) begin
+21         1/1                registers_r[rd_i] <= data_i;
+22                          end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : register_file
+         Line No. Total Covered Percent 
+Branches          3     3       100.00  
+IF       18       3     3       100.00  
+
+
+18             if (reset_i) begin
+               -1-  
+19               for (int i = 0; i < NUM_REGS; i++) registers_r[i] <= '0;
+                 ==>
+20             end else if (write_i) begin
+                        -2-  
+21               registers_r[rd_i] <= data_i;
+                 ==>
+22             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : register_file_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+100.00 100.00 --     --     100.00 --     register_file 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME             
+--     --     --     --     --     --     register_file_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : register_file_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/datapath/arch_state/register_file/register_file_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME             
+--     --     --     --     --     --     register_file_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : register_file_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME             
+--     --     --     --     --     --     register_file_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 100.00 --     --     100.00 --     dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

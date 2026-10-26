@@ -1,0 +1,1854 @@
+Group : vs_service_tb::boundary_cg
+
+===============================================================================
+Group : vs_service_tb::boundary_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/vs/vs_service_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME              
+100.00 1      100    1        64           64            boundary_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   vs_service_tb::boundary_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 4        0         4       100.00  
+
+
+Variables for Group  vs_service_tb::boundary_cg
+
+
+VARIABLE                 EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+dirty_line_count         3        0         3       100.00  100  1      1        0                    
+one_cycle_metadata_clear 1        0         1       100.00  100  1      1        0                    
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable dirty_line_count
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for dirty_line_count
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+multiple 21    1        
+one      21    1        
+none     21    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable one_cycle_metadata_clear
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for one_cycle_metadata_clear
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 21    1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : boundary_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                       
+100.00 100.00    1      100    1        1            64           64                    vs_service_tb::boundary_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   boundary_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 4        0         4       100.00  
+
+
+Variables for Group Instance  boundary_coverage
+
+
+VARIABLE                 EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+dirty_line_count         3        0         3       100.00  100  1      1        0                    
+one_cycle_metadata_clear 1        0         1       100.00  100  1      1        0                    
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable dirty_line_count
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for dirty_line_count
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+multiple 21    1        
+one      21    1        
+none     21    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable one_cycle_metadata_clear
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for one_cycle_metadata_clear
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 21    1        
+
+
+Group : vs_service_tb::lookup_cg
+
+===============================================================================
+Group : vs_service_tb::lookup_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/vs/vs_service_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME            
+100.00 1      100    1        64           64            lookup_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   vs_service_tb::lookup_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 5        0         5       100.00  
+Crosses   6        0         6       100.00  
+
+
+Variables for Group  vs_service_tb::lookup_cg
+
+
+VARIABLE     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cache_result 3        0         3       100.00  100  1      1        0                    
+request_type 2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group  vs_service_tb::lookup_cg
+
+
+CROSS                   EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+request_type_x_hit_miss 6        0         6       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cache_result
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for cache_result
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+dirty_miss 84    1        
+clean_miss 1008  1        
+hit        1491  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request_type
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for request_type
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 940   1        
+read  1643  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross request_type_x_hit_miss
+
+
+Samples crossed: request_type cache_result
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 6        0         6       100.00          
+
+
+Automatically Generated Cross Bins for request_type_x_hit_miss
+
+
+Bins
+
+request_type cache_result COUNT AT LEAST 
+write        dirty_miss   21    1        
+write        clean_miss   252   1        
+write        hit          667   1        
+read         dirty_miss   63    1        
+read         clean_miss   756   1        
+read         hit          824   1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : lookup_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                     
+100.00 100.00    1      100    1        1            64           64                    vs_service_tb::lookup_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   lookup_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 5        0         5       100.00  
+Crosses   6        0         6       100.00  
+
+
+Variables for Group Instance  lookup_coverage
+
+
+VARIABLE     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cache_result 3        0         3       100.00  100  1      1        0                    
+request_type 2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  lookup_coverage
+
+
+CROSS                   EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+request_type_x_hit_miss 6        0         6       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cache_result
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for cache_result
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+dirty_miss 84    1        
+clean_miss 1008  1        
+hit        1491  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request_type
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for request_type
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 940   1        
+read  1643  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross request_type_x_hit_miss
+
+
+Samples crossed: request_type cache_result
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 6        0         6       100.00          
+
+
+Automatically Generated Cross Bins for request_type_x_hit_miss
+
+
+Bins
+
+request_type cache_result COUNT AT LEAST 
+write        dirty_miss   21    1        
+write        clean_miss   252   1        
+write        hit          667   1        
+read         dirty_miss   63    1        
+read         clean_miss   756   1        
+read         hit          824   1        
+
+
+Group : vs_service_tb::machinery_cg
+
+===============================================================================
+Group : vs_service_tb::machinery_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/vs/vs_service_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME               
+100.00 1      100    1        64           64            machinery_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   vs_service_tb::machinery_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 26       0         26      100.00  
+Crosses   15       0         15      100.00  
+
+
+Variables for Group  vs_service_tb::machinery_cg
+
+
+VARIABLE              EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+boundary_writeback    1        0         1       100.00  100  1      1        0                    
+mshr_action           3        0         3       100.00  100  1      1        0                    
+mshr_progress         4        0         4       100.00  100  1      1        0                    
+write_miss_action     5        0         5       100.00  100  1      1        0                    
+write_miss_progress   4        0         4       100.00  100  1      1        0                    
+writeback_depth       3        0         3       100.00  100  1      1        0                    
+writeback_fifo_action 4        0         4       100.00  100  1      1        0                    
+writeback_reason      2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group  vs_service_tb::machinery_cg
+
+
+CROSS                     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+mshr_state_x_action       4        0         4       100.00  100  1      1        0                     
+write_miss_state_x_action 7        0         7       100.00  100  1      1        0                     
+writeback_cause_x_depth   4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable boundary_writeback
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for boundary_writeback
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+active 798   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mshr_action
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for mshr_action
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+replay     735   1        
+merge      42    1        
+allocation 819   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mshr_progress
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for mshr_progress
+
+
+Bins
+
+NAME          COUNT  AT LEAST 
+write_to_sram 3633   1        
+replaying     1470   1        
+requesting    9303   1        
+inactive      272346 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_miss_action
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for write_miss_action
+
+
+Bins
+
+NAME               COUNT AT LEAST 
+retirement         294   1        
+response_install   210   1        
+join_read_mshr     105   1        
+same_address_merge 42    1        
+allocation         273   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_miss_progress
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for write_miss_progress
+
+
+Bins
+
+NAME       COUNT  AT LEAST 
+joined     651    1        
+waiting    1008   1        
+requesting 903    1        
+inactive   284190 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable writeback_depth
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for writeback_depth
+
+
+Bins
+
+NAME    COUNT  AT LEAST 
+full    1134   1        
+partial 4914   1        
+empty   280704 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable writeback_fifo_action
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for writeback_fifo_action
+
+
+Bins
+
+NAME                COUNT AT LEAST 
+recovered_from_full 42    1        
+simultaneous        126   1        
+dequeue             147   1        
+enqueue             147   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable writeback_reason
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for writeback_reason
+
+
+Bins
+
+NAME           COUNT AT LEAST 
+boundary_walk  189   1        
+dirty_eviction 84    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross mshr_state_x_action
+
+
+Samples crossed: mshr_progress mshr_action
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        0         4       100.00          
+
+
+User Defined Cross Bins for mshr_state_x_action
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+allocate_free    819   1        
+merge_requesting 21    1        
+merge_issued     21    1        
+replay_ready     735   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross write_miss_state_x_action
+
+
+Samples crossed: write_miss_progress write_miss_action
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 7        0         7       100.00          
+
+
+User Defined Cross Bins for write_miss_state_x_action
+
+
+Bins
+
+NAME               COUNT AT LEAST 
+allocate_free      273   1        
+merge_before_issue 21    1        
+merge_after_issue  21    1        
+join_free          105   1        
+install_response   210   1        
+retire_waiting     210   1        
+retire_joined      84    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross writeback_cause_x_depth
+
+
+Samples crossed: writeback_reason writeback_depth
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        0         4       100.00          
+
+
+User Defined Cross Bins for writeback_cause_x_depth
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+eviction_empty   63    1        
+eviction_partial 21    1        
+boundary_empty   63    1        
+boundary_partial 126   1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : machinery_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                        
+100.00 100.00    1      100    1        1            64           64                    vs_service_tb::machinery_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   machinery_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 26       0         26      100.00  
+Crosses   15       0         15      100.00  
+
+
+Variables for Group Instance  machinery_coverage
+
+
+VARIABLE              EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+boundary_writeback    1        0         1       100.00  100  1      1        0                    
+mshr_action           3        0         3       100.00  100  1      1        0                    
+mshr_progress         4        0         4       100.00  100  1      1        0                    
+write_miss_action     5        0         5       100.00  100  1      1        0                    
+write_miss_progress   4        0         4       100.00  100  1      1        0                    
+writeback_depth       3        0         3       100.00  100  1      1        0                    
+writeback_fifo_action 4        0         4       100.00  100  1      1        0                    
+writeback_reason      2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  machinery_coverage
+
+
+CROSS                     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+mshr_state_x_action       4        0         4       100.00  100  1      1        0                     
+write_miss_state_x_action 7        0         7       100.00  100  1      1        0                     
+writeback_cause_x_depth   4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable boundary_writeback
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for boundary_writeback
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+active 798   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mshr_action
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for mshr_action
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+replay     735   1        
+merge      42    1        
+allocation 819   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mshr_progress
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for mshr_progress
+
+
+Bins
+
+NAME          COUNT  AT LEAST 
+write_to_sram 3633   1        
+replaying     1470   1        
+requesting    9303   1        
+inactive      272346 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_miss_action
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for write_miss_action
+
+
+Bins
+
+NAME               COUNT AT LEAST 
+retirement         294   1        
+response_install   210   1        
+join_read_mshr     105   1        
+same_address_merge 42    1        
+allocation         273   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_miss_progress
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for write_miss_progress
+
+
+Bins
+
+NAME       COUNT  AT LEAST 
+joined     651    1        
+waiting    1008   1        
+requesting 903    1        
+inactive   284190 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable writeback_depth
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for writeback_depth
+
+
+Bins
+
+NAME    COUNT  AT LEAST 
+full    1134   1        
+partial 4914   1        
+empty   280704 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable writeback_fifo_action
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for writeback_fifo_action
+
+
+Bins
+
+NAME                COUNT AT LEAST 
+recovered_from_full 42    1        
+simultaneous        126   1        
+dequeue             147   1        
+enqueue             147   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable writeback_reason
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for writeback_reason
+
+
+Bins
+
+NAME           COUNT AT LEAST 
+boundary_walk  189   1        
+dirty_eviction 84    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross mshr_state_x_action
+
+
+Samples crossed: mshr_progress mshr_action
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        0         4       100.00          
+
+
+User Defined Cross Bins for mshr_state_x_action
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+allocate_free    819   1        
+merge_requesting 21    1        
+merge_issued     21    1        
+replay_ready     735   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross write_miss_state_x_action
+
+
+Samples crossed: write_miss_progress write_miss_action
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 7        0         7       100.00          
+
+
+User Defined Cross Bins for write_miss_state_x_action
+
+
+Bins
+
+NAME               COUNT AT LEAST 
+allocate_free      273   1        
+merge_before_issue 21    1        
+merge_after_issue  21    1        
+join_free          105   1        
+install_response   210   1        
+retire_waiting     210   1        
+retire_joined      84    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross writeback_cause_x_depth
+
+
+Samples crossed: writeback_reason writeback_depth
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        0         4       100.00          
+
+
+User Defined Cross Bins for writeback_cause_x_depth
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+eviction_empty   63    1        
+eviction_partial 21    1        
+boundary_empty   63    1        
+boundary_partial 126   1        
+
+
+Group : vs_service_tb::mshr_interaction_cg
+
+===============================================================================
+Group : vs_service_tb::mshr_interaction_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/vs/vs_service_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME                      
+100.00 1      100    1        64           64            mshr_interaction_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   vs_service_tb::mshr_interaction_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 4        0         4       100.00  
+Crosses   4        0         4       100.00  
+
+
+Variables for Group  vs_service_tb::mshr_interaction_cg
+
+
+VARIABLE     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+mshr_state   2        0         2       100.00  100  1      1        0                    
+request_type 2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group  vs_service_tb::mshr_interaction_cg
+
+
+CROSS                     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+mshr_state_x_request_type 4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mshr_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for mshr_state
+
+
+Bins
+
+NAME               COUNT AT LEAST 
+refill_outstanding 42    1        
+requesting         105   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request_type
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for request_type
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 105   1        
+read  42    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross mshr_state_x_request_type
+
+
+Samples crossed: mshr_state request_type
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 4        0         4       100.00          
+
+
+Automatically Generated Cross Bins for mshr_state_x_request_type
+
+
+Bins
+
+mshr_state         request_type COUNT AT LEAST 
+refill_outstanding write        21    1        
+refill_outstanding read         21    1        
+requesting         write        84    1        
+requesting         read         21    1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : mshr_interaction_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                               
+100.00 100.00    1      100    1        1            64           64                    vs_service_tb::mshr_interaction_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   mshr_interaction_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 4        0         4       100.00  
+Crosses   4        0         4       100.00  
+
+
+Variables for Group Instance  mshr_interaction_coverage
+
+
+VARIABLE     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+mshr_state   2        0         2       100.00  100  1      1        0                    
+request_type 2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  mshr_interaction_coverage
+
+
+CROSS                     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+mshr_state_x_request_type 4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mshr_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for mshr_state
+
+
+Bins
+
+NAME               COUNT AT LEAST 
+refill_outstanding 42    1        
+requesting         105   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request_type
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for request_type
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 105   1        
+read  42    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross mshr_state_x_request_type
+
+
+Samples crossed: mshr_state request_type
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 4        0         4       100.00          
+
+
+Automatically Generated Cross Bins for mshr_state_x_request_type
+
+
+Bins
+
+mshr_state         request_type COUNT AT LEAST 
+refill_outstanding write        21    1        
+refill_outstanding read         21    1        
+requesting         write        84    1        
+requesting         read         21    1        
+
+
+Group : vs_service_tb::request_cg
+
+===============================================================================
+Group : vs_service_tb::request_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/vs/vs_service_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME             
+100.00 1      100    1        64           64            request_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   vs_service_tb::request_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 18       0         18      100.00  
+Crosses   19       0         19      100.00  
+
+
+Variables for Group  vs_service_tb::request_cg
+
+
+VARIABLE       EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cache_region   3        0         3       100.00  100  1      1        0                    
+operation_kind 3        0         3       100.00  100  1      1        0                    
+read_write     2        0         2       100.00  100  1      1        0                    
+requester_id   8        0         8       100.00  100  1      1        0                    
+source_engine  2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group  vs_service_tb::request_cg
+
+
+CROSS                 EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+region_x_operation    9        0         9       100.00  100  1      1        0                     
+engine_x_read_write   2        0         2       100.00  100  1      1        0                     
+requester_x_operation 8        0         8       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cache_region
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for cache_region
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+inferred      63    1        
+sequential    63    1        
+combinational 2751  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable operation_kind
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for operation_kind
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+full_write   189   1        
+masked_write 982   1        
+read         1706  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable read_write
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for read_write
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 1171  1        
+read  1706  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable requester_id
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 8        0         8       100.00  
+
+
+User Defined Bins for requester_id
+
+
+Bins
+
+NAME      COUNT AT LEAST 
+clients_0 806   1        
+clients_1 485   1        
+clients_2 404   1        
+clients_3 283   1        
+clients_4 229   1        
+clients_5 133   1        
+clients_6 267   1        
+clients_7 270   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable source_engine
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for source_engine
+
+
+Bins
+
+NAME COUNT AT LEAST 
+cmte 1171  1        
+lde  1706  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross region_x_operation
+
+
+Samples crossed: cache_region operation_kind
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 9        0         9       100.00          
+
+
+Automatically Generated Cross Bins for region_x_operation
+
+
+Bins
+
+cache_region  operation_kind COUNT AT LEAST 
+inferred      full_write     21    1        
+inferred      masked_write   21    1        
+inferred      read           21    1        
+sequential    full_write     21    1        
+sequential    masked_write   21    1        
+sequential    read           21    1        
+combinational full_write     147   1        
+combinational masked_write   940   1        
+combinational read           1664  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross engine_x_read_write
+
+
+Samples crossed: source_engine read_write
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              2        0         2       100.00          
+Automatically Generated Cross Bins 2        0         2       100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for engine_x_read_write
+
+
+Bins
+
+source_engine read_write COUNT AT LEAST 
+cmte          write      1171  1        
+lde           read       1706  1        
+
+
+User Defined Cross Bins for engine_x_read_write
+
+
+Excluded/Illegal bins
+
+NAME      COUNT STATUS   
+lde_write 0     Excluded 
+cmte_read 0     Excluded 
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross requester_x_operation
+
+
+Samples crossed: requester_id read_write
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              8        0         8       100.00          
+Automatically Generated Cross Bins 8        0         8       100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for requester_x_operation
+
+
+Bins
+
+requester_id read_write COUNT AT LEAST 
+clients_0    read       806   1        
+clients_1    write      485   1        
+clients_2    read       404   1        
+clients_3    write      283   1        
+clients_4    read       229   1        
+clients_5    write      133   1        
+clients_6    read       267   1        
+clients_7    write      270   1        
+
+
+User Defined Cross Bins for requester_x_operation
+
+
+Excluded/Illegal bins
+
+NAME      COUNT STATUS   
+lde_write 0     Excluded 
+cmte_read 0     Excluded 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : request_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                      
+100.00 100.00    1      100    1        1            64           64                    vs_service_tb::request_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   request_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 18       0         18      100.00  
+Crosses   19       0         19      100.00  
+
+
+Variables for Group Instance  request_coverage
+
+
+VARIABLE       EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cache_region   3        0         3       100.00  100  1      1        0                    
+operation_kind 3        0         3       100.00  100  1      1        0                    
+read_write     2        0         2       100.00  100  1      1        0                    
+requester_id   8        0         8       100.00  100  1      1        0                    
+source_engine  2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  request_coverage
+
+
+CROSS                 EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+region_x_operation    9        0         9       100.00  100  1      1        0                     
+engine_x_read_write   2        0         2       100.00  100  1      1        0                     
+requester_x_operation 8        0         8       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cache_region
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for cache_region
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+inferred      63    1        
+sequential    63    1        
+combinational 2751  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable operation_kind
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for operation_kind
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+full_write   189   1        
+masked_write 982   1        
+read         1706  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable read_write
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for read_write
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 1171  1        
+read  1706  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable requester_id
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 8        0         8       100.00  
+
+
+User Defined Bins for requester_id
+
+
+Bins
+
+NAME      COUNT AT LEAST 
+clients_0 806   1        
+clients_1 485   1        
+clients_2 404   1        
+clients_3 283   1        
+clients_4 229   1        
+clients_5 133   1        
+clients_6 267   1        
+clients_7 270   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable source_engine
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for source_engine
+
+
+Bins
+
+NAME COUNT AT LEAST 
+cmte 1171  1        
+lde  1706  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross region_x_operation
+
+
+Samples crossed: cache_region operation_kind
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 9        0         9       100.00          
+
+
+Automatically Generated Cross Bins for region_x_operation
+
+
+Bins
+
+cache_region  operation_kind COUNT AT LEAST 
+inferred      full_write     21    1        
+inferred      masked_write   21    1        
+inferred      read           21    1        
+sequential    full_write     21    1        
+sequential    masked_write   21    1        
+sequential    read           21    1        
+combinational full_write     147   1        
+combinational masked_write   940   1        
+combinational read           1664  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross engine_x_read_write
+
+
+Samples crossed: source_engine read_write
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              2        0         2       100.00          
+Automatically Generated Cross Bins 2        0         2       100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for engine_x_read_write
+
+
+Bins
+
+source_engine read_write COUNT AT LEAST 
+cmte          write      1171  1        
+lde           read       1706  1        
+
+
+User Defined Cross Bins for engine_x_read_write
+
+
+Excluded/Illegal bins
+
+NAME      COUNT STATUS   
+lde_write 0     Excluded 
+cmte_read 0     Excluded 
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross requester_x_operation
+
+
+Samples crossed: requester_id read_write
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              8        0         8       100.00          
+Automatically Generated Cross Bins 8        0         8       100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for requester_x_operation
+
+
+Bins
+
+requester_id read_write COUNT AT LEAST 
+clients_0    read       806   1        
+clients_1    write      485   1        
+clients_2    read       404   1        
+clients_3    write      283   1        
+clients_4    read       229   1        
+clients_5    write      133   1        
+clients_6    read       267   1        
+clients_7    write      270   1        
+
+
+User Defined Cross Bins for requester_x_operation
+
+
+Excluded/Illegal bins
+
+NAME      COUNT STATUS   
+lde_write 0     Excluded 
+cmte_read 0     Excluded 
+
+
+Group : vs_service_tb::resource_cg
+
+===============================================================================
+Group : vs_service_tb::resource_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/vs/vs_service_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME              
+100.00 1      100    1        64           64            resource_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   vs_service_tb::resource_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 4        0         4       100.00  
+
+
+Variables for Group  vs_service_tb::resource_cg
+
+
+VARIABLE                 EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+backing_response_stall   1        0         1       100.00  100  1      1        0                    
+mshr_exhaustion          1        0         1       100.00  100  1      1        0                    
+write_miss_configuration 1        0         1       100.00  100  1      1        0                    
+write_miss_exhaustion    1        0         1       100.00  100  1      1        0                    
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable backing_response_stall
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for backing_response_stall
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 21    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mshr_exhaustion
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for mshr_exhaustion
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 357   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_miss_configuration
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for write_miss_configuration
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+configured 47638 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_miss_exhaustion
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for write_miss_exhaustion
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 672   1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : resource_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                       
+100.00 100.00    1      100    1        1            64           64                    vs_service_tb::resource_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   resource_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 4        0         4       100.00  
+
+
+Variables for Group Instance  resource_coverage
+
+
+VARIABLE                 EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+backing_response_stall   1        0         1       100.00  100  1      1        0                    
+mshr_exhaustion          1        0         1       100.00  100  1      1        0                    
+write_miss_configuration 1        0         1       100.00  100  1      1        0                    
+write_miss_exhaustion    1        0         1       100.00  100  1      1        0                    
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable backing_response_stall
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for backing_response_stall
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 21    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mshr_exhaustion
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for mshr_exhaustion
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 357   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_miss_configuration
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for write_miss_configuration
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+configured 47638 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_miss_exhaustion
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for write_miss_exhaustion
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 672   1        
+
+
