@@ -1,0 +1,237 @@
+{
+  "status": "PASS",
+  "run_id": "40286637622-1",
+  "points": [
+    {
+      "frequency_mhz": 400,
+      "period_ns": 2.5,
+      "status": "NOT RUN",
+      "synthesis_status": "NOT RUN",
+      "scan_status": [
+        "NOT RUN",
+        "NOT RUN"
+      ],
+      "scan_results": [
+        {
+          "kind": "mixed",
+          "status": "NOT RUN",
+          "detail": "No separate scan result available."
+        },
+        {
+          "kind": "full-top",
+          "status": "NOT RUN",
+          "detail": "No separate scan result available."
+        }
+      ],
+      "fullchip_gate_status": "NOT RUN",
+      "fullchip_gate_selection": "NOT RUN",
+      "total_cell_area": null,
+      "setup_wns_ns": null,
+      "hold_wns_ns": null,
+      "hold_warning": null,
+      "scan_chain_length": null,
+      "estimated_setup_limited_frequency_mhz": null,
+      "timing_modes": [],
+      "setup_paths": [],
+      "hold_paths": [],
+      "area": {},
+      "storage_path": "Unavailable",
+      "artifact_name": "synthesis-point-400mhz-40286637622-1",
+      "artifact_url": "https://github.com/ece427-illinium/rtl-dev/actions/runs/40286637622#artifacts",
+      "evidence_available": false,
+      "scan_evidence_available": false
+    },
+    {
+      "frequency_mhz": 500,
+      "period_ns": 2.0,
+      "status": "PASS",
+      "synthesis_status": "PASS",
+      "scan_status": [
+        "PASS",
+        "PASS"
+      ],
+      "scan_results": [
+        {
+          "kind": "mixed",
+          "status": "PASS",
+          "detail": "Direct-pin shift, capture, and reset recovery passed."
+        },
+        {
+          "kind": "full-top",
+          "status": "PASS",
+          "detail": "Direct-pin shift, capture, and reset recovery passed."
+        }
+      ],
+      "fullchip_gate_status": "PASS",
+      "fullchip_gate_selection": "smoke",
+      "total_cell_area": 462976.738608,
+      "setup_wns_ns": 2e-06,
+      "hold_wns_ns": -0.292441,
+      "hold_warning": true,
+      "scan_chain_length": 20349,
+      "estimated_setup_limited_frequency_mhz": null,
+      "timing_modes": [
+        {
+          "mode": "functional",
+          "setup_wns_ns": 2e-06,
+          "hold_wns_ns": -0.213212,
+          "period_ns": 2.0
+        },
+        {
+          "mode": "scan_enable",
+          "setup_wns_ns": 0.750284,
+          "hold_wns_ns": -0.292441,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_shift",
+          "setup_wns_ns": 0.750284,
+          "hold_wns_ns": -0.273415,
+          "period_ns": 400.0
+        },
+        {
+          "mode": "scan_capture",
+          "setup_wns_ns": 0.750284,
+          "hold_wns_ns": -0.213212,
+          "period_ns": 400.0
+        }
+      ],
+      "setup_paths": [
+        {
+          "startpoint": "i_core/g_tile[3].i_worker/frontend/window_buffer/data_r_reg[10]",
+          "endpoint": "i_core/i_event_tx/pending_r_reg[3][2]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.669173,
+          "required_ns": 1.669174,
+          "slack_ns": 2e-06,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[0].i_worker/commit_engine/back_end_u/back_reg_r_reg[cell_bounds][0]",
+          "endpoint": "i_core/g_tile[0].i_worker/commit_engine/back_end_u/delta_u/delta_acc_r_reg[1]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.673977,
+          "required_ns": 1.673981,
+          "slack_ns": 4e-06,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[0].i_worker/commit_engine/back_end_u/wr_data_r_reg[4]",
+          "endpoint": "i_core/g_tile[0].i_worker/commit_engine/back_end_u/delta_u/delta_acc_r_reg[0]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.666178,
+          "required_ns": 1.666184,
+          "slack_ns": 6e-06,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[2].i_worker/frontend/fed/instruction_o_reg[5]",
+          "endpoint": "i_core/g_tile[2].i_worker/datapath/merge/dest_data_o_reg[5]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.670544,
+          "required_ns": 1.670553,
+          "slack_ns": 9e-06,
+          "status": "MET",
+          "mode": "functional"
+        },
+        {
+          "startpoint": "i_core/g_tile[3].i_worker/frontend/fed/instruction_o_reg[7]",
+          "endpoint": "i_core/g_tile[3].i_worker/commit_engine/front_end_u/word_paint_u/no_compare_field_r_reg[17]",
+          "path_group": "core_clk",
+          "path_type": "max",
+          "arrival_ns": 1.648715,
+          "required_ns": 1.648726,
+          "slack_ns": 1.1e-05,
+          "status": "MET",
+          "mode": "functional"
+        }
+      ],
+      "hold_paths": [
+        {
+          "startpoint": "scan_enable_i",
+          "endpoint": "i_core/g_tile[1].i_worker/load_engine/byte_address_reg[23]",
+          "path_group": "core_scan_clk",
+          "path_type": "min",
+          "arrival_ns": 0.0,
+          "required_ns": 0.292441,
+          "slack_ns": -0.292441,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        },
+        {
+          "startpoint": "scan_enable_i",
+          "endpoint": "i_core/g_tile[0].i_worker/load_engine/byte_address_reg[23]",
+          "path_group": "core_scan_clk",
+          "path_type": "min",
+          "arrival_ns": 0.0,
+          "required_ns": 0.292441,
+          "slack_ns": -0.292441,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        },
+        {
+          "startpoint": "scan_enable_i",
+          "endpoint": "i_core/g_tile[3].i_worker/load_engine/packer/fragment_bits_reg[1][1]",
+          "path_group": "core_scan_clk",
+          "path_type": "min",
+          "arrival_ns": 0.0,
+          "required_ns": 0.292441,
+          "slack_ns": -0.292441,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        },
+        {
+          "startpoint": "scan_enable_i",
+          "endpoint": "i_core/g_tile[1].i_worker/commit_engine/back_end_u/back_reg_r_reg[base_class][2]",
+          "path_group": "core_scan_clk",
+          "path_type": "min",
+          "arrival_ns": 0.0,
+          "required_ns": 0.292441,
+          "slack_ns": -0.292441,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        },
+        {
+          "startpoint": "scan_enable_i",
+          "endpoint": "i_core/g_tile[0].i_worker/load_engine/active_cmd_reg[gather_mask][7]",
+          "path_group": "core_scan_clk",
+          "path_type": "min",
+          "arrival_ns": 0.0,
+          "required_ns": 0.292441,
+          "slack_ns": -0.292441,
+          "status": "VIOLATED",
+          "mode": "scan_enable"
+        }
+      ],
+      "area": {
+        "number_of_ports": 5720,
+        "number_of_nets": 104397,
+        "number_of_cells": 99583,
+        "number_of_combinational_cells": 76467,
+        "number_of_sequential_cells": 22340,
+        "number_of_macros_black_boxes": 2,
+        "number_of_buffers_inverters": 14660,
+        "number_of_references": 28,
+        "combinational_area": 209212.800871,
+        "buffer_inverter_area": 26079.600668,
+        "noncombinational_area": 233813.202874,
+        "macro_black_box_area": 19950.734863,
+        "net_interconnect_area": 13996103.716522,
+        "total_cell_area": 462976.738608,
+        "total_area": 14459080.45513
+      },
+      "storage_path": "/groups/ece427-group2/nightly-synthesis/40286637622-1/500mhz",
+      "artifact_name": "synthesis-point-500mhz-40286637622-1",
+      "artifact_url": "https://github.com/ece427-illinium/rtl-dev/actions/runs/40286637622#artifacts",
+      "evidence_available": true,
+      "scan_evidence_available": true
+    }
+  ]
+}
