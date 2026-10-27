@@ -1,0 +1,747 @@
+===============================================================================
+Module : rf_packer
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/lde/rf_packer.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                
+100.00 100.00 100.00 --     100.00 100.00 rf_packer_cr_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : rf_packer
+
+             Line No.   Total   Covered  Percent
+TOTAL                       30       30   100.00
+ALWAYS             71       10       10   100.00
+ALWAYS             87        9        9   100.00
+ALWAYS            104        4        4   100.00
+ALWAYS            104        4        4   100.00
+ALWAYS            116        3        3   100.00
+
+70                        always_ff @(posedge clk_i) begin
+71         1/1              if (reset_i || clear_i) begin
+72         1/1                word_data_r <= '0;
+73         1/1                word_rd_r <= '0;
+74         1/1                word_valid_r <= 1'b0;
+75         1/1              end else if (rf_write_o) begin
+76         1/1                word_valid_r <= 1'b0;
+77         1/1              end else if (fragment_take) begin
+78         1/1                word_data_r <= rf_data_o;
+79         1/1                word_rd_r <= rf_address_o;
+80         1/1                word_valid_r <= 1'b1;
+81                          end
+                        MISSING_ELSE
+82                        end
+83                      
+84                        // Packing proceeds while the request stage waits on memory.
+85                        // A power-of-two depth lets the pointers wrap naturally.
+86                        always_ff @(posedge clk_i) begin
+87         1/1              if (reset_i || clear_i) begin
+88         1/1                fragment_count <= '0;
+89         1/1                fragment_read_ptr <= '0;
+90         1/1                fragment_write_ptr <= '0;
+91                          end else begin
+92         1/1                fragment_count <= fragment_count + FRAGMENT_COUNT_W'(push_i) - FRAGMENT_COUNT_W'(fragment_pop);
+93         2/2                if (fragment_pop) fragment_read_ptr <= fragment_read_ptr + 1'b1;
+                        MISSING_ELSE
+94         2/2                if (push_i) fragment_write_ptr <= fragment_write_ptr + 1'b1;
+                        MISSING_ELSE
+95                          end
+96                        end
+97                      
+98                        // Retain the fragment remainder when packing reaches an RF word boundary.
+99                        for (genvar slot = 0; slot < TILE_LDE_FRAGMENT_DEPTH; slot++) begin : g_fragment
+100                         logic enqueue, advance;
+101                         assign enqueue = push_i && fragment_write_ptr == FRAGMENT_PTR_W'(slot);
+102                         assign advance = fragment_take && !fragment_pop && fragment_read_ptr == FRAGMENT_PTR_W'(slot);
+103                         always_ff @(posedge clk_i) begin
+104        1/1                if (enqueue || advance) begin
+105        1/1                  fragment_data[slot] <= enqueue ? push_data_i : fragment_data[slot] >> take_bits;
+106        1/1                  fragment_bits[slot] <= enqueue ? push_bits_i : fragment_bits[slot] - take_bits;
+107        1/1                  fragment_cursor[slot] <= enqueue ? push_cursor_i :
+108                               fragment_cursor[slot] + RF_BIT_CURSOR_WIDTH'(take_bits);
+109                           end
+                        MISSING_ELSE
+***repeat 1
+104        1/1                if (enqueue || advance) begin
+105        1/1                  fragment_data[slot] <= enqueue ? push_data_i : fragment_data[slot] >> take_bits;
+106        1/1                  fragment_bits[slot] <= enqueue ? push_bits_i : fragment_bits[slot] - take_bits;
+107        1/1                  fragment_cursor[slot] <= enqueue ? push_cursor_i :
+108                               fragment_cursor[slot] + RF_BIT_CURSOR_WIDTH'(take_bits);
+109                           end
+                        MISSING_ELSE
+110                         end
+111                       end
+112                     
+113                     `ifndef SYNTHESIS
+114                       initial assert (TILE_LDE_FRAGMENT_DEPTH > 1 && 2 ** FRAGMENT_PTR_W == TILE_LDE_FRAGMENT_DEPTH)
+115                         else $fatal(1,"TILE_LDE_FRAGMENT_DEPTH must be a power of two above one");
+116        1/1            always @(posedge clk_i) if (!reset_i) begin
+117                         assert (fragment_count <= FRAGMENT_COUNT_W'(TILE_LDE_FRAGMENT_DEPTH)) else $fatal(1,"fragment queue overflow");
+118        1/1              if (push_i) assert (space_o || fragment_pop)
+119                           else $fatal(1,"response arrived without reserved fragment space");
+                        MISSING_ELSE
+120        1/1              if (fragment_take) assert (fragment_cursor[fragment_read_ptr] < NUM_REGS * WORD_WIDTH && take_bits != 0)
+121                           else $fatal(1,"invalid RF fragment");
+                        MISSING_ELSE
+122                       end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : rf_packer
+
+               Total   Covered  Percent
+Conditions         97       97   100.00
+Logical            97       97   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       71
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       87
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       104
+ EXPRESSION (g_fragment[0].enqueue || g_fragment[0].advance)
+             ----------1----------    ----------2----------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       105
+ EXPRESSION (g_fragment[0].enqueue ? push_data_i : ((fragment_data[0] >> take_bits)))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       106
+ EXPRESSION (g_fragment[0].enqueue ? push_bits_i : ((fragment_bits[0] - take_bits)))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       107
+ EXPRESSION (g_fragment[0].enqueue ? push_cursor_i : ((fragment_cursor[0] + 11'(take_bits))))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       104
+ EXPRESSION (g_fragment[1].enqueue || g_fragment[1].advance)
+             ----------1----------    ----------2----------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       105
+ EXPRESSION (g_fragment[1].enqueue ? push_data_i : ((fragment_data[1] >> take_bits)))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       106
+ EXPRESSION (g_fragment[1].enqueue ? push_bits_i : ((fragment_bits[1] - take_bits)))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       107
+ EXPRESSION (g_fragment[1].enqueue ? push_cursor_i : ((fragment_cursor[1] + 11'(take_bits))))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       47
+ EXPRESSION ((fragment_count == 2'b0) && ((!word_valid_r)))
+             ------------1-----------    --------2--------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       47
+ SUB-EXPRESSION (fragment_count == 2'b0)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       55
+ EXPRESSION ((fragment_bits[fragment_read_ptr] < register_bits_available) ? fragment_bits[fragment_read_ptr] : register_bits_available)
+             ------------------------------1-----------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       57
+ EXPRESSION 
+ Number  Term
+      1  word_valid_r && 
+      2  (((fragment_count != 2'b0) && (word_rd_r != fragment_cursor[fragment_read_ptr][datapath_pkg::WORD_IDX+:datapath_pkg::NUM_REGS_IDX])) || (drain_i && (fragment_count == 2'b0))))
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       57
+ SUB-EXPRESSION 
+ Number  Term
+      1  ((fragment_count != 2'b0) && (word_rd_r != fragment_cursor[fragment_read_ptr][datapath_pkg::WORD_IDX+:datapath_pkg::NUM_REGS_IDX])) || 
+      2  (drain_i && (fragment_count == 2'b0)))
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       57
+ SUB-EXPRESSION ((fragment_count != 2'b0) && (word_rd_r != fragment_cursor[fragment_read_ptr][datapath_pkg::WORD_IDX+:datapath_pkg::NUM_REGS_IDX]))
+                 ------------1-----------    --------------------------------------------------2--------------------------------------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       57
+ SUB-EXPRESSION (fragment_count != 2'b0)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       57
+ SUB-EXPRESSION (word_rd_r != fragment_cursor[fragment_read_ptr][datapath_pkg::WORD_IDX+:datapath_pkg::NUM_REGS_IDX])
+                --------------------------------------------------1--------------------------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       57
+ SUB-EXPRESSION (drain_i && (fragment_count == 2'b0))
+                 ---1---    ------------2-----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       57
+ SUB-EXPRESSION (fragment_count == 2'b0)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       61
+ EXPRESSION (((!reset_i)) && (fragment_count != 2'b0) && ((!flush_word)))
+             ------1-----    ------------2-----------    -------3-------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       61
+ SUB-EXPRESSION (fragment_count != 2'b0)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       62
+ EXPRESSION (((!reset_i)) && (flush_word || (fragment_take && (take_bits == register_bits_available))))
+             ------1-----    ------------------------------------2------------------------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       62
+ SUB-EXPRESSION (flush_word || (fragment_take && (take_bits == register_bits_available)))
+                 -----1----    ----------------------------2----------------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       62
+ SUB-EXPRESSION (fragment_take && (take_bits == register_bits_available))
+                 ------1------    -------------------2------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       62
+ SUB-EXPRESSION (take_bits == register_bits_available)
+                -------------------1------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       64
+ EXPRESSION (flush_word ? word_rd_r : fragment_cursor[fragment_read_ptr][datapath_pkg::WORD_IDX+:datapath_pkg::NUM_REGS_IDX])
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       65
+ EXPRESSION 
+ Number  Term
+      1  flush_word ? word_data_r : (((word_valid_r ? word_data_r : '0) | (fragment_data[fragment_read_ptr] << fragment_cursor[fragment_read_ptr][(datapath_pkg::WORD_IDX - 1):0]))))
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       68
+ EXPRESSION (fragment_take && (take_bits == fragment_bits[fragment_read_ptr]))
+             ------1------    -----------------------2-----------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       68
+ SUB-EXPRESSION (take_bits == fragment_bits[fragment_read_ptr])
+                -----------------------1-----------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       101
+ EXPRESSION (push_i && (fragment_write_ptr == 1'(0)))
+             ---1--    --------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       101
+ SUB-EXPRESSION (fragment_write_ptr == 1'(0))
+                --------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       102
+ EXPRESSION (fragment_take && ((!fragment_pop)) && (fragment_read_ptr == 1'(0)))
+             ------1------    --------2--------    --------------3-------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       102
+ SUB-EXPRESSION (fragment_read_ptr == 1'(0))
+                --------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       101
+ EXPRESSION (push_i && (fragment_write_ptr == 1'(1)))
+             ---1--    --------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       101
+ SUB-EXPRESSION (fragment_write_ptr == 1'(1))
+                --------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       102
+ EXPRESSION (fragment_take && ((!fragment_pop)) && (fragment_read_ptr == 1'(1)))
+             ------1------    --------2--------    --------------3-------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       102
+ SUB-EXPRESSION (fragment_read_ptr == 1'(1))
+                --------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : rf_packer
+         Line No. Total Covered Percent 
+Branches          32    32      100.00  
+TERNARY  55       2     2       100.00  
+TERNARY  64       2     2       100.00  
+TERNARY  65       2     2       100.00  
+IF       71       4     4       100.00  
+IF       87       5     5       100.00  
+IF       116      3     3       100.00  
+IF       104      7     7       100.00  
+IF       104      7     7       100.00  
+
+
+55           assign take_bits = fragment_bits[fragment_read_ptr] < register_bits_available ?
+                                                                                           -1-  
+                                                                                           ==>  
+                                                                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+64           assign rf_address_o = flush_word ? word_rd_r : fragment_cursor[fragment_read_ptr][WORD_IDX +: NUM_REGS_IDX];
+                                              -1-  
+                                              ==>  
+                                              ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+65           assign rf_data_o = flush_word ? word_data_r :
+66             ((word_valid_r ? word_data_r : '0) |
+67              (fragment_data[fragment_read_ptr] << fragment_cursor[fragment_read_ptr][WORD_IDX-1:0]));
+
+ID         LINE       
+-1-        65         flush_word
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+71             if (reset_i || clear_i) begin
+               -1-  
+72               word_data_r <= '0;
+                 ==>
+73               word_rd_r <= '0;
+74               word_valid_r <= 1'b0;
+75             end else if (rf_write_o) begin
+                        -2-  
+76               word_valid_r <= 1'b0;
+                 ==>
+77             end else if (fragment_take) begin
+                        -3-  
+78               word_data_r <= rf_data_o;
+                 ==>
+79               word_rd_r <= rf_address_o;
+80               word_valid_r <= 1'b1;
+81             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+87             if (reset_i || clear_i) begin
+               -1-  
+88               fragment_count <= '0;
+                 ==>
+89               fragment_read_ptr <= '0;
+90               fragment_write_ptr <= '0;
+91             end else begin
+92               fragment_count <= fragment_count + FRAGMENT_COUNT_W'(push_i) - FRAGMENT_COUNT_W'(fragment_pop);
+93               if (fragment_pop) fragment_read_ptr <= fragment_read_ptr + 1'b1;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+94               if (push_i) fragment_write_ptr <= fragment_write_ptr + 1'b1;
+                 -3-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   -   Covered 
+0   -   1   Covered 
+0   -   0   Covered 
+
+
+116          always @(posedge clk_i) if (!reset_i) begin
+                                     -1-  
+117            assert (fragment_count <= FRAGMENT_COUNT_W'(TILE_LDE_FRAGMENT_DEPTH)) else $fatal(1,"fragment queue overflow");
+118            if (push_i) assert (space_o || fragment_pop)
+               -2-  
+119              else $fatal(1,"response arrived without reserved fragment space");
+                 MISSING_ELSE
+                 ==>
+120            if (fragment_take) assert (fragment_cursor[fragment_read_ptr] < NUM_REGS * WORD_WIDTH && take_bits != 0)
+               -3-  
+121              else $fatal(1,"invalid RF fragment");
+                 MISSING_ELSE
+                 ==>
+122          end
+             MISSING_ELSE
+             ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   0   -   Covered 
+1   -   0   Covered 
+0   -   -   Covered 
+
+
+104              if (enqueue || advance) begin
+                 -1-  
+105                fragment_data[slot] <= enqueue ? push_data_i : fragment_data[slot] >> take_bits;
+                                                  -2-  
+                                                  ==>  
+                                                  ==>  
+106                fragment_bits[slot] <= enqueue ? push_bits_i : fragment_bits[slot] - take_bits;
+                                                  -3-  
+                                                  ==>  
+                                                  ==>  
+107                fragment_cursor[slot] <= enqueue ? push_cursor_i :
+                                                    -4-  
+                                                    ==>  
+                                                    ==>  
+108                  fragment_cursor[slot] + RF_BIT_CURSOR_WIDTH'(take_bits);
+109              end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- Status  
+1   1   -   -   Covered 
+1   0   -   -   Covered 
+1   -   1   -   Covered 
+1   -   0   -   Covered 
+1   -   -   1   Covered 
+1   -   -   0   Covered 
+0   -   -   -   Covered 
+
+
+104              if (enqueue || advance) begin
+                 -1-  
+105                fragment_data[slot] <= enqueue ? push_data_i : fragment_data[slot] >> take_bits;
+                                                  -2-  
+                                                  ==>  
+                                                  ==>  
+106                fragment_bits[slot] <= enqueue ? push_bits_i : fragment_bits[slot] - take_bits;
+                                                  -3-  
+                                                  ==>  
+                                                  ==>  
+107                fragment_cursor[slot] <= enqueue ? push_cursor_i :
+                                                    -4-  
+                                                    ==>  
+                                                    ==>  
+108                  fragment_cursor[slot] + RF_BIT_CURSOR_WIDTH'(take_bits);
+109              end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- Status  
+1   1   -   -   Covered 
+1   0   -   -   Covered 
+1   -   1   -   Covered 
+1   -   0   -   Covered 
+1   -   -   1   Covered 
+1   -   -   0   Covered 
+0   -   -   -   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : rf_packer
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       4     4         100.00  4                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            4     4         100.00  4                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 53       53             0        0          
+unnamed$$_1 987207   987207         0        0          
+unnamed$$_2 449078   449078         0        0          
+unnamed$$_3 604199   604199         0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : rf_packer_cr_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+100.00 100.00 100.00 --     100.00 100.00 rf_packer 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME            
+--     --     --     --     --     --     rf_packer_cr_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : rf_packer_cr_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/lde/rf_packer_cr_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME            
+--     --     --     --     --     --     rf_packer_cr_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : rf_packer_cr_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME            
+--     --     --     --     --     --     rf_packer_cr_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 100.00 100.00 --     100.00 100.00 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

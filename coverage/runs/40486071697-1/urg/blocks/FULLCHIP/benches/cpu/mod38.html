@@ -1,0 +1,3763 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: tile_cmte</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+<link rel="stylesheet" href="../../../../illinium-coverage.css">
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | groups | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_tile_cmte'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_tile_cmte')">tile_cmte</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 82.77</td>
+<td class="s10 cl rt"><a href="mod38.html#Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod38.html#Cond" > 61.90</a></td>
+<td class="s5 cl rt"><a href="mod38.html#Toggle" > 51.97</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod38.html#Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod38.html#Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/tile_cmte.sv')">/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/tile_cmte.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod38.html#inst_tag_111"  onclick="showContent('inst_tag_111')">fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine</a></td>
+<td class="s7 cl rt"> 75.66</td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_111_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod38.html#inst_tag_111_Cond" > 61.90</a></td>
+<td class="s1 cl rt"><a href="mod38.html#inst_tag_111_Toggle" > 16.39</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_111_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_111_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod38.html#inst_tag_110"  onclick="showContent('inst_tag_110')">fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine</a></td>
+<td class="s8 cl rt"> 82.51</td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_110_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod38.html#inst_tag_110_Cond" > 61.90</a></td>
+<td class="s5 cl rt"><a href="mod38.html#inst_tag_110_Toggle" > 50.66</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_110_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_110_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod38.html#inst_tag_109"  onclick="showContent('inst_tag_109')">fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine</a></td>
+<td class="s8 cl rt"> 82.74</td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_109_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod38.html#inst_tag_109_Cond" > 61.90</a></td>
+<td class="s5 cl rt"><a href="mod38.html#inst_tag_109_Toggle" > 51.80</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_109_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_109_Assert" >100.00</a></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod38.html#inst_tag_108"  onclick="showContent('inst_tag_108')">fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine</a></td>
+<td class="s8 cl rt"> 82.77</td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_108_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod38.html#inst_tag_108_Cond" > 61.90</a></td>
+<td class="s5 cl rt"><a href="mod38.html#inst_tag_108_Toggle" > 51.97</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_108_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_108_Assert" >100.00</a></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='inst_tag_111'>
+<hr>
+<a name="inst_tag_111"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_111" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 75.66</td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_111_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod38.html#inst_tag_111_Cond" > 61.90</a></td>
+<td class="s1 cl rt"><a href="mod38.html#inst_tag_111_Toggle" > 16.39</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_111_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_111_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s6 cl rt"> 65.37</td>
+<td class="s8 cl rt"> 86.85</td>
+<td class="s6 cl rt"> 68.44</td>
+<td class="s1 cl rt"> 12.27</td>
+<td class="s7 cl rt"> 70.59</td>
+<td class="s7 cl rt"> 75.68</td>
+<td class="s7 cl rt"> 78.38</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s7 cl rt"> 72.84</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"> 45.68</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod37.html#inst_tag_107" >g_tile[3].i_worker</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod1.html#inst_tag_4" id="tag_urg_inst_4">back_end_u</a></td>
+<td class="s7 cl rt"> 74.09</td>
+<td class="s9 cl rt"> 99.07</td>
+<td class="s8 cl rt"> 82.93</td>
+<td class="s1 cl rt"> 11.31</td>
+<td class="s7 cl rt"> 70.59</td>
+<td class="s9 cl rt"> 90.62</td>
+<td class="s9 cl rt"> 90.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod64.html#inst_tag_242" id="tag_urg_inst_242">front_end_u</a></td>
+<td class="s4 cl rt"> 48.35</td>
+<td class="s7 cl rt"> 71.88</td>
+<td class="s5 cl rt"> 56.52</td>
+<td class="s1 cl rt"> 12.03</td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"> 47.50</td>
+<td class="s5 cl rt"> 53.85</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_110'>
+<hr>
+<a name="inst_tag_110"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_110" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 82.51</td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_110_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod38.html#inst_tag_110_Cond" > 61.90</a></td>
+<td class="s5 cl rt"><a href="mod38.html#inst_tag_110_Toggle" > 50.66</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_110_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_110_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 72.18</td>
+<td class="s8 cl rt"> 86.85</td>
+<td class="s7 cl rt"> 70.92</td>
+<td class="s4 cl rt"> 49.75</td>
+<td class="s7 cl rt"> 70.59</td>
+<td class="s7 cl rt"> 76.58</td>
+<td class="s7 cl rt"> 78.38</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 92.26</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 84.52</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod37.html#inst_tag_106" >g_tile[2].i_worker</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod1.html#inst_tag_3" id="tag_urg_inst_3">back_end_u</a></td>
+<td class="s8 cl rt"> 84.06</td>
+<td class="s9 cl rt"> 99.07</td>
+<td class="s8 cl rt"> 86.99</td>
+<td class="s6 cl rt"> 65.54</td>
+<td class="s7 cl rt"> 70.59</td>
+<td class="s9 cl rt"> 92.19</td>
+<td class="s9 cl rt"> 90.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod64.html#inst_tag_241" id="tag_urg_inst_241">front_end_u</a></td>
+<td class="s5 cl rt"> 51.68</td>
+<td class="s7 cl rt"> 71.88</td>
+<td class="s5 cl rt"> 57.97</td>
+<td class="s2 cl rt"> 27.22</td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"> 47.50</td>
+<td class="s5 cl rt"> 53.85</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_109'>
+<hr>
+<a name="inst_tag_109"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_109" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 82.74</td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_109_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod38.html#inst_tag_109_Cond" > 61.90</a></td>
+<td class="s5 cl rt"><a href="mod38.html#inst_tag_109_Toggle" > 51.80</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_109_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_109_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 72.35</td>
+<td class="s8 cl rt"> 86.85</td>
+<td class="s7 cl rt"> 70.57</td>
+<td class="s5 cl rt"> 51.16</td>
+<td class="s7 cl rt"> 70.59</td>
+<td class="s7 cl rt"> 76.58</td>
+<td class="s7 cl rt"> 78.38</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 92.46</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 84.93</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod37.html#inst_tag_105" >g_tile[1].i_worker</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod1.html#inst_tag_2" id="tag_urg_inst_2">back_end_u</a></td>
+<td class="s8 cl rt"> 84.25</td>
+<td class="s9 cl rt"> 99.07</td>
+<td class="s8 cl rt"> 86.18</td>
+<td class="s6 cl rt"> 67.48</td>
+<td class="s7 cl rt"> 70.59</td>
+<td class="s9 cl rt"> 92.19</td>
+<td class="s9 cl rt"> 90.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod64.html#inst_tag_240" id="tag_urg_inst_240">front_end_u</a></td>
+<td class="s5 cl rt"> 51.83</td>
+<td class="s7 cl rt"> 71.88</td>
+<td class="s5 cl rt"> 57.97</td>
+<td class="s2 cl rt"> 27.97</td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"> 47.50</td>
+<td class="s5 cl rt"> 53.85</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_108'>
+<hr>
+<a name="inst_tag_108"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_108" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 82.77</td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_108_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod38.html#inst_tag_108_Cond" > 61.90</a></td>
+<td class="s5 cl rt"><a href="mod38.html#inst_tag_108_Toggle" > 51.97</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_108_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod38.html#inst_tag_108_Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 72.38</td>
+<td class="s8 cl rt"> 86.85</td>
+<td class="s7 cl rt"> 70.57</td>
+<td class="s5 cl rt"> 51.34</td>
+<td class="s7 cl rt"> 70.59</td>
+<td class="s7 cl rt"> 76.58</td>
+<td class="s7 cl rt"> 78.38</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 92.49</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 84.99</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod37.html#inst_tag_104" >g_tile[0].i_worker</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod1.html#inst_tag_1" id="tag_urg_inst_1">back_end_u</a></td>
+<td class="s8 cl rt"> 84.27</td>
+<td class="s9 cl rt"> 99.07</td>
+<td class="s8 cl rt"> 86.18</td>
+<td class="s6 cl rt"> 67.61</td>
+<td class="s7 cl rt"> 70.59</td>
+<td class="s9 cl rt"> 92.19</td>
+<td class="s9 cl rt"> 90.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod64.html#inst_tag_239" id="tag_urg_inst_239">front_end_u</a></td>
+<td class="s5 cl rt"> 51.88</td>
+<td class="s7 cl rt"> 71.88</td>
+<td class="s5 cl rt"> 57.97</td>
+<td class="s2 cl rt"> 28.23</td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"> 47.50</td>
+<td class="s5 cl rt"> 53.85</td>
+</tr></table><br clear=all>
+</div>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_tile_cmte'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod38.html" >tile_cmte</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>10</td><td>10</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>83</td><td>7</td><td>7</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>119</td><td>3</td><td>3</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+82                        always @(posedge clk_i) begin
+83         1/1              if (reset_i || clear_i) begin
+84         1/1                fwd_count  &lt;= 0;
+85         1/1                push_count &lt;= 0;
+86                          end else begin
+87         2/2                if (read_fwd_valid &amp;&amp; read_fwd_ready) fwd_count  &lt;= fwd_count + 1;
+                        MISSING_ELSE
+88         2/2                if (back_reg_push)                    push_count &lt;= push_count + 1;
+                        MISSING_ELSE
+89                          end
+90                        end
+91                      
+92                        seam_push_has_forward: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+93                          back_reg_push |-&gt; (fwd_count &gt; push_count))
+94                          else $error(&quot;tile_cmte: word pushed into back_reg with no read forward (fwd=%0d push=%0d)&quot;,
+95                                      fwd_count, push_count);
+96                      
+97                        seam_one_word_forwarded: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+98                          fwd_count &lt;= push_count + 1)
+99                          else $error(&quot;tile_cmte: %0d forwarded words waiting to cross the seam (max 1)&quot;,
+100                                     fwd_count - push_count);
+101                     
+102                       // ---- Deadlock signature: a second word waiting for its handoff ----
+103                       // A command is stalled behind the seam (a DESC/SETC behind an armed word,
+104                       // or ENDC behind back_reg), back_reg's word is still waiting for its
+105                       // datapath handoff, and no handoff is being presented. A sequential
+106                       // producer cannot reach that word's LD b=1 past the stalled command, so
+107                       // the engine is stuck for good: the program broke the one-word-pending
+108                       // rule (INSTRUCTION_REFERENCE LD) or dropped an LD b=1. The window only
+109                       // absorbs producer pipeline latency between executing an LD and raising
+110                       // dp_valid_i; a legal program never holds this signature at all.
+111                       localparam int unsigned HANDOFF_STALL_LIMIT = 256;
+112                     
+113                       logic        handoff_stall;
+114                       int unsigned handoff_stall_cycles;
+115                       assign handoff_stall = valid_i &amp;&amp; !ready_o &amp;&amp; !back_reg_free &amp;&amp; !dp_valid_i &amp;&amp;
+116                                              (front_end_u.armed_r || (cmte_cmd_i.command == CMTE_CMD_ENDC));
+117                     
+118                       always @(posedge clk_i) begin
+119        2/2              if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles &lt;= 0;
+120        1/1              else                                      handoff_stall_cycles &lt;= handoff_stall_cycles + 1;
+</pre>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod38.html" >tile_cmte</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s6"><td class="lf">Conditions</td><td>21</td><td>13</td><td>61.90</td></tr>
+<tr class="s6"><td class="lf">Logical</td><td>21</td><td>13</td><td>61.90</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       83
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       87
+ EXPRESSION (read_fwd_valid &amp;&amp; read_fwd_ready)
+             -------1------    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ EXPRESSION 
+ Number  Term
+      1  valid_i &amp;&amp; 
+      2  ((!ready_o)) &amp;&amp; 
+      3  ((!back_reg_free)) &amp;&amp; 
+      4  ((!dp_valid_i)) &amp;&amp; 
+      5  (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)))
+</pre>
+<table class="noborder">
+<col span="5" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>-5-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ SUB-EXPRESSION (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC))
+                 --------------1--------------    -----------------------2-----------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ SUB-EXPRESSION (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)
+                -----------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       119
+ EXPRESSION (reset_i || clear_i || ((!handoff_stall)))
+             ---1---    ---2---    ---------3--------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>0</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>0</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod38.html" >tile_cmte</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">39</td>
+<td class="rt">21</td>
+<td class="rt">53.85 </td>
+</tr><tr class="s5">
+<td>Total Bits</td>
+<td class="rt">610</td>
+<td class="rt">317</td>
+<td class="rt">51.97 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">305</td>
+<td class="rt">158</td>
+<td class="rt">51.80 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">305</td>
+<td class="rt">159</td>
+<td class="rt">52.13 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">25</td>
+<td class="rt">14</td>
+<td class="rt">56.00 </td>
+</tr><tr class="s7">
+<td>Port Bits</td>
+<td class="rt">286</td>
+<td class="rt">211</td>
+<td class="rt">73.78 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">143</td>
+<td class="rt">105</td>
+<td class="rt">73.43 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">143</td>
+<td class="rt">106</td>
+<td class="rt">74.13 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Signals</td>
+<td class="rt">14</td>
+<td class="rt">7</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s3">
+<td>Signal Bits</td>
+<td class="rt">324</td>
+<td class="rt">106</td>
+<td class="rt">32.72 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">162</td>
+<td class="rt">53</td>
+<td class="rt">32.72 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">162</td>
+<td class="rt">53</td>
+<td class="rt">32.72 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>valid_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.last_bits_m1[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.limb_count_m1[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.commit</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.no_compare</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.guarded</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.wide</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.num_cells_m1[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.cell_width_m1[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[12:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[23:13]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.cursor_pos[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.amode[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.command[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ready_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>accumulator_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reg31_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dp_valid_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dp_ack_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[11:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[15:12]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_valid_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_ready_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>program_done_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>read_fwd_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd_ready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd.no_read</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>read_fwd.addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd.addr[21:11]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_push</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_free</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.no_read</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.base_class[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.cell_bounds[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.cell_bounds[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.no_compare_field[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.guard_field[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.field[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>endc</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>handoff_stall</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod38.html" >tile_cmte</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">83</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">119</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+83             if (reset_i || clear_i) begin
+               <font color = "green">-1-</font>  
+84               fwd_count  <= 0;
+           <font color = "green">      ==></font>
+85               push_count <= 0;
+86             end else begin
+87               if (read_fwd_valid && read_fwd_ready) fwd_count  <= fwd_count + 1;
+                 <font color = "green">-2-</font>  
+           <font color = "green">      ==></font>
+                 MISSING_ELSE
+           <font color = "green">      ==></font>
+88               if (back_reg_push)                    push_count <= push_count + 1;
+                 <font color = "green">-3-</font>  
+           <font color = "green">      ==></font>
+                 MISSING_ELSE
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+119            if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles <= 0;
+               <font color = "green">-1-</font>  
+           <font color = "green">    ==></font>
+120            else                                      handoff_stall_cycles <= handoff_stall_cycles + 1;
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Assert"></a>
+Assert Coverage for Module : <a href="mod38.html" >tile_cmte</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#500266531" >Assertions</a></td>
+<td class="wht cl rt">4</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#1157012504" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#252838493" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">4</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="500266531"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="354287801"></a>
+clear_needs_quiescent_fe</td>
+<td class="s9 cl rt">4445652</td>
+<td class="s9 cl rt">3900</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="915223376"></a>
+handoff_deadlock</td>
+<td class="s9 cl rt">4445652</td>
+<td class="s9 cl rt">4441668</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1294378855"></a>
+seam_one_word_forwarded</td>
+<td class="s9 cl rt">4445652</td>
+<td class="s9 cl rt">4441668</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="709720006"></a>
+seam_push_has_forward</td>
+<td class="s9 cl rt">4445652</td>
+<td class="s9 cl rt">13110</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_111'>
+<a name="inst_tag_111_Line"></a>
+<b>Line Coverage for Instance : <a href="mod38.html#inst_tag_111" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>10</td><td>10</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>83</td><td>7</td><td>7</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>119</td><td>3</td><td>3</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+82                        always @(posedge clk_i) begin
+83         1/1              if (reset_i || clear_i) begin
+84         1/1                fwd_count  &lt;= 0;
+85         1/1                push_count &lt;= 0;
+86                          end else begin
+87         2/2                if (read_fwd_valid &amp;&amp; read_fwd_ready) fwd_count  &lt;= fwd_count + 1;
+                        MISSING_ELSE
+88         2/2                if (back_reg_push)                    push_count &lt;= push_count + 1;
+                        MISSING_ELSE
+89                          end
+90                        end
+91                      
+92                        seam_push_has_forward: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+93                          back_reg_push |-&gt; (fwd_count &gt; push_count))
+94                          else $error(&quot;tile_cmte: word pushed into back_reg with no read forward (fwd=%0d push=%0d)&quot;,
+95                                      fwd_count, push_count);
+96                      
+97                        seam_one_word_forwarded: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+98                          fwd_count &lt;= push_count + 1)
+99                          else $error(&quot;tile_cmte: %0d forwarded words waiting to cross the seam (max 1)&quot;,
+100                                     fwd_count - push_count);
+101                     
+102                       // ---- Deadlock signature: a second word waiting for its handoff ----
+103                       // A command is stalled behind the seam (a DESC/SETC behind an armed word,
+104                       // or ENDC behind back_reg), back_reg's word is still waiting for its
+105                       // datapath handoff, and no handoff is being presented. A sequential
+106                       // producer cannot reach that word's LD b=1 past the stalled command, so
+107                       // the engine is stuck for good: the program broke the one-word-pending
+108                       // rule (INSTRUCTION_REFERENCE LD) or dropped an LD b=1. The window only
+109                       // absorbs producer pipeline latency between executing an LD and raising
+110                       // dp_valid_i; a legal program never holds this signature at all.
+111                       localparam int unsigned HANDOFF_STALL_LIMIT = 256;
+112                     
+113                       logic        handoff_stall;
+114                       int unsigned handoff_stall_cycles;
+115                       assign handoff_stall = valid_i &amp;&amp; !ready_o &amp;&amp; !back_reg_free &amp;&amp; !dp_valid_i &amp;&amp;
+116                                              (front_end_u.armed_r || (cmte_cmd_i.command == CMTE_CMD_ENDC));
+117                     
+118                       always @(posedge clk_i) begin
+119        2/2              if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles &lt;= 0;
+120        1/1              else                                      handoff_stall_cycles &lt;= handoff_stall_cycles + 1;
+</pre>
+<hr>
+<a name="inst_tag_111_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod38.html#inst_tag_111" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s6"><td class="lf">Conditions</td><td>21</td><td>13</td><td>61.90</td></tr>
+<tr class="s6"><td class="lf">Logical</td><td>21</td><td>13</td><td>61.90</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       83
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       87
+ EXPRESSION (read_fwd_valid &amp;&amp; read_fwd_ready)
+             -------1------    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ EXPRESSION 
+ Number  Term
+      1  valid_i &amp;&amp; 
+      2  ((!ready_o)) &amp;&amp; 
+      3  ((!back_reg_free)) &amp;&amp; 
+      4  ((!dp_valid_i)) &amp;&amp; 
+      5  (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)))
+</pre>
+<table class="noborder">
+<col span="5" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>-5-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ SUB-EXPRESSION (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC))
+                 --------------1--------------    -----------------------2-----------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ SUB-EXPRESSION (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)
+                -----------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       119
+ EXPRESSION (reset_i || clear_i || ((!handoff_stall)))
+             ---1---    ---2---    ---------3--------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>0</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>0</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_111_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod38.html#inst_tag_111" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s4">
+<td>Totals</td>
+<td class="rt">39</td>
+<td class="rt">16</td>
+<td class="rt">41.03 </td>
+</tr><tr class="s1">
+<td>Total Bits</td>
+<td class="rt">610</td>
+<td class="rt">100</td>
+<td class="rt">16.39 </td>
+</tr><tr class="s1">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">305</td>
+<td class="rt">52</td>
+<td class="rt">17.05 </td>
+</tr><tr class="s1">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">305</td>
+<td class="rt">48</td>
+<td class="rt">15.74 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s4">
+<td>Ports</td>
+<td class="rt">25</td>
+<td class="rt">11</td>
+<td class="rt">44.00 </td>
+</tr><tr class="s2">
+<td>Port Bits</td>
+<td class="rt">286</td>
+<td class="rt">62</td>
+<td class="rt">21.68 </td>
+</tr><tr class="s2">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">143</td>
+<td class="rt">33</td>
+<td class="rt">23.08 </td>
+</tr><tr class="s2">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">143</td>
+<td class="rt">29</td>
+<td class="rt">20.28 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s3">
+<td>Signals</td>
+<td class="rt">14</td>
+<td class="rt">5</td>
+<td class="rt">35.71 </td>
+</tr><tr class="s1">
+<td>Signal Bits</td>
+<td class="rt">324</td>
+<td class="rt">38</td>
+<td class="rt">11.73 </td>
+</tr><tr class="s1">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">162</td>
+<td class="rt">19</td>
+<td class="rt">11.73 </td>
+</tr><tr class="s1">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">162</td>
+<td class="rt">19</td>
+<td class="rt">11.73 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>valid_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.last_bits_m1[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.limb_count_m1[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.commit</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.no_compare</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.guarded</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.wide</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.num_cells_m1[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.cell_width_m1[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[6:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[7]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[11:8]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[23:12]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.cursor_pos[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.amode[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.command[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ready_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>accumulator_i[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>accumulator_i[2:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>accumulator_i[6:3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>accumulator_i[31:7]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reg31_i[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reg31_i[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dp_valid_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dp_ack_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[15:5]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_valid_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_ready_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>program_done_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>read_fwd_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd_ready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd.no_read</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>read_fwd.addr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd.addr[5]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>read_fwd.addr[9:6]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd.addr[21:10]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_push</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_free</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.no_read</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.base_class[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.base_class[3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.cell_bounds[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.cell_bounds[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.no_compare_field[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.guard_field[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.field[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.field[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>endc</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>handoff_stall</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_111_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod38.html#inst_tag_111" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">83</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">119</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+83             if (reset_i || clear_i) begin
+               <font color = "green">-1-</font>  
+84               fwd_count  <= 0;
+           <font color = "green">      ==></font>
+85               push_count <= 0;
+86             end else begin
+87               if (read_fwd_valid && read_fwd_ready) fwd_count  <= fwd_count + 1;
+                 <font color = "green">-2-</font>  
+           <font color = "green">      ==></font>
+                 MISSING_ELSE
+           <font color = "green">      ==></font>
+88               if (back_reg_push)                    push_count <= push_count + 1;
+                 <font color = "green">-3-</font>  
+           <font color = "green">      ==></font>
+                 MISSING_ELSE
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+119            if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles <= 0;
+               <font color = "green">-1-</font>  
+           <font color = "green">    ==></font>
+120            else                                      handoff_stall_cycles <= handoff_stall_cycles + 1;
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_111_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod38.html#inst_tag_111" >fullchip_tb.dut.i_core.g_tile[3].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#1721192446" >Assertions</a></td>
+<td class="wht cl rt">4</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#362131149" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#1838184776" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">4</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="1721192446"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="655672340"></a>
+clear_needs_quiescent_fe</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">12</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1650903093"></a>
+handoff_deadlock</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">1111380</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1131500532"></a>
+seam_one_word_forwarded</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">1111380</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1090514017"></a>
+seam_push_has_forward</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">5</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_110'>
+<a name="inst_tag_110_Line"></a>
+<b>Line Coverage for Instance : <a href="mod38.html#inst_tag_110" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>10</td><td>10</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>83</td><td>7</td><td>7</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>119</td><td>3</td><td>3</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+82                        always @(posedge clk_i) begin
+83         1/1              if (reset_i || clear_i) begin
+84         1/1                fwd_count  &lt;= 0;
+85         1/1                push_count &lt;= 0;
+86                          end else begin
+87         2/2                if (read_fwd_valid &amp;&amp; read_fwd_ready) fwd_count  &lt;= fwd_count + 1;
+                        MISSING_ELSE
+88         2/2                if (back_reg_push)                    push_count &lt;= push_count + 1;
+                        MISSING_ELSE
+89                          end
+90                        end
+91                      
+92                        seam_push_has_forward: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+93                          back_reg_push |-&gt; (fwd_count &gt; push_count))
+94                          else $error(&quot;tile_cmte: word pushed into back_reg with no read forward (fwd=%0d push=%0d)&quot;,
+95                                      fwd_count, push_count);
+96                      
+97                        seam_one_word_forwarded: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+98                          fwd_count &lt;= push_count + 1)
+99                          else $error(&quot;tile_cmte: %0d forwarded words waiting to cross the seam (max 1)&quot;,
+100                                     fwd_count - push_count);
+101                     
+102                       // ---- Deadlock signature: a second word waiting for its handoff ----
+103                       // A command is stalled behind the seam (a DESC/SETC behind an armed word,
+104                       // or ENDC behind back_reg), back_reg's word is still waiting for its
+105                       // datapath handoff, and no handoff is being presented. A sequential
+106                       // producer cannot reach that word's LD b=1 past the stalled command, so
+107                       // the engine is stuck for good: the program broke the one-word-pending
+108                       // rule (INSTRUCTION_REFERENCE LD) or dropped an LD b=1. The window only
+109                       // absorbs producer pipeline latency between executing an LD and raising
+110                       // dp_valid_i; a legal program never holds this signature at all.
+111                       localparam int unsigned HANDOFF_STALL_LIMIT = 256;
+112                     
+113                       logic        handoff_stall;
+114                       int unsigned handoff_stall_cycles;
+115                       assign handoff_stall = valid_i &amp;&amp; !ready_o &amp;&amp; !back_reg_free &amp;&amp; !dp_valid_i &amp;&amp;
+116                                              (front_end_u.armed_r || (cmte_cmd_i.command == CMTE_CMD_ENDC));
+117                     
+118                       always @(posedge clk_i) begin
+119        2/2              if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles &lt;= 0;
+120        1/1              else                                      handoff_stall_cycles &lt;= handoff_stall_cycles + 1;
+</pre>
+<hr>
+<a name="inst_tag_110_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod38.html#inst_tag_110" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s6"><td class="lf">Conditions</td><td>21</td><td>13</td><td>61.90</td></tr>
+<tr class="s6"><td class="lf">Logical</td><td>21</td><td>13</td><td>61.90</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       83
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       87
+ EXPRESSION (read_fwd_valid &amp;&amp; read_fwd_ready)
+             -------1------    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ EXPRESSION 
+ Number  Term
+      1  valid_i &amp;&amp; 
+      2  ((!ready_o)) &amp;&amp; 
+      3  ((!back_reg_free)) &amp;&amp; 
+      4  ((!dp_valid_i)) &amp;&amp; 
+      5  (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)))
+</pre>
+<table class="noborder">
+<col span="5" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>-5-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ SUB-EXPRESSION (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC))
+                 --------------1--------------    -----------------------2-----------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ SUB-EXPRESSION (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)
+                -----------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       119
+ EXPRESSION (reset_i || clear_i || ((!handoff_stall)))
+             ---1---    ---2---    ---------3--------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>0</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>0</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_110_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod38.html#inst_tag_110" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">39</td>
+<td class="rt">21</td>
+<td class="rt">53.85 </td>
+</tr><tr class="s5">
+<td>Total Bits</td>
+<td class="rt">610</td>
+<td class="rt">309</td>
+<td class="rt">50.66 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">305</td>
+<td class="rt">154</td>
+<td class="rt">50.49 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">305</td>
+<td class="rt">155</td>
+<td class="rt">50.82 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">25</td>
+<td class="rt">14</td>
+<td class="rt">56.00 </td>
+</tr><tr class="s7">
+<td>Port Bits</td>
+<td class="rt">286</td>
+<td class="rt">203</td>
+<td class="rt">70.98 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">143</td>
+<td class="rt">101</td>
+<td class="rt">70.63 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">143</td>
+<td class="rt">102</td>
+<td class="rt">71.33 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Signals</td>
+<td class="rt">14</td>
+<td class="rt">7</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s3">
+<td>Signal Bits</td>
+<td class="rt">324</td>
+<td class="rt">106</td>
+<td class="rt">32.72 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">162</td>
+<td class="rt">53</td>
+<td class="rt">32.72 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">162</td>
+<td class="rt">53</td>
+<td class="rt">32.72 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>valid_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.last_bits_m1[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.limb_count_m1[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.commit</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.no_compare</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.guarded</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.wide</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.num_cells_m1[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.cell_width_m1[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[12:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[23:13]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.cursor_pos[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.amode[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.command[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ready_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>accumulator_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reg31_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dp_valid_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dp_ack_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[15:8]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_valid_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_ready_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>program_done_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>read_fwd_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd_ready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd.no_read</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>read_fwd.addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd.addr[21:11]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_push</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_free</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.no_read</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.base_class[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.cell_bounds[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.cell_bounds[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.no_compare_field[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.guard_field[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.field[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>endc</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>handoff_stall</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_110_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod38.html#inst_tag_110" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">83</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">119</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+83             if (reset_i || clear_i) begin
+               <font color = "green">-1-</font>  
+84               fwd_count  <= 0;
+           <font color = "green">      ==></font>
+85               push_count <= 0;
+86             end else begin
+87               if (read_fwd_valid && read_fwd_ready) fwd_count  <= fwd_count + 1;
+                 <font color = "green">-2-</font>  
+           <font color = "green">      ==></font>
+                 MISSING_ELSE
+           <font color = "green">      ==></font>
+88               if (back_reg_push)                    push_count <= push_count + 1;
+                 <font color = "green">-3-</font>  
+           <font color = "green">      ==></font>
+                 MISSING_ELSE
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+119            if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles <= 0;
+               <font color = "green">-1-</font>  
+           <font color = "green">    ==></font>
+120            else                                      handoff_stall_cycles <= handoff_stall_cycles + 1;
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_110_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod38.html#inst_tag_110" >fullchip_tb.dut.i_core.g_tile[2].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#2071992383" >Assertions</a></td>
+<td class="wht cl rt">4</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#11331212" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#1487384839" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">4</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="2071992383"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="1006472277"></a>
+clear_needs_quiescent_fe</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">699</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1300103156"></a>
+handoff_deadlock</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">1110693</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1482300469"></a>
+seam_one_word_forwarded</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">1110693</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1441313954"></a>
+seam_push_has_forward</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">1746</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_109'>
+<a name="inst_tag_109_Line"></a>
+<b>Line Coverage for Instance : <a href="mod38.html#inst_tag_109" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>10</td><td>10</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>83</td><td>7</td><td>7</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>119</td><td>3</td><td>3</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+82                        always @(posedge clk_i) begin
+83         1/1              if (reset_i || clear_i) begin
+84         1/1                fwd_count  &lt;= 0;
+85         1/1                push_count &lt;= 0;
+86                          end else begin
+87         2/2                if (read_fwd_valid &amp;&amp; read_fwd_ready) fwd_count  &lt;= fwd_count + 1;
+                        MISSING_ELSE
+88         2/2                if (back_reg_push)                    push_count &lt;= push_count + 1;
+                        MISSING_ELSE
+89                          end
+90                        end
+91                      
+92                        seam_push_has_forward: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+93                          back_reg_push |-&gt; (fwd_count &gt; push_count))
+94                          else $error(&quot;tile_cmte: word pushed into back_reg with no read forward (fwd=%0d push=%0d)&quot;,
+95                                      fwd_count, push_count);
+96                      
+97                        seam_one_word_forwarded: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+98                          fwd_count &lt;= push_count + 1)
+99                          else $error(&quot;tile_cmte: %0d forwarded words waiting to cross the seam (max 1)&quot;,
+100                                     fwd_count - push_count);
+101                     
+102                       // ---- Deadlock signature: a second word waiting for its handoff ----
+103                       // A command is stalled behind the seam (a DESC/SETC behind an armed word,
+104                       // or ENDC behind back_reg), back_reg's word is still waiting for its
+105                       // datapath handoff, and no handoff is being presented. A sequential
+106                       // producer cannot reach that word's LD b=1 past the stalled command, so
+107                       // the engine is stuck for good: the program broke the one-word-pending
+108                       // rule (INSTRUCTION_REFERENCE LD) or dropped an LD b=1. The window only
+109                       // absorbs producer pipeline latency between executing an LD and raising
+110                       // dp_valid_i; a legal program never holds this signature at all.
+111                       localparam int unsigned HANDOFF_STALL_LIMIT = 256;
+112                     
+113                       logic        handoff_stall;
+114                       int unsigned handoff_stall_cycles;
+115                       assign handoff_stall = valid_i &amp;&amp; !ready_o &amp;&amp; !back_reg_free &amp;&amp; !dp_valid_i &amp;&amp;
+116                                              (front_end_u.armed_r || (cmte_cmd_i.command == CMTE_CMD_ENDC));
+117                     
+118                       always @(posedge clk_i) begin
+119        2/2              if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles &lt;= 0;
+120        1/1              else                                      handoff_stall_cycles &lt;= handoff_stall_cycles + 1;
+</pre>
+<hr>
+<a name="inst_tag_109_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod38.html#inst_tag_109" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s6"><td class="lf">Conditions</td><td>21</td><td>13</td><td>61.90</td></tr>
+<tr class="s6"><td class="lf">Logical</td><td>21</td><td>13</td><td>61.90</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       83
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       87
+ EXPRESSION (read_fwd_valid &amp;&amp; read_fwd_ready)
+             -------1------    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ EXPRESSION 
+ Number  Term
+      1  valid_i &amp;&amp; 
+      2  ((!ready_o)) &amp;&amp; 
+      3  ((!back_reg_free)) &amp;&amp; 
+      4  ((!dp_valid_i)) &amp;&amp; 
+      5  (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)))
+</pre>
+<table class="noborder">
+<col span="5" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>-5-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ SUB-EXPRESSION (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC))
+                 --------------1--------------    -----------------------2-----------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ SUB-EXPRESSION (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)
+                -----------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       119
+ EXPRESSION (reset_i || clear_i || ((!handoff_stall)))
+             ---1---    ---2---    ---------3--------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>0</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>0</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_109_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod38.html#inst_tag_109" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">39</td>
+<td class="rt">21</td>
+<td class="rt">53.85 </td>
+</tr><tr class="s5">
+<td>Total Bits</td>
+<td class="rt">610</td>
+<td class="rt">316</td>
+<td class="rt">51.80 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">305</td>
+<td class="rt">157</td>
+<td class="rt">51.48 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">305</td>
+<td class="rt">159</td>
+<td class="rt">52.13 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">25</td>
+<td class="rt">14</td>
+<td class="rt">56.00 </td>
+</tr><tr class="s7">
+<td>Port Bits</td>
+<td class="rt">286</td>
+<td class="rt">210</td>
+<td class="rt">73.43 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">143</td>
+<td class="rt">104</td>
+<td class="rt">72.73 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">143</td>
+<td class="rt">106</td>
+<td class="rt">74.13 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Signals</td>
+<td class="rt">14</td>
+<td class="rt">7</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s3">
+<td>Signal Bits</td>
+<td class="rt">324</td>
+<td class="rt">106</td>
+<td class="rt">32.72 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">162</td>
+<td class="rt">53</td>
+<td class="rt">32.72 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">162</td>
+<td class="rt">53</td>
+<td class="rt">32.72 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>valid_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.last_bits_m1[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.limb_count_m1[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.commit</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.no_compare</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.guarded</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.wide</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.num_cells_m1[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.cell_width_m1[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[12:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[23:13]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.cursor_pos[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.amode[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.command[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ready_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>accumulator_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reg31_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dp_valid_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dp_ack_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[8]</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[11:9]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[15:12]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_valid_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_ready_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>program_done_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>read_fwd_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd_ready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd.no_read</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>read_fwd.addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd.addr[21:11]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_push</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_free</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.no_read</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.base_class[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.cell_bounds[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.cell_bounds[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.no_compare_field[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.guard_field[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.field[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>endc</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>handoff_stall</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_109_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod38.html#inst_tag_109" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">83</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">119</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+83             if (reset_i || clear_i) begin
+               <font color = "green">-1-</font>  
+84               fwd_count  <= 0;
+           <font color = "green">      ==></font>
+85               push_count <= 0;
+86             end else begin
+87               if (read_fwd_valid && read_fwd_ready) fwd_count  <= fwd_count + 1;
+                 <font color = "green">-2-</font>  
+           <font color = "green">      ==></font>
+                 MISSING_ELSE
+           <font color = "green">      ==></font>
+88               if (back_reg_push)                    push_count <= push_count + 1;
+                 <font color = "green">-3-</font>  
+           <font color = "green">      ==></font>
+                 MISSING_ELSE
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+119            if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles <= 0;
+               <font color = "green">-1-</font>  
+           <font color = "green">    ==></font>
+120            else                                      handoff_stall_cycles <= handoff_stall_cycles + 1;
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_109_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod38.html#inst_tag_109" >fullchip_tb.dut.i_core.g_tile[1].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#1872174976" >Assertions</a></td>
+<td class="wht cl rt">4</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#339468725" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#1136584902" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">4</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="1872174976"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="1357272214"></a>
+clear_needs_quiescent_fe</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">1092</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="949303219"></a>
+handoff_deadlock</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">1110300</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1833100406"></a>
+seam_one_word_forwarded</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">1110300</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1792113891"></a>
+seam_push_has_forward</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">3787</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_108'>
+<a name="inst_tag_108_Line"></a>
+<b>Line Coverage for Instance : <a href="mod38.html#inst_tag_108" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>10</td><td>10</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>83</td><td>7</td><td>7</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>119</td><td>3</td><td>3</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+82                        always @(posedge clk_i) begin
+83         1/1              if (reset_i || clear_i) begin
+84         1/1                fwd_count  &lt;= 0;
+85         1/1                push_count &lt;= 0;
+86                          end else begin
+87         2/2                if (read_fwd_valid &amp;&amp; read_fwd_ready) fwd_count  &lt;= fwd_count + 1;
+                        MISSING_ELSE
+88         2/2                if (back_reg_push)                    push_count &lt;= push_count + 1;
+                        MISSING_ELSE
+89                          end
+90                        end
+91                      
+92                        seam_push_has_forward: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+93                          back_reg_push |-&gt; (fwd_count &gt; push_count))
+94                          else $error(&quot;tile_cmte: word pushed into back_reg with no read forward (fwd=%0d push=%0d)&quot;,
+95                                      fwd_count, push_count);
+96                      
+97                        seam_one_word_forwarded: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+98                          fwd_count &lt;= push_count + 1)
+99                          else $error(&quot;tile_cmte: %0d forwarded words waiting to cross the seam (max 1)&quot;,
+100                                     fwd_count - push_count);
+101                     
+102                       // ---- Deadlock signature: a second word waiting for its handoff ----
+103                       // A command is stalled behind the seam (a DESC/SETC behind an armed word,
+104                       // or ENDC behind back_reg), back_reg's word is still waiting for its
+105                       // datapath handoff, and no handoff is being presented. A sequential
+106                       // producer cannot reach that word's LD b=1 past the stalled command, so
+107                       // the engine is stuck for good: the program broke the one-word-pending
+108                       // rule (INSTRUCTION_REFERENCE LD) or dropped an LD b=1. The window only
+109                       // absorbs producer pipeline latency between executing an LD and raising
+110                       // dp_valid_i; a legal program never holds this signature at all.
+111                       localparam int unsigned HANDOFF_STALL_LIMIT = 256;
+112                     
+113                       logic        handoff_stall;
+114                       int unsigned handoff_stall_cycles;
+115                       assign handoff_stall = valid_i &amp;&amp; !ready_o &amp;&amp; !back_reg_free &amp;&amp; !dp_valid_i &amp;&amp;
+116                                              (front_end_u.armed_r || (cmte_cmd_i.command == CMTE_CMD_ENDC));
+117                     
+118                       always @(posedge clk_i) begin
+119        2/2              if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles &lt;= 0;
+120        1/1              else                                      handoff_stall_cycles &lt;= handoff_stall_cycles + 1;
+</pre>
+<hr>
+<a name="inst_tag_108_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod38.html#inst_tag_108" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s6"><td class="lf">Conditions</td><td>21</td><td>13</td><td>61.90</td></tr>
+<tr class="s6"><td class="lf">Logical</td><td>21</td><td>13</td><td>61.90</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       83
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       87
+ EXPRESSION (read_fwd_valid &amp;&amp; read_fwd_ready)
+             -------1------    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ EXPRESSION 
+ Number  Term
+      1  valid_i &amp;&amp; 
+      2  ((!ready_o)) &amp;&amp; 
+      3  ((!back_reg_free)) &amp;&amp; 
+      4  ((!dp_valid_i)) &amp;&amp; 
+      5  (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)))
+</pre>
+<table class="noborder">
+<col span="5" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>-5-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ SUB-EXPRESSION (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC))
+                 --------------1--------------    -----------------------2-----------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       115
+ SUB-EXPRESSION (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)
+                -----------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       119
+ EXPRESSION (reset_i || clear_i || ((!handoff_stall)))
+             ---1---    ---2---    ---------3--------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>0</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>0</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_108_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod38.html#inst_tag_108" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">39</td>
+<td class="rt">21</td>
+<td class="rt">53.85 </td>
+</tr><tr class="s5">
+<td>Total Bits</td>
+<td class="rt">610</td>
+<td class="rt">317</td>
+<td class="rt">51.97 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">305</td>
+<td class="rt">158</td>
+<td class="rt">51.80 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">305</td>
+<td class="rt">159</td>
+<td class="rt">52.13 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">25</td>
+<td class="rt">14</td>
+<td class="rt">56.00 </td>
+</tr><tr class="s7">
+<td>Port Bits</td>
+<td class="rt">286</td>
+<td class="rt">211</td>
+<td class="rt">73.78 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">143</td>
+<td class="rt">105</td>
+<td class="rt">73.43 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">143</td>
+<td class="rt">106</td>
+<td class="rt">74.13 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Signals</td>
+<td class="rt">14</td>
+<td class="rt">7</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s3">
+<td>Signal Bits</td>
+<td class="rt">324</td>
+<td class="rt">106</td>
+<td class="rt">32.72 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">162</td>
+<td class="rt">53</td>
+<td class="rt">32.72 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">162</td>
+<td class="rt">53</td>
+<td class="rt">32.72 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>valid_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.last_bits_m1[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.limb_count_m1[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.commit</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.no_compare</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.guarded</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.wide</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.num_cells_m1[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.cell_width_m1[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[12:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.desc_address[23:13]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.cursor_pos[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.amode[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmte_cmd_i.command[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ready_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>accumulator_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reg31_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dp_valid_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dp_ack_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[11:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_o[15:12]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_valid_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_ready_i</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>program_done_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>read_fwd_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd_ready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd.no_read</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>read_fwd.addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>read_fwd.addr[21:11]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_push</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_free</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.no_read</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.base_class[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.cell_bounds[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>back_reg_geom.cell_bounds[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.no_compare_field[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.guard_field[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>back_reg_geom.field[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>endc</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>handoff_stall</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_108_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod38.html#inst_tag_108" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">83</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">119</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+83             if (reset_i || clear_i) begin
+               <font color = "green">-1-</font>  
+84               fwd_count  <= 0;
+           <font color = "green">      ==></font>
+85               push_count <= 0;
+86             end else begin
+87               if (read_fwd_valid && read_fwd_ready) fwd_count  <= fwd_count + 1;
+                 <font color = "green">-2-</font>  
+           <font color = "green">      ==></font>
+                 MISSING_ELSE
+           <font color = "green">      ==></font>
+88               if (back_reg_push)                    push_count <= push_count + 1;
+                 <font color = "green">-3-</font>  
+           <font color = "green">      ==></font>
+                 MISSING_ELSE
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+119            if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles <= 0;
+               <font color = "green">-1-</font>  
+           <font color = "green">    ==></font>
+120            else                                      handoff_stall_cycles <= handoff_stall_cycles + 1;
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_108_Assert"></a>
+<b>Assert Coverage for Instance : <a href="mod38.html#inst_tag_108" >fullchip_tb.dut.i_core.g_tile[0].i_worker.commit_engine</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#1521375039" >Assertions</a></td>
+<td class="wht cl rt">4</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#690268662" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#785784965" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">4</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">4</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="1521375039"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="1708072151"></a>
+clear_needs_quiescent_fe</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">2097</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="598503282"></a>
+handoff_deadlock</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">1109295</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="2111066953"></a>
+seam_one_word_forwarded</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">1109295</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="2142913828"></a>
+seam_push_has_forward</td>
+<td class="s9 cl rt">1111413</td>
+<td class="s9 cl rt">7572</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_108">
+    <li>
+      <a href="#inst_tag_108_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_108_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_108_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_108_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_108_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_109">
+    <li>
+      <a href="#inst_tag_109_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_109_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_109_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_109_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_109_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_110">
+    <li>
+      <a href="#inst_tag_110_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_110_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_110_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_110_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_110_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="inst_tag_111">
+    <li>
+      <a href="#inst_tag_111_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_111_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_111_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_111_Branch">Branch</a>    </li>
+    <li>
+      <a href="#inst_tag_111_Assert">Assert</a>    </li>
+  </ul>
+  <ul name="tag_tile_cmte">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+    <li>
+      <a href="#Assert">Assert</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

@@ -1,0 +1,4513 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: datapath_func_units</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+<link rel="stylesheet" href="../../../illinium-coverage.css">
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | groups | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_datapath_func_units'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_datapath_func_units')">datapath_func_units</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.89</td>
+<td class="s8 cl rt"><a href="mod62.html#Line" > 85.71</a></td>
+<td class="s8 cl rt"><a href="mod62.html#Cond" > 83.33</a></td>
+<td class="s9 cl rt"><a href="mod62.html#Toggle" > 93.25</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod62.html#Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/func_units/datapath_func_units.sv')">/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/func_units/datapath_func_units.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod62.html#inst_tag_237"  onclick="showContent('inst_tag_237')">fullchip_tb.dut.i_core.g_tile[3].i_worker.datapath.func_units</a></td>
+<td class="s6 cl rt"> 61.47</td>
+<td class="s7 cl rt"><a href="mod62.html#inst_tag_237_Line" > 71.43</a></td>
+<td class="s6 cl rt"><a href="mod62.html#inst_tag_237_Cond" > 66.67</a></td>
+<td class="s5 cl rt"><a href="mod62.html#inst_tag_237_Toggle" > 51.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"><a href="mod62.html#inst_tag_237_Branch" > 56.25</a></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod62.html#inst_tag_235"  onclick="showContent('inst_tag_235')">fullchip_tb.dut.i_core.g_tile[1].i_worker.datapath.func_units</a></td>
+<td class="s8 cl rt"> 85.84</td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_235_Line" > 85.71</a></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_235_Cond" > 83.33</a></td>
+<td class="s9 cl rt"><a href="mod62.html#inst_tag_235_Toggle" > 93.05</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_235_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod62.html#inst_tag_236"  onclick="showContent('inst_tag_236')">fullchip_tb.dut.i_core.g_tile[2].i_worker.datapath.func_units</a></td>
+<td class="s8 cl rt"> 85.84</td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_236_Line" > 85.71</a></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_236_Cond" > 83.33</a></td>
+<td class="s9 cl rt"><a href="mod62.html#inst_tag_236_Toggle" > 93.05</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_236_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod62.html#inst_tag_234"  onclick="showContent('inst_tag_234')">fullchip_tb.dut.i_core.g_tile[0].i_worker.datapath.func_units</a></td>
+<td class="s8 cl rt"> 85.89</td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_234_Line" > 85.71</a></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_234_Cond" > 83.33</a></td>
+<td class="s9 cl rt"><a href="mod62.html#inst_tag_234_Toggle" > 93.25</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_234_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='inst_tag_237'>
+<hr>
+<a name="inst_tag_237"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_237" >fullchip_tb.dut.i_core.g_tile[3].i_worker.datapath.func_units</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s6 cl rt"> 61.47</td>
+<td class="s7 cl rt"><a href="mod62.html#inst_tag_237_Line" > 71.43</a></td>
+<td class="s6 cl rt"><a href="mod62.html#inst_tag_237_Cond" > 66.67</a></td>
+<td class="s5 cl rt"><a href="mod62.html#inst_tag_237_Toggle" > 51.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"><a href="mod62.html#inst_tag_237_Branch" > 56.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 73.15</td>
+<td class="s8 cl rt"> 80.62</td>
+<td class="s7 cl rt"> 74.79</td>
+<td class="s5 cl rt"> 56.30</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 80.90</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s7 cl rt"> 79.90</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s6 cl rt"> 63.06</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td><a href="mod70.html#inst_tag_256" >datapath</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod32.html#inst_tag_91" id="tag_urg_inst_91">arithmetic</a></td>
+<td class="s6 cl rt"> 68.70</td>
+<td class="s8 cl rt"> 81.54</td>
+<td class="s5 cl rt"> 57.50</td>
+<td class="s6 cl rt"> 65.98</td>
+<td class="wht cl rt"></td>
+<td class="s6 cl rt"> 69.77</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod48.html#inst_tag_146" id="tag_urg_inst_146">indexed</a></td>
+<td class="s8 cl rt"> 89.66</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 68.97</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod16.html#inst_tag_47" id="tag_urg_inst_47">logic_leaf</a></td>
+<td class="s5 cl rt"> 58.69</td>
+<td class="s3 cl rt"> 30.00</td>
+<td class="s7 cl rt"> 78.37</td>
+<td class="s5 cl rt"> 50.36</td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"> 76.04</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod23.html#inst_tag_69" id="tag_urg_inst_69">multiply</a></td>
+<td class="s7 cl rt"> 70.44</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s2 cl rt"> 23.43</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 83.33</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod20.html#inst_tag_60" id="tag_urg_inst_60">reduce</a></td>
+<td class="s8 cl rt"> 85.85</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt"> 43.38</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_28" id="tag_urg_inst_28">shift</a></td>
+<td class="s8 cl rt"> 84.54</td>
+<td class="s7 cl rt"> 77.78</td>
+<td class="s8 cl rt"> 85.34</td>
+<td class="s7 cl rt"> 79.52</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 95.51</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_235'>
+<hr>
+<a name="inst_tag_235"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_235" >fullchip_tb.dut.i_core.g_tile[1].i_worker.datapath.func_units</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.84</td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_235_Line" > 85.71</a></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_235_Cond" > 83.33</a></td>
+<td class="s9 cl rt"><a href="mod62.html#inst_tag_235_Toggle" > 93.05</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_235_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 94.57</td>
+<td class="s9 cl rt"> 95.35</td>
+<td class="s9 cl rt"> 92.97</td>
+<td class="s9 cl rt"> 92.65</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 97.33</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 91.65</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s9 cl rt"> 98.33</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td><a href="mod70.html#inst_tag_254" >datapath</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod32.html#inst_tag_89" id="tag_urg_inst_89">arithmetic</a></td>
+<td class="s9 cl rt"> 96.63</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 91.25</td>
+<td class="s9 cl rt"> 95.27</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod48.html#inst_tag_144" id="tag_urg_inst_144">indexed</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod16.html#inst_tag_45" id="tag_urg_inst_45">logic_leaf</a></td>
+<td class="s9 cl rt"> 92.15</td>
+<td class="s7 cl rt"> 70.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 98.62</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod23.html#inst_tag_67" id="tag_urg_inst_67">multiply</a></td>
+<td class="s8 cl rt"> 83.04</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s7 cl rt"> 73.84</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 83.33</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod20.html#inst_tag_58" id="tag_urg_inst_58">reduce</a></td>
+<td class="s9 cl rt"> 94.12</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 76.47</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_26" id="tag_urg_inst_26">shift</a></td>
+<td class="s9 cl rt"> 93.21</td>
+<td class="s8 cl rt"> 88.89</td>
+<td class="s8 cl rt"> 87.96</td>
+<td class="s9 cl rt"> 99.84</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 96.15</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_236'>
+<hr>
+<a name="inst_tag_236"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_236" >fullchip_tb.dut.i_core.g_tile[2].i_worker.datapath.func_units</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.84</td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_236_Line" > 85.71</a></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_236_Cond" > 83.33</a></td>
+<td class="s9 cl rt"><a href="mod62.html#inst_tag_236_Toggle" > 93.05</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_236_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 91.64</td>
+<td class="s9 cl rt"> 93.02</td>
+<td class="s8 cl rt"> 88.68</td>
+<td class="s8 cl rt"> 89.36</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 95.48</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 91.65</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s9 cl rt"> 98.33</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td><a href="mod70.html#inst_tag_255" >datapath</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod32.html#inst_tag_90" id="tag_urg_inst_90">arithmetic</a></td>
+<td class="s9 cl rt"> 90.10</td>
+<td class="s9 cl rt"> 96.92</td>
+<td class="s7 cl rt"> 77.50</td>
+<td class="s9 cl rt"> 95.27</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 90.70</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod48.html#inst_tag_145" id="tag_urg_inst_145">indexed</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod16.html#inst_tag_46" id="tag_urg_inst_46">logic_leaf</a></td>
+<td class="s8 cl rt"> 88.58</td>
+<td class="s6 cl rt"> 60.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 96.16</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 98.16</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod23.html#inst_tag_68" id="tag_urg_inst_68">multiply</a></td>
+<td class="s8 cl rt"> 83.04</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s7 cl rt"> 73.84</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 83.33</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod20.html#inst_tag_59" id="tag_urg_inst_59">reduce</a></td>
+<td class="s9 cl rt"> 94.12</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 76.47</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_27" id="tag_urg_inst_27">shift</a></td>
+<td class="s9 cl rt"> 90.28</td>
+<td class="s8 cl rt"> 88.89</td>
+<td class="s8 cl rt"> 86.39</td>
+<td class="s8 cl rt"> 89.68</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 96.15</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_234'>
+<hr>
+<a name="inst_tag_234"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy1.html#tag_urg_inst_234" >fullchip_tb.dut.i_core.g_tile[0].i_worker.datapath.func_units</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.89</td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_234_Line" > 85.71</a></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_234_Cond" > 83.33</a></td>
+<td class="s9 cl rt"><a href="mod62.html#inst_tag_234_Toggle" > 93.25</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod62.html#inst_tag_234_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 94.60</td>
+<td class="s9 cl rt"> 95.35</td>
+<td class="s9 cl rt"> 92.97</td>
+<td class="s9 cl rt"> 92.77</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 97.33</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 91.74</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="s9 cl rt"> 98.58</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td><a href="mod70.html#inst_tag_253" >datapath</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod32.html#inst_tag_88" id="tag_urg_inst_88">arithmetic</a></td>
+<td class="s9 cl rt"> 96.63</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 91.25</td>
+<td class="s9 cl rt"> 95.27</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod48.html#inst_tag_143" id="tag_urg_inst_143">indexed</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod16.html#inst_tag_44" id="tag_urg_inst_44">logic_leaf</a></td>
+<td class="s9 cl rt"> 92.15</td>
+<td class="s7 cl rt"> 70.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 98.62</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod23.html#inst_tag_66" id="tag_urg_inst_66">multiply</a></td>
+<td class="s8 cl rt"> 83.11</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s7 cl rt"> 74.11</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 83.33</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod20.html#inst_tag_57" id="tag_urg_inst_57">reduce</a></td>
+<td class="s9 cl rt"> 94.30</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 77.21</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_25" id="tag_urg_inst_25">shift</a></td>
+<td class="s9 cl rt"> 93.21</td>
+<td class="s8 cl rt"> 88.89</td>
+<td class="s8 cl rt"> 87.96</td>
+<td class="s9 cl rt"> 99.84</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 96.15</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+</div>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_datapath_func_units'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod62.html" >datapath_func_units</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">TOTAL</td><td></td><td>14</td><td>12</td><td>85.71</td></tr>
+<tr class="s7"><td class="lf">ALWAYS</td><td>28</td><td>5</td><td>4</td><td>80.00</td></tr>
+<tr class="s8"><td class="lf">ALWAYS</td><td>72</td><td>9</td><td>8</td><td>88.89</td></tr>
+</table>
+<pre class="code"><br clear=all>
+27                        always_comb begin
+28         1/1              case (cmd_i.fu.shift_amt_sel)
+29         1/1                TILE_SHIFT_AMT_X: shift_amount = x_i;
+30         1/1                TILE_SHIFT_AMT_IMMEDIATE: shift_amount = WORD_WIDTH'(cmd_i.params.arg.bit_offset);
+31         <font color = "red">0/1     ==>        TILE_SHIFT_AMT_INDEX: shift_amount = WORD_WIDTH'(index_offset);</font>
+32         1/1                default: shift_amount = x_i;
+33                          endcase
+34                        end
+35                      
+36                        logic_unit logic_leaf (
+37                          .x_i(x_i), .b_i(rs1_i), .c_i(rs2_i),
+38                          .uniform_i(cmd_i.fu.logic_uniform), .table_i(cmd_i.logic_payload.uniform.table_bits),
+39                          .functions_i(cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : {NUM_NIBBLES{TILE_LOGIC_PASS}}),
+40                          .result_o(logic_result_o)
+41                        );
+42                        arithmetic_unit arithmetic (
+43                          .clk_i, .reset_i, .clear_i,
+44                          .a_i(rs1_i), .b_i(x_i), .group_i(cmd_i.params.group_code), .condition_i(cmd_i.params.fn.compare_condition),
+45                          .subtract_i(cmd_i.fu.mode), .compare_i(cmd_i.fu.arithmetic_compare),
+46                          .execute_i(execute_i &amp;&amp; cmd_i.fu.arithmetic_enable), .chain_i(cmd_i.fu.arithmetic_chain),
+47                          .result_o(arithmetic_result)
+48                        );
+49                        shift_unit shift (
+50                          .a_i(shift_source), .b_i(shift_amount), .k_i(cmd_i.params.arg.rotate_amount),
+51                          .is_rot_i(cmd_i.fu.shift_rotate), .right_i(cmd_i.fu.shift_right),
+52                          .arithmetic_i(cmd_i.fu.shift_arithmetic), .is_ldx_i(cmd_i.fu.shift_ldx),
+53                          .ldx_width_i(cmd_i.params.field_width), .result_o(shift_result)
+54                        );
+55                        index_unit indexed (
+56                          .index_i(rs1_i),
+57                          .size_i(cmd_i.params.arg.indexed.size_code), .write_i(cmd_i.fu.mode),
+58                          .offset_o(index_offset), .hi_o(index_hi_o), .lo_o(index_lo_o), .index_valid_o(index_valid_o)
+59                        );
+60                        reduce_unit reduce (
+61                          .source_i(x_i), .width_i(cmd_i.params.field_width), .function_i(cmd_i.params.fn.reduce_function),
+62                          .result_o(reduce_result)
+63                        );
+64                        multiply_unit multiply (
+65                          .clk_i, .reset_i, .clear_i,
+66                          .start_i(execute_i &amp;&amp; cmd_i.fu.multiply_enable),
+67                          .a_i(rs1_i), .b_i(x_i), .high_i(cmd_i.fu.mode),
+68                          .busy_o(multiply_busy_o), .done_o(multiply_done_o), .result_o(multiply_result)
+69                        );
+70                      
+71                        always_comb begin
+72         1/1              result_o = '0;
+73         1/1              case (cmd_i.fu.result_sel)
+74         1/1                TILE_FU_NONE: ;
+75         1/1                TILE_FU_ARITH: result_o = arithmetic_result;
+76         1/1                TILE_FU_SHIFT: result_o = shift_result;
+77         <font color = "red">0/1     ==>        TILE_FU_INDEX: result_o = index_valid_o ? shift_result : '0;</font>
+78         1/1                TILE_FU_REDUCE: result_o = reduce_result;
+79         1/1                TILE_FU_MULTIPLY: result_o = multiply_result;
+80         1/1                default: ;
+</pre>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod62.html" >datapath_func_units</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">Conditions</td><td>12</td><td>10</td><td>83.33</td></tr>
+<tr class="s8"><td class="lf">Logical</td><td>12</td><td>10</td><td>83.33</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       26
+ EXPRESSION (cmd_i.fu.shift_src_x ? x_i : rs1_i)
+             ----------1---------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       36
+ EXPRESSION (cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : ({datapath_pkg::NUM_NIBBLES {TILE_LOGIC_PASS}}))
+             ----------1---------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       42
+ EXPRESSION (execute_i &amp;&amp; cmd_i.fu.arithmetic_enable)
+             ----1----    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (execute_i &amp;&amp; cmd_i.fu.multiply_enable)
+             ----1----    ------------2-----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       77
+ EXPRESSION (index_valid_o ? shift_result : '0)
+             ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod62.html" >datapath_func_units</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">59</td>
+<td class="rt">56</td>
+<td class="rt">94.92 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">978</td>
+<td class="rt">912</td>
+<td class="rt">93.25 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">489</td>
+<td class="rt">456</td>
+<td class="rt">93.25 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">489</td>
+<td class="rt">456</td>
+<td class="rt">93.25 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">52</td>
+<td class="rt">50</td>
+<td class="rt">96.15 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">584</td>
+<td class="rt">580</td>
+<td class="rt">99.32 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">292</td>
+<td class="rt">290</td>
+<td class="rt">99.32 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">292</td>
+<td class="rt">290</td>
+<td class="rt">99.32 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Signals</td>
+<td class="rt">7</td>
+<td class="rt">6</td>
+<td class="rt">85.71 </td>
+</tr><tr class="s8">
+<td>Signal Bits</td>
+<td class="rt">394</td>
+<td class="rt">332</td>
+<td class="rt">84.26 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">197</td>
+<td class="rt">166</td>
+<td class="rt">84.26 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">197</td>
+<td class="rt">166</td>
+<td class="rt">84.26 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>x_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs1_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs2_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.publish</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.lane_mask</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.full_mask</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.index_bounds</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.result_arithmetic</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.write_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.merge_op[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.dest_sel[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.mask_sel[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.rd_sel[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.lane_en[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.table_bits[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.unused[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.functions[23:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.nibble[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.unused[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.size_code[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.unused[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.rotate_amount[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.bit_offset[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.field_width[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.fn.reduce_function[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.fn.compare_condition[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.group_code[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.multiply_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_chain</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_compare</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.logic_local</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.logic_uniform</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_ldx</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_rotate</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_arithmetic</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_right</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_src_x</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_amt_sel[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_amt_sel[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.result_sel[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>execute_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>logic_result_o[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>result_o[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_hi_o[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_lo_o[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_valid_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>multiply_busy_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>multiply_done_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>arithmetic_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>shift_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>multiply_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reduce_result[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reduce_result[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>shift_source[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>shift_amount[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>index_offset[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod62.html" >datapath_func_units</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">16</td>
+<td class="rt">13</td>
+<td class="rt">81.25 </td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">26</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">36</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s7">
+<td>CASE</td>
+<td class="rt">28</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s7">
+<td>CASE</td>
+<td class="rt">73</td>
+<td class="rt">8</td>
+<td class="rt">6</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+26           assign shift_source = cmd_i.fu.shift_src_x ? x_i : rs1_i;
+                                                        <font color = "green">-1-</font>  
+                                                        <font color = "green">==></font>  
+                                                        <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+36           logic_unit logic_leaf (
+                                    
+37             .x_i(x_i), .b_i(rs1_i), .c_i(rs2_i),
+                                                   
+38             .uniform_i(cmd_i.fu.logic_uniform), .table_i(cmd_i.logic_payload.uniform.table_bits),
+                                                                                                    
+39             .functions_i(cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : {NUM_NIBBLES{TILE_LOGIC_PASS}}),
+                                                 <font color = "green">-1-</font>  
+                                                 <font color = "green">==></font>  
+                                                 <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+28             case (cmd_i.fu.shift_amt_sel)
+               <font color = "red">-1-</font>  
+29               TILE_SHIFT_AMT_X: shift_amount = x_i;
+           <font color = "green">      ==></font>
+30               TILE_SHIFT_AMT_IMMEDIATE: shift_amount = WORD_WIDTH'(cmd_i.params.arg.bit_offset);
+           <font color = "green">      ==></font>
+31               TILE_SHIFT_AMT_INDEX: shift_amount = WORD_WIDTH'(index_offset);
+           <font color = "red">      ==></font>
+32               default: shift_amount = x_i;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>TILE_SHIFT_AMT_X </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_SHIFT_AMT_IMMEDIATE </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_SHIFT_AMT_INDEX </td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+73             case (cmd_i.fu.result_sel)
+               <font color = "red">-1-</font>  
+74               TILE_FU_NONE: ;
+           <font color = "green">      ==></font>
+75               TILE_FU_ARITH: result_o = arithmetic_result;
+           <font color = "green">      ==></font>
+76               TILE_FU_SHIFT: result_o = shift_result;
+           <font color = "green">      ==></font>
+77               TILE_FU_INDEX: result_o = index_valid_o ? shift_result : '0;
+                                                         <font color = "red">-2-</font>  
+                                                         <font color = "red">==></font>  
+                                                         <font color = "red">==></font>  
+78               TILE_FU_REDUCE: result_o = reduce_result;
+           <font color = "green">      ==></font>
+79               TILE_FU_MULTIPLY: result_o = multiply_result;
+           <font color = "green">      ==></font>
+80               default: ;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>TILE_FU_NONE </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_ARITH </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_SHIFT </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_FU_INDEX </td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_FU_INDEX </td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_REDUCE </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_MULTIPLY </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_237'>
+<a name="inst_tag_237_Line"></a>
+<b>Line Coverage for Instance : <a href="mod62.html#inst_tag_237" >fullchip_tb.dut.i_core.g_tile[3].i_worker.datapath.func_units</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s7"><td class="lf">TOTAL</td><td></td><td>14</td><td>10</td><td>71.43</td></tr>
+<tr class="s6"><td class="lf">ALWAYS</td><td>28</td><td>5</td><td>3</td><td>60.00</td></tr>
+<tr class="s7"><td class="lf">ALWAYS</td><td>72</td><td>9</td><td>7</td><td>77.78</td></tr>
+</table>
+<pre class="code"><br clear=all>
+27                        always_comb begin
+28         1/1              case (cmd_i.fu.shift_amt_sel)
+29         1/1                TILE_SHIFT_AMT_X: shift_amount = x_i;
+30         <font color = "red">0/1     ==>        TILE_SHIFT_AMT_IMMEDIATE: shift_amount = WORD_WIDTH'(cmd_i.params.arg.bit_offset);</font>
+31         <font color = "red">0/1     ==>        TILE_SHIFT_AMT_INDEX: shift_amount = WORD_WIDTH'(index_offset);</font>
+32         1/1                default: shift_amount = x_i;
+33                          endcase
+34                        end
+35                      
+36                        logic_unit logic_leaf (
+37                          .x_i(x_i), .b_i(rs1_i), .c_i(rs2_i),
+38                          .uniform_i(cmd_i.fu.logic_uniform), .table_i(cmd_i.logic_payload.uniform.table_bits),
+39                          .functions_i(cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : {NUM_NIBBLES{TILE_LOGIC_PASS}}),
+40                          .result_o(logic_result_o)
+41                        );
+42                        arithmetic_unit arithmetic (
+43                          .clk_i, .reset_i, .clear_i,
+44                          .a_i(rs1_i), .b_i(x_i), .group_i(cmd_i.params.group_code), .condition_i(cmd_i.params.fn.compare_condition),
+45                          .subtract_i(cmd_i.fu.mode), .compare_i(cmd_i.fu.arithmetic_compare),
+46                          .execute_i(execute_i &amp;&amp; cmd_i.fu.arithmetic_enable), .chain_i(cmd_i.fu.arithmetic_chain),
+47                          .result_o(arithmetic_result)
+48                        );
+49                        shift_unit shift (
+50                          .a_i(shift_source), .b_i(shift_amount), .k_i(cmd_i.params.arg.rotate_amount),
+51                          .is_rot_i(cmd_i.fu.shift_rotate), .right_i(cmd_i.fu.shift_right),
+52                          .arithmetic_i(cmd_i.fu.shift_arithmetic), .is_ldx_i(cmd_i.fu.shift_ldx),
+53                          .ldx_width_i(cmd_i.params.field_width), .result_o(shift_result)
+54                        );
+55                        index_unit indexed (
+56                          .index_i(rs1_i),
+57                          .size_i(cmd_i.params.arg.indexed.size_code), .write_i(cmd_i.fu.mode),
+58                          .offset_o(index_offset), .hi_o(index_hi_o), .lo_o(index_lo_o), .index_valid_o(index_valid_o)
+59                        );
+60                        reduce_unit reduce (
+61                          .source_i(x_i), .width_i(cmd_i.params.field_width), .function_i(cmd_i.params.fn.reduce_function),
+62                          .result_o(reduce_result)
+63                        );
+64                        multiply_unit multiply (
+65                          .clk_i, .reset_i, .clear_i,
+66                          .start_i(execute_i &amp;&amp; cmd_i.fu.multiply_enable),
+67                          .a_i(rs1_i), .b_i(x_i), .high_i(cmd_i.fu.mode),
+68                          .busy_o(multiply_busy_o), .done_o(multiply_done_o), .result_o(multiply_result)
+69                        );
+70                      
+71                        always_comb begin
+72         1/1              result_o = '0;
+73         1/1              case (cmd_i.fu.result_sel)
+74         1/1                TILE_FU_NONE: ;
+75         1/1                TILE_FU_ARITH: result_o = arithmetic_result;
+76         1/1                TILE_FU_SHIFT: result_o = shift_result;
+77         <font color = "red">0/1     ==>        TILE_FU_INDEX: result_o = index_valid_o ? shift_result : '0;</font>
+78         <font color = "red">0/1     ==>        TILE_FU_REDUCE: result_o = reduce_result;</font>
+79         1/1                TILE_FU_MULTIPLY: result_o = multiply_result;
+80         1/1                default: ;
+</pre>
+<hr>
+<a name="inst_tag_237_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod62.html#inst_tag_237" >fullchip_tb.dut.i_core.g_tile[3].i_worker.datapath.func_units</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s6"><td class="lf">Conditions</td><td>12</td><td>8</td><td>66.67</td></tr>
+<tr class="s6"><td class="lf">Logical</td><td>12</td><td>8</td><td>66.67</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       26
+ EXPRESSION (cmd_i.fu.shift_src_x ? x_i : rs1_i)
+             ----------1---------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       36
+ EXPRESSION (cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : ({datapath_pkg::NUM_NIBBLES {TILE_LOGIC_PASS}}))
+             ----------1---------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       42
+ EXPRESSION (execute_i &amp;&amp; cmd_i.fu.arithmetic_enable)
+             ----1----    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (execute_i &amp;&amp; cmd_i.fu.multiply_enable)
+             ----1----    ------------2-----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       77
+ EXPRESSION (index_valid_o ? shift_result : '0)
+             ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_237_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod62.html#inst_tag_237" >fullchip_tb.dut.i_core.g_tile[3].i_worker.datapath.func_units</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s4">
+<td>Totals</td>
+<td class="rt">59</td>
+<td class="rt">29</td>
+<td class="rt">49.15 </td>
+</tr><tr class="s5">
+<td>Total Bits</td>
+<td class="rt">978</td>
+<td class="rt">504</td>
+<td class="rt">51.53 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">489</td>
+<td class="rt">252</td>
+<td class="rt">51.53 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">489</td>
+<td class="rt">252</td>
+<td class="rt">51.53 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">52</td>
+<td class="rt">28</td>
+<td class="rt">53.85 </td>
+</tr><tr class="s6">
+<td>Port Bits</td>
+<td class="rt">584</td>
+<td class="rt">352</td>
+<td class="rt">60.27 </td>
+</tr><tr class="s6">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">292</td>
+<td class="rt">176</td>
+<td class="rt">60.27 </td>
+</tr><tr class="s6">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">292</td>
+<td class="rt">176</td>
+<td class="rt">60.27 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s1">
+<td>Signals</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+<td class="rt">14.29 </td>
+</tr><tr class="s3">
+<td>Signal Bits</td>
+<td class="rt">394</td>
+<td class="rt">152</td>
+<td class="rt">38.58 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">197</td>
+<td class="rt">76</td>
+<td class="rt">38.58 </td>
+</tr><tr class="s3">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">197</td>
+<td class="rt">76</td>
+<td class="rt">38.58 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>x_i[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>x_i[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs1_i[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs1_i[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs2_i[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs2_i[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.publish</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.lane_mask</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.full_mask</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.index_bounds</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.result_arithmetic</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.write_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.merge_op[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.dest_sel[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.dest_sel[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.mask_sel[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.rd_sel[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.lane_en[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.lane_en[2:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.lane_en[3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.lane_en[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.lane_en[7:5]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.table_bits[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.unused[7:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.functions[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.functions[2:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.functions[3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.functions[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.functions[15:5]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.functions[23:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.nibble[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.nibble[2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.unused[0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.unused[1]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.size_code[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.size_code[2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.unused[0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.unused[1]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.rotate_amount[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.rotate_amount[3:2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.rotate_amount[4]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.bit_offset[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.bit_offset[3:2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.bit_offset[4]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.field_width[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.field_width[3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.field_width[5:4]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.fn.reduce_function[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.fn.compare_condition[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.group_code[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.multiply_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_chain</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_compare</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.logic_local</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.logic_uniform</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_ldx</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_rotate</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_arithmetic</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_right</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_src_x</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_amt_sel[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.result_sel[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>execute_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>logic_result_o[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>logic_result_o[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>result_o[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>result_o[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_hi_o[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_lo_o[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_valid_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>multiply_busy_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>multiply_done_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>arithmetic_result[17:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>arithmetic_result[31:18]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>shift_result[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>shift_result[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>multiply_result[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>multiply_result[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>reduce_result[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reduce_result[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>shift_source[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>shift_source[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>shift_amount[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>shift_amount[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>index_offset[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_237_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod62.html#inst_tag_237" >fullchip_tb.dut.i_core.g_tile[3].i_worker.datapath.func_units</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Branches</td>
+<td></td>
+<td class="rt">16</td>
+<td class="rt">9</td>
+<td class="rt">56.25 </td>
+</tr><tr class="s5">
+<td>TERNARY</td>
+<td class="rt">26</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td>TERNARY</td>
+<td class="rt">36</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td>CASE</td>
+<td class="rt">28</td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s6">
+<td>CASE</td>
+<td class="rt">73</td>
+<td class="rt">8</td>
+<td class="rt">5</td>
+<td class="rt">62.50 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+26           assign shift_source = cmd_i.fu.shift_src_x ? x_i : rs1_i;
+                                                        <font color = "red">-1-</font>  
+                                                        <font color = "red">==></font>  
+                                                        <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uRed">
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+36           logic_unit logic_leaf (
+                                    
+37             .x_i(x_i), .b_i(rs1_i), .c_i(rs2_i),
+                                                   
+38             .uniform_i(cmd_i.fu.logic_uniform), .table_i(cmd_i.logic_payload.uniform.table_bits),
+                                                                                                    
+39             .functions_i(cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : {NUM_NIBBLES{TILE_LOGIC_PASS}}),
+                                                 <font color = "red">-1-</font>  
+                                                 <font color = "red">==></font>  
+                                                 <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uRed">
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+28             case (cmd_i.fu.shift_amt_sel)
+               <font color = "red">-1-</font>  
+29               TILE_SHIFT_AMT_X: shift_amount = x_i;
+           <font color = "green">      ==></font>
+30               TILE_SHIFT_AMT_IMMEDIATE: shift_amount = WORD_WIDTH'(cmd_i.params.arg.bit_offset);
+           <font color = "red">      ==></font>
+31               TILE_SHIFT_AMT_INDEX: shift_amount = WORD_WIDTH'(index_offset);
+           <font color = "red">      ==></font>
+32               default: shift_amount = x_i;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>TILE_SHIFT_AMT_X </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_SHIFT_AMT_IMMEDIATE </td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_SHIFT_AMT_INDEX </td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+73             case (cmd_i.fu.result_sel)
+               <font color = "red">-1-</font>  
+74               TILE_FU_NONE: ;
+           <font color = "green">      ==></font>
+75               TILE_FU_ARITH: result_o = arithmetic_result;
+           <font color = "green">      ==></font>
+76               TILE_FU_SHIFT: result_o = shift_result;
+           <font color = "green">      ==></font>
+77               TILE_FU_INDEX: result_o = index_valid_o ? shift_result : '0;
+                                                         <font color = "red">-2-</font>  
+                                                         <font color = "red">==></font>  
+                                                         <font color = "red">==></font>  
+78               TILE_FU_REDUCE: result_o = reduce_result;
+           <font color = "red">      ==></font>
+79               TILE_FU_MULTIPLY: result_o = multiply_result;
+           <font color = "green">      ==></font>
+80               default: ;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>TILE_FU_NONE </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_ARITH </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_SHIFT </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_FU_INDEX </td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_FU_INDEX </td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_FU_REDUCE </td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_MULTIPLY </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_235'>
+<a name="inst_tag_235_Line"></a>
+<b>Line Coverage for Instance : <a href="mod62.html#inst_tag_235" >fullchip_tb.dut.i_core.g_tile[1].i_worker.datapath.func_units</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">TOTAL</td><td></td><td>14</td><td>12</td><td>85.71</td></tr>
+<tr class="s7"><td class="lf">ALWAYS</td><td>28</td><td>5</td><td>4</td><td>80.00</td></tr>
+<tr class="s8"><td class="lf">ALWAYS</td><td>72</td><td>9</td><td>8</td><td>88.89</td></tr>
+</table>
+<pre class="code"><br clear=all>
+27                        always_comb begin
+28         1/1              case (cmd_i.fu.shift_amt_sel)
+29         1/1                TILE_SHIFT_AMT_X: shift_amount = x_i;
+30         1/1                TILE_SHIFT_AMT_IMMEDIATE: shift_amount = WORD_WIDTH'(cmd_i.params.arg.bit_offset);
+31         <font color = "red">0/1     ==>        TILE_SHIFT_AMT_INDEX: shift_amount = WORD_WIDTH'(index_offset);</font>
+32         1/1                default: shift_amount = x_i;
+33                          endcase
+34                        end
+35                      
+36                        logic_unit logic_leaf (
+37                          .x_i(x_i), .b_i(rs1_i), .c_i(rs2_i),
+38                          .uniform_i(cmd_i.fu.logic_uniform), .table_i(cmd_i.logic_payload.uniform.table_bits),
+39                          .functions_i(cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : {NUM_NIBBLES{TILE_LOGIC_PASS}}),
+40                          .result_o(logic_result_o)
+41                        );
+42                        arithmetic_unit arithmetic (
+43                          .clk_i, .reset_i, .clear_i,
+44                          .a_i(rs1_i), .b_i(x_i), .group_i(cmd_i.params.group_code), .condition_i(cmd_i.params.fn.compare_condition),
+45                          .subtract_i(cmd_i.fu.mode), .compare_i(cmd_i.fu.arithmetic_compare),
+46                          .execute_i(execute_i &amp;&amp; cmd_i.fu.arithmetic_enable), .chain_i(cmd_i.fu.arithmetic_chain),
+47                          .result_o(arithmetic_result)
+48                        );
+49                        shift_unit shift (
+50                          .a_i(shift_source), .b_i(shift_amount), .k_i(cmd_i.params.arg.rotate_amount),
+51                          .is_rot_i(cmd_i.fu.shift_rotate), .right_i(cmd_i.fu.shift_right),
+52                          .arithmetic_i(cmd_i.fu.shift_arithmetic), .is_ldx_i(cmd_i.fu.shift_ldx),
+53                          .ldx_width_i(cmd_i.params.field_width), .result_o(shift_result)
+54                        );
+55                        index_unit indexed (
+56                          .index_i(rs1_i),
+57                          .size_i(cmd_i.params.arg.indexed.size_code), .write_i(cmd_i.fu.mode),
+58                          .offset_o(index_offset), .hi_o(index_hi_o), .lo_o(index_lo_o), .index_valid_o(index_valid_o)
+59                        );
+60                        reduce_unit reduce (
+61                          .source_i(x_i), .width_i(cmd_i.params.field_width), .function_i(cmd_i.params.fn.reduce_function),
+62                          .result_o(reduce_result)
+63                        );
+64                        multiply_unit multiply (
+65                          .clk_i, .reset_i, .clear_i,
+66                          .start_i(execute_i &amp;&amp; cmd_i.fu.multiply_enable),
+67                          .a_i(rs1_i), .b_i(x_i), .high_i(cmd_i.fu.mode),
+68                          .busy_o(multiply_busy_o), .done_o(multiply_done_o), .result_o(multiply_result)
+69                        );
+70                      
+71                        always_comb begin
+72         1/1              result_o = '0;
+73         1/1              case (cmd_i.fu.result_sel)
+74         1/1                TILE_FU_NONE: ;
+75         1/1                TILE_FU_ARITH: result_o = arithmetic_result;
+76         1/1                TILE_FU_SHIFT: result_o = shift_result;
+77         <font color = "red">0/1     ==>        TILE_FU_INDEX: result_o = index_valid_o ? shift_result : '0;</font>
+78         1/1                TILE_FU_REDUCE: result_o = reduce_result;
+79         1/1                TILE_FU_MULTIPLY: result_o = multiply_result;
+80         1/1                default: ;
+</pre>
+<hr>
+<a name="inst_tag_235_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod62.html#inst_tag_235" >fullchip_tb.dut.i_core.g_tile[1].i_worker.datapath.func_units</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">Conditions</td><td>12</td><td>10</td><td>83.33</td></tr>
+<tr class="s8"><td class="lf">Logical</td><td>12</td><td>10</td><td>83.33</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       26
+ EXPRESSION (cmd_i.fu.shift_src_x ? x_i : rs1_i)
+             ----------1---------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       36
+ EXPRESSION (cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : ({datapath_pkg::NUM_NIBBLES {TILE_LOGIC_PASS}}))
+             ----------1---------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       42
+ EXPRESSION (execute_i &amp;&amp; cmd_i.fu.arithmetic_enable)
+             ----1----    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (execute_i &amp;&amp; cmd_i.fu.multiply_enable)
+             ----1----    ------------2-----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       77
+ EXPRESSION (index_valid_o ? shift_result : '0)
+             ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_235_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod62.html#inst_tag_235" >fullchip_tb.dut.i_core.g_tile[1].i_worker.datapath.func_units</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">59</td>
+<td class="rt">55</td>
+<td class="rt">93.22 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">978</td>
+<td class="rt">910</td>
+<td class="rt">93.05 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">489</td>
+<td class="rt">455</td>
+<td class="rt">93.05 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">489</td>
+<td class="rt">455</td>
+<td class="rt">93.05 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">52</td>
+<td class="rt">49</td>
+<td class="rt">94.23 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">584</td>
+<td class="rt">578</td>
+<td class="rt">98.97 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">292</td>
+<td class="rt">289</td>
+<td class="rt">98.97 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">292</td>
+<td class="rt">289</td>
+<td class="rt">98.97 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Signals</td>
+<td class="rt">7</td>
+<td class="rt">6</td>
+<td class="rt">85.71 </td>
+</tr><tr class="s8">
+<td>Signal Bits</td>
+<td class="rt">394</td>
+<td class="rt">332</td>
+<td class="rt">84.26 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">197</td>
+<td class="rt">166</td>
+<td class="rt">84.26 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">197</td>
+<td class="rt">166</td>
+<td class="rt">84.26 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>x_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs1_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs2_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.publish</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.lane_mask</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.full_mask</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.index_bounds</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.result_arithmetic</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.write_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.merge_op[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.dest_sel[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.mask_sel[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.rd_sel[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.lane_en[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.table_bits[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.unused[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.functions[23:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.nibble[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.unused[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.size_code[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.unused[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.rotate_amount[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.bit_offset[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.field_width[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.fn.reduce_function[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.fn.compare_condition[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.group_code[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.multiply_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_chain</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_compare</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.logic_local</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.logic_uniform</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_ldx</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_rotate</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_arithmetic</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_right</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_src_x</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_amt_sel[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_amt_sel[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.result_sel[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>execute_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>logic_result_o[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>result_o[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_hi_o[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_lo_o[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_valid_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>multiply_busy_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>multiply_done_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>arithmetic_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>shift_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>multiply_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reduce_result[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reduce_result[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>shift_source[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>shift_amount[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>index_offset[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_235_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod62.html#inst_tag_235" >fullchip_tb.dut.i_core.g_tile[1].i_worker.datapath.func_units</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">16</td>
+<td class="rt">13</td>
+<td class="rt">81.25 </td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">26</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">36</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s7">
+<td>CASE</td>
+<td class="rt">28</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s7">
+<td>CASE</td>
+<td class="rt">73</td>
+<td class="rt">8</td>
+<td class="rt">6</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+26           assign shift_source = cmd_i.fu.shift_src_x ? x_i : rs1_i;
+                                                        <font color = "green">-1-</font>  
+                                                        <font color = "green">==></font>  
+                                                        <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+36           logic_unit logic_leaf (
+                                    
+37             .x_i(x_i), .b_i(rs1_i), .c_i(rs2_i),
+                                                   
+38             .uniform_i(cmd_i.fu.logic_uniform), .table_i(cmd_i.logic_payload.uniform.table_bits),
+                                                                                                    
+39             .functions_i(cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : {NUM_NIBBLES{TILE_LOGIC_PASS}}),
+                                                 <font color = "green">-1-</font>  
+                                                 <font color = "green">==></font>  
+                                                 <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+28             case (cmd_i.fu.shift_amt_sel)
+               <font color = "red">-1-</font>  
+29               TILE_SHIFT_AMT_X: shift_amount = x_i;
+           <font color = "green">      ==></font>
+30               TILE_SHIFT_AMT_IMMEDIATE: shift_amount = WORD_WIDTH'(cmd_i.params.arg.bit_offset);
+           <font color = "green">      ==></font>
+31               TILE_SHIFT_AMT_INDEX: shift_amount = WORD_WIDTH'(index_offset);
+           <font color = "red">      ==></font>
+32               default: shift_amount = x_i;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>TILE_SHIFT_AMT_X </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_SHIFT_AMT_IMMEDIATE </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_SHIFT_AMT_INDEX </td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+73             case (cmd_i.fu.result_sel)
+               <font color = "red">-1-</font>  
+74               TILE_FU_NONE: ;
+           <font color = "green">      ==></font>
+75               TILE_FU_ARITH: result_o = arithmetic_result;
+           <font color = "green">      ==></font>
+76               TILE_FU_SHIFT: result_o = shift_result;
+           <font color = "green">      ==></font>
+77               TILE_FU_INDEX: result_o = index_valid_o ? shift_result : '0;
+                                                         <font color = "red">-2-</font>  
+                                                         <font color = "red">==></font>  
+                                                         <font color = "red">==></font>  
+78               TILE_FU_REDUCE: result_o = reduce_result;
+           <font color = "green">      ==></font>
+79               TILE_FU_MULTIPLY: result_o = multiply_result;
+           <font color = "green">      ==></font>
+80               default: ;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>TILE_FU_NONE </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_ARITH </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_SHIFT </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_FU_INDEX </td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_FU_INDEX </td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_REDUCE </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_MULTIPLY </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_236'>
+<a name="inst_tag_236_Line"></a>
+<b>Line Coverage for Instance : <a href="mod62.html#inst_tag_236" >fullchip_tb.dut.i_core.g_tile[2].i_worker.datapath.func_units</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">TOTAL</td><td></td><td>14</td><td>12</td><td>85.71</td></tr>
+<tr class="s7"><td class="lf">ALWAYS</td><td>28</td><td>5</td><td>4</td><td>80.00</td></tr>
+<tr class="s8"><td class="lf">ALWAYS</td><td>72</td><td>9</td><td>8</td><td>88.89</td></tr>
+</table>
+<pre class="code"><br clear=all>
+27                        always_comb begin
+28         1/1              case (cmd_i.fu.shift_amt_sel)
+29         1/1                TILE_SHIFT_AMT_X: shift_amount = x_i;
+30         1/1                TILE_SHIFT_AMT_IMMEDIATE: shift_amount = WORD_WIDTH'(cmd_i.params.arg.bit_offset);
+31         <font color = "red">0/1     ==>        TILE_SHIFT_AMT_INDEX: shift_amount = WORD_WIDTH'(index_offset);</font>
+32         1/1                default: shift_amount = x_i;
+33                          endcase
+34                        end
+35                      
+36                        logic_unit logic_leaf (
+37                          .x_i(x_i), .b_i(rs1_i), .c_i(rs2_i),
+38                          .uniform_i(cmd_i.fu.logic_uniform), .table_i(cmd_i.logic_payload.uniform.table_bits),
+39                          .functions_i(cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : {NUM_NIBBLES{TILE_LOGIC_PASS}}),
+40                          .result_o(logic_result_o)
+41                        );
+42                        arithmetic_unit arithmetic (
+43                          .clk_i, .reset_i, .clear_i,
+44                          .a_i(rs1_i), .b_i(x_i), .group_i(cmd_i.params.group_code), .condition_i(cmd_i.params.fn.compare_condition),
+45                          .subtract_i(cmd_i.fu.mode), .compare_i(cmd_i.fu.arithmetic_compare),
+46                          .execute_i(execute_i &amp;&amp; cmd_i.fu.arithmetic_enable), .chain_i(cmd_i.fu.arithmetic_chain),
+47                          .result_o(arithmetic_result)
+48                        );
+49                        shift_unit shift (
+50                          .a_i(shift_source), .b_i(shift_amount), .k_i(cmd_i.params.arg.rotate_amount),
+51                          .is_rot_i(cmd_i.fu.shift_rotate), .right_i(cmd_i.fu.shift_right),
+52                          .arithmetic_i(cmd_i.fu.shift_arithmetic), .is_ldx_i(cmd_i.fu.shift_ldx),
+53                          .ldx_width_i(cmd_i.params.field_width), .result_o(shift_result)
+54                        );
+55                        index_unit indexed (
+56                          .index_i(rs1_i),
+57                          .size_i(cmd_i.params.arg.indexed.size_code), .write_i(cmd_i.fu.mode),
+58                          .offset_o(index_offset), .hi_o(index_hi_o), .lo_o(index_lo_o), .index_valid_o(index_valid_o)
+59                        );
+60                        reduce_unit reduce (
+61                          .source_i(x_i), .width_i(cmd_i.params.field_width), .function_i(cmd_i.params.fn.reduce_function),
+62                          .result_o(reduce_result)
+63                        );
+64                        multiply_unit multiply (
+65                          .clk_i, .reset_i, .clear_i,
+66                          .start_i(execute_i &amp;&amp; cmd_i.fu.multiply_enable),
+67                          .a_i(rs1_i), .b_i(x_i), .high_i(cmd_i.fu.mode),
+68                          .busy_o(multiply_busy_o), .done_o(multiply_done_o), .result_o(multiply_result)
+69                        );
+70                      
+71                        always_comb begin
+72         1/1              result_o = '0;
+73         1/1              case (cmd_i.fu.result_sel)
+74         1/1                TILE_FU_NONE: ;
+75         1/1                TILE_FU_ARITH: result_o = arithmetic_result;
+76         1/1                TILE_FU_SHIFT: result_o = shift_result;
+77         <font color = "red">0/1     ==>        TILE_FU_INDEX: result_o = index_valid_o ? shift_result : '0;</font>
+78         1/1                TILE_FU_REDUCE: result_o = reduce_result;
+79         1/1                TILE_FU_MULTIPLY: result_o = multiply_result;
+80         1/1                default: ;
+</pre>
+<hr>
+<a name="inst_tag_236_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod62.html#inst_tag_236" >fullchip_tb.dut.i_core.g_tile[2].i_worker.datapath.func_units</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">Conditions</td><td>12</td><td>10</td><td>83.33</td></tr>
+<tr class="s8"><td class="lf">Logical</td><td>12</td><td>10</td><td>83.33</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       26
+ EXPRESSION (cmd_i.fu.shift_src_x ? x_i : rs1_i)
+             ----------1---------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       36
+ EXPRESSION (cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : ({datapath_pkg::NUM_NIBBLES {TILE_LOGIC_PASS}}))
+             ----------1---------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       42
+ EXPRESSION (execute_i &amp;&amp; cmd_i.fu.arithmetic_enable)
+             ----1----    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (execute_i &amp;&amp; cmd_i.fu.multiply_enable)
+             ----1----    ------------2-----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       77
+ EXPRESSION (index_valid_o ? shift_result : '0)
+             ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_236_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod62.html#inst_tag_236" >fullchip_tb.dut.i_core.g_tile[2].i_worker.datapath.func_units</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">59</td>
+<td class="rt">55</td>
+<td class="rt">93.22 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">978</td>
+<td class="rt">910</td>
+<td class="rt">93.05 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">489</td>
+<td class="rt">455</td>
+<td class="rt">93.05 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">489</td>
+<td class="rt">455</td>
+<td class="rt">93.05 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">52</td>
+<td class="rt">49</td>
+<td class="rt">94.23 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">584</td>
+<td class="rt">578</td>
+<td class="rt">98.97 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">292</td>
+<td class="rt">289</td>
+<td class="rt">98.97 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">292</td>
+<td class="rt">289</td>
+<td class="rt">98.97 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Signals</td>
+<td class="rt">7</td>
+<td class="rt">6</td>
+<td class="rt">85.71 </td>
+</tr><tr class="s8">
+<td>Signal Bits</td>
+<td class="rt">394</td>
+<td class="rt">332</td>
+<td class="rt">84.26 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">197</td>
+<td class="rt">166</td>
+<td class="rt">84.26 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">197</td>
+<td class="rt">166</td>
+<td class="rt">84.26 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>x_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs1_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs2_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.publish</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.lane_mask</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.full_mask</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.index_bounds</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.result_arithmetic</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.write_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.merge_op[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.dest_sel[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.mask_sel[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.rd_sel[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.lane_en[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.table_bits[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.unused[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.functions[23:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.nibble[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.unused[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.size_code[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.unused[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.rotate_amount[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.bit_offset[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.field_width[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.fn.reduce_function[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.fn.compare_condition[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.group_code[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.multiply_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_chain</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_compare</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.logic_local</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.logic_uniform</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_ldx</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_rotate</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_arithmetic</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_right</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_src_x</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_amt_sel[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_amt_sel[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.result_sel[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>execute_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>logic_result_o[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>result_o[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_hi_o[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_lo_o[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_valid_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>multiply_busy_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>multiply_done_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>arithmetic_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>shift_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>multiply_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reduce_result[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reduce_result[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>shift_source[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>shift_amount[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>index_offset[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_236_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod62.html#inst_tag_236" >fullchip_tb.dut.i_core.g_tile[2].i_worker.datapath.func_units</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">16</td>
+<td class="rt">13</td>
+<td class="rt">81.25 </td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">26</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">36</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s7">
+<td>CASE</td>
+<td class="rt">28</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s7">
+<td>CASE</td>
+<td class="rt">73</td>
+<td class="rt">8</td>
+<td class="rt">6</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+26           assign shift_source = cmd_i.fu.shift_src_x ? x_i : rs1_i;
+                                                        <font color = "green">-1-</font>  
+                                                        <font color = "green">==></font>  
+                                                        <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+36           logic_unit logic_leaf (
+                                    
+37             .x_i(x_i), .b_i(rs1_i), .c_i(rs2_i),
+                                                   
+38             .uniform_i(cmd_i.fu.logic_uniform), .table_i(cmd_i.logic_payload.uniform.table_bits),
+                                                                                                    
+39             .functions_i(cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : {NUM_NIBBLES{TILE_LOGIC_PASS}}),
+                                                 <font color = "green">-1-</font>  
+                                                 <font color = "green">==></font>  
+                                                 <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+28             case (cmd_i.fu.shift_amt_sel)
+               <font color = "red">-1-</font>  
+29               TILE_SHIFT_AMT_X: shift_amount = x_i;
+           <font color = "green">      ==></font>
+30               TILE_SHIFT_AMT_IMMEDIATE: shift_amount = WORD_WIDTH'(cmd_i.params.arg.bit_offset);
+           <font color = "green">      ==></font>
+31               TILE_SHIFT_AMT_INDEX: shift_amount = WORD_WIDTH'(index_offset);
+           <font color = "red">      ==></font>
+32               default: shift_amount = x_i;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>TILE_SHIFT_AMT_X </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_SHIFT_AMT_IMMEDIATE </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_SHIFT_AMT_INDEX </td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+73             case (cmd_i.fu.result_sel)
+               <font color = "red">-1-</font>  
+74               TILE_FU_NONE: ;
+           <font color = "green">      ==></font>
+75               TILE_FU_ARITH: result_o = arithmetic_result;
+           <font color = "green">      ==></font>
+76               TILE_FU_SHIFT: result_o = shift_result;
+           <font color = "green">      ==></font>
+77               TILE_FU_INDEX: result_o = index_valid_o ? shift_result : '0;
+                                                         <font color = "red">-2-</font>  
+                                                         <font color = "red">==></font>  
+                                                         <font color = "red">==></font>  
+78               TILE_FU_REDUCE: result_o = reduce_result;
+           <font color = "green">      ==></font>
+79               TILE_FU_MULTIPLY: result_o = multiply_result;
+           <font color = "green">      ==></font>
+80               default: ;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>TILE_FU_NONE </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_ARITH </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_SHIFT </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_FU_INDEX </td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_FU_INDEX </td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_REDUCE </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_MULTIPLY </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_234'>
+<a name="inst_tag_234_Line"></a>
+<b>Line Coverage for Instance : <a href="mod62.html#inst_tag_234" >fullchip_tb.dut.i_core.g_tile[0].i_worker.datapath.func_units</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">TOTAL</td><td></td><td>14</td><td>12</td><td>85.71</td></tr>
+<tr class="s7"><td class="lf">ALWAYS</td><td>28</td><td>5</td><td>4</td><td>80.00</td></tr>
+<tr class="s8"><td class="lf">ALWAYS</td><td>72</td><td>9</td><td>8</td><td>88.89</td></tr>
+</table>
+<pre class="code"><br clear=all>
+27                        always_comb begin
+28         1/1              case (cmd_i.fu.shift_amt_sel)
+29         1/1                TILE_SHIFT_AMT_X: shift_amount = x_i;
+30         1/1                TILE_SHIFT_AMT_IMMEDIATE: shift_amount = WORD_WIDTH'(cmd_i.params.arg.bit_offset);
+31         <font color = "red">0/1     ==>        TILE_SHIFT_AMT_INDEX: shift_amount = WORD_WIDTH'(index_offset);</font>
+32         1/1                default: shift_amount = x_i;
+33                          endcase
+34                        end
+35                      
+36                        logic_unit logic_leaf (
+37                          .x_i(x_i), .b_i(rs1_i), .c_i(rs2_i),
+38                          .uniform_i(cmd_i.fu.logic_uniform), .table_i(cmd_i.logic_payload.uniform.table_bits),
+39                          .functions_i(cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : {NUM_NIBBLES{TILE_LOGIC_PASS}}),
+40                          .result_o(logic_result_o)
+41                        );
+42                        arithmetic_unit arithmetic (
+43                          .clk_i, .reset_i, .clear_i,
+44                          .a_i(rs1_i), .b_i(x_i), .group_i(cmd_i.params.group_code), .condition_i(cmd_i.params.fn.compare_condition),
+45                          .subtract_i(cmd_i.fu.mode), .compare_i(cmd_i.fu.arithmetic_compare),
+46                          .execute_i(execute_i &amp;&amp; cmd_i.fu.arithmetic_enable), .chain_i(cmd_i.fu.arithmetic_chain),
+47                          .result_o(arithmetic_result)
+48                        );
+49                        shift_unit shift (
+50                          .a_i(shift_source), .b_i(shift_amount), .k_i(cmd_i.params.arg.rotate_amount),
+51                          .is_rot_i(cmd_i.fu.shift_rotate), .right_i(cmd_i.fu.shift_right),
+52                          .arithmetic_i(cmd_i.fu.shift_arithmetic), .is_ldx_i(cmd_i.fu.shift_ldx),
+53                          .ldx_width_i(cmd_i.params.field_width), .result_o(shift_result)
+54                        );
+55                        index_unit indexed (
+56                          .index_i(rs1_i),
+57                          .size_i(cmd_i.params.arg.indexed.size_code), .write_i(cmd_i.fu.mode),
+58                          .offset_o(index_offset), .hi_o(index_hi_o), .lo_o(index_lo_o), .index_valid_o(index_valid_o)
+59                        );
+60                        reduce_unit reduce (
+61                          .source_i(x_i), .width_i(cmd_i.params.field_width), .function_i(cmd_i.params.fn.reduce_function),
+62                          .result_o(reduce_result)
+63                        );
+64                        multiply_unit multiply (
+65                          .clk_i, .reset_i, .clear_i,
+66                          .start_i(execute_i &amp;&amp; cmd_i.fu.multiply_enable),
+67                          .a_i(rs1_i), .b_i(x_i), .high_i(cmd_i.fu.mode),
+68                          .busy_o(multiply_busy_o), .done_o(multiply_done_o), .result_o(multiply_result)
+69                        );
+70                      
+71                        always_comb begin
+72         1/1              result_o = '0;
+73         1/1              case (cmd_i.fu.result_sel)
+74         1/1                TILE_FU_NONE: ;
+75         1/1                TILE_FU_ARITH: result_o = arithmetic_result;
+76         1/1                TILE_FU_SHIFT: result_o = shift_result;
+77         <font color = "red">0/1     ==>        TILE_FU_INDEX: result_o = index_valid_o ? shift_result : '0;</font>
+78         1/1                TILE_FU_REDUCE: result_o = reduce_result;
+79         1/1                TILE_FU_MULTIPLY: result_o = multiply_result;
+80         1/1                default: ;
+</pre>
+<hr>
+<a name="inst_tag_234_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod62.html#inst_tag_234" >fullchip_tb.dut.i_core.g_tile[0].i_worker.datapath.func_units</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s8"><td class="lf">Conditions</td><td>12</td><td>10</td><td>83.33</td></tr>
+<tr class="s8"><td class="lf">Logical</td><td>12</td><td>10</td><td>83.33</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       26
+ EXPRESSION (cmd_i.fu.shift_src_x ? x_i : rs1_i)
+             ----------1---------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       36
+ EXPRESSION (cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : ({datapath_pkg::NUM_NIBBLES {TILE_LOGIC_PASS}}))
+             ----------1---------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       42
+ EXPRESSION (execute_i &amp;&amp; cmd_i.fu.arithmetic_enable)
+             ----1----    -------------2------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       64
+ EXPRESSION (execute_i &amp;&amp; cmd_i.fu.multiply_enable)
+             ----1----    ------------2-----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       77
+ EXPRESSION (index_valid_o ? shift_result : '0)
+             ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_234_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod62.html#inst_tag_234" >fullchip_tb.dut.i_core.g_tile[0].i_worker.datapath.func_units</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">59</td>
+<td class="rt">56</td>
+<td class="rt">94.92 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">978</td>
+<td class="rt">912</td>
+<td class="rt">93.25 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">489</td>
+<td class="rt">456</td>
+<td class="rt">93.25 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">489</td>
+<td class="rt">456</td>
+<td class="rt">93.25 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">52</td>
+<td class="rt">50</td>
+<td class="rt">96.15 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">584</td>
+<td class="rt">580</td>
+<td class="rt">99.32 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">292</td>
+<td class="rt">290</td>
+<td class="rt">99.32 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">292</td>
+<td class="rt">290</td>
+<td class="rt">99.32 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Signals</td>
+<td class="rt">7</td>
+<td class="rt">6</td>
+<td class="rt">85.71 </td>
+</tr><tr class="s8">
+<td>Signal Bits</td>
+<td class="rt">394</td>
+<td class="rt">332</td>
+<td class="rt">84.26 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">197</td>
+<td class="rt">166</td>
+<td class="rt">84.26 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">197</td>
+<td class="rt">166</td>
+<td class="rt">84.26 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>x_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs1_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rs2_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.publish</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.lane_mask</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.full_mask</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.index_bounds</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.result_arithmetic</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.write_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.merge_op[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.dest_sel[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.mask_sel[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.wb.rd_sel[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.lane_en[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.table_bits[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.uniform.unused[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.logic_payload.functions[23:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.nibble[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.nibble_merge.unused[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.size_code[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.indexed.unused[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.rotate_amount[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.arg.bit_offset[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.field_width[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.fn.reduce_function[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.fn.compare_condition[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.params.group_code[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.multiply_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_enable</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_chain</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.arithmetic_compare</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.logic_local</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.logic_uniform</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_ldx</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_rotate</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_arithmetic</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_right</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_src_x</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_amt_sel[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.shift_amt_sel[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cmd_i.fu.result_sel[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>execute_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>logic_result_o[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>result_o[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_hi_o[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_lo_o[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>index_valid_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>multiply_busy_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>multiply_done_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>arithmetic_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>shift_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>multiply_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reduce_result[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reduce_result[31:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>shift_source[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>shift_amount[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>index_offset[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_234_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod62.html#inst_tag_234" >fullchip_tb.dut.i_core.g_tile[0].i_worker.datapath.func_units</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">16</td>
+<td class="rt">13</td>
+<td class="rt">81.25 </td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">26</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">36</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s7">
+<td>CASE</td>
+<td class="rt">28</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s7">
+<td>CASE</td>
+<td class="rt">73</td>
+<td class="rt">8</td>
+<td class="rt">6</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+26           assign shift_source = cmd_i.fu.shift_src_x ? x_i : rs1_i;
+                                                        <font color = "green">-1-</font>  
+                                                        <font color = "green">==></font>  
+                                                        <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+36           logic_unit logic_leaf (
+                                    
+37             .x_i(x_i), .b_i(rs1_i), .c_i(rs2_i),
+                                                   
+38             .uniform_i(cmd_i.fu.logic_uniform), .table_i(cmd_i.logic_payload.uniform.table_bits),
+                                                                                                    
+39             .functions_i(cmd_i.fu.logic_local ? cmd_i.logic_payload.functions : {NUM_NIBBLES{TILE_LOGIC_PASS}}),
+                                                 <font color = "green">-1-</font>  
+                                                 <font color = "green">==></font>  
+                                                 <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+28             case (cmd_i.fu.shift_amt_sel)
+               <font color = "red">-1-</font>  
+29               TILE_SHIFT_AMT_X: shift_amount = x_i;
+           <font color = "green">      ==></font>
+30               TILE_SHIFT_AMT_IMMEDIATE: shift_amount = WORD_WIDTH'(cmd_i.params.arg.bit_offset);
+           <font color = "green">      ==></font>
+31               TILE_SHIFT_AMT_INDEX: shift_amount = WORD_WIDTH'(index_offset);
+           <font color = "red">      ==></font>
+32               default: shift_amount = x_i;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>TILE_SHIFT_AMT_X </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_SHIFT_AMT_IMMEDIATE </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_SHIFT_AMT_INDEX </td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+73             case (cmd_i.fu.result_sel)
+               <font color = "red">-1-</font>  
+74               TILE_FU_NONE: ;
+           <font color = "green">      ==></font>
+75               TILE_FU_ARITH: result_o = arithmetic_result;
+           <font color = "green">      ==></font>
+76               TILE_FU_SHIFT: result_o = shift_result;
+           <font color = "green">      ==></font>
+77               TILE_FU_INDEX: result_o = index_valid_o ? shift_result : '0;
+                                                         <font color = "red">-2-</font>  
+                                                         <font color = "red">==></font>  
+                                                         <font color = "red">==></font>  
+78               TILE_FU_REDUCE: result_o = reduce_result;
+           <font color = "green">      ==></font>
+79               TILE_FU_MULTIPLY: result_o = multiply_result;
+           <font color = "green">      ==></font>
+80               default: ;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>TILE_FU_NONE </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_ARITH </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_SHIFT </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_FU_INDEX </td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>TILE_FU_INDEX </td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_REDUCE </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TILE_FU_MULTIPLY </td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_234">
+    <li>
+      <a href="#inst_tag_234_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_234_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_234_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_234_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="inst_tag_235">
+    <li>
+      <a href="#inst_tag_235_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_235_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_235_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_235_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="inst_tag_236">
+    <li>
+      <a href="#inst_tag_236_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_236_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_236_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_236_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="inst_tag_237">
+    <li>
+      <a href="#inst_tag_237_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_237_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_237_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_237_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_datapath_func_units">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>
