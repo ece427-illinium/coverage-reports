@@ -81587,7 +81587,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 93.51 100.00  93.10  87.18 --      93.75 --     dut  
+ 92.96 100.00  93.10  85.00 --      93.75 --     dut  
 
 
 Subtrees :
@@ -99964,7 +99964,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 93.51 100.00  93.10  87.18 --      93.75 --     dut  
+ 92.96 100.00  93.10  85.00 --      93.75 --     dut  
 
 
 Subtrees :
@@ -102621,7 +102621,7 @@ unnamed$$_1 1        1              0        0
 Module : top_soc
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 93.51 100.00  93.10  87.18 --      93.75 --     
+ 92.96 100.00  93.10  85.00 --      93.75 --     
 
 Source File(s) : 
 
@@ -102630,7 +102630,7 @@ Source File(s) :
 Module self-instances :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
- 93.51 100.00  93.10  87.18 --      93.75 --     fullchip_tb.dut 
+ 92.96 100.00  93.10  85.00 --      93.75 --     fullchip_tb.dut 
 
 
 
@@ -102639,23 +102639,23 @@ Line Coverage for Module : top_soc
 
              Line No.   Total   Covered  Percent
 TOTAL                       11       11   100.00
-ALWAYS            103        6        6   100.00
-ALWAYS            112        5        5   100.00
+ALWAYS            107        6        6   100.00
+ALWAYS            116        5        5   100.00
 
-102                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
-103        1/1              if (!io_test_count_rst_n) begin
-104        1/1                io_test_sync1_r <= 1'b1;
-105        1/1                io_test_sync2_r <= 1'b1;
-106        1/1              end else if (!test_mode) begin
-107        1/1                io_test_sync1_r <= io_test_chip;
-108        1/1                io_test_sync2_r <= io_test_sync1_r;
-109                         end
+106                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
+107        1/1              if (!io_test_count_rst_n) begin
+108        1/1                io_test_sync1_r <= 1'b1;
+109        1/1                io_test_sync2_r <= 1'b1;
+110        1/1              end else if (!test_mode) begin
+111        1/1                io_test_sync1_r <= io_test_chip;
+112        1/1                io_test_sync2_r <= io_test_sync1_r;
+113                         end
                    ==>  MISSING_ELSE
-110                       end
-111                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
-112        2/2              if (!io_test_count_rst_n) io_test_count_r <= '0;
-113        2/2              else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
-114        1/1              else io_test_count_r <= '0;
+114                       end
+115                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
+116        2/2              if (!io_test_count_rst_n) io_test_count_r <= '0;
+117        2/2              else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
+118        1/1              else io_test_count_r <= '0;
 
 -------------------------------------------------------------------------------
 Cond Coverage for Module : top_soc
@@ -102666,7 +102666,7 @@ Logical            29       27    93.10
 Non-Logical         0        0
 Event               0        0
 
- LINE       70
+ LINE       74
  EXPRESSION (io_test_sync2_r ? io_test_gray4[0] : event_internal_if.data[0])
              -------1-------
 
@@ -102674,7 +102674,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       70
+ LINE       74
  EXPRESSION (io_test_sync2_r ? io_test_gray4[1] : event_internal_if.data[1])
              -------1-------
 
@@ -102682,7 +102682,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       70
+ LINE       74
  EXPRESSION (io_test_sync2_r ? io_test_gray4[2] : event_internal_if.data[2])
              -------1-------
 
@@ -102690,7 +102690,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       70
+ LINE       74
  EXPRESSION (io_test_sync2_r ? io_test_gray4[3] : event_internal_if.data[3])
              -------1-------
 
@@ -102698,7 +102698,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[0] : memory_internal_if.tx_data[0])
              -------1-------
 
@@ -102706,7 +102706,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[1] : memory_internal_if.tx_data[1])
              -------1-------
 
@@ -102714,7 +102714,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[2] : memory_internal_if.tx_data[2])
              -------1-------
 
@@ -102722,7 +102722,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[3] : memory_internal_if.tx_data[3])
              -------1-------
 
@@ -102730,7 +102730,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[4] : memory_internal_if.tx_data[4])
              -------1-------
 
@@ -102738,7 +102738,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[5] : memory_internal_if.tx_data[5])
              -------1-------
 
@@ -102746,7 +102746,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[6] : memory_internal_if.tx_data[6])
              -------1-------
 
@@ -102754,7 +102754,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[7] : memory_internal_if.tx_data[7])
              -------1-------
 
@@ -102762,7 +102762,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       59
+ LINE       60
  EXPRESSION (test_mode ? core_scan_out : csr_dout)
              ----1----
 
@@ -102770,7 +102770,7 @@ Event               0        0
  0  Covered
  1  Not Covered
 
- LINE       101
+ LINE       105
  EXPRESSION (io_rst_n | test_mode)
              ----1---   ----2----
 
@@ -102782,16 +102782,16 @@ Event               0        0
 -------------------------------------------------------------------------------
 Toggle Coverage for Module : top_soc
                 Total Covered Percent 
-Totals          22    17      77.27   
-Total Bits      78    68      87.18   
-Total Bits 0->1 39    34      87.18   
-Total Bits 1->0 39    34      87.18   
+Totals          23    17      73.91   
+Total Bits      80    68      85.00   
+Total Bits 0->1 40    34      85.00   
+Total Bits 1->0 40    34      85.00   
 
                            
-Ports          6  4 66.67  
-Port Bits      12 8 66.67  
-Port Bits 0->1 6  4 66.67  
-Port Bits 1->0 6  4 66.67  
+Ports          7  4 57.14  
+Port Bits      14 8 57.14  
+Port Bits 0->1 7  4 57.14  
+Port Bits 1->0 7  4 57.14  
 
                               
 Signals          16 13 81.25  
@@ -102804,6 +102804,7 @@ Port Details
 chip_clk_i    Yes    Yes         Yes         INPUT     
 io_clk_i      Yes    Yes         Yes         INPUT     
 io_clk_o      Yes    Yes         Yes         OUTPUT    
+const_one_o   No     No          No          OUTPUT    
 reset_ni      Yes    Yes         Yes         INPUT     
 test_mode_i   No     No          No          INPUT     
 scan_enable_i No     No          No          INPUT     
@@ -102832,24 +102833,24 @@ io_test_count_rst_n  Yes    Yes         Yes
 Branch Coverage for Module : top_soc
          Line No. Total Covered Percent 
 Branches          32    30      93.75   
-TERNARY  59       2     1       50.00   
-TERNARY  70       2     2       100.00  
-TERNARY  70       2     2       100.00  
-TERNARY  70       2     2       100.00  
-TERNARY  70       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-IF       103      3     2       66.67   
-IF       112      3     3       100.00  
+TERNARY  60       2     1       50.00   
+TERNARY  74       2     2       100.00  
+TERNARY  74       2     2       100.00  
+TERNARY  74       2     2       100.00  
+TERNARY  74       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+IF       107      3     2       66.67   
+IF       116      3     3       100.00  
 
 
-59           assign scan_internal_if.dout = test_mode ? core_scan_out : csr_dout;
+60           assign scan_internal_if.dout = test_mode ? core_scan_out : csr_dout;
                                                       -1-  
                                                       ==>  
                                                       ==>  
@@ -102861,9 +102862,9 @@ Branches:
 0   Covered     
 
 
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
                                                                      
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -102875,9 +102876,9 @@ Branches:
 0   Covered 
 
 
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
                                                                      
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -102889,9 +102890,9 @@ Branches:
 0   Covered 
 
 
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
                                                                      
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -102903,9 +102904,9 @@ Branches:
 0   Covered 
 
 
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
                                                                      
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -102917,9 +102918,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -102931,9 +102932,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -102945,9 +102946,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -102959,9 +102960,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -102973,9 +102974,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -102987,9 +102988,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -103001,9 +103002,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -103015,9 +103016,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -103029,17 +103030,17 @@ Branches:
 0   Covered 
 
 
-103            if (!io_test_count_rst_n) begin
+107            if (!io_test_count_rst_n) begin
                -1-  
-104              io_test_sync1_r <= 1'b1;
+108              io_test_sync1_r <= 1'b1;
                  ==>
-105              io_test_sync2_r <= 1'b1;
-106            end else if (!test_mode) begin
+109              io_test_sync2_r <= 1'b1;
+110            end else if (!test_mode) begin
                         -2-  
-107              io_test_sync1_r <= io_test_chip;
+111              io_test_sync1_r <= io_test_chip;
                  ==>
-108              io_test_sync2_r <= io_test_sync1_r;
-109            end
+112              io_test_sync2_r <= io_test_sync1_r;
+113            end
                MISSING_ELSE
                ==>
 
@@ -103051,13 +103052,13 @@ Branches:
 0   0   Not Covered 
 
 
-112            if (!io_test_count_rst_n) io_test_count_r <= '0;
+116            if (!io_test_count_rst_n) io_test_count_r <= '0;
                -1-  
                ==>
-113            else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
+117            else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
                     -2-  
                ==>
-114            else io_test_count_r <= '0;
+118            else io_test_count_r <= '0;
                ==>
 
 Branches:
@@ -103076,7 +103077,7 @@ Module Instance : fullchip_tb.dut
 Instance :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 93.51 100.00  93.10  87.18 --      93.75 --     
+ 92.96 100.00  93.10  85.00 --      93.75 --     
 
 
 Instance's subtree :
@@ -103088,7 +103089,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT
 Module : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME    
- 93.51 100.00  93.10  87.18 --      93.75 --     top_soc 
+ 92.96 100.00  93.10  85.00 --      93.75 --     top_soc 
 
 
 Parent : 
@@ -104495,7 +104496,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 93.51 100.00  93.10  87.18 --      93.75 --     dut  
+ 92.96 100.00  93.10  85.00 --      93.75 --     dut  
 
 
 Subtrees :
@@ -104593,7 +104594,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 93.51 100.00  93.10  87.18 --      93.75 --     dut  
+ 92.96 100.00  93.10  85.00 --      93.75 --     dut  
 
 
 Subtrees :

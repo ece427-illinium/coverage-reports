@@ -5707,23 +5707,23 @@ Line Coverage for Module : top_soc
 
              Line No.   Total   Covered  Percent
 TOTAL                       11       11   100.00
-ALWAYS            103        6        6   100.00
-ALWAYS            112        5        5   100.00
+ALWAYS            107        6        6   100.00
+ALWAYS            116        5        5   100.00
 
-102                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
-103        1/1              if (!io_test_count_rst_n) begin
-104        1/1                io_test_sync1_r <= 1'b1;
-105        1/1                io_test_sync2_r <= 1'b1;
-106        1/1              end else if (!test_mode) begin
-107        1/1                io_test_sync1_r <= io_test_chip;
-108        1/1                io_test_sync2_r <= io_test_sync1_r;
-109                         end
+106                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
+107        1/1              if (!io_test_count_rst_n) begin
+108        1/1                io_test_sync1_r <= 1'b1;
+109        1/1                io_test_sync2_r <= 1'b1;
+110        1/1              end else if (!test_mode) begin
+111        1/1                io_test_sync1_r <= io_test_chip;
+112        1/1                io_test_sync2_r <= io_test_sync1_r;
+113                         end
                         MISSING_ELSE
-110                       end
-111                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
-112        2/2              if (!io_test_count_rst_n) io_test_count_r <= '0;
-113        2/2              else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
-114        1/1              else io_test_count_r <= '0;
+114                       end
+115                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
+116        2/2              if (!io_test_count_rst_n) io_test_count_r <= '0;
+117        2/2              else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
+118        1/1              else io_test_count_r <= '0;
 
 -------------------------------------------------------------------------------
 Cond Coverage for Module : top_soc
@@ -5734,7 +5734,7 @@ Logical            29       28    96.55
 Non-Logical         0        0
 Event               0        0
 
- LINE       70
+ LINE       74
  EXPRESSION (io_test_sync2_r ? io_test_gray4[0] : event_internal_if.data[0])
              -------1-------
 
@@ -5742,7 +5742,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       70
+ LINE       74
  EXPRESSION (io_test_sync2_r ? io_test_gray4[1] : event_internal_if.data[1])
              -------1-------
 
@@ -5750,7 +5750,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       70
+ LINE       74
  EXPRESSION (io_test_sync2_r ? io_test_gray4[2] : event_internal_if.data[2])
              -------1-------
 
@@ -5758,7 +5758,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       70
+ LINE       74
  EXPRESSION (io_test_sync2_r ? io_test_gray4[3] : event_internal_if.data[3])
              -------1-------
 
@@ -5766,7 +5766,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[0] : memory_internal_if.tx_data[0])
              -------1-------
 
@@ -5774,7 +5774,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[1] : memory_internal_if.tx_data[1])
              -------1-------
 
@@ -5782,7 +5782,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[2] : memory_internal_if.tx_data[2])
              -------1-------
 
@@ -5790,7 +5790,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[3] : memory_internal_if.tx_data[3])
              -------1-------
 
@@ -5798,7 +5798,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[4] : memory_internal_if.tx_data[4])
              -------1-------
 
@@ -5806,7 +5806,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[5] : memory_internal_if.tx_data[5])
              -------1-------
 
@@ -5814,7 +5814,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[6] : memory_internal_if.tx_data[6])
              -------1-------
 
@@ -5822,7 +5822,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       76
+ LINE       80
  EXPRESSION (io_test_sync2_r ? io_test_gray[7] : memory_internal_if.tx_data[7])
              -------1-------
 
@@ -5830,7 +5830,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       59
+ LINE       60
  EXPRESSION (test_mode ? core_scan_out : csr_dout)
              ----1----
 
@@ -5838,7 +5838,7 @@ Event               0        0
  0  Covered
  1  Covered
 
- LINE       101
+ LINE       105
  EXPRESSION (io_rst_n | test_mode)
              ----1---   ----2----
 
@@ -5851,24 +5851,24 @@ Event               0        0
 Branch Coverage for Module : top_soc
          Line No. Total Covered Percent 
 Branches          32    32      100.00  
-TERNARY  59       2     2       100.00  
-TERNARY  70       2     2       100.00  
-TERNARY  70       2     2       100.00  
-TERNARY  70       2     2       100.00  
-TERNARY  70       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-IF       103      3     3       100.00  
-IF       112      3     3       100.00  
+TERNARY  60       2     2       100.00  
+TERNARY  74       2     2       100.00  
+TERNARY  74       2     2       100.00  
+TERNARY  74       2     2       100.00  
+TERNARY  74       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+IF       107      3     3       100.00  
+IF       116      3     3       100.00  
 
 
-59           assign scan_internal_if.dout = test_mode ? core_scan_out : csr_dout;
+60           assign scan_internal_if.dout = test_mode ? core_scan_out : csr_dout;
                                                       -1-  
                                                       ==>  
                                                       ==>  
@@ -5880,9 +5880,9 @@ Branches:
 0   Covered 
 
 
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
                                                                      
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -5894,9 +5894,9 @@ Branches:
 0   Covered 
 
 
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
                                                                      
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -5908,9 +5908,9 @@ Branches:
 0   Covered 
 
 
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
                                                                      
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -5922,9 +5922,9 @@ Branches:
 0   Covered 
 
 
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
                                                                      
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -5936,9 +5936,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -5950,9 +5950,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -5964,9 +5964,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -5978,9 +5978,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -5992,9 +5992,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -6006,9 +6006,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -6020,9 +6020,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -6034,9 +6034,9 @@ Branches:
 0   Covered 
 
 
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
                                                                          
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
                                                             -1-  
                                                             ==>  
                                                             ==>  
@@ -6048,17 +6048,17 @@ Branches:
 0   Covered 
 
 
-103            if (!io_test_count_rst_n) begin
+107            if (!io_test_count_rst_n) begin
                -1-  
-104              io_test_sync1_r <= 1'b1;
+108              io_test_sync1_r <= 1'b1;
                  ==>
-105              io_test_sync2_r <= 1'b1;
-106            end else if (!test_mode) begin
+109              io_test_sync2_r <= 1'b1;
+110            end else if (!test_mode) begin
                         -2-  
-107              io_test_sync1_r <= io_test_chip;
+111              io_test_sync1_r <= io_test_chip;
                  ==>
-108              io_test_sync2_r <= io_test_sync1_r;
-109            end
+112              io_test_sync2_r <= io_test_sync1_r;
+113            end
                MISSING_ELSE
                ==>
 
@@ -6070,13 +6070,13 @@ Branches:
 0   0   Covered 
 
 
-112            if (!io_test_count_rst_n) io_test_count_r <= '0;
+116            if (!io_test_count_rst_n) io_test_count_r <= '0;
                -1-  
                ==>
-113            else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
+117            else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
                     -2-  
                ==>
-114            else io_test_count_r <= '0;
+118            else io_test_count_r <= '0;
                ==>
 
 Branches:

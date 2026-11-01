@@ -19275,7 +19275,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 90.94 100.00  93.10  76.92 --      93.75 --     dut  
+ 90.46 100.00  93.10  75.00 --      93.75 --     dut  
 
 
 Subtrees :
@@ -38998,7 +38998,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 90.94 100.00  93.10  76.92 --      93.75 --     dut  
+ 90.46 100.00  93.10  75.00 --      93.75 --     dut  
 
 
 Subtrees :
@@ -44183,7 +44183,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 90.94 100.00  93.10  76.92 --      93.75 --     dut  
+ 90.46 100.00  93.10  75.00 --      93.75 --     dut  
 
 
 Subtrees :
@@ -44281,7 +44281,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 90.94 100.00  93.10  76.92 --      93.75 --     dut  
+ 90.46 100.00  93.10  75.00 --      93.75 --     dut  
 
 
 Subtrees :
@@ -59519,6 +59519,499 @@ Branches:
 
 
 ===============================================================================
+Module : top_soc
+===============================================================================
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 90.46 100.00  93.10  75.00 --      93.75 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/top_soc.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
+ 90.46 100.00  93.10  75.00 --      93.75 --     fullchip_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : top_soc
+
+             Line No.   Total   Covered  Percent
+TOTAL                       11       11   100.00
+ALWAYS            107        6        6   100.00
+ALWAYS            116        5        5   100.00
+
+106                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
+107        1/1              if (!io_test_count_rst_n) begin
+108        1/1                io_test_sync1_r <= 1'b1;
+109        1/1                io_test_sync2_r <= 1'b1;
+110        1/1              end else if (!test_mode) begin
+111        1/1                io_test_sync1_r <= io_test_chip;
+112        1/1                io_test_sync2_r <= io_test_sync1_r;
+113                         end
+                   ==>  MISSING_ELSE
+114                       end
+115                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
+116        2/2              if (!io_test_count_rst_n) io_test_count_r <= '0;
+117        2/2              else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
+118        1/1              else io_test_count_r <= '0;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : top_soc
+
+               Total   Covered  Percent
+Conditions         29       27    93.10
+Logical            29       27    93.10
+Non-Logical         0        0
+Event               0        0
+
+ LINE       74
+ EXPRESSION (io_test_sync2_r ? io_test_gray4[0] : event_internal_if.data[0])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       74
+ EXPRESSION (io_test_sync2_r ? io_test_gray4[1] : event_internal_if.data[1])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       74
+ EXPRESSION (io_test_sync2_r ? io_test_gray4[2] : event_internal_if.data[2])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       74
+ EXPRESSION (io_test_sync2_r ? io_test_gray4[3] : event_internal_if.data[3])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       80
+ EXPRESSION (io_test_sync2_r ? io_test_gray[0] : memory_internal_if.tx_data[0])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       80
+ EXPRESSION (io_test_sync2_r ? io_test_gray[1] : memory_internal_if.tx_data[1])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       80
+ EXPRESSION (io_test_sync2_r ? io_test_gray[2] : memory_internal_if.tx_data[2])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       80
+ EXPRESSION (io_test_sync2_r ? io_test_gray[3] : memory_internal_if.tx_data[3])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       80
+ EXPRESSION (io_test_sync2_r ? io_test_gray[4] : memory_internal_if.tx_data[4])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       80
+ EXPRESSION (io_test_sync2_r ? io_test_gray[5] : memory_internal_if.tx_data[5])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       80
+ EXPRESSION (io_test_sync2_r ? io_test_gray[6] : memory_internal_if.tx_data[6])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       80
+ EXPRESSION (io_test_sync2_r ? io_test_gray[7] : memory_internal_if.tx_data[7])
+             -------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       60
+ EXPRESSION (test_mode ? core_scan_out : csr_dout)
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Not Covered
+
+ LINE       105
+ EXPRESSION (io_rst_n | test_mode)
+             ----1---   ----2----
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Not Covered
+ 1   0  Covered
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : top_soc
+                Total Covered Percent 
+Totals          23    9       39.13   
+Total Bits      80    60      75.00   
+Total Bits 0->1 40    31      77.50   
+Total Bits 1->0 40    29      72.50   
+
+                           
+Ports          7  3 42.86  
+Port Bits      14 7 50.00  
+Port Bits 0->1 7  4 57.14  
+Port Bits 1->0 7  3 42.86  
+
+                              
+Signals          16 6  37.50  
+Signal Bits      66 53 80.30  
+Signal Bits 0->1 33 27 81.82  
+Signal Bits 1->0 33 26 78.79  
+
+Port Details
+              Toggle Toggle 1->0 Toggle 0->1 Direction 
+chip_clk_i    Yes    Yes         Yes         INPUT     
+io_clk_i      Yes    Yes         Yes         INPUT     
+io_clk_o      Yes    Yes         Yes         OUTPUT    
+const_one_o   No     No          No          OUTPUT    
+reset_ni      No     No          Yes         INPUT     
+test_mode_i   No     No          No          INPUT     
+scan_enable_i No     No          No          INPUT     
+
+Signal Details
+                     Toggle Toggle 1->0 Toggle 0->1 
+chip_clk             Yes    Yes         Yes         
+io_clk               Yes    Yes         Yes         
+reset_n              No     No          Yes         
+chip_rst_n           No     No          Yes         
+io_rst_n             No     No          Yes         
+test_mode            No     No          No          
+scan_enable          No     No          No          
+csr_dout             Yes    Yes         Yes         
+core_scan_out        No     No          No          
+io_test_chip         No     Yes         No          
+io_test_sync1_r      No     Yes         No          
+io_test_sync2_r      No     Yes         No          
+io_test_count_r[7:0] Yes    Yes         Yes         
+io_test_gray[7:0]    Yes    Yes         Yes         
+io_test_gray4[3:0]   Yes    Yes         Yes         
+io_test_count_rst_n  No     No          Yes         
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : top_soc
+         Line No. Total Covered Percent 
+Branches          32    30      93.75   
+TERNARY  60       2     1       50.00   
+TERNARY  74       2     2       100.00  
+TERNARY  74       2     2       100.00  
+TERNARY  74       2     2       100.00  
+TERNARY  74       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+TERNARY  80       2     2       100.00  
+IF       107      3     2       66.67   
+IF       116      3     3       100.00  
+
+
+60           assign scan_internal_if.dout = test_mode ? core_scan_out : csr_dout;
+                                                      -1-  
+                                                      ==>  
+                                                      ==>  
+
+Branches:
+
+-1- Status      
+1   Not Covered 
+0   Covered     
+
+
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+                                                                     
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+                                                                     
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+                                                                     
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+74             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
+                                                                     
+75                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+                                                                         
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+                                                                         
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+                                                                         
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+                                                                         
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+                                                                         
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+                                                                         
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+                                                                         
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+80             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
+                                                                         
+81                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
+                                                            -1-  
+                                                            ==>  
+                                                            ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+107            if (!io_test_count_rst_n) begin
+               -1-  
+108              io_test_sync1_r <= 1'b1;
+                 ==>
+109              io_test_sync2_r <= 1'b1;
+110            end else if (!test_mode) begin
+                        -2-  
+111              io_test_sync1_r <= io_test_chip;
+                 ==>
+112              io_test_sync2_r <= io_test_sync1_r;
+113            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status      
+1   -   Covered     
+0   1   Covered     
+0   0   Not Covered 
+
+
+116            if (!io_test_count_rst_n) io_test_count_r <= '0;
+               -1-  
+               ==>
+117            else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
+                    -2-  
+               ==>
+118            else io_test_count_r <= '0;
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : fullchip_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 90.46 100.00  93.10  75.00 --      93.75 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 76.72  87.66  78.38  70.04  53.82  84.57  85.88 
+
+
+Module : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME    
+ 90.46 100.00  93.10  75.00 --      93.75 --     top_soc 
+
+
+Parent : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
+--     --     --     --     --     --     --     fullchip_tb 
+
+
+Subtrees :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME              
+ 86.67 100.00 --      60.00 --     100.00 --     i_chip_reset_sync 
+ 76.53  87.45  78.27  70.04  53.05  84.48  85.88 i_core            
+ 86.67 100.00 --      60.00 --     100.00 --     i_io_reset_sync   
+ 83.64  98.39  96.00  69.39  69.23  85.19 --     i_scan_access     
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
 Module : completion_router
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
@@ -59748,498 +60241,6 @@ Subtrees :
 
 no children
 ----------------
-
-
--------------------------------------------------------------------------------
-Since this is the module's only instance, the coverage report is the same as for the module.
-===============================================================================
-Module : top_soc
-===============================================================================
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 90.94 100.00  93.10  76.92 --      93.75 --     
-
-Source File(s) : 
-
-/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/top_soc.sv
-
-Module self-instances :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
- 90.94 100.00  93.10  76.92 --      93.75 --     fullchip_tb.dut 
-
-
-
--------------------------------------------------------------------------------
-Line Coverage for Module : top_soc
-
-             Line No.   Total   Covered  Percent
-TOTAL                       11       11   100.00
-ALWAYS            103        6        6   100.00
-ALWAYS            112        5        5   100.00
-
-102                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
-103        1/1              if (!io_test_count_rst_n) begin
-104        1/1                io_test_sync1_r <= 1'b1;
-105        1/1                io_test_sync2_r <= 1'b1;
-106        1/1              end else if (!test_mode) begin
-107        1/1                io_test_sync1_r <= io_test_chip;
-108        1/1                io_test_sync2_r <= io_test_sync1_r;
-109                         end
-                   ==>  MISSING_ELSE
-110                       end
-111                       always_ff @(posedge io_clk or negedge io_test_count_rst_n) begin
-112        2/2              if (!io_test_count_rst_n) io_test_count_r <= '0;
-113        2/2              else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
-114        1/1              else io_test_count_r <= '0;
-
--------------------------------------------------------------------------------
-Cond Coverage for Module : top_soc
-
-               Total   Covered  Percent
-Conditions         29       27    93.10
-Logical            29       27    93.10
-Non-Logical         0        0
-Event               0        0
-
- LINE       70
- EXPRESSION (io_test_sync2_r ? io_test_gray4[0] : event_internal_if.data[0])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       70
- EXPRESSION (io_test_sync2_r ? io_test_gray4[1] : event_internal_if.data[1])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       70
- EXPRESSION (io_test_sync2_r ? io_test_gray4[2] : event_internal_if.data[2])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       70
- EXPRESSION (io_test_sync2_r ? io_test_gray4[3] : event_internal_if.data[3])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       76
- EXPRESSION (io_test_sync2_r ? io_test_gray[0] : memory_internal_if.tx_data[0])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       76
- EXPRESSION (io_test_sync2_r ? io_test_gray[1] : memory_internal_if.tx_data[1])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       76
- EXPRESSION (io_test_sync2_r ? io_test_gray[2] : memory_internal_if.tx_data[2])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       76
- EXPRESSION (io_test_sync2_r ? io_test_gray[3] : memory_internal_if.tx_data[3])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       76
- EXPRESSION (io_test_sync2_r ? io_test_gray[4] : memory_internal_if.tx_data[4])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       76
- EXPRESSION (io_test_sync2_r ? io_test_gray[5] : memory_internal_if.tx_data[5])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       76
- EXPRESSION (io_test_sync2_r ? io_test_gray[6] : memory_internal_if.tx_data[6])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       76
- EXPRESSION (io_test_sync2_r ? io_test_gray[7] : memory_internal_if.tx_data[7])
-             -------1-------
-
--1- Status
- 0  Covered
- 1  Covered
-
- LINE       59
- EXPRESSION (test_mode ? core_scan_out : csr_dout)
-             ----1----
-
--1- Status
- 0  Covered
- 1  Not Covered
-
- LINE       101
- EXPRESSION (io_rst_n | test_mode)
-             ----1---   ----2----
-
--1- -2- Status
- 0   0  Covered
- 0   1  Not Covered
- 1   0  Covered
-
--------------------------------------------------------------------------------
-Toggle Coverage for Module : top_soc
-                Total Covered Percent 
-Totals          22    9       40.91   
-Total Bits      78    60      76.92   
-Total Bits 0->1 39    31      79.49   
-Total Bits 1->0 39    29      74.36   
-
-                           
-Ports          6  3 50.00  
-Port Bits      12 7 58.33  
-Port Bits 0->1 6  4 66.67  
-Port Bits 1->0 6  3 50.00  
-
-                              
-Signals          16 6  37.50  
-Signal Bits      66 53 80.30  
-Signal Bits 0->1 33 27 81.82  
-Signal Bits 1->0 33 26 78.79  
-
-Port Details
-              Toggle Toggle 1->0 Toggle 0->1 Direction 
-chip_clk_i    Yes    Yes         Yes         INPUT     
-io_clk_i      Yes    Yes         Yes         INPUT     
-io_clk_o      Yes    Yes         Yes         OUTPUT    
-reset_ni      No     No          Yes         INPUT     
-test_mode_i   No     No          No          INPUT     
-scan_enable_i No     No          No          INPUT     
-
-Signal Details
-                     Toggle Toggle 1->0 Toggle 0->1 
-chip_clk             Yes    Yes         Yes         
-io_clk               Yes    Yes         Yes         
-reset_n              No     No          Yes         
-chip_rst_n           No     No          Yes         
-io_rst_n             No     No          Yes         
-test_mode            No     No          No          
-scan_enable          No     No          No          
-csr_dout             Yes    Yes         Yes         
-core_scan_out        No     No          No          
-io_test_chip         No     Yes         No          
-io_test_sync1_r      No     Yes         No          
-io_test_sync2_r      No     Yes         No          
-io_test_count_r[7:0] Yes    Yes         Yes         
-io_test_gray[7:0]    Yes    Yes         Yes         
-io_test_gray4[3:0]   Yes    Yes         Yes         
-io_test_count_rst_n  No     No          Yes         
-
-
--------------------------------------------------------------------------------
-Branch Coverage for Module : top_soc
-         Line No. Total Covered Percent 
-Branches          32    30      93.75   
-TERNARY  59       2     1       50.00   
-TERNARY  70       2     2       100.00  
-TERNARY  70       2     2       100.00  
-TERNARY  70       2     2       100.00  
-TERNARY  70       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-TERNARY  76       2     2       100.00  
-IF       103      3     2       66.67   
-IF       112      3     3       100.00  
-
-
-59           assign scan_internal_if.dout = test_mode ? core_scan_out : csr_dout;
-                                                      -1-  
-                                                      ==>  
-                                                      ==>  
-
-Branches:
-
--1- Status      
-1   Not Covered 
-0   Covered     
-
-
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
-                                                                     
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
-                                                                     
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
-                                                                     
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-70             io_out i_pad_io_out (.chipout(event_if.data[bit_idx]),
-                                                                     
-71                                  .chipin(io_test_sync2_r ? io_test_gray4[bit_idx] : event_internal_if.data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
-                                                                         
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
-                                                                         
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
-                                                                         
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
-                                                                         
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
-                                                                         
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
-                                                                         
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
-                                                                         
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-76             io_out i_pad_io_out (.chipout(memory_if.tx_data[bit_idx]),
-                                                                         
-77                                  .chipin(io_test_sync2_r ? io_test_gray[bit_idx] : memory_internal_if.tx_data[bit_idx]));
-                                                            -1-  
-                                                            ==>  
-                                                            ==>  
-
-Branches:
-
--1- Status  
-1   Covered 
-0   Covered 
-
-
-103            if (!io_test_count_rst_n) begin
-               -1-  
-104              io_test_sync1_r <= 1'b1;
-                 ==>
-105              io_test_sync2_r <= 1'b1;
-106            end else if (!test_mode) begin
-                        -2-  
-107              io_test_sync1_r <= io_test_chip;
-                 ==>
-108              io_test_sync2_r <= io_test_sync1_r;
-109            end
-               MISSING_ELSE
-               ==>
-
-Branches:
-
--1- -2- Status      
-1   -   Covered     
-0   1   Covered     
-0   0   Not Covered 
-
-
-112            if (!io_test_count_rst_n) io_test_count_r <= '0;
-               -1-  
-               ==>
-113            else if (io_test_sync2_r) io_test_count_r <= io_test_count_r + 1'b1;
-                    -2-  
-               ==>
-114            else io_test_count_r <= '0;
-               ==>
-
-Branches:
-
--1- -2- Status  
-1   -   Covered 
-0   1   Covered 
-0   0   Covered 
-
-
--------------------------------------------------------------------------------
-===============================================================================
-Module Instance : fullchip_tb.dut
-===============================================================================
-
-Instance :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 90.94 100.00  93.10  76.92 --      93.75 --     
-
-
-Instance's subtree :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 76.73  87.66  78.38  70.04  53.82  84.57  85.88 
-
-
-Module : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME    
- 90.94 100.00  93.10  76.92 --      93.75 --     top_soc 
-
-
-Parent : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
---     --     --     --     --     --     --     fullchip_tb 
-
-
-Subtrees :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME              
- 86.67 100.00 --      60.00 --     100.00 --     i_chip_reset_sync 
- 76.53  87.45  78.27  70.04  53.05  84.48  85.88 i_core            
- 86.67 100.00 --      60.00 --     100.00 --     i_io_reset_sync   
- 83.64  98.39  96.00  69.39  69.23  85.19 --     i_scan_access     
-
 
 
 -------------------------------------------------------------------------------
@@ -106333,7 +106334,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 76.73  87.66  78.38  70.04  53.82  84.57  85.88 
+ 76.72  87.66  78.38  70.04  53.82  84.57  85.88 
 
 
 Module : 
@@ -106351,7 +106352,7 @@ none
 Subtrees :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 76.73  87.66  78.38  70.04  53.82  84.57  85.88 dut  
+ 76.72  87.66  78.38  70.04  53.82  84.57  85.88 dut  
 
 
 

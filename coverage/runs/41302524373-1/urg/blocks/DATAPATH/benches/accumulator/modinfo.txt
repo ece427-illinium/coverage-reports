@@ -1,0 +1,170 @@
+===============================================================================
+Module : accumulator
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/arch_state/accumulator.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME               
+100.00 100.00 100.00 --     100.00 --     accumulator_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : accumulator
+
+             Line No.   Total   Covered  Percent
+TOTAL                        4        4   100.00
+ALWAYS             18        4        4   100.00
+
+17                              
+18         1/1                  if(reset_i || clear_i) begin
+19         1/1                      acc_value <= '0;
+20         1/1                  end else if(write_en_i) begin
+21         1/1                      acc_value <= write_data_i;
+22                              end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : accumulator
+
+               Total   Covered  Percent
+Conditions          3        3   100.00
+Logical             3        3   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       18
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : accumulator
+         Line No. Total Covered Percent 
+Branches          3     3       100.00  
+IF       18       3     3       100.00  
+
+
+18                 if(reset_i || clear_i) begin
+                   -1-  
+19                     acc_value <= '0;
+                       ==>
+20                 end else if(write_en_i) begin
+                            -2-  
+21                     acc_value <= write_data_i;
+                       ==>
+22                 end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : accumulator_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 100.00 100.00 --     100.00 --     accumulator 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+--     --     --     --     --     --     accumulator_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : accumulator_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/datapath/arch_state/accumulator/accumulator_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+--     --     --     --     --     --     accumulator_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : accumulator_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+--     --     --     --     --     --     accumulator_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 100.00 100.00 --     100.00 --     dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
