@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Group :: control_tb::scan_cg</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+<link rel="stylesheet" href="../illinium-coverage.css">
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Group : control_tb::scan_cg</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group : <a href="#"  onclick="showContent('control_tb::scan_cg')">control_tb::scan_cg</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>INSTANCES</td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>PER INSTANCE</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s8 cl rt"> 80.00</td>
+<td class="s8 cl rt"> 80.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/control/epoch/control_tb.sv')">/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/control/epoch/control_tb.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>1 Instances:</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="wht cl wordwrap"><a href="grp10.html#inst_tag_scan_coverage"  onclick="showContent('scan_coverage')">scan_coverage</a></td>
+<td class="s8 cl rt"> 80.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group   control_tb::scan_cg
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s9">
+<td><a href="#var_tbl_control_tb::scan_cg" >Variables</a></td>
+<td class="rt">10</td>
+<td class="rt">1</td>
+<td class="rt">9</td>
+<td class="rt">83.33 </td>
+</tr><tr class="s8">
+<td><a href="#crs_tbl_control_tb::scan_cg" >Crosses</a></td>
+<td class="rt">10</td>
+<td class="rt">2</td>
+<td class="rt">8</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_control_tb::scan_cg">Variables for Group  control_tb::scan_cg
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_control_tb::scan_cg.csr_address"  onclick="checkLink(this)" target="detailFrame">csr_address</a></td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_control_tb::scan_cg.execution_context"  onclick="checkLink(this)" target="detailFrame">execution_context</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_control_tb::scan_cg.scan_operation"  onclick="checkLink(this)" target="detailFrame">scan_operation</a></td>
+<td class="rt">3</td>
+<td class="rt">0</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="crs_tbl_control_tb::scan_cg">Crosses for Group  control_tb::scan_cg
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CROSS</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>PRINT MISSING</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_control_tb::scan_cg.csr_address_x_operation"  onclick="checkLink(this)" target="detailFrame">csr_address_x_operation</a></td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">6</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_control_tb::scan_cg.operation_x_context"  onclick="checkLink(this)" target="detailFrame">operation_x_context</a></td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+<div name='scan_coverage'>
+<a name="inst_tag_scan_coverage"></a>
+<hr>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group Instance : <a href="groups.html#tag_scan_coverage" >scan_coverage</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s8 cl rt"> 80.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group Instance   scan_coverage
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s9">
+<td><a href="#var_tbl_scan_coverage" >Variables</a></td>
+<td class="rt">10</td>
+<td class="rt">1</td>
+<td class="rt">9</td>
+<td class="rt">83.33 </td>
+</tr><tr class="s8">
+<td><a href="#crs_tbl_scan_coverage" >Crosses</a></td>
+<td class="rt">10</td>
+<td class="rt">2</td>
+<td class="rt">8</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_scan_coverage">Variables for Group Instance  scan_coverage
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_scan_coverage.csr_address"  onclick="checkLink(this)" target="detailFrame">csr_address</a></td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_scan_coverage.execution_context"  onclick="checkLink(this)" target="detailFrame">execution_context</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_scan_coverage.scan_operation"  onclick="checkLink(this)" target="detailFrame">scan_operation</a></td>
+<td class="rt">3</td>
+<td class="rt">0</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="crs_tbl_scan_coverage">Crosses for Group Instance  scan_coverage
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CROSS</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>PRINT MISSING</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_scan_coverage.csr_address_x_operation"  onclick="checkLink(this)" target="detailFrame">csr_address_x_operation</a></td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">6</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_scan_coverage.operation_x_context"  onclick="checkLink(this)" target="detailFrame">operation_x_context</a></td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='control_tb::scan_cg'>
+<br clear=all>
+<a name="inst_tag_control_tb::scan_cg.csr_address"></a><span class="repname" id="inst_tag_control_tb::scan_cg.csr_address">Summary for Variable csr_address</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for csr_address</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>reserved</td>
+<td class="rt">12</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>maps_04</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>maps_08</td>
+<td class="rt">80</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>maps_0c</td>
+<td class="rt">74</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>control_status</td>
+<td class="rt">616</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_control_tb::scan_cg.execution_context"></a><span class="repname" id="inst_tag_control_tb::scan_cg.execution_context">Summary for Variable execution_context</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for execution_context</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>idle</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>active_or_boundary</td>
+<td class="rt">882</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_control_tb::scan_cg.scan_operation"></a><span class="repname" id="inst_tag_control_tb::scan_cg.scan_operation">Summary for Variable scan_operation</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">3</td>
+<td class="rt">0</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for scan_operation</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>parser_reset</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>csr_write</td>
+<td class="rt">492</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>csr_read</td>
+<td class="rt">390</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_control_tb::scan_cg.csr_address_x_operation"></a><span class="repname" id="inst_tag_control_tb::scan_cg.csr_address_x_operation">Summary for Cross csr_address_x_operation</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: csr_address scan_operation<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>User Defined Cross Bins</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">6</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Cross Bins for csr_address_x_operation</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>read_control</td>
+<td class="rt">272</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>write_control</td>
+<td class="rt">344</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>read_maps</td>
+<td class="rt">112</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>write_maps</td>
+<td class="rt">142</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>read_reserved</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>write_reserved</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_control_tb::scan_cg.operation_x_context"></a><span class="repname" id="inst_tag_control_tb::scan_cg.operation_x_context">Summary for Cross operation_x_context</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: scan_operation execution_context<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s5">
+<td>User Defined Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Cross Bins for operation_x_context</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>idle_read</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>idle_write</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>active_read</td>
+<td class="rt">390</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>active_write</td>
+<td class="rt">492</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+<div name='scan_coverage'>
+<br clear=all>
+<a name="inst_tag_scan_coverage.csr_address"></a><span class="repname" id="inst_tag_scan_coverage.csr_address">Summary for Variable csr_address</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for csr_address</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>reserved</td>
+<td class="rt">12</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>maps_04</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>maps_08</td>
+<td class="rt">80</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>maps_0c</td>
+<td class="rt">74</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>control_status</td>
+<td class="rt">616</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_scan_coverage.execution_context"></a><span class="repname" id="inst_tag_scan_coverage.execution_context">Summary for Variable execution_context</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for execution_context</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>idle</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>active_or_boundary</td>
+<td class="rt">882</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_scan_coverage.scan_operation"></a><span class="repname" id="inst_tag_scan_coverage.scan_operation">Summary for Variable scan_operation</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">3</td>
+<td class="rt">0</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for scan_operation</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>parser_reset</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>csr_write</td>
+<td class="rt">492</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>csr_read</td>
+<td class="rt">390</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_scan_coverage.csr_address_x_operation"></a><span class="repname" id="inst_tag_scan_coverage.csr_address_x_operation">Summary for Cross csr_address_x_operation</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: csr_address scan_operation<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>User Defined Cross Bins</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">6</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Cross Bins for csr_address_x_operation</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>read_control</td>
+<td class="rt">272</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>write_control</td>
+<td class="rt">344</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>read_maps</td>
+<td class="rt">112</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>write_maps</td>
+<td class="rt">142</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>read_reserved</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>write_reserved</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_scan_coverage.operation_x_context"></a><span class="repname" id="inst_tag_scan_coverage.operation_x_context">Summary for Cross operation_x_context</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: scan_operation execution_context<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s5">
+<td>User Defined Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Cross Bins for operation_x_context</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>idle_read</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>idle_write</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>active_read</td>
+<td class="rt">390</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>active_write</td>
+<td class="rt">492</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="control_tb::scan_cg">
+    <li>
+      <a href="#inst_tag_control_tb::scan_cg.csr_address">Variable : csr_address</a>    </li>
+    <li>
+      <a href="#inst_tag_control_tb::scan_cg.execution_context">Variable : execution_context</a>    </li>
+    <li>
+      <a href="#inst_tag_control_tb::scan_cg.scan_operation">Variable : scan_operation</a>    </li>
+    <li>
+      <a href="#inst_tag_control_tb::scan_cg.csr_address_x_operation">Cross : csr_address_x_operation</a>    </li>
+    <li>
+      <a href="#inst_tag_control_tb::scan_cg.operation_x_context">Cross : operation_x_context</a>    </li>
+  </ul>
+  <ul name="scan_coverage">
+    <li>
+      <a href="#inst_tag_scan_coverage.csr_address">Variable : csr_address</a>    </li>
+    <li>
+      <a href="#inst_tag_scan_coverage.execution_context">Variable : execution_context</a>    </li>
+    <li>
+      <a href="#inst_tag_scan_coverage.scan_operation">Variable : scan_operation</a>    </li>
+    <li>
+      <a href="#inst_tag_scan_coverage.csr_address_x_operation">Cross : csr_address_x_operation</a>    </li>
+    <li>
+      <a href="#inst_tag_scan_coverage.operation_x_context">Cross : operation_x_context</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+Design Module List
+
+Total Module Definition Coverage Summary 
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT 
+ 98.75  99.02  98.91  99.69  96.15 100.00 
+
+
+Total modules in report: 8
+-------------------------------------------------------------------------------
+SCORE              LINE     COND     TOGGLE   BRANCH   ASSERT   NAME                                                                                                                                              
+ 98.05              98.68    98.15   100.00    95.35   --       decode                                                                                                                                            
+ 98.27             100.00   100.00    97.62    95.45   --       length_decode                                                                                                                                     
+ 99.62             100.00   100.00    98.48   100.00   --       beat_fifo                                                                                                                                         
+                   
+  ---------------- 
+  SCORE              LINE     COND     TOGGLE   BRANCH   ASSERT   NAME                                                                                                                                            
+  100.00             --       --       --       100.00   --       beat_fifo                                                                                                                                       
+   98.48             100.00   100.00    95.45   --       --       beat_fifo ( parameter LANES=2,DEPTH=1,PW=1,CW=1,EW=16 )                                                                                         
+  100.00             100.00   100.00   100.00   --       --       beat_fifo ( parameter LANES=2,DEPTH=3,PW=2,CW=2,EW=16 )                                                                                         
+  100.00             100.00   100.00   100.00   --       --       beat_fifo ( parameter LANES=2,DEPTH=8,PW=3,CW=4,EW=16 )                                                                                         
+                   
+----------------   
+SCORE              LINE     COND     TOGGLE   BRANCH   ASSERT   NAME                                                                                                                                              
+ 99.80             100.00   100.00    99.21   100.00   --       window_fed                                                                                                                                        
+                   
+  ---------------- 
+  SCORE              LINE     COND     TOGGLE   BRANCH   ASSERT   NAME                                                                                                                                            
+  100.00             100.00   100.00   --       100.00   --       window_fed                                                                                                                                      
+   99.17             --       --        99.17   --       --       window_fed ( parameter WINDOW_BYTES=10,CW=4,MAX_INSTRUCTION_BYTES=7 )                                                                           
+   99.20             --       --        99.20   --       --       window_fed ( parameter WINDOW_BYTES=11,CW=4,MAX_INSTRUCTION_BYTES=7 )                                                                           
+   99.22             --       --        99.22   --       --       window_fed ( parameter WINDOW_BYTES=12,CW=4,MAX_INSTRUCTION_BYTES=7 )                                                                           
+   99.25             --       --        99.25   --       --       window_fed ( parameter WINDOW_BYTES=13,CW=4,MAX_INSTRUCTION_BYTES=7 )                                                                           
+   99.27             --       --        99.27   --       --       window_fed ( parameter WINDOW_BYTES=14,CW=4,MAX_INSTRUCTION_BYTES=7 )                                                                           
+   99.29             --       --        99.29   --       --       window_fed ( parameter WINDOW_BYTES=15,CW=4,MAX_INSTRUCTION_BYTES=7 )                                                                           
+   99.11             --       --        99.11   --       --       window_fed ( parameter WINDOW_BYTES=8,CW=4,MAX_INSTRUCTION_BYTES=7 )                                                                            
+   99.14             --       --        99.14   --       --       window_fed ( parameter WINDOW_BYTES=9,CW=4,MAX_INSTRUCTION_BYTES=7 )                                                                            
+                   
+----------------   
+SCORE              LINE     COND     TOGGLE   BRANCH   ASSERT   NAME                                                                                                                                              
+ 99.92             100.00   100.00    99.67   100.00   --       stream_window                                                                                                                                     
+                   
+  ---------------- 
+  SCORE              LINE     COND     TOGGLE   BRANCH   ASSERT   NAME                                                                                                                                            
+  100.00             100.00   100.00   --       100.00   --       stream_window                                                                                                                                   
+   99.64             --       --        99.64   --       --       stream_window ( parameter INPUT_BYTES=2,WINDOW_BYTES=10,WCW=4 )                                                                                 
+   99.67             --       --        99.67   --       --       stream_window ( parameter INPUT_BYTES=2,WINDOW_BYTES=11,WCW=4 )                                                                                 
+   99.70             --       --        99.70   --       --       stream_window ( parameter INPUT_BYTES=2,WINDOW_BYTES=12,WCW=4 )                                                                                 
+   99.72             --       --        99.72   --       --       stream_window ( parameter INPUT_BYTES=2,WINDOW_BYTES=13,WCW=4 )                                                                                 
+   99.73             --       --        99.73   --       --       stream_window ( parameter INPUT_BYTES=2,WINDOW_BYTES=14,WCW=4 )                                                                                 
+   99.75             --       --        99.75   --       --       stream_window ( parameter INPUT_BYTES=2,WINDOW_BYTES=15,WCW=4 )                                                                                 
+   99.57             --       --        99.57   --       --       stream_window ( parameter INPUT_BYTES=2,WINDOW_BYTES=8,WCW=4 )                                                                                  
+   99.61             --       --        99.61   --       --       stream_window ( parameter INPUT_BYTES=2,WINDOW_BYTES=9,WCW=4 )                                                                                  
+                   
+----------------   
+SCORE              LINE     COND     TOGGLE   BRANCH   ASSERT   NAME                                                                                                                                              
+ 99.95             --       100.00    99.86   --       100.00   tile_frontend                                                                                                                                     
+                   
+  ---------------- 
+  SCORE              LINE     COND     TOGGLE   BRANCH   ASSERT   NAME                                                                                                                                            
+  100.00             --       100.00   --       --       100.00   tile_frontend                                                                                                                                   
+   99.86             --       --        99.86   --       --       tile_frontend ( parameter BUFFER_WORDS=1,WINDOW_BYTES=8,WCW=4 + BUFFER_WORDS=3,WINDOW_BYTES=8,WCW=4 + BUFFER_WORDS=8,WINDOW_BYTES=8,WCW=4 )     
+   99.86             --       --        99.86   --       --       tile_frontend ( parameter BUFFER_WORDS=8,WINDOW_BYTES=10,WCW=4 + BUFFER_WORDS=1,WINDOW_BYTES=10,WCW=4 + BUFFER_WORDS=3,WINDOW_BYTES=10,WCW=4 )  
+   99.86             --       --        99.86   --       --       tile_frontend ( parameter BUFFER_WORDS=8,WINDOW_BYTES=11,WCW=4 + BUFFER_WORDS=1,WINDOW_BYTES=11,WCW=4 + BUFFER_WORDS=3,WINDOW_BYTES=11,WCW=4 )  
+   99.86             --       --        99.86   --       --       tile_frontend ( parameter BUFFER_WORDS=8,WINDOW_BYTES=12,WCW=4 + BUFFER_WORDS=1,WINDOW_BYTES=12,WCW=4 + BUFFER_WORDS=3,WINDOW_BYTES=12,WCW=4 )  
+   99.86             --       --        99.86   --       --       tile_frontend ( parameter BUFFER_WORDS=8,WINDOW_BYTES=13,WCW=4 + BUFFER_WORDS=1,WINDOW_BYTES=13,WCW=4 + BUFFER_WORDS=3,WINDOW_BYTES=13,WCW=4 )  
+   99.87             --       --        99.87   --       --       tile_frontend ( parameter BUFFER_WORDS=8,WINDOW_BYTES=14,WCW=4 + BUFFER_WORDS=1,WINDOW_BYTES=14,WCW=4 + BUFFER_WORDS=3,WINDOW_BYTES=14,WCW=4 )  
+   99.87             --       --        99.87   --       --       tile_frontend ( parameter BUFFER_WORDS=8,WINDOW_BYTES=15,WCW=4 + BUFFER_WORDS=1,WINDOW_BYTES=15,WCW=4 + BUFFER_WORDS=3,WINDOW_BYTES=15,WCW=4 )  
+   99.86             --       --        99.86   --       --       tile_frontend ( parameter BUFFER_WORDS=8,WINDOW_BYTES=9,WCW=4 + BUFFER_WORDS=1,WINDOW_BYTES=9,WCW=4 + BUFFER_WORDS=3,WINDOW_BYTES=9,WCW=4 )     
+                   
+----------------   
+SCORE              LINE     COND     TOGGLE   BRANCH   ASSERT   NAME                                                                                                                                              
+--                 --       --       --       --       --       fed_stream_case                                                                                                                                   
+--                 --       --       --       --       --       fed_stream_tb                                                                                                                                     
+

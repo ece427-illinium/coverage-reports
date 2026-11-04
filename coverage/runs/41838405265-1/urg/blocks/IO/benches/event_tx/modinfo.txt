@@ -1,0 +1,546 @@
+===============================================================================
+Module : event_tx
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 98.72 100.00  94.87 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/io/events/event_tx.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME              
+ 98.72 100.00  94.87 --     100.00 100.00 event_tx_tb.i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : event_tx
+
+             Line No.   Total   Covered  Percent
+TOTAL                       61       61   100.00
+ALWAYS             60        6        6   100.00
+ALWAYS             73       15       15   100.00
+ALWAYS             97       40       40   100.00
+INITIAL           163        0        0
+
+59                          // groups remain in remainder_r and never produce a premature packet.
+60         1/1              any_credit = 1'b0;
+61         1/1              selected_credit = credit_rr_r;
+62         1/1              for (int unsigned offset = 0; offset < NTILES; offset++) begin
+63         1/1                if (!any_credit && pending_r[(credit_rr_r + offset) % NTILES] != 0) begin
+64         1/1                  any_credit = 1'b1;
+65         1/1                  selected_credit = (credit_rr_r + offset) % NTILES;
+66                            end
+                        MISSING_ELSE
+67                          end
+68                        end
+69                      
+70                        always_comb begin
+71                          // Choose only when the serializer is idle. The selected source must hold
+72                          // its valid record until the corresponding ready output is observed.
+73         1/1              work_valid = source_if.completion.valid;
+74                          // DUT_DONE has boundary-critical priority. Credit and completion packets
+75                          // alternate when both remain pending to avoid starvation.
+76         1/1              load_kind = PACKET_NONE;
+77         1/1              if (nibbles_left_r == 0) begin
+78         1/1                if (control_if.dut_done_valid) begin
+79         1/1                  load_kind = PACKET_DUT_DONE;
+80         1/1                end else if (any_credit && (!work_valid || prefer_credit_r)) begin
+81         1/1                  load_kind = PACKET_CREDIT;
+82         1/1                end else if (work_valid) begin
+83         1/1                  load_kind = PACKET_COMPLETION;
+84                            end
+                        MISSING_ELSE
+85                          end
+                        MISSING_ELSE
+86                      
+87         1/1              control_if.dut_done_ready = load_kind == PACKET_DUT_DONE;
+88         1/1              source_if.completion_ready = load_kind == PACKET_COMPLETION;
+89         1/1              event_if.valid = nibbles_left_r != 0;
+90         1/1              event_if.data = event_if.valid ? packet_r[19:16] : 4'b0000;
+91         1/1              control_if.event_status.idle = !event_if.valid && tx_idle_i;
+92         1/1              control_if.event_status.credit_returns_empty = tx_idle_i && !any_credit &&
+93                            !(event_if.valid && packet_is_credit_r);
+94                        end
+95                      
+96                        always_ff @(posedge clk_i or negedge rst_ni) begin
+97         1/1              if (!rst_ni) begin
+98         1/1                packet_r <= '0;
+99         1/1                nibbles_left_r <= '0;
+100        1/1                packet_is_credit_r <= 1'b0;
+101        1/1                credit_rr_r <= '0;
+102        1/1                prefer_credit_r <= 1'b0;
+103                           // Count tile dequeues locally. The FPGA owns the actual queue-credit
+104                           // balance and increments it when it receives these fixed-size events.
+105        1/1                for (int unsigned tile = 0; tile < NTILES; tile++) begin
+106        1/1                  remainder_r[tile] <= '0;
+107        1/1                  pending_r[tile] <= '0;
+108                           end
+109                         end else begin
+110        1/1                for (int unsigned tile = 0; tile < NTILES; tile++) begin
+111                             logic add_token;                  // This dequeue completes one credit quantum.
+112                             logic remove_token;               // Serializer loaded this tile's credit packet.
+113                     
+114        1/1                  add_token = tile_dequeue[tile] &&
+115                                         (CREDIT_RETURN_N == 1 || remainder_r[tile] == CREDIT_RETURN_N-1);
+116        1/1                  remove_token = load_kind == PACKET_CREDIT && selected_credit == tile[1:0];
+117                     
+118        1/1                  if (tile_dequeue[tile]) begin
+119        1/1                    if (CREDIT_RETURN_N == 1 || remainder_r[tile] == CREDIT_RETURN_N-1)
+120        1/1                      remainder_r[tile] <= '0;
+121                               else
+122        1/1                      remainder_r[tile] <= remainder_r[tile] + 1'b1;
+123                             end
+                        MISSING_ELSE
+124                     
+125        1/1                  unique case ({add_token, remove_token})
+126        1/1                    2'b10: pending_r[tile] <= pending_r[tile] + 1'b1;
+127        1/1                    2'b01: pending_r[tile] <= pending_r[tile] - 1'b1;
+128                               default: begin end
+129                             endcase
+130                           end
+131                     
+132                           // Hold the packet while the chip-to-I/O FIFO is full.
+133        1/1                if (event_if.valid && tx_ready_i) begin
+134        1/1                  packet_r <= {packet_r[15:0], 4'b0000};
+135        1/1                  if (nibbles_left_r == 3'd1) begin
+136        1/1                    nibbles_left_r <= '0;
+137        1/1                    packet_is_credit_r <= 1'b0;
+138                             end else begin
+139        1/1                    nibbles_left_r <= nibbles_left_r - 3'd1;
+140                             end
+141        1/1                end else if (load_kind == PACKET_DUT_DONE) begin
+142        1/1                  packet_r <= {4'b0100, 16'b0};
+143        1/1                  nibbles_left_r <= 3'd1;
+144        1/1                  packet_is_credit_r <= 1'b0;
+145        1/1                end else if (load_kind == PACKET_CREDIT) begin
+146        1/1                  packet_r <= {{2'b00, selected_credit}, 16'b0};
+147        1/1                  nibbles_left_r <= 3'd1;
+148        1/1                  packet_is_credit_r <= 1'b1;
+149        1/1                  credit_rr_r <= selected_credit + 2'd1;
+150        1/1                  prefer_credit_r <= 1'b0;
+151        1/1                end else if (load_kind == PACKET_COMPLETION) begin
+152                             // TYPE 2'b10 is permanently TILE_COMPLETE in the FPGA-scheduled design.
+153        1/1                  packet_r <= {{2'b10, source_if.completion.tid}, source_if.completion.activation_mask};
+154        1/1                  nibbles_left_r <= 3'd5;
+155        1/1                  packet_is_credit_r <= 1'b0;
+156        1/1                  prefer_credit_r <= 1'b1;
+157                           end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : event_tx
+
+               Total   Covered  Percent
+Conditions         39       37    94.87
+Logical            39       37    94.87
+Non-Logical         0        0
+Event               0        0
+
+ LINE       77
+ EXPRESSION (nibbles_left_r == 3'b0)
+            ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       80
+ EXPRESSION (any_credit && (((!work_valid)) || prefer_credit_r))
+             -----1----    ------------------2-----------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       80
+ SUB-EXPRESSION (((!work_valid)) || prefer_credit_r)
+                 -------1-------    -------2-------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       87
+ EXPRESSION (load_kind == PACKET_DUT_DONE)
+            ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       88
+ EXPRESSION (load_kind == PACKET_COMPLETION)
+            ----------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       89
+ EXPRESSION (nibbles_left_r != 3'b0)
+            ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       90
+ EXPRESSION (event_if.valid ? packet_r[19:16] : 4'b0)
+             -------1------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       91
+ EXPRESSION (((!event_if.valid)) && tx_idle_i)
+             ---------1---------    ----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       92
+ EXPRESSION (tx_idle_i && ((!any_credit)) && ( ! (event_if.valid && packet_is_credit_r) ))
+             ----1----    -------2-------    ----------------------3---------------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       92
+ SUB-EXPRESSION ( ! (event_if.valid && packet_is_credit_r) )
+                    -------------------1------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       92
+ SUB-EXPRESSION (event_if.valid && packet_is_credit_r)
+                 -------1------    ---------2--------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       133
+ EXPRESSION (event_if.valid && tx_ready_i)
+             -------1------    -----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       135
+ EXPRESSION (nibbles_left_r == 3'b1)
+            ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       141
+ EXPRESSION (load_kind == PACKET_DUT_DONE)
+            ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       145
+ EXPRESSION (load_kind == PACKET_CREDIT)
+            --------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       151
+ EXPRESSION (load_kind == PACKET_COMPLETION)
+            ----------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : event_tx
+         Line No. Total Covered Percent 
+Branches          14    14      100.00  
+IF       77       5     5       100.00  
+TERNARY  90       2     2       100.00  
+IF       97       7     7       100.00  
+
+
+77             if (nibbles_left_r == 0) begin
+               -1-  
+78               if (control_if.dut_done_valid) begin
+                 -2-            
+79                 load_kind = PACKET_DUT_DONE;
+                   ==>
+80               end else if (any_credit && (!work_valid || prefer_credit_r)) begin
+                          -3-  
+81                 load_kind = PACKET_CREDIT;
+                   ==>
+82               end else if (work_valid) begin
+                          -4-  
+83                 load_kind = PACKET_COMPLETION;
+                   ==>
+84               end
+                 MISSING_ELSE
+                 ==>
+85             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- -4- Status  
+1   1   -   -   Covered 
+1   0   1   -   Covered 
+1   0   0   1   Covered 
+1   0   0   0   Covered 
+0   -   -   -   Covered 
+
+
+90             event_if.data = event_if.valid ? packet_r[19:16] : 4'b0000;
+                                              -1-  
+                                              ==>  
+                                              ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+97             if (!rst_ni) begin
+               -1-  
+98               packet_r <= '0;
+                 ==>
+99               nibbles_left_r <= '0;
+100              packet_is_credit_r <= 1'b0;
+101              credit_rr_r <= '0;
+102              prefer_credit_r <= 1'b0;
+103              // Count tile dequeues locally. The FPGA owns the actual queue-credit
+104              // balance and increments it when it receives these fixed-size events.
+105              for (int unsigned tile = 0; tile < NTILES; tile++) begin
+106                remainder_r[tile] <= '0;
+107                pending_r[tile] <= '0;
+108              end
+109            end else begin
+110              for (int unsigned tile = 0; tile < NTILES; tile++) begin
+111                logic add_token;                  // This dequeue completes one credit quantum.
+112                logic remove_token;               // Serializer loaded this tile's credit packet.
+113        
+114                add_token = tile_dequeue[tile] &&
+115                            (CREDIT_RETURN_N == 1 || remainder_r[tile] == CREDIT_RETURN_N-1);
+116                remove_token = load_kind == PACKET_CREDIT && selected_credit == tile[1:0];
+117        
+118                if (tile_dequeue[tile]) begin
+119                  if (CREDIT_RETURN_N == 1 || remainder_r[tile] == CREDIT_RETURN_N-1)
+120                    remainder_r[tile] <= '0;
+121                  else
+122                    remainder_r[tile] <= remainder_r[tile] + 1'b1;
+123                end
+124        
+125                unique case ({add_token, remove_token})
+126                  2'b10: pending_r[tile] <= pending_r[tile] + 1'b1;
+127                  2'b01: pending_r[tile] <= pending_r[tile] - 1'b1;
+128                  default: begin end
+129                endcase
+130              end
+131        
+132              // Hold the packet while the chip-to-I/O FIFO is full.
+133              if (event_if.valid && tx_ready_i) begin
+                 -2-          
+134                packet_r <= {packet_r[15:0], 4'b0000};
+135                if (nibbles_left_r == 3'd1) begin
+                   -3-  
+136                  nibbles_left_r <= '0;
+                     ==>
+137                  packet_is_credit_r <= 1'b0;
+138                end else begin
+139                  nibbles_left_r <= nibbles_left_r - 3'd1;
+                     ==>
+140                end
+141              end else if (load_kind == PACKET_DUT_DONE) begin
+                          -4-  
+142                packet_r <= {4'b0100, 16'b0};
+                   ==>
+143                nibbles_left_r <= 3'd1;
+144                packet_is_credit_r <= 1'b0;
+145              end else if (load_kind == PACKET_CREDIT) begin
+                          -5-  
+146                packet_r <= {{2'b00, selected_credit}, 16'b0};
+                   ==>
+147                nibbles_left_r <= 3'd1;
+148                packet_is_credit_r <= 1'b1;
+149                credit_rr_r <= selected_credit + 2'd1;
+150                prefer_credit_r <= 1'b0;
+151              end else if (load_kind == PACKET_COMPLETION) begin
+                          -6-  
+152                // TYPE 2'b10 is permanently TILE_COMPLETE in the FPGA-scheduled design.
+153                packet_r <= {{2'b10, source_if.completion.tid}, source_if.completion.activation_mask};
+                   ==>
+154                nibbles_left_r <= 3'd5;
+155                packet_is_credit_r <= 1'b0;
+156                prefer_credit_r <= 1'b1;
+157              end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- -6- Status  
+1   -   -   -   -   -   Covered 
+0   1   1   -   -   -   Covered 
+0   1   0   -   -   -   Covered 
+0   0   -   1   -   -   Covered 
+0   0   -   0   1   -   Covered 
+0   0   -   0   0   1   Covered 
+0   0   -   0   0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : event_tx
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       2     2         100.00  2                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            2     2         100.00  2                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_4 6        6              0        0          
+unnamed$$_5 6        6              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : event_tx_tb.i_dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 98.72 100.00  94.87 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 98.72 100.00  94.87 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME     
+ 98.72 100.00  94.87 --     100.00 100.00 event_tx 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 --     --     --     --     100.00 event_tx_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : event_tx_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/events/event_tx_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 --     --     --     --     100.00 event_tx_tb 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : event_tx_tb
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_1 4454     2348           0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : event_tx_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 98.72 100.00  94.87 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 --     --     --     --     100.00 event_tx_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+ 98.72 100.00  94.87 --     100.00 100.00 i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

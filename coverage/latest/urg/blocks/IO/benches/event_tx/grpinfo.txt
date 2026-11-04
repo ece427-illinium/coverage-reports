@@ -1,0 +1,608 @@
+Group : event_tx_tb::event_cg
+
+===============================================================================
+Group : event_tx_tb::event_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/events/event_tx_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
+100.00 1      100    1        64           64            coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   event_tx_tb::event_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 25       0         25      100.00  
+Crosses   36       0         36      100.00  
+
+
+Variables for Group  event_tx_tb::event_cg
+
+
+VARIABLE            EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+arbitration_inputs  3        0         3       100.00  100  1      1        0                    
+completion_mask     4        0         4       100.00  100  1      1        0                    
+credit_accumulation 4        0         4       100.00  100  1      1        0                    
+credit_tile         4        0         4       100.00  100  1      1        0                    
+event_tile          4        0         4       100.00  100  1      1        0                    
+event_type          3        0         3       100.00  100  1      1        0                    
+packet_progress     3        0         3       100.00  100  1      1        0                    
+
+
+Crosses for Group  event_tx_tb::event_cg
+
+
+CROSS                  EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+event_x_progress       1        0         1       100.00  100  1      1        0                     
+completion_tile_x_mask 16       0         16      100.00  100  1      1        0                     
+credit_tile_x_count    16       0         16      100.00  100  1      1        0                     
+contenders_x_selected  3        0         3       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable arbitration_inputs
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for arbitration_inputs
+
+
+Bins
+
+NAME              COUNT AT LEAST 
+credit_done       6     1        
+completion_done   6     1        
+credit_completion 12    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable completion_mask
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for completion_mask
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+dense   498   1        
+sparse  228   1        
+one_hot 180   1        
+zero    144   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable credit_accumulation
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for credit_accumulation
+
+
+Bins
+
+NAME      COUNT AT LEAST 
+threshold 111   1        
+partial_1 111   1        
+partial_2 111   1        
+partial_3 111   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable credit_tile
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for credit_tile
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+tiles_0 124   1        
+tiles_1 124   1        
+tiles_2 96    1        
+tiles_3 100   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable event_tile
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for event_tile
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+tiles_0 338   1        
+tiles_1 290   1        
+tiles_2 312   1        
+tiles_3 332   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable event_type
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for event_type
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+dut_done   120   1        
+completion 1050  1        
+credit     222   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable packet_progress
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for packet_progress
+
+
+Bins
+
+NAME        COUNT AT LEAST 
+last_nibble 175   1        
+middle      525   1        
+first       350   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross event_x_progress
+
+
+Samples crossed: event_type packet_progress
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 1        0         1       100.00          
+
+
+User Defined Cross Bins for event_x_progress
+
+
+Bins
+
+NAME                COUNT AT LEAST 
+completion_progress 1050  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross completion_tile_x_mask
+
+
+Samples crossed: event_tile completion_mask
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 16       0         16      100.00          
+
+
+Automatically Generated Cross Bins for completion_tile_x_mask
+
+
+Bins
+
+event_tile completion_mask COUNT AT LEAST 
+tiles_0    dense           126   1        
+tiles_0    sparse          78    1        
+tiles_0    one_hot         36    1        
+tiles_0    zero            36    1        
+tiles_1    dense           120   1        
+tiles_1    sparse          36    1        
+tiles_1    one_hot         36    1        
+tiles_1    zero            36    1        
+tiles_2    dense           114   1        
+tiles_2    sparse          78    1        
+tiles_2    one_hot         36    1        
+tiles_2    zero            36    1        
+tiles_3    dense           138   1        
+tiles_3    sparse          36    1        
+tiles_3    one_hot         72    1        
+tiles_3    zero            36    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross credit_tile_x_count
+
+
+Samples crossed: credit_tile credit_accumulation
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 16       0         16      100.00          
+
+
+Automatically Generated Cross Bins for credit_tile_x_count
+
+
+Bins
+
+credit_tile credit_accumulation COUNT AT LEAST 
+tiles_0     threshold           31    1        
+tiles_0     partial_1           31    1        
+tiles_0     partial_2           31    1        
+tiles_0     partial_3           31    1        
+tiles_1     threshold           31    1        
+tiles_1     partial_1           31    1        
+tiles_1     partial_2           31    1        
+tiles_1     partial_3           31    1        
+tiles_2     threshold           24    1        
+tiles_2     partial_1           24    1        
+tiles_2     partial_2           24    1        
+tiles_2     partial_3           24    1        
+tiles_3     threshold           25    1        
+tiles_3     partial_1           25    1        
+tiles_3     partial_2           25    1        
+tiles_3     partial_3           25    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross contenders_x_selected
+
+
+Samples crossed: arbitration_inputs event_type
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 3        0         3       100.00          
+
+
+User Defined Cross Bins for contenders_x_selected
+
+
+Bins
+
+NAME                    COUNT AT LEAST 
+credit_wins_alternation 12    1        
+done_beats_completion   6     1        
+done_beats_credit       6     1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                  
+100.00 100.00    1      100    1        1            64           64                    event_tx_tb::event_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 25       0         25      100.00  
+Crosses   36       0         36      100.00  
+
+
+Variables for Group Instance  coverage
+
+
+VARIABLE            EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+arbitration_inputs  3        0         3       100.00  100  1      1        0                    
+completion_mask     4        0         4       100.00  100  1      1        0                    
+credit_accumulation 4        0         4       100.00  100  1      1        0                    
+credit_tile         4        0         4       100.00  100  1      1        0                    
+event_tile          4        0         4       100.00  100  1      1        0                    
+event_type          3        0         3       100.00  100  1      1        0                    
+packet_progress     3        0         3       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  coverage
+
+
+CROSS                  EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+event_x_progress       1        0         1       100.00  100  1      1        0                     
+completion_tile_x_mask 16       0         16      100.00  100  1      1        0                     
+credit_tile_x_count    16       0         16      100.00  100  1      1        0                     
+contenders_x_selected  3        0         3       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable arbitration_inputs
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for arbitration_inputs
+
+
+Bins
+
+NAME              COUNT AT LEAST 
+credit_done       6     1        
+completion_done   6     1        
+credit_completion 12    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable completion_mask
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for completion_mask
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+dense   498   1        
+sparse  228   1        
+one_hot 180   1        
+zero    144   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable credit_accumulation
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for credit_accumulation
+
+
+Bins
+
+NAME      COUNT AT LEAST 
+threshold 111   1        
+partial_1 111   1        
+partial_2 111   1        
+partial_3 111   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable credit_tile
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for credit_tile
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+tiles_0 124   1        
+tiles_1 124   1        
+tiles_2 96    1        
+tiles_3 100   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable event_tile
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for event_tile
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+tiles_0 338   1        
+tiles_1 290   1        
+tiles_2 312   1        
+tiles_3 332   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable event_type
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for event_type
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+dut_done   120   1        
+completion 1050  1        
+credit     222   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable packet_progress
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for packet_progress
+
+
+Bins
+
+NAME        COUNT AT LEAST 
+last_nibble 175   1        
+middle      525   1        
+first       350   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross event_x_progress
+
+
+Samples crossed: event_type packet_progress
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 1        0         1       100.00          
+
+
+User Defined Cross Bins for event_x_progress
+
+
+Bins
+
+NAME                COUNT AT LEAST 
+completion_progress 1050  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross completion_tile_x_mask
+
+
+Samples crossed: event_tile completion_mask
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 16       0         16      100.00          
+
+
+Automatically Generated Cross Bins for completion_tile_x_mask
+
+
+Bins
+
+event_tile completion_mask COUNT AT LEAST 
+tiles_0    dense           126   1        
+tiles_0    sparse          78    1        
+tiles_0    one_hot         36    1        
+tiles_0    zero            36    1        
+tiles_1    dense           120   1        
+tiles_1    sparse          36    1        
+tiles_1    one_hot         36    1        
+tiles_1    zero            36    1        
+tiles_2    dense           114   1        
+tiles_2    sparse          78    1        
+tiles_2    one_hot         36    1        
+tiles_2    zero            36    1        
+tiles_3    dense           138   1        
+tiles_3    sparse          36    1        
+tiles_3    one_hot         72    1        
+tiles_3    zero            36    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross credit_tile_x_count
+
+
+Samples crossed: credit_tile credit_accumulation
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 16       0         16      100.00          
+
+
+Automatically Generated Cross Bins for credit_tile_x_count
+
+
+Bins
+
+credit_tile credit_accumulation COUNT AT LEAST 
+tiles_0     threshold           31    1        
+tiles_0     partial_1           31    1        
+tiles_0     partial_2           31    1        
+tiles_0     partial_3           31    1        
+tiles_1     threshold           31    1        
+tiles_1     partial_1           31    1        
+tiles_1     partial_2           31    1        
+tiles_1     partial_3           31    1        
+tiles_2     threshold           24    1        
+tiles_2     partial_1           24    1        
+tiles_2     partial_2           24    1        
+tiles_2     partial_3           24    1        
+tiles_3     threshold           25    1        
+tiles_3     partial_1           25    1        
+tiles_3     partial_2           25    1        
+tiles_3     partial_3           25    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross contenders_x_selected
+
+
+Samples crossed: arbitration_inputs event_type
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 3        0         3       100.00          
+
+
+User Defined Cross Bins for contenders_x_selected
+
+
+Bins
+
+NAME                    COUNT AT LEAST 
+credit_wins_alternation 12    1        
+done_beats_completion   6     1        
+done_beats_credit       6     1        
+
+
