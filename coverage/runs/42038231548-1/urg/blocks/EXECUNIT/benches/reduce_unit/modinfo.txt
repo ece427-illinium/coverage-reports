@@ -1,0 +1,168 @@
+===============================================================================
+Module : reduce_unit
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH 
+100.00 100.00 100.00 --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/func_units/reduce_unit.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH NAME               
+100.00 100.00 100.00 --     100.00 reduce_unit_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : reduce_unit
+
+             Line No.   Total   Covered  Percent
+TOTAL                        5        5   100.00
+ALWAYS             15        5        5   100.00
+
+14                        always_comb begin
+15         1/1              case (tile_reduce_fn_e'(function_i))
+16         1/1                TILE_RED_AND: result_o = {31'b0,(selected == mask)};
+17         1/1                TILE_RED_OR: result_o = {31'b0,(|selected)};
+18         1/1                TILE_RED_XOR: result_o = {31'b0,(^selected)};
+19         1/1                default: result_o = '0;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : reduce_unit
+
+               Total   Covered  Percent
+Conditions          2        2   100.00
+Logical             2        2   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       16
+ SUB-EXPRESSION (selected == mask)
+                ---------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : reduce_unit
+         Line No. Total Covered Percent 
+Branches          4     4       100.00  
+CASE     15       4     4       100.00  
+
+
+15             case (tile_reduce_fn_e'(function_i))
+               -1-  
+16               TILE_RED_AND: result_o = {31'b0,(selected == mask)};
+                 ==>
+17               TILE_RED_OR: result_o = {31'b0,(|selected)};
+                 ==>
+18               TILE_RED_XOR: result_o = {31'b0,(^selected)};
+                 ==>
+19               default: result_o = '0;
+                 ==>
+
+Branches:
+
+-1-           Status  
+TILE_RED_AND  Covered 
+TILE_RED_OR   Covered 
+TILE_RED_XOR  Covered 
+default       Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : reduce_unit_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH 
+100.00 100.00 100.00 --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH 
+100.00 100.00 100.00 --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH NAME        
+100.00 100.00 100.00 --     100.00 reduce_unit 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH NAME           
+--     --     --     --     --     reduce_unit_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : reduce_unit_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH 
+--     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/func_units/reduce_unit/reduce_unit_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH NAME           
+--     --     --     --     --     reduce_unit_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : reduce_unit_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH 
+--     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH 
+100.00 100.00 100.00 --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH NAME           
+--     --     --     --     --     reduce_unit_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH NAME 
+100.00 100.00 100.00 --     100.00 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

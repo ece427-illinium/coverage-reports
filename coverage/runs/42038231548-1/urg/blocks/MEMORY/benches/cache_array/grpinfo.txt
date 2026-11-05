@@ -1,0 +1,404 @@
+Group : cache_array_tb::array_cg
+
+===============================================================================
+Group : cache_array_tb::array_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/cache/cache_array_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
+100.00 1      100    1        64           64            coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   cache_array_tb::array_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 17       0         17      100.00  
+Crosses   22       0         22      100.00  
+
+
+Variables for Group  cache_array_tb::array_cg
+
+
+VARIABLE         EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+access           2        0         2       100.00  100  1      1        0                    
+row_index        8        0         8       100.00  100  1      1        0                    
+write_mask       6        0         6       100.00  100  1      1        0                    
+read_after_write 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group  cache_array_tb::array_cg
+
+
+CROSS            EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+operation_x_mask 6        0         6       100.00  100  1      1        0                     
+row_x_operation  16       0         16      100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable access
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for access
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 33    1        
+read  29    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable row_index
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 8        0         8       100.00  
+
+
+User Defined Bins for row_index
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+rows_0 9     1        
+rows_1 6     1        
+rows_2 6     1        
+rows_3 9     1        
+rows_4 9     1        
+rows_5 9     1        
+rows_6 6     1        
+rows_7 8     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_mask
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        0         6       100.00  
+
+
+User Defined Bins for write_mask
+
+
+Bins
+
+NAME                COUNT AT LEAST 
+mixed               17    1        
+sparse              1     1        
+byte_like           1     1        
+all_one             13    1        
+all_zero            1     1        
+read_not_applicable 29    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable read_after_write
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for read_after_write
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 29    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross operation_x_mask
+
+
+Samples crossed: access write_mask
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              6        0         6       100.00          
+Automatically Generated Cross Bins 6        0         6       100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for operation_x_mask
+
+
+Bins
+
+access write_mask          COUNT AT LEAST 
+write  mixed               17    1        
+write  sparse              1     1        
+write  byte_like           1     1        
+write  all_zero            1     1        
+write  all_one             13    1        
+read   read_not_applicable 29    1        
+
+
+User Defined Cross Bins for operation_x_mask
+
+
+Excluded/Illegal bins
+
+NAME                  COUNT STATUS   
+impossible_read_masks 0     Excluded 
+write_uses_read_code  0     Excluded 
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross row_x_operation
+
+
+Samples crossed: row_index access
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 16       0         16      100.00          
+
+
+Automatically Generated Cross Bins for row_x_operation
+
+
+Bins
+
+row_index access COUNT AT LEAST 
+rows_0    write  5     1        
+rows_0    read   4     1        
+rows_1    write  3     1        
+rows_1    read   3     1        
+rows_2    write  3     1        
+rows_2    read   3     1        
+rows_3    write  5     1        
+rows_3    read   4     1        
+rows_4    write  5     1        
+rows_4    read   4     1        
+rows_5    write  5     1        
+rows_5    read   4     1        
+rows_6    write  3     1        
+rows_6    read   3     1        
+rows_7    write  4     1        
+rows_7    read   4     1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                     
+100.00 100.00    1      100    1        1            64           64                    cache_array_tb::array_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 17       0         17      100.00  
+Crosses   22       0         22      100.00  
+
+
+Variables for Group Instance  coverage
+
+
+VARIABLE         EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+access           2        0         2       100.00  100  1      1        0                    
+row_index        8        0         8       100.00  100  1      1        0                    
+write_mask       6        0         6       100.00  100  1      1        0                    
+read_after_write 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  coverage
+
+
+CROSS            EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+operation_x_mask 6        0         6       100.00  100  1      1        0                     
+row_x_operation  16       0         16      100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable access
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for access
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 33    1        
+read  29    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable row_index
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 8        0         8       100.00  
+
+
+User Defined Bins for row_index
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+rows_0 9     1        
+rows_1 6     1        
+rows_2 6     1        
+rows_3 9     1        
+rows_4 9     1        
+rows_5 9     1        
+rows_6 6     1        
+rows_7 8     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable write_mask
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        0         6       100.00  
+
+
+User Defined Bins for write_mask
+
+
+Bins
+
+NAME                COUNT AT LEAST 
+mixed               17    1        
+sparse              1     1        
+byte_like           1     1        
+all_one             13    1        
+all_zero            1     1        
+read_not_applicable 29    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable read_after_write
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for read_after_write
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 29    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross operation_x_mask
+
+
+Samples crossed: access write_mask
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              6        0         6       100.00          
+Automatically Generated Cross Bins 6        0         6       100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for operation_x_mask
+
+
+Bins
+
+access write_mask          COUNT AT LEAST 
+write  mixed               17    1        
+write  sparse              1     1        
+write  byte_like           1     1        
+write  all_zero            1     1        
+write  all_one             13    1        
+read   read_not_applicable 29    1        
+
+
+User Defined Cross Bins for operation_x_mask
+
+
+Excluded/Illegal bins
+
+NAME                  COUNT STATUS   
+impossible_read_masks 0     Excluded 
+write_uses_read_code  0     Excluded 
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross row_x_operation
+
+
+Samples crossed: row_index access
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 16       0         16      100.00          
+
+
+Automatically Generated Cross Bins for row_x_operation
+
+
+Bins
+
+row_index access COUNT AT LEAST 
+rows_0    write  5     1        
+rows_0    read   4     1        
+rows_1    write  3     1        
+rows_1    read   3     1        
+rows_2    write  3     1        
+rows_2    read   3     1        
+rows_3    write  5     1        
+rows_3    read   4     1        
+rows_4    write  5     1        
+rows_4    read   4     1        
+rows_5    write  5     1        
+rows_5    read   4     1        
+rows_6    write  3     1        
+rows_6    read   3     1        
+rows_7    write  4     1        
+rows_7    read   4     1        
+
+

@@ -1,0 +1,357 @@
+===============================================================================
+Module : word_paint
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/word_paint.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME              
+100.00 100.00 100.00 --     100.00 100.00 cmte_paint_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : word_paint
+
+             Line No.   Total   Covered  Percent
+TOTAL                       37       37   100.00
+ALWAYS             72       11       11   100.00
+ALWAYS             96       26       26   100.00
+
+71                      
+72         1/1              cell_width = {1'b0, cell_width_m1_i} + 6'h1;
+73                      
+74         1/1              new_cell_bounds = '0;
+75         1/1              new_bit_pos     = bit_pos_r;   // overwritten below -- j always reaches num_cells_m1_i
+76         1/1              cell_start      = bit_pos_r;
+77         1/1              for (j = 0; j < 8; j = j + 1) begin
+78         2/2                if (j <= num_cells_m1_i) new_cell_bounds[cell_start[4:0]] = 1'b1;
+                        MISSING_ELSE
+79         1/1                cell_start = cell_start + cell_width;
+80         2/2                if (j == num_cells_m1_i) new_bit_pos = cell_start;
+                        MISSING_ELSE
+81                          end
+82                      
+83         1/1              span_mask = ((32'h1 << new_bit_pos) - 32'h1) ^ ((32'h1 << bit_pos_r) - 32'h1);
+84                        end
+85                      
+86                        assign narrow_fills_word_o = (new_bit_pos == 6'd32);
+87                      
+88                        // wide_last_bits_m1_i is already the "-1" form (0..31, 5b) -- last_bits
+89                        // itself (1..32) only needs widening here, at the one place it's
+90                        // consumed, same idiom as cell_width above.
+91                        assign wide_last_bits  = {1'b0, wide_last_bits_m1_i} + 6'h1;
+92                        assign wide_final_mask = (32'h1 << wide_last_bits) - 32'h1;
+93                      
+94                        // ================= state =================
+95                        always_ff @(posedge clk_i) begin
+96         1/1              if (reset_i || clear_i) begin
+97         1/1                bit_pos_r          <= '0;
+98         1/1                limb_start_r       <= '0;
+99         1/1                cell_bounds_r       <= '0;
+100        1/1                guard_field_r       <= '0;
+101        1/1                no_compare_field_r  <= '0;
+102                         end else begin
+103        1/1                unique case (action_i)
+104                             PAINT_HOLD: begin
+105                               // no change -- wide region's continuing full-limb repaint
+106                             end
+107                     
+108                             PAINT_NARROW: begin
+109        1/1                    cell_bounds_r      <= cell_bounds_r | new_cell_bounds;
+110        1/1                    guard_field_r      <= guard_field_r      | (guarded_i    ? span_mask : '0);
+111        1/1                    no_compare_field_r <= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112        1/1                    bit_pos_r          <= new_bit_pos;
+113                             end
+114                     
+115                             PAINT_SETC: begin
+116        1/1                    bit_pos_r    <= {1'b0, setc_pos_i};
+117        1/1                    limb_start_r <= setc_pos_i;
+118                             end
+119                     
+120                             PAINT_WIDE_FIRST: begin
+121        1/1                    cell_bounds_r      <= 32'h1;
+122        1/1                    limb_start_r       <= '0;
+123        1/1                    bit_pos_r          <= 6'd32;
+124        1/1                    guard_field_r      <= guarded_i    ? '1 : '0;
+125        1/1                    no_compare_field_r <= no_compare_i ? '1 : '0;
+126                             end
+127                     
+128                             PAINT_WIDE_FINAL: begin
+129        1/1                    bit_pos_r          <= wide_last_bits;
+130        1/1                    guard_field_r      <= wide_guarded_i    ? wide_final_mask : '0;
+131        1/1                    no_compare_field_r <= wide_no_compare_i ? wide_final_mask : '0;
+132                               // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                             end
+134                     
+135                             PAINT_CLEAR: begin
+136        1/1                    bit_pos_r          <= '0;
+137        1/1                    limb_start_r       <= '0;
+138        1/1                    cell_bounds_r      <= '0;
+139        1/1                    guard_field_r      <= '0;
+140        1/1                    no_compare_field_r <= '0;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : word_paint
+
+               Total   Covered  Percent
+Conditions         13       13   100.00
+Logical            13       13   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       96
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       124
+ EXPRESSION (guarded_i ? '1 : '0)
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       125
+ EXPRESSION (no_compare_i ? '1 : '0)
+             ------1-----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       130
+ EXPRESSION (wide_guarded_i ? wide_final_mask : '0)
+             -------1------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       131
+ EXPRESSION (wide_no_compare_i ? wide_final_mask : '0)
+             --------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       86
+ EXPRESSION (new_bit_pos == 6'd32)
+            -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : word_paint
+         Line No. Total Covered Percent 
+Branches          13    13      100.00  
+IF       96       13    13      100.00  
+
+
+96             if (reset_i || clear_i) begin
+               -1-  
+97               bit_pos_r          <= '0;
+                 ==>
+98               limb_start_r       <= '0;
+99               cell_bounds_r       <= '0;
+100              guard_field_r       <= '0;
+101              no_compare_field_r  <= '0;
+102            end else begin
+103              unique case (action_i)
+                        -2-  
+104                PAINT_HOLD: begin
+                   ==>
+105                  // no change -- wide region's continuing full-limb repaint
+106                end
+107        
+108                PAINT_NARROW: begin
+109                  cell_bounds_r      <= cell_bounds_r | new_cell_bounds;
+                     ==>
+110                  guard_field_r      <= guard_field_r      | (guarded_i    ? span_mask : '0);
+111                  no_compare_field_r <= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112                  bit_pos_r          <= new_bit_pos;
+113                end
+114        
+115                PAINT_SETC: begin
+116                  bit_pos_r    <= {1'b0, setc_pos_i};
+                     ==>
+117                  limb_start_r <= setc_pos_i;
+118                end
+119        
+120                PAINT_WIDE_FIRST: begin
+121                  cell_bounds_r      <= 32'h1;
+122                  limb_start_r       <= '0;
+123                  bit_pos_r          <= 6'd32;
+124                  guard_field_r      <= guarded_i    ? '1 : '0;
+                                                        -3-  
+                                                        ==>  
+                                                        ==>  
+125                  no_compare_field_r <= no_compare_i ? '1 : '0;
+                                                        -4-  
+                                                        ==>  
+                                                        ==>  
+126                end
+127        
+128                PAINT_WIDE_FINAL: begin
+129                  bit_pos_r          <= wide_last_bits;
+130                  guard_field_r      <= wide_guarded_i    ? wide_final_mask : '0;
+                                                             -5-  
+                                                             ==>  
+                                                             ==>  
+131                  no_compare_field_r <= wide_no_compare_i ? wide_final_mask : '0;
+                                                             -6-  
+                                                             ==>  
+                                                             ==>  
+132                  // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                end
+134        
+135                PAINT_CLEAR: begin
+136                  bit_pos_r          <= '0;
+                     ==>
+
+Branches:
+
+-1- -2-               -3- -4- -5- -6- Status  
+1   -                 -   -   -   -   Covered 
+0   PAINT_HOLD        -   -   -   -   Covered 
+0   PAINT_NARROW      -   -   -   -   Covered 
+0   PAINT_SETC        -   -   -   -   Covered 
+0   PAINT_WIDE_FIRST  1   -   -   -   Covered 
+0   PAINT_WIDE_FIRST  0   -   -   -   Covered 
+0   PAINT_WIDE_FIRST  -   1   -   -   Covered 
+0   PAINT_WIDE_FIRST  -   0   -   -   Covered 
+0   PAINT_WIDE_FINAL  -   -   1   -   Covered 
+0   PAINT_WIDE_FINAL  -   -   0   -   Covered 
+0   PAINT_WIDE_FINAL  -   -   -   1   Covered 
+0   PAINT_WIDE_FINAL  -   -   -   0   Covered 
+0   PAINT_CLEAR       -   -   -   -   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : word_paint
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       5     5         100.00  5                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            5     5         100.00  5                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                             Attempts Real Successes Failures Incomplete 
+paint_action_known               2280169  2279367        0        0          
+paint_narrow_fits                2280169  512611         0        0          
+paint_setc_on_empty_word         2280169  152434         0        0          
+paint_wide_final_after_full_limb 2280169  67958          0        0          
+paint_wide_first_on_empty_word   2280169  67958          0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : cmte_paint_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 100.00 100.00 --     100.00 100.00 word_paint 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     cmte_paint_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : cmte_paint_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/cmte/word_paint/cmte_paint_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     cmte_paint_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : cmte_paint_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     cmte_paint_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 100.00 100.00 --     100.00 100.00 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
