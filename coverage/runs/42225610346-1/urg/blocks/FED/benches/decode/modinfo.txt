@@ -1,0 +1,1964 @@
+===============================================================================
+Module : length_decode
+===============================================================================
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT 
+ 96.00 100.00 100.00  97.62  86.36 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/frontend/length_decode.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT NAME                     
+ 96.00 100.00 100.00  97.62  86.36 --     fed_decode_tb.dut_length 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : length_decode
+
+             Line No.   Total   Covered  Percent
+TOTAL                       24       24   100.00
+ALWAYS             14       24       24   100.00
+
+13                        always_comb begin
+14         1/1              length_o = 4'd1;
+15         1/1              known_o = available_i >= 1;
+16         1/1              case (tile_opcode_e'(b0[7:4]))
+17                            TILE_OP_LOADB: begin // LOADB: load-phase bit/data/index transfers.
+18         1/1                  length_o = (tile_loadb_form_e'(b0[3:1]) == TILE_LOADB_BITS_NEAR ||
+19                                  tile_loadb_form_e'(b0[3:1]) == TILE_LOADB_DATA_NEAR) ? 4'd3 : 4'd5;
+20                            end
+21         1/1                TILE_OP_SETM: length_o = b0[0] ? 4'd5 : 4'd2; // SETM: set a mask register.
+22         1/1                TILE_OP_LOGU: length_o = b0[0] ? 4'd4 : 4'd3; // LOGU: uniform plane logic.
+23                            TILE_OP_LOGL: begin // LOGL: per-lane plane logic.
+24         1/1                  known_o = available_i >= 2;
+25         1/1                  length_o = 4'd5 + {3'b0,prefix_i[8]};
+26                            end
+27         1/1                TILE_OP_ST, TILE_OP_ROT, TILE_OP_RED, TILE_OP_IDXR: length_o = 4'd2; // 4: ST, 8: ROT, C: RED, D: IDXR.
+28         1/1                TILE_OP_LDX, TILE_OP_STI: length_o = 4'd3; // 5: LDX (extract), 7: STI (shifted store).
+29                            TILE_OP_ARITH, TILE_OP_CMP, TILE_OP_SHIFT: begin // 9: ADD/SUB, A: CMP, B: SHIFT.
+30         1/1                  known_o = available_i >= 2;
+31         1/1                  length_o = 4'd3 + {3'b0,((tile_opcode_e'(b0[7:4]) == TILE_OP_ARITH) ? prefix_i[9] : prefix_i[10])};
+32                            end
+33                            TILE_OP_DESC, TILE_OP_DESC_C: begin // 6: DESC, E: DESC.C (committing descriptor).
+34                              // Header alone determines descriptor length: fixed two bytes, flags,
+35                              // address (none/none/one/three), then the optional wide-limb byte.
+36         1/1                  length_o = 4'd2 + {3'b0,b0[0]} + {3'b0,b0[1]};
+37         1/1                  case (tile_amode_e'(b0[3:2]))
+38                                TILE_AMODE_CONTIG, TILE_AMODE_INDEXED: begin end // No address bytes.
+39         1/1                    TILE_AMODE_NEAR: length_o = length_o + 4'd1; // Near: signed word offset.
+40         1/1                    TILE_AMODE_ABS: length_o = length_o + 4'd3; // Absolute: full address.
+41                                default: begin end
+42                              endcase
+43                            end
+44         1/1                TILE_OP_SYS: case (tile_sys_subop_e'(b0[3:0])) // SYS: system and macro instructions.
+45         1/1                  TILE_SYS_ENDL, TILE_SYS_ENDC: length_o = 4'd1; // F0: ENDL, F7: ENDC.
+46         1/1                  TILE_SYS_SETC, TILE_SYS_LD: length_o = 4'd2; // F2: SETC (commit cursor), F5: LD.
+47         1/1                  TILE_SYS_IDXPUSH_C, TILE_SYS_IDXPUSH_L: length_o = 4'd4;
+48         1/1                  TILE_SYS_MOV: length_o = 4'd3; // MOV: register-to-register move.
+49         1/1                  TILE_SYS_LOADI: length_o = 4'd5; // LOADI: load an immediate into A.
+50                              TILE_SYS_MUL: begin // MUL: multiply, with optional register destination.
+51         1/1                    known_o = available_i >= 2;
+52         1/1                    length_o = 4'd3 + {3'b0,prefix_i[9]};
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : length_decode
+
+               Total   Covered  Percent
+Conditions         13       13   100.00
+Logical            13       13   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       18
+ EXPRESSION (((tile_loadb_form_e'(b0[3:1]) == TILE_LOADB_BITS_NEAR) || (tile_loadb_form_e'(b0[3:1]) == TILE_LOADB_DATA_NEAR)) ? 4'd3 : 4'd5)
+             --------------------------------------------------------1-------------------------------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       18
+ SUB-EXPRESSION ((tile_loadb_form_e'(b0[3:1]) == TILE_LOADB_BITS_NEAR) || (tile_loadb_form_e'(b0[3:1]) == TILE_LOADB_DATA_NEAR))
+                 --------------------------1--------------------------    --------------------------2--------------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       18
+ SUB-EXPRESSION (tile_loadb_form_e'(b0[3:1]) == TILE_LOADB_BITS_NEAR)
+                --------------------------1--------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       18
+ SUB-EXPRESSION (tile_loadb_form_e'(b0[3:1]) == TILE_LOADB_DATA_NEAR)
+                --------------------------1--------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       21
+ EXPRESSION (b0[0] ? 4'd5 : 4'd2)
+             --1--
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       22
+ EXPRESSION (b0[0] ? 4'd4 : 4'd3)
+             --1--
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : length_decode
+                Total Covered Percent 
+Totals          6     5       83.33   
+Total Bits      84    82      97.62   
+Total Bits 0->1 42    41      97.62   
+Total Bits 1->0 42    41      97.62   
+
+                            
+Ports          4  3  75.00  
+Port Bits      66 64 96.97  
+Port Bits 0->1 33 32 96.97  
+Port Bits 1->0 33 32 96.97  
+
+                              
+Signals          2  2  100.00 
+Signal Bits      18 18 100.00 
+Signal Bits 0->1 9  9  100.00 
+Signal Bits 1->0 9  9  100.00 
+
+Port Details
+                 Toggle Toggle 1->0 Toggle 0->1 Direction 
+prefix_i[23:0]   Yes    Yes         Yes         INPUT     
+available_i[3:0] Yes    Yes         Yes         INPUT     
+length_o[2:0]    Yes    Yes         Yes         OUTPUT    
+length_o[3]      No     No          No          OUTPUT    
+known_o          Yes    Yes         Yes         OUTPUT    
+
+Signal Details
+                     Toggle Toggle 1->0 Toggle 0->1 
+unused_prefix_fields Yes    Yes         Yes         
+b0[7:0]              Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : length_decode
+         Line No. Total Covered Percent 
+Branches          22    19      86.36   
+CASE     16       22    19      86.36   
+
+
+16             case (tile_opcode_e'(b0[7:4]))
+               -1-  
+17               TILE_OP_LOADB: begin // LOADB: load-phase bit/data/index transfers.
+18                 length_o = (tile_loadb_form_e'(b0[3:1]) == TILE_LOADB_BITS_NEAR ||
+                                                                                     
+19                     tile_loadb_form_e'(b0[3:1]) == TILE_LOADB_DATA_NEAR) ? 4'd3 : 4'd5;
+                                                                            -2-  
+                                                                            ==>  
+                                                                            ==>  
+20               end
+21               TILE_OP_SETM: length_o = b0[0] ? 4'd5 : 4'd2; // SETM: set a mask register.
+                                                -3-  
+                                                ==>  
+                                                ==>  
+22               TILE_OP_LOGU: length_o = b0[0] ? 4'd4 : 4'd3; // LOGU: uniform plane logic.
+                                                -4-  
+                                                ==>  
+                                                ==>  
+23               TILE_OP_LOGL: begin // LOGL: per-lane plane logic.
+24                 known_o = available_i >= 2;
+                   ==>
+25                 length_o = 4'd5 + {3'b0,prefix_i[8]};
+26               end
+27               TILE_OP_ST, TILE_OP_ROT, TILE_OP_RED, TILE_OP_IDXR: length_o = 4'd2; // 4: ST, 8: ROT, C: RED, D: IDXR.
+                 ==>
+28               TILE_OP_LDX, TILE_OP_STI: length_o = 4'd3; // 5: LDX (extract), 7: STI (shifted store).
+                 ==>
+29               TILE_OP_ARITH, TILE_OP_CMP, TILE_OP_SHIFT: begin // 9: ADD/SUB, A: CMP, B: SHIFT.
+30                 known_o = available_i >= 2;
+                   ==>
+31                 length_o = 4'd3 + {3'b0,((tile_opcode_e'(b0[7:4]) == TILE_OP_ARITH) ? prefix_i[9] : prefix_i[10])};
+32               end
+33               TILE_OP_DESC, TILE_OP_DESC_C: begin // 6: DESC, E: DESC.C (committing descriptor).
+34                 // Header alone determines descriptor length: fixed two bytes, flags,
+35                 // address (none/none/one/three), then the optional wide-limb byte.
+36                 length_o = 4'd2 + {3'b0,b0[0]} + {3'b0,b0[1]};
+37                 case (tile_amode_e'(b0[3:2]))
+                   -5-  
+38                   TILE_AMODE_CONTIG, TILE_AMODE_INDEXED: begin end // No address bytes.
+                     ==>
+39                   TILE_AMODE_NEAR: length_o = length_o + 4'd1; // Near: signed word offset.
+                     ==>
+40                   TILE_AMODE_ABS: length_o = length_o + 4'd3; // Absolute: full address.
+                     ==>
+41                   default: begin end
+                     ==>
+42                 endcase
+43               end
+44               TILE_OP_SYS: case (tile_sys_subop_e'(b0[3:0])) // SYS: system and macro instructions.
+                              -6-  
+45                 TILE_SYS_ENDL, TILE_SYS_ENDC: length_o = 4'd1; // F0: ENDL, F7: ENDC.
+                   ==>
+46                 TILE_SYS_SETC, TILE_SYS_LD: length_o = 4'd2; // F2: SETC (commit cursor), F5: LD.
+                   ==>
+47                 TILE_SYS_IDXPUSH_C, TILE_SYS_IDXPUSH_L: length_o = 4'd4;
+                   ==>
+48                 TILE_SYS_MOV: length_o = 4'd3; // MOV: register-to-register move.
+                   ==>
+49                 TILE_SYS_LOADI: length_o = 4'd5; // LOADI: load an immediate into A.
+                   ==>
+50                 TILE_SYS_MUL: begin // MUL: multiply, with optional register destination.
+51                   known_o = available_i >= 2;
+                     ==>
+52                   length_o = 4'd3 + {3'b0,prefix_i[9]};
+53                 end
+54                 default: begin end
+                   ==>
+55               endcase
+56               default: begin end
+                 ==>
+
+Branches:
+
+-1-                                              -2- -3- -4- -5-                                   -6-                                    Status      
+TILE_OP_LOADB                                    1   -   -   -                                     -                                      Covered     
+TILE_OP_LOADB                                    0   -   -   -                                     -                                      Covered     
+TILE_OP_SETM                                     -   1   -   -                                     -                                      Covered     
+TILE_OP_SETM                                     -   0   -   -                                     -                                      Covered     
+TILE_OP_LOGU                                     -   -   1   -                                     -                                      Covered     
+TILE_OP_LOGU                                     -   -   0   -                                     -                                      Covered     
+TILE_OP_LOGL                                     -   -   -   -                                     -                                      Covered     
+TILE_OP_ST TILE_OP_ROT TILE_OP_RED TILE_OP_IDXR  -   -   -   -                                     -                                      Covered     
+TILE_OP_LDX TILE_OP_STI                          -   -   -   -                                     -                                      Covered     
+TILE_OP_ARITH TILE_OP_CMP TILE_OP_SHIFT          -   -   -   -                                     -                                      Covered     
+TILE_OP_DESC TILE_OP_DESC_C                      -   -   -   TILE_AMODE_CONTIG TILE_AMODE_INDEXED  -                                      Covered     
+TILE_OP_DESC TILE_OP_DESC_C                      -   -   -   TILE_AMODE_NEAR                       -                                      Covered     
+TILE_OP_DESC TILE_OP_DESC_C                      -   -   -   TILE_AMODE_ABS                        -                                      Covered     
+TILE_OP_DESC TILE_OP_DESC_C                      -   -   -   default                               -                                      Not Covered 
+TILE_OP_SYS                                      -   -   -   -                                     TILE_SYS_ENDL TILE_SYS_ENDC            Covered     
+TILE_OP_SYS                                      -   -   -   -                                     TILE_SYS_SETC TILE_SYS_LD              Covered     
+TILE_OP_SYS                                      -   -   -   -                                     TILE_SYS_IDXPUSH_C TILE_SYS_IDXPUSH_L  Covered     
+TILE_OP_SYS                                      -   -   -   -                                     TILE_SYS_MOV                           Covered     
+TILE_OP_SYS                                      -   -   -   -                                     TILE_SYS_LOADI                         Covered     
+TILE_OP_SYS                                      -   -   -   -                                     TILE_SYS_MUL                           Covered     
+TILE_OP_SYS                                      -   -   -   -                                     default                                Not Covered 
+default                                          -   -   -   -                                     -                                      Not Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : fed_decode_tb.dut_length
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT 
+ 96.00 100.00 100.00  97.62  86.36 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT 
+ 96.00 100.00 100.00  97.62  86.36 --     
+
+
+Module : 
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT NAME          
+ 96.00 100.00 100.00  97.62  86.36 --     length_decode 
+
+
+Parent : 
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT NAME          
+--     --     --     --     --     --     fed_decode_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : decode
+===============================================================================
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT 
+ 97.22  97.81  98.15  99.92  93.02 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/frontend/decode.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT NAME                     
+ 97.22  97.81  98.15  99.92  93.02 --     fed_decode_tb.dut_decode 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : decode
+
+             Line No.   Total   Covered  Percent
+TOTAL                      228      223    97.81
+ALWAYS             34      228      223    97.81
+
+33                      
+34         1/1              rc = '0;
+35         1/1              dst_reg = 1'b0;
+36         1/1              src_reg = 1'b0;
+37         1/1              flag0 = 1'b0;
+38         1/1              flag1 = 1'b0;
+39         1/1              mask_nibble = '0;
+40         1/1              descriptor_wide_byte = descriptor_tail[0];
+41         1/1              cmd_o = '0;
+42         1/1              load_cmd = '0;
+43         1/1              compute_cmd = '0;
+44         1/1              commit_req = '0;
+45         1/1              index_push_cmd = '0;
+46         1/1              dispatch = '0;
+47         1/1              op = b[0][7:4];
+48         1/1              sub = b[0][3:0];
+49         1/1              ra = b[1][7:3];
+50         1/1              rb = b[2][7:3];
+51         1/1              rd = b[3][7:3];
+52         1/1              mm = b[1][2:0];
+53         1/1              case (tile_opcode_e'(b[0][7:4]))
+54                            TILE_OP_LOADB: begin
+55         1/1                  load_cmd.kind = LOAD_RF;
+56         1/1                  load_cmd.form = LOAD_DATA;
+57         1/1                  load_cmd.use_index = b[0][0];
+58         1/1                  load_cmd.address = (tile_loadb_form_e'(b[0][3:1]) == TILE_LOADB_BITS_NEAR ||
+59                                  tile_loadb_form_e'(b[0][3:1]) == TILE_LOADB_DATA_NEAR) ? {16'b0,b[2]} : {b[2],b[3],b[4]};
+60         1/1                  load_cmd.gather_mask = b[1];
+61         1/1                  load_cmd.align_new = b[1][1];
+62         1/1                  load_cmd.last_bits_m1 = b[1][4:2];
+63         1/1                  case (tile_load_size_e'(b[1][7:5]))
+64         1/1                    TILE_LOAD_SIZE_1B: load_cmd.byte_count = 1;
+65         1/1                    TILE_LOAD_SIZE_2B: load_cmd.byte_count = 2;
+66         1/1                    TILE_LOAD_SIZE_3B: load_cmd.byte_count = 3;
+67         1/1                    TILE_LOAD_SIZE_4B: load_cmd.byte_count = 4;
+68         1/1                    TILE_LOAD_SIZE_6B: load_cmd.byte_count = 6;
+69         1/1                    TILE_LOAD_SIZE_8B: load_cmd.byte_count = 8;
+70         1/1                    TILE_LOAD_SIZE_12B: load_cmd.byte_count = 12;
+71         1/1                    TILE_LOAD_SIZE_16B: load_cmd.byte_count = 16;
+72         0/1     ==>            default: ;
+73                              endcase
+74         1/1                  case (tile_loadb_form_e'(b[0][3:1]))
+75                                TILE_LOADB_BITS, TILE_LOADB_BITS_NEAR: begin
+76         1/1                      load_cmd.form = b[0][1] ? LOAD_BITS_NEAR : LOAD_BITS;
+77         1/1                      load_cmd.byte_count = 1;
+78         1/1                      load_cmd.align_new = 0;
+79                                end
+80                                TILE_LOADB_DATA, TILE_LOADB_DATA_NEAR: begin
+81         1/1                      load_cmd.form = b[0][1] ? LOAD_DATA_NEAR : LOAD_DATA;
+82         1/1                      load_cmd.capture_addr = b[1][0];
+83                                end
+84                                TILE_LOADB_DATA_EXT: begin
+85         1/1                      load_cmd.byte_count = {1'b0,b[1][7:2]} + 7'd1;
+86         1/1                      load_cmd.last_bits_m1 = TILE_BYTE_IDX'(TILE_BYTE_WIDTH-1);
+87         1/1                      load_cmd.capture_addr = b[1][0];
+88                                end
+89                                TILE_LOADB_INDEX: begin
+90         1/1                      load_cmd.kind = LOAD_INDEX_VALUE;
+91         1/1                      load_cmd.byte_count = {5'b0,b[1][7:6]} + 7'd1;
+92                                end
+93         0/1     ==>            default: ;
+94                              endcase
+95                            end
+96                            TILE_OP_SETM: begin
+97         1/1                  mm = b[0][3:1];
+98         1/1                  flag0 = b[0][0];
+99         1/1                  compute_cmd.execute.params.arg.bit_offset = {2'b0,b[1][7:5]};
+100        1/1                  mask_nibble = b[1][4:1];
+101                           end
+102                           TILE_OP_LOGU, TILE_OP_LOGL: begin
+103        1/1                  rb = {2'b0,b[0][3:1]};
+104        1/1                  rc = {2'b0,b[1][7:5]};
+105        1/1                  mm = b[1][4:2];
+106        1/1                  if (tile_opcode_e'(b[0][7:4]) == TILE_OP_LOGU) begin
+107        1/1                    compute_cmd.execute.logic_payload.uniform.table_bits = b[2];
+108        1/1                    compute_cmd.execute.logic_payload.uniform.lane_en = b[3];
+109        1/1                    flag0 = b[0][0];
+110                             end else begin
+111        1/1                    compute_cmd.execute.logic_payload.functions = {b[2],b[3],b[4]};
+112        1/1                    dst_reg = b[1][0];
+113        1/1                    rd = b[5][7:3];
+114                             end
+115                           end
+116                           TILE_OP_ST: begin
+117        1/1                  dst_reg = 1;
+118        1/1                  rd = b[1][7:3];
+119                           end
+120                           TILE_OP_LDX: begin
+121        1/1                  flag0 = b[0][3];
+122                             // The five-bit field encodes width-1, not the high endpoint.
+123        1/1                  compute_cmd.execute.params.field_width = {1'b0,b[1][1:0],b[2][7:5]} + $bits(compute_cmd.execute.params.field_width)'(unsigned'(1));
+124        1/1                  compute_cmd.execute.params.arg.bit_offset = b[2][4:0];
+125                           end
+126                           TILE_OP_STI: begin
+127        1/1                  dst_reg = 1;
+128        1/1                  rd = b[1][7:3];
+129        1/1                  compute_cmd.execute.params.arg.bit_offset = b[2][7:3];
+130                           end
+131                           TILE_OP_ROT: begin
+132        1/1                  ra = {2'b0,b[0][3:1]};
+133        1/1                  compute_cmd.execute.params.arg.bit_offset = b[1][7:3];
+134                           end
+135                           TILE_OP_ARITH: begin
+136        1/1                  flag0 = b[0][3];
+137        1/1                  flag1 = b[1][2];
+138        1/1                  compute_cmd.execute.params.group_code = b[0][2:1];
+139        1/1                  mm = b[2][2:0];
+140        1/1                  dst_reg = b[1][1];
+141                           end
+142                           TILE_OP_CMP, TILE_OP_SHIFT: begin
+143        1/1                  compute_cmd.execute.params.group_code = b[0][1:0];
+144        1/1                  compute_cmd.execute.params.fn = compute_function_u'(b[0][3:2]);
+145        1/1                  flag0 = b[0][3];
+146        1/1                  flag1 = b[0][2];
+147        1/1                  mm = b[2][2:0];
+148        1/1                  dst_reg = b[1][2];
+149                           end
+150                           TILE_OP_RED: begin
+151        1/1                  src_reg = (b[0][3:2] != TILE_RED_ACC_SOURCE);
+152        1/1                  compute_cmd.execute.params.fn = compute_function_u'(src_reg ? b[0][3:2] : b[1][4:3]);
+153        1/1                  compute_cmd.execute.params.field_width = {1'b0,b[0][1:0],b[1][7:5]} + 6'd1;
+154        1/1                  ra = src_reg ? b[1][4:0] : 5'd0;
+155                           end
+156                           TILE_OP_IDXR: begin
+157        1/1                  ra = {2'b0,b[0][3:1]};
+158        1/1                  rb = b[1][7:3];
+159        1/1                  flag0 = b[0][0];
+160        1/1                  compute_cmd.execute.params.field_width = 6'd1 << b[1][2:0];
+161        1/1                  compute_cmd.execute.params.arg.bit_offset = {2'b0,b[1][2:0]};
+162        1/1                  rd = ra;
+163        1/1                  dst_reg = b[0][0];
+164                           end
+165                           TILE_OP_DESC, TILE_OP_DESC_C: begin
+166        1/1                  commit_req.cmte.command = CMTE_CMD_DESC;
+167        1/1                  commit_req.cmte.amode = b[0][3:2];
+168        1/1                  commit_req.cmte.commit = b[0][7];
+169        1/1                  commit_req.cmte.wide = b[0][1];
+170        1/1                  commit_req.cmte.cell_width_m1 = b[1][7:3];
+171        1/1                  commit_req.cmte.num_cells_m1 = b[1][2:0];
+172        1/1                  if (b[0][0]) begin
+173        1/1                    commit_req.cmte.no_compare = b[2][7];
+174        1/1                    commit_req.cmte.guarded = b[2][6];
+175        1/1                    commit_req.slot = b[2][5:4];
+176                             end
+                        MISSING_ELSE
+177        1/1                  case (tile_amode_e'(b[0][3:2]))
+178                               TILE_AMODE_CONTIG, TILE_AMODE_INDEXED: begin end
+179                               TILE_AMODE_NEAR: begin
+180        1/1                      commit_req.cmte.desc_address = {{16{descriptor_tail[0][7]}},descriptor_tail[0]};
+181        1/1                      descriptor_wide_byte = descriptor_tail[1];
+182                               end
+183                               TILE_AMODE_ABS: begin
+184        1/1                      commit_req.cmte.desc_address = {descriptor_tail[0],descriptor_tail[1],descriptor_tail[2]};
+185        1/1                      descriptor_wide_byte = descriptor_tail[3];
+186                               end
+187                               default: begin end
+188                             endcase
+189        1/1                  if (b[0][1]) begin
+190        1/1                    commit_req.cmte.cell_width_m1 = WORD_IDX'(WORD_WIDTH-1);
+191        1/1                    commit_req.cmte.num_cells_m1 = '0;
+192        1/1                    commit_req.cmte.limb_count_m1 = descriptor_wide_byte[7:5];
+193        1/1                    commit_req.cmte.last_bits_m1 = descriptor_wide_byte[4:0];
+194                             end
+                        MISSING_ELSE
+195                           end
+196        1/1                TILE_OP_SYS: case (tile_sys_subop_e'(b[0][3:0]))
+197        1/1                  TILE_SYS_ENDL: load_cmd.kind = LOAD_END;
+198                             TILE_SYS_LOADI: begin end
+199        1/1                  TILE_SYS_ENDC: commit_req.cmte.command = CMTE_CMD_ENDC;
+200        1/1                  TILE_SYS_IDXPUSH_C: index_push_cmd.base_address = {b[1],b[2],b[3]};
+201                             TILE_SYS_IDXPUSH_L: begin
+202        1/1                    load_cmd.kind = LOAD_PUSH_INDEX_ADDRESS;
+203        1/1                    load_cmd.address = {b[1],b[2],b[3]};
+204                             end
+205                             TILE_SYS_SETC: begin
+206        1/1                    commit_req.cmte.command = CMTE_CMD_SETC;
+207        1/1                    commit_req.cmte.cursor_pos = b[1][7:3];
+208                             end
+209                             TILE_SYS_LD: begin
+210        1/1                    ra = b[1][7:3];
+211        1/1                    flag0 = b[1][2]; // LD.b supplies the commit value/guards.
+212                             end
+213                             TILE_SYS_MOV: begin
+214        1/1                    dst_reg = 1;
+215        1/1                    rd = b[1][7:3];
+216        1/1                    ra = b[2][7:3];
+217                             end
+218                             TILE_SYS_MUL: begin
+219        1/1                    dst_reg = b[1][1];
+220        1/1                    flag0 = b[1][2];
+221                             end
+222        0/1     ==>          default: ;
+223                           endcase
+224        0/1     ==>        default: ;
+225                         endcase
+226                     
+227        1/1              dispatch.end_load = op == TILE_OP_SYS && sub == TILE_SYS_ENDL;
+228        1/1              dispatch.end_compute = op == TILE_OP_SYS && sub == TILE_SYS_ENDC;
+229        1/1              dispatch.target.index_push = op == TILE_OP_SYS && sub == TILE_SYS_IDXPUSH_C;
+230        1/1              dispatch.descriptor = op == TILE_OP_DESC || op == TILE_OP_DESC_C;
+231        1/1              dispatch.set_cursor = op == TILE_OP_SYS && sub == TILE_SYS_SETC;
+232        1/1              dispatch.target.commit = dispatch.descriptor || dispatch.set_cursor || dispatch.end_compute;
+233        1/1              dispatch.indexed_descriptor = dispatch.descriptor && commit_req.cmte.amode == TILE_AMODE_INDEXED;
+234        1/1              dispatch.target.load = op == TILE_OP_LOADB || (op == TILE_OP_SYS &&
+235                           (sub == TILE_SYS_ENDL || sub == TILE_SYS_IDXPUSH_L));
+236        1/1              dispatch.target.datapath = !(dispatch.target.load || dispatch.target.commit || dispatch.target.index_push);
+237                     
+238                         // Resolve opcode-dependent controls after extracting the instruction fields.
+239                         // Runtime execute/start pulses remain the execution controller's responsibility.
+240        1/1              compute_cmd.execute.fu.shift_src_x = op == TILE_OP_STI || op == TILE_OP_IDXR;
+241        1/1              compute_cmd.execute.fu.shift_amt_sel = op == TILE_OP_IDXR ? TILE_SHIFT_AMT_INDEX :
+242                                                  op == TILE_OP_STI ? TILE_SHIFT_AMT_IMMEDIATE : TILE_SHIFT_AMT_X;
+243        1/1              compute_cmd.execute.fu.shift_right = op == TILE_OP_IDXR ? !flag0 :
+244                                                (op == TILE_OP_LDX || (op != TILE_OP_STI && flag0));
+245        1/1              compute_cmd.execute.fu.shift_arithmetic = (op == TILE_OP_SHIFT && flag1) ||
+246                                                     (op == TILE_OP_LDX && flag0);
+247        1/1              compute_cmd.execute.fu.shift_rotate = op == TILE_OP_ROT;
+248        1/1              compute_cmd.execute.fu.shift_ldx = op == TILE_OP_LDX;
+249        1/1              compute_cmd.execute.fu.logic_uniform = op == TILE_OP_LOGU;
+250        1/1              compute_cmd.execute.fu.logic_local = op == TILE_OP_LOGL;
+251        1/1              compute_cmd.execute.fu.mode = flag0;
+252        1/1              compute_cmd.execute.fu.arithmetic_compare = op == TILE_OP_CMP;
+253        1/1              compute_cmd.execute.fu.arithmetic_chain = flag1;
+254        1/1              compute_cmd.execute.fu.arithmetic_enable = op == TILE_OP_ARITH;
+255        1/1              compute_cmd.execute.fu.multiply_enable = op == TILE_OP_SYS && sub == TILE_SYS_MUL;
+256        1/1              compute_cmd.execute.fu.result_sel = TILE_FU_NONE;
+257        1/1              case (tile_opcode_e'(op))
+258                           TILE_OP_LOADB, TILE_OP_SETM, TILE_OP_LOGU, TILE_OP_LOGL,
+259        1/1                TILE_OP_ST, TILE_OP_DESC, TILE_OP_DESC_C: ; // No result-bearing functional unit.
+260        1/1                TILE_OP_ARITH, TILE_OP_CMP: compute_cmd.execute.fu.result_sel = TILE_FU_ARITH;
+261        1/1                TILE_OP_SHIFT, TILE_OP_ROT, TILE_OP_LDX, TILE_OP_STI: compute_cmd.execute.fu.result_sel = TILE_FU_SHIFT;
+262        1/1                TILE_OP_IDXR: compute_cmd.execute.fu.result_sel = TILE_FU_INDEX;
+263        1/1                TILE_OP_RED: compute_cmd.execute.fu.result_sel = TILE_FU_REDUCE;
+264        2/2                TILE_OP_SYS: if (compute_cmd.execute.fu.multiply_enable) compute_cmd.execute.fu.result_sel = TILE_FU_MULTIPLY;
+                        MISSING_ELSE
+265        0/1     ==>        default: ;
+266                         endcase
+267                     
+268                         // INSTRUCTION_REFERENCE.md sections 3.2-3.9: the RF stays two-read/one-write.
+269                         // An RF destination is read separately after operand capture, before merge.
+270        1/1              compute_cmd.capture.rs1_sel = ra;
+271        1/1              compute_cmd.capture.rs2_sel = rb;
+272        1/1              compute_cmd.execute.wb.rd_sel = rd;
+273        1/1              compute_cmd.execute.wb.mask_sel = mm;
+274        1/1              compute_cmd.capture.x_sel = X_ACC;
+275        1/1              compute_cmd.execute.wb.dest_sel = dst_reg ? DEST_RF : DEST_ACC;
+276        1/1              compute_cmd.execute.wb.merge_op = MERGE_MASKED;
+277        1/1              compute_cmd.execute.wb.full_mask = 1'b1;
+278        1/1              compute_cmd.capture.immediate = {b[1],b[2],b[3],b[4]};
+279        1/1              case (tile_opcode_e'(op))
+280                           TILE_OP_SETM: begin
+281        1/1                  compute_cmd.execute.wb.write_enable = 1'b1;
+282        1/1                  compute_cmd.execute.wb.dest_sel = DEST_MASK;
+283        1/1                  compute_cmd.capture.x_sel = X_IMMEDIATE;
+284        1/1                  if (!flag0) begin
+285        1/1                    compute_cmd.capture.immediate = WORD_WIDTH'(mask_nibble) << WORD_IDX'(compute_cmd.execute.params.arg.bit_offset * NIBBLE_WIDTH);
+286        1/1                    compute_cmd.execute.wb.merge_op = MERGE_FIELD;
+287                             end
+                        MISSING_ELSE
+288                           end
+289                           TILE_OP_LOGU, TILE_OP_LOGL: begin
+290        1/1                  compute_cmd.execute.wb.write_enable = 1'b1;
+291        1/1                  compute_cmd.capture.rs1_sel = rb;
+292        1/1                  compute_cmd.capture.rs2_sel = rc;
+293        1/1                  compute_cmd.execute.wb.full_mask = 1'b0;
+294        1/1                  compute_cmd.execute.wb.lane_mask = op == TILE_OP_LOGU && flag0;
+295                           end
+296                           TILE_OP_ST, TILE_OP_STI: begin
+297        1/1                  compute_cmd.execute.wb.write_enable = 1'b1;
+298        1/1                  compute_cmd.execute.wb.full_mask = 1'b0;
+299        1/1                  compute_cmd.execute.wb.result_arithmetic = op == TILE_OP_STI;
+300                           end
+301                           TILE_OP_LDX, TILE_OP_ROT: begin
+302        1/1                  compute_cmd.execute.wb.write_enable = 1'b1;
+303        1/1                  compute_cmd.execute.wb.result_arithmetic = 1'b1;
+304                           end
+305                           TILE_OP_ARITH, TILE_OP_CMP, TILE_OP_SHIFT: begin
+306        1/1                  compute_cmd.execute.wb.write_enable = 1'b1;
+307        1/1                  compute_cmd.capture.x_sel = X_RS2;
+308        1/1                  compute_cmd.execute.wb.full_mask = 1'b0;
+309        1/1                  compute_cmd.execute.wb.result_arithmetic = 1'b1;
+310                           end
+311                           TILE_OP_RED: begin
+312        1/1                  compute_cmd.execute.wb.write_enable = 1'b1;
+313        1/1                  compute_cmd.capture.x_sel = src_reg ? X_RS1 : X_ACC;
+314        1/1                  compute_cmd.execute.wb.result_arithmetic = 1'b1;
+315        1/1                  compute_cmd.execute.wb.merge_op = MERGE_FIELD;
+316                           end
+317                           TILE_OP_IDXR: begin
+318        1/1                  compute_cmd.execute.wb.write_enable = 1'b1;
+319        1/1                  compute_cmd.capture.rs1_sel = rb;
+320        1/1                  compute_cmd.capture.rs2_sel = ra;
+321        1/1                  compute_cmd.capture.x_sel = flag0 ? X_ACC : X_RS2;
+322        1/1                  compute_cmd.execute.wb.result_arithmetic = 1'b1;
+323        1/1                  compute_cmd.execute.wb.index_bounds = 1'b1;
+324        1/1                  compute_cmd.execute.wb.merge_op = flag0 ? MERGE_FIELD : MERGE_ZERO_EXT;
+325                           end
+326        1/1                TILE_OP_SYS: case (tile_sys_subop_e'(sub))
+327                             TILE_SYS_LOADI: begin
+328        1/1                    compute_cmd.execute.wb.write_enable = 1'b1;
+329        1/1                    compute_cmd.capture.x_sel = X_IMMEDIATE;
+330                             end
+331                             TILE_SYS_LD: begin
+332        1/1                    compute_cmd.execute.wb.write_enable = 1'b1;
+333        1/1                    compute_cmd.capture.x_sel = X_RS1;
+334        1/1                    compute_cmd.capture.rs2_sel = TILE_GUARD_REG;
+335        1/1                    compute_cmd.execute.wb.publish = flag0;
+336                             end
+337                             TILE_SYS_MOV: begin
+338        1/1                    compute_cmd.execute.wb.write_enable = 1'b1;
+339        1/1                    compute_cmd.capture.x_sel = X_RS1;
+340        1/1                    compute_cmd.execute.wb.full_mask = 1'b0;
+341                             end
+342                             TILE_SYS_MUL: begin
+343        1/1                    compute_cmd.execute.wb.write_enable = 1'b1;
+344        1/1                    compute_cmd.capture.x_sel = X_RS2;
+345        1/1                    compute_cmd.execute.wb.result_arithmetic = 1'b1;
+346                             end
+347        1/1                  default: ;
+348                           endcase
+349        1/1                default: ;
+350                         endcase
+351        1/1              cmd_o.dispatch = dispatch;
+352        2/2              if (dispatch.target.load) cmd_o.payload.load.cmd = load_cmd;
+353        2/2              else if (dispatch.target.commit) cmd_o.payload.commit.cmd = commit_req;
+354        2/2              else if (dispatch.target.index_push) cmd_o.payload.index_push.cmd = index_push_cmd;
+355        1/1              else cmd_o.payload.compute = compute_cmd;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : decode
+
+               Total   Covered  Percent
+Conditions        162      159    98.15
+Logical           162      159    98.15
+Non-Logical         0        0
+Event               0        0
+
+ LINE       58
+ EXPRESSION 
+ Number  Term
+      1  ((tile_loadb_form_e'(b[0][3:1]) == TILE_LOADB_BITS_NEAR) || (tile_loadb_form_e'(b[0][3:1]) == TILE_LOADB_DATA_NEAR)) ? ({16'b0, b[2]}) : ({b[2], b[3], b[4]}))
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       58
+ SUB-EXPRESSION ((tile_loadb_form_e'(b[0][3:1]) == TILE_LOADB_BITS_NEAR) || (tile_loadb_form_e'(b[0][3:1]) == TILE_LOADB_DATA_NEAR))
+                 ---------------------------1---------------------------    ---------------------------2---------------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       58
+ SUB-EXPRESSION (tile_loadb_form_e'(b[0][3:1]) == TILE_LOADB_BITS_NEAR)
+                ---------------------------1---------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       58
+ SUB-EXPRESSION (tile_loadb_form_e'(b[0][3:1]) == TILE_LOADB_DATA_NEAR)
+                ---------------------------1---------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       76
+ EXPRESSION (b[0][1] ? LOAD_BITS_NEAR : LOAD_BITS)
+             ---1---
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       81
+ EXPRESSION (b[0][1] ? LOAD_DATA_NEAR : LOAD_DATA)
+             ---1---
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       106
+ EXPRESSION (tile_opcode_e'(b[0][7:4]) == TILE_OP_LOGU)
+            ---------------------1---------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       151
+ EXPRESSION (b[0][3:2] != tile_pkg::TILE_RED_ACC_SOURCE)
+            ----------------------1---------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       154
+ EXPRESSION (src_reg ? b[1][4:0] : 5'b0)
+             ---1---
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       227
+ EXPRESSION ((op == TILE_OP_SYS) && (sub == TILE_SYS_ENDL))
+             ---------1---------    -----------2----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       227
+ SUB-EXPRESSION (op == TILE_OP_SYS)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       227
+ SUB-EXPRESSION (sub == TILE_SYS_ENDL)
+                -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       228
+ EXPRESSION ((op == TILE_OP_SYS) && (sub == TILE_SYS_ENDC))
+             ---------1---------    -----------2----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       228
+ SUB-EXPRESSION (op == TILE_OP_SYS)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       228
+ SUB-EXPRESSION (sub == TILE_SYS_ENDC)
+                -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       229
+ EXPRESSION ((op == TILE_OP_SYS) && (sub == TILE_SYS_IDXPUSH_C))
+             ---------1---------    -------------2-------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       229
+ SUB-EXPRESSION (op == TILE_OP_SYS)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       229
+ SUB-EXPRESSION (sub == TILE_SYS_IDXPUSH_C)
+                -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       230
+ EXPRESSION ((op == TILE_OP_DESC) || (op == TILE_OP_DESC_C))
+             ----------1---------    -----------2----------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       230
+ SUB-EXPRESSION (op == TILE_OP_DESC)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       230
+ SUB-EXPRESSION (op == TILE_OP_DESC_C)
+                -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       231
+ EXPRESSION ((op == TILE_OP_SYS) && (sub == TILE_SYS_SETC))
+             ---------1---------    -----------2----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       231
+ SUB-EXPRESSION (op == TILE_OP_SYS)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       231
+ SUB-EXPRESSION (sub == TILE_SYS_SETC)
+                -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       232
+ EXPRESSION (dispatch.descriptor || dispatch.set_cursor || dispatch.end_compute)
+             ---------1---------    ---------2---------    ----------3---------
+
+-1- -2- -3- Status
+ 0   0   0  Covered
+ 0   0   1  Covered
+ 0   1   0  Covered
+ 1   0   0  Covered
+
+ LINE       233
+ EXPRESSION (dispatch.descriptor && (commit_req.cmte.amode == TILE_AMODE_INDEXED))
+             ---------1---------    ----------------------2----------------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       233
+ SUB-EXPRESSION (commit_req.cmte.amode == TILE_AMODE_INDEXED)
+                ----------------------1----------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       234
+ EXPRESSION ((op == TILE_OP_LOADB) || ((op == TILE_OP_SYS) && ((sub == TILE_SYS_ENDL) || (sub == TILE_SYS_IDXPUSH_L))))
+             ----------1----------    ----------------------------------------2---------------------------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       234
+ SUB-EXPRESSION (op == TILE_OP_LOADB)
+                ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       234
+ SUB-EXPRESSION ((op == TILE_OP_SYS) && ((sub == TILE_SYS_ENDL) || (sub == TILE_SYS_IDXPUSH_L)))
+                 ---------1---------    ---------------------------2---------------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       234
+ SUB-EXPRESSION (op == TILE_OP_SYS)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       234
+ SUB-EXPRESSION ((sub == TILE_SYS_ENDL) || (sub == TILE_SYS_IDXPUSH_L))
+                 -----------1----------    -------------2-------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       234
+ SUB-EXPRESSION (sub == TILE_SYS_ENDL)
+                -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       234
+ SUB-EXPRESSION (sub == TILE_SYS_IDXPUSH_L)
+                -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       236
+ EXPRESSION ( ! (dispatch.target.load || dispatch.target.commit || dispatch.target.index_push) )
+                ---------------------------------------1--------------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       236
+ SUB-EXPRESSION (dispatch.target.load || dispatch.target.commit || dispatch.target.index_push)
+                 ----------1---------    -----------2----------    -------------3------------
+
+-1- -2- -3- Status
+ 0   0   0  Covered
+ 0   0   1  Covered
+ 0   1   0  Covered
+ 1   0   0  Covered
+
+ LINE       240
+ EXPRESSION ((op == TILE_OP_STI) || (op == TILE_OP_IDXR))
+             ---------1---------    ----------2---------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       240
+ SUB-EXPRESSION (op == TILE_OP_STI)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       240
+ SUB-EXPRESSION (op == TILE_OP_IDXR)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       241
+ EXPRESSION ((op == TILE_OP_IDXR) ? TILE_SHIFT_AMT_INDEX : ((op == TILE_OP_STI) ? TILE_SHIFT_AMT_IMMEDIATE : TILE_SHIFT_AMT_X))
+             ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       241
+ SUB-EXPRESSION (op == TILE_OP_IDXR)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       241
+ SUB-EXPRESSION ((op == TILE_OP_STI) ? TILE_SHIFT_AMT_IMMEDIATE : TILE_SHIFT_AMT_X)
+                 ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       241
+ SUB-EXPRESSION (op == TILE_OP_STI)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       243
+ EXPRESSION ((op == TILE_OP_IDXR) ? ((!flag0)) : ((op == TILE_OP_LDX) || ((op != TILE_OP_STI) && flag0)))
+             ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       243
+ SUB-EXPRESSION (op == TILE_OP_IDXR)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       243
+ SUB-EXPRESSION ((op == TILE_OP_LDX) || ((op != TILE_OP_STI) && flag0))
+                 ---------1---------    ---------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       243
+ SUB-EXPRESSION (op == TILE_OP_LDX)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       243
+ SUB-EXPRESSION ((op != TILE_OP_STI) && flag0)
+                 ---------1---------    --2--
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       243
+ SUB-EXPRESSION (op != TILE_OP_STI)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       245
+ EXPRESSION (((op == TILE_OP_SHIFT) && flag1) || ((op == TILE_OP_LDX) && flag0))
+             ----------------1---------------    ---------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       245
+ SUB-EXPRESSION ((op == TILE_OP_SHIFT) && flag1)
+                 ----------1----------    --2--
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       245
+ SUB-EXPRESSION (op == TILE_OP_SHIFT)
+                ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       245
+ SUB-EXPRESSION ((op == TILE_OP_LDX) && flag0)
+                 ---------1---------    --2--
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       245
+ SUB-EXPRESSION (op == TILE_OP_LDX)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       247
+ EXPRESSION (op == TILE_OP_ROT)
+            ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       248
+ EXPRESSION (op == TILE_OP_LDX)
+            ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       249
+ EXPRESSION (op == TILE_OP_LOGU)
+            ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       250
+ EXPRESSION (op == TILE_OP_LOGL)
+            ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       252
+ EXPRESSION (op == TILE_OP_CMP)
+            ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       254
+ EXPRESSION (op == TILE_OP_ARITH)
+            ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       255
+ EXPRESSION ((op == TILE_OP_SYS) && (sub == TILE_SYS_MUL))
+             ---------1---------    ----------2----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       255
+ SUB-EXPRESSION (op == TILE_OP_SYS)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       255
+ SUB-EXPRESSION (sub == TILE_SYS_MUL)
+                ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       275
+ EXPRESSION (dst_reg ? DEST_RF : DEST_ACC)
+             ---1---
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       294
+ EXPRESSION ((op == TILE_OP_LOGU) && flag0)
+             ----------1---------    --2--
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       294
+ SUB-EXPRESSION (op == TILE_OP_LOGU)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       299
+ EXPRESSION (op == TILE_OP_STI)
+            ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       313
+ EXPRESSION (src_reg ? X_RS1 : X_ACC)
+             ---1---
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       321
+ EXPRESSION (flag0 ? X_ACC : X_RS2)
+             --1--
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       324
+ EXPRESSION (flag0 ? MERGE_FIELD : MERGE_ZERO_EXT)
+             --1--
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : decode
+                Total Covered Percent 
+Totals          80    79      98.75   
+Total Bits      1236  1235    99.92   
+Total Bits 0->1 618   618     100.00  
+Total Bits 1->0 618   617     99.84   
+
+                                
+Ports          78   77   98.72  
+Port Bits      1156 1155 99.91  
+Port Bits 0->1 578  578  100.00 
+Port Bits 1->0 578  577  99.83  
+
+                              
+Signals          2  2  100.00 
+Signal Bits      80 80 100.00 
+Signal Bits 0->1 40 40 100.00 
+Signal Bits 1->0 40 40 100.00 
+
+Port Details
+                                                                    Toggle Toggle 1->0 Toggle 0->1 Direction 
+instruction_i[55:0]                                                 Yes    Yes         Yes         INPUT     
+cmd_o.payload.index_push.cmd.base_address[23:0]                     Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.index_push.unused[93:0]                               Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.slot[1:0]                                  Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.last_bits_m1[4:0]                     Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.limb_count_m1[2:0]                    Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.commit                                Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.no_compare                            Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.guarded                               Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.wide                                  Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.num_cells_m1[2:0]                     Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.cell_width_m1[4:0]                    Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.desc_address[23:0]                    Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.cursor_pos[4:0]                       Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.amode[1:0]                            Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.cmd.cmte.command[1:0]                          Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.commit.unused[62:0]                                   Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.load.cmd.capture_addr                                 Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.load.cmd.use_index                                    Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.load.cmd.align_new                                    Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.load.cmd.last_bits_m1[2:0]                            Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.load.cmd.byte_count[6:0]                              Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.load.cmd.gather_mask[7:0]                             Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.load.cmd.address[23:0]                                Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.load.cmd.form[1:0]                                    Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.load.cmd.kind[1:0]                                    Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.load.unused[68:0]                                     Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.wb.publish                            Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.wb.lane_mask                          Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.wb.full_mask                          Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.wb.index_bounds                       Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.wb.result_arithmetic                  Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.wb.write_enable                       Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.wb.merge_op[1:0]                      Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.wb.dest_sel[1:0]                      Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.wb.mask_sel[2:0]                      Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.wb.rd_sel[4:0]                        Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.logic_payload.uniform.lane_en[7:0]    Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.logic_payload.uniform.table_bits[7:0] Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.logic_payload.uniform.unused[7:0]     Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.logic_payload.functions[23:0]         Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.params.arg.nibble_merge.nibble[2:0]   Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.params.arg.nibble_merge.unused[1:0]   Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.params.arg.indexed.size_code[2:0]     Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.params.arg.indexed.unused[1:0]        Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.params.arg.rotate_amount[4:0]         Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.params.arg.bit_offset[4:0]            Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.params.field_width[5:0]               Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.params.fn.reduce_function[1:0]        Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.params.fn.compare_condition[1:0]      Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.params.group_code[1:0]                Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.multiply_enable                    Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.arithmetic_enable                  Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.arithmetic_chain                   Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.arithmetic_compare                 Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.mode                               Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.logic_local                        Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.logic_uniform                      Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.shift_ldx                          Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.shift_rotate                       Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.shift_arithmetic                   Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.shift_right                        Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.shift_src_x                        Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.shift_amt_sel[1:0]                 Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.execute.fu.result_sel[2:0]                    Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.capture.immediate[31:0]                       Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.capture.x_sel[1:0]                            Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.capture.rs2_sel[4:0]                          Yes    Yes         Yes         OUTPUT    
+cmd_o.payload.compute.capture.rs1_sel[4:0]                          Yes    Yes         Yes         OUTPUT    
+cmd_o.dispatch.indexed_descriptor                                   Yes    Yes         Yes         OUTPUT    
+cmd_o.dispatch.set_cursor                                           Yes    Yes         Yes         OUTPUT    
+cmd_o.dispatch.descriptor                                           Yes    Yes         Yes         OUTPUT    
+cmd_o.dispatch.end_compute                                          No     No          Yes         OUTPUT    
+cmd_o.dispatch.end_load                                             Yes    Yes         Yes         OUTPUT    
+cmd_o.dispatch.target.index_push                                    Yes    Yes         Yes         OUTPUT    
+cmd_o.dispatch.target.commit                                        Yes    Yes         Yes         OUTPUT    
+cmd_o.dispatch.target.datapath                                      Yes    Yes         Yes         OUTPUT    
+cmd_o.dispatch.target.load                                          Yes    Yes         Yes         OUTPUT    
+
+Signal Details
+                          Toggle Toggle 1->0 Toggle 0->1 
+descriptor_tail[3:0][7:0] Yes    Yes         Yes         
+descriptor_wide_byte[7:0] Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : decode
+         Line No. Total Covered Percent 
+Branches          86    80      93.02   
+CASE     53       49    44      89.80   
+TERNARY  241      3     3       100.00  
+TERNARY  243      2     2       100.00  
+CASE     257      8     7       87.50   
+TERNARY  275      2     2       100.00  
+CASE     279      18    18      100.00  
+IF       352      4     4       100.00  
+
+
+53             case (tile_opcode_e'(b[0][7:4]))
+               -1-  
+54               TILE_OP_LOADB: begin
+55                 load_cmd.kind = LOAD_RF;
+56                 load_cmd.form = LOAD_DATA;
+57                 load_cmd.use_index = b[0][0];
+58                 load_cmd.address = (tile_loadb_form_e'(b[0][3:1]) == TILE_LOADB_BITS_NEAR ||
+                                                                                               
+59                     tile_loadb_form_e'(b[0][3:1]) == TILE_LOADB_DATA_NEAR) ? {16'b0,b[2]} : {b[2],b[3],b[4]};
+                                                                              -2-  
+                                                                              ==>  
+                                                                              ==>  
+60                 load_cmd.gather_mask = b[1];
+61                 load_cmd.align_new = b[1][1];
+62                 load_cmd.last_bits_m1 = b[1][4:2];
+63                 case (tile_load_size_e'(b[1][7:5]))
+                   -3-  
+64                   TILE_LOAD_SIZE_1B: load_cmd.byte_count = 1;
+                     ==>
+65                   TILE_LOAD_SIZE_2B: load_cmd.byte_count = 2;
+                     ==>
+66                   TILE_LOAD_SIZE_3B: load_cmd.byte_count = 3;
+                     ==>
+67                   TILE_LOAD_SIZE_4B: load_cmd.byte_count = 4;
+                     ==>
+68                   TILE_LOAD_SIZE_6B: load_cmd.byte_count = 6;
+                     ==>
+69                   TILE_LOAD_SIZE_8B: load_cmd.byte_count = 8;
+                     ==>
+70                   TILE_LOAD_SIZE_12B: load_cmd.byte_count = 12;
+                     ==>
+71                   TILE_LOAD_SIZE_16B: load_cmd.byte_count = 16;
+                     ==>
+72                   default: ;
+                     ==>
+73                 endcase
+74                 case (tile_loadb_form_e'(b[0][3:1]))
+                   -4-  
+75                   TILE_LOADB_BITS, TILE_LOADB_BITS_NEAR: begin
+76                     load_cmd.form = b[0][1] ? LOAD_BITS_NEAR : LOAD_BITS;
+                                               -5-  
+                                               ==>  
+                                               ==>  
+77                     load_cmd.byte_count = 1;
+78                     load_cmd.align_new = 0;
+79                   end
+80                   TILE_LOADB_DATA, TILE_LOADB_DATA_NEAR: begin
+81                     load_cmd.form = b[0][1] ? LOAD_DATA_NEAR : LOAD_DATA;
+                                               -6-  
+                                               ==>  
+                                               ==>  
+82                     load_cmd.capture_addr = b[1][0];
+83                   end
+84                   TILE_LOADB_DATA_EXT: begin
+85                     load_cmd.byte_count = {1'b0,b[1][7:2]} + 7'd1;
+                       ==>
+86                     load_cmd.last_bits_m1 = TILE_BYTE_IDX'(TILE_BYTE_WIDTH-1);
+87                     load_cmd.capture_addr = b[1][0];
+88                   end
+89                   TILE_LOADB_INDEX: begin
+90                     load_cmd.kind = LOAD_INDEX_VALUE;
+                       ==>
+91                     load_cmd.byte_count = {5'b0,b[1][7:6]} + 7'd1;
+92                   end
+93                   default: ;
+                     ==>
+94                 endcase
+95               end
+96               TILE_OP_SETM: begin
+97                 mm = b[0][3:1];
+                   ==>
+98                 flag0 = b[0][0];
+99                 compute_cmd.execute.params.arg.bit_offset = {2'b0,b[1][7:5]};
+100                mask_nibble = b[1][4:1];
+101              end
+102              TILE_OP_LOGU, TILE_OP_LOGL: begin
+103                rb = {2'b0,b[0][3:1]};
+104                rc = {2'b0,b[1][7:5]};
+105                mm = b[1][4:2];
+106                if (tile_opcode_e'(b[0][7:4]) == TILE_OP_LOGU) begin
+                   -7-  
+107                  compute_cmd.execute.logic_payload.uniform.table_bits = b[2];
+                     ==>
+108                  compute_cmd.execute.logic_payload.uniform.lane_en = b[3];
+109                  flag0 = b[0][0];
+110                end else begin
+111                  compute_cmd.execute.logic_payload.functions = {b[2],b[3],b[4]};
+                     ==>
+112                  dst_reg = b[1][0];
+113                  rd = b[5][7:3];
+114                end
+115              end
+116              TILE_OP_ST: begin
+117                dst_reg = 1;
+                   ==>
+118                rd = b[1][7:3];
+119              end
+120              TILE_OP_LDX: begin
+121                flag0 = b[0][3];
+                   ==>
+122                // The five-bit field encodes width-1, not the high endpoint.
+123                compute_cmd.execute.params.field_width = {1'b0,b[1][1:0],b[2][7:5]} + $bits(compute_cmd.execute.params.field_width)'(unsigned'(1));
+124                compute_cmd.execute.params.arg.bit_offset = b[2][4:0];
+125              end
+126              TILE_OP_STI: begin
+127                dst_reg = 1;
+                   ==>
+128                rd = b[1][7:3];
+129                compute_cmd.execute.params.arg.bit_offset = b[2][7:3];
+130              end
+131              TILE_OP_ROT: begin
+132                ra = {2'b0,b[0][3:1]};
+                   ==>
+133                compute_cmd.execute.params.arg.bit_offset = b[1][7:3];
+134              end
+135              TILE_OP_ARITH: begin
+136                flag0 = b[0][3];
+                   ==>
+137                flag1 = b[1][2];
+138                compute_cmd.execute.params.group_code = b[0][2:1];
+139                mm = b[2][2:0];
+140                dst_reg = b[1][1];
+141              end
+142              TILE_OP_CMP, TILE_OP_SHIFT: begin
+143                compute_cmd.execute.params.group_code = b[0][1:0];
+                   ==>
+144                compute_cmd.execute.params.fn = compute_function_u'(b[0][3:2]);
+145                flag0 = b[0][3];
+146                flag1 = b[0][2];
+147                mm = b[2][2:0];
+148                dst_reg = b[1][2];
+149              end
+150              TILE_OP_RED: begin
+151                src_reg = (b[0][3:2] != TILE_RED_ACC_SOURCE);
+152                compute_cmd.execute.params.fn = compute_function_u'(src_reg ? b[0][3:2] : b[1][4:3]);
+153                compute_cmd.execute.params.field_width = {1'b0,b[0][1:0],b[1][7:5]} + 6'd1;
+154                ra = src_reg ? b[1][4:0] : 5'd0;
+                                -8-  
+                                ==>  
+                                ==>  
+155              end
+156              TILE_OP_IDXR: begin
+157                ra = {2'b0,b[0][3:1]};
+                   ==>
+158                rb = b[1][7:3];
+159                flag0 = b[0][0];
+160                compute_cmd.execute.params.field_width = 6'd1 << b[1][2:0];
+161                compute_cmd.execute.params.arg.bit_offset = {2'b0,b[1][2:0]};
+162                rd = ra;
+163                dst_reg = b[0][0];
+164              end
+165              TILE_OP_DESC, TILE_OP_DESC_C: begin
+166                commit_req.cmte.command = CMTE_CMD_DESC;
+167                commit_req.cmte.amode = b[0][3:2];
+168                commit_req.cmte.commit = b[0][7];
+169                commit_req.cmte.wide = b[0][1];
+170                commit_req.cmte.cell_width_m1 = b[1][7:3];
+171                commit_req.cmte.num_cells_m1 = b[1][2:0];
+172                if (b[0][0]) begin
+                   -9-  
+173                  commit_req.cmte.no_compare = b[2][7];
+                     ==>
+174                  commit_req.cmte.guarded = b[2][6];
+175                  commit_req.slot = b[2][5:4];
+176                end
+                   MISSING_ELSE
+                   ==>
+177                case (tile_amode_e'(b[0][3:2]))
+                   -10-  
+178                  TILE_AMODE_CONTIG, TILE_AMODE_INDEXED: begin end
+                     ==>
+179                  TILE_AMODE_NEAR: begin
+180                    commit_req.cmte.desc_address = {{16{descriptor_tail[0][7]}},descriptor_tail[0]};
+                       ==>
+181                    descriptor_wide_byte = descriptor_tail[1];
+182                  end
+183                  TILE_AMODE_ABS: begin
+184                    commit_req.cmte.desc_address = {descriptor_tail[0],descriptor_tail[1],descriptor_tail[2]};
+                       ==>
+185                    descriptor_wide_byte = descriptor_tail[3];
+186                  end
+187                  default: begin end
+                     ==>
+188                endcase
+189                if (b[0][1]) begin
+                   -11-  
+190                  commit_req.cmte.cell_width_m1 = WORD_IDX'(WORD_WIDTH-1);
+                     ==>
+191                  commit_req.cmte.num_cells_m1 = '0;
+192                  commit_req.cmte.limb_count_m1 = descriptor_wide_byte[7:5];
+193                  commit_req.cmte.last_bits_m1 = descriptor_wide_byte[4:0];
+194                end
+                   MISSING_ELSE
+                   ==>
+195              end
+196              TILE_OP_SYS: case (tile_sys_subop_e'(b[0][3:0]))
+                              -12-  
+197                TILE_SYS_ENDL: load_cmd.kind = LOAD_END;
+                   ==>
+198                TILE_SYS_LOADI: begin end
+                   ==>
+199                TILE_SYS_ENDC: commit_req.cmte.command = CMTE_CMD_ENDC;
+                   ==>
+200                TILE_SYS_IDXPUSH_C: index_push_cmd.base_address = {b[1],b[2],b[3]};
+                   ==>
+201                TILE_SYS_IDXPUSH_L: begin
+202                  load_cmd.kind = LOAD_PUSH_INDEX_ADDRESS;
+                     ==>
+203                  load_cmd.address = {b[1],b[2],b[3]};
+204                end
+205                TILE_SYS_SETC: begin
+206                  commit_req.cmte.command = CMTE_CMD_SETC;
+                     ==>
+207                  commit_req.cmte.cursor_pos = b[1][7:3];
+208                end
+209                TILE_SYS_LD: begin
+210                  ra = b[1][7:3];
+                     ==>
+211                  flag0 = b[1][2]; // LD.b supplies the commit value/guards.
+212                end
+213                TILE_SYS_MOV: begin
+214                  dst_reg = 1;
+                     ==>
+215                  rd = b[1][7:3];
+216                  ra = b[2][7:3];
+217                end
+218                TILE_SYS_MUL: begin
+219                  dst_reg = b[1][1];
+                     ==>
+220                  flag0 = b[1][2];
+221                end
+222                default: ;
+                   ==>
+223              endcase
+224              default: ;
+                 ==>
+
+Branches:
+
+-1-                          -2- -3-                 -4-                                   -5- -6- -7- -8- -9- -10-                                  -11- -12-                Status      
+TILE_OP_LOADB                1   -                   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                0   -                   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   TILE_LOAD_SIZE_1B   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   TILE_LOAD_SIZE_2B   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   TILE_LOAD_SIZE_3B   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   TILE_LOAD_SIZE_4B   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   TILE_LOAD_SIZE_6B   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   TILE_LOAD_SIZE_8B   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   TILE_LOAD_SIZE_12B  -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   TILE_LOAD_SIZE_16B  -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   default             -                                     -   -   -   -   -   -                                     -    -                   Not Covered 
+TILE_OP_LOADB                -   -                   TILE_LOADB_BITS TILE_LOADB_BITS_NEAR  1   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   -                   TILE_LOADB_BITS TILE_LOADB_BITS_NEAR  0   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   -                   TILE_LOADB_DATA TILE_LOADB_DATA_NEAR  -   1   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   -                   TILE_LOADB_DATA TILE_LOADB_DATA_NEAR  -   0   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   -                   TILE_LOADB_DATA_EXT                   -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   -                   TILE_LOADB_INDEX                      -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOADB                -   -                   default                               -   -   -   -   -   -                                     -    -                   Not Covered 
+TILE_OP_SETM                 -   -                   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LOGU TILE_OP_LOGL    -   -                   -                                     -   -   1   -   -   -                                     -    -                   Covered     
+TILE_OP_LOGU TILE_OP_LOGL    -   -                   -                                     -   -   0   -   -   -                                     -    -                   Covered     
+TILE_OP_ST                   -   -                   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_LDX                  -   -                   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_STI                  -   -                   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_ROT                  -   -                   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_ARITH                -   -                   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_CMP TILE_OP_SHIFT    -   -                   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_RED                  -   -                   -                                     -   -   -   1   -   -                                     -    -                   Covered     
+TILE_OP_RED                  -   -                   -                                     -   -   -   0   -   -                                     -    -                   Covered     
+TILE_OP_IDXR                 -   -                   -                                     -   -   -   -   -   -                                     -    -                   Covered     
+TILE_OP_DESC TILE_OP_DESC_C  -   -                   -                                     -   -   -   -   1   -                                     -    -                   Covered     
+TILE_OP_DESC TILE_OP_DESC_C  -   -                   -                                     -   -   -   -   0   -                                     -    -                   Covered     
+TILE_OP_DESC TILE_OP_DESC_C  -   -                   -                                     -   -   -   -   -   TILE_AMODE_CONTIG TILE_AMODE_INDEXED  -    -                   Covered     
+TILE_OP_DESC TILE_OP_DESC_C  -   -                   -                                     -   -   -   -   -   TILE_AMODE_NEAR                       -    -                   Covered     
+TILE_OP_DESC TILE_OP_DESC_C  -   -                   -                                     -   -   -   -   -   TILE_AMODE_ABS                        -    -                   Covered     
+TILE_OP_DESC TILE_OP_DESC_C  -   -                   -                                     -   -   -   -   -   default                               -    -                   Not Covered 
+TILE_OP_DESC TILE_OP_DESC_C  -   -                   -                                     -   -   -   -   -   -                                     1    -                   Covered     
+TILE_OP_DESC TILE_OP_DESC_C  -   -                   -                                     -   -   -   -   -   -                                     0    -                   Covered     
+TILE_OP_SYS                  -   -                   -                                     -   -   -   -   -   -                                     -    TILE_SYS_ENDL       Covered     
+TILE_OP_SYS                  -   -                   -                                     -   -   -   -   -   -                                     -    TILE_SYS_LOADI      Covered     
+TILE_OP_SYS                  -   -                   -                                     -   -   -   -   -   -                                     -    TILE_SYS_ENDC       Covered     
+TILE_OP_SYS                  -   -                   -                                     -   -   -   -   -   -                                     -    TILE_SYS_IDXPUSH_C  Covered     
+TILE_OP_SYS                  -   -                   -                                     -   -   -   -   -   -                                     -    TILE_SYS_IDXPUSH_L  Covered     
+TILE_OP_SYS                  -   -                   -                                     -   -   -   -   -   -                                     -    TILE_SYS_SETC       Covered     
+TILE_OP_SYS                  -   -                   -                                     -   -   -   -   -   -                                     -    TILE_SYS_LD         Covered     
+TILE_OP_SYS                  -   -                   -                                     -   -   -   -   -   -                                     -    TILE_SYS_MOV        Covered     
+TILE_OP_SYS                  -   -                   -                                     -   -   -   -   -   -                                     -    TILE_SYS_MUL        Covered     
+TILE_OP_SYS                  -   -                   -                                     -   -   -   -   -   -                                     -    default             Not Covered 
+default                      -   -                   -                                     -   -   -   -   -   -                                     -    -                   Not Covered 
+
+
+241            compute_cmd.execute.fu.shift_amt_sel = op == TILE_OP_IDXR ? TILE_SHIFT_AMT_INDEX :
+                                                                         -1-  
+                                                                         ==>  
+242                                     op == TILE_OP_STI ? TILE_SHIFT_AMT_IMMEDIATE : TILE_SHIFT_AMT_X;
+                                                          -2-  
+                                                          ==>  
+                                                          ==>  
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+243            compute_cmd.execute.fu.shift_right = op == TILE_OP_IDXR ? !flag0 :
+                                                                       -1-  
+                                                                       ==>  
+                                                                       ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+257            case (tile_opcode_e'(op))
+               -1-  
+258              TILE_OP_LOADB, TILE_OP_SETM, TILE_OP_LOGU, TILE_OP_LOGL,
+259              TILE_OP_ST, TILE_OP_DESC, TILE_OP_DESC_C: ; // No result-bearing functional unit.
+                 ==>
+260              TILE_OP_ARITH, TILE_OP_CMP: compute_cmd.execute.fu.result_sel = TILE_FU_ARITH;
+                 ==>
+261              TILE_OP_SHIFT, TILE_OP_ROT, TILE_OP_LDX, TILE_OP_STI: compute_cmd.execute.fu.result_sel = TILE_FU_SHIFT;
+                 ==>
+262              TILE_OP_IDXR: compute_cmd.execute.fu.result_sel = TILE_FU_INDEX;
+                 ==>
+263              TILE_OP_RED: compute_cmd.execute.fu.result_sel = TILE_FU_REDUCE;
+                 ==>
+264              TILE_OP_SYS: if (compute_cmd.execute.fu.multiply_enable) compute_cmd.execute.fu.result_sel = TILE_FU_MULTIPLY;
+                              -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+265              default: ;
+                 ==>
+
+Branches:
+
+-1-                                                                                                      -2- Status      
+CASEITEM-1: TILE_OP_LOADB TILE_OP_SETM TILE_OP_LOGU TILE_OP_LOGL TILE_OP_ST TILE_OP_DESC TILE_OP_DESC_C  -   Covered     
+TILE_OP_ARITH TILE_OP_CMP                                                                                -   Covered     
+TILE_OP_SHIFT TILE_OP_ROT TILE_OP_LDX TILE_OP_STI                                                        -   Covered     
+TILE_OP_IDXR                                                                                             -   Covered     
+TILE_OP_RED                                                                                              -   Covered     
+TILE_OP_SYS                                                                                              1   Covered     
+TILE_OP_SYS                                                                                              0   Covered     
+default                                                                                                  -   Not Covered 
+
+
+275            compute_cmd.execute.wb.dest_sel = dst_reg ? DEST_RF : DEST_ACC;
+                                                         -1-  
+                                                         ==>  
+                                                         ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+279            case (tile_opcode_e'(op))
+               -1-  
+280              TILE_OP_SETM: begin
+281                compute_cmd.execute.wb.write_enable = 1'b1;
+282                compute_cmd.execute.wb.dest_sel = DEST_MASK;
+283                compute_cmd.capture.x_sel = X_IMMEDIATE;
+284                if (!flag0) begin
+                   -2-  
+285                  compute_cmd.capture.immediate = WORD_WIDTH'(mask_nibble) << WORD_IDX'(compute_cmd.execute.params.arg.bit_offset * NIBBLE_WIDTH);
+                     ==>
+286                  compute_cmd.execute.wb.merge_op = MERGE_FIELD;
+287                end
+                   MISSING_ELSE
+                   ==>
+288              end
+289              TILE_OP_LOGU, TILE_OP_LOGL: begin
+290                compute_cmd.execute.wb.write_enable = 1'b1;
+                   ==>
+291                compute_cmd.capture.rs1_sel = rb;
+292                compute_cmd.capture.rs2_sel = rc;
+293                compute_cmd.execute.wb.full_mask = 1'b0;
+294                compute_cmd.execute.wb.lane_mask = op == TILE_OP_LOGU && flag0;
+295              end
+296              TILE_OP_ST, TILE_OP_STI: begin
+297                compute_cmd.execute.wb.write_enable = 1'b1;
+                   ==>
+298                compute_cmd.execute.wb.full_mask = 1'b0;
+299                compute_cmd.execute.wb.result_arithmetic = op == TILE_OP_STI;
+300              end
+301              TILE_OP_LDX, TILE_OP_ROT: begin
+302                compute_cmd.execute.wb.write_enable = 1'b1;
+                   ==>
+303                compute_cmd.execute.wb.result_arithmetic = 1'b1;
+304              end
+305              TILE_OP_ARITH, TILE_OP_CMP, TILE_OP_SHIFT: begin
+306                compute_cmd.execute.wb.write_enable = 1'b1;
+                   ==>
+307                compute_cmd.capture.x_sel = X_RS2;
+308                compute_cmd.execute.wb.full_mask = 1'b0;
+309                compute_cmd.execute.wb.result_arithmetic = 1'b1;
+310              end
+311              TILE_OP_RED: begin
+312                compute_cmd.execute.wb.write_enable = 1'b1;
+313                compute_cmd.capture.x_sel = src_reg ? X_RS1 : X_ACC;
+                                                       -3-  
+                                                       ==>  
+                                                       ==>  
+314                compute_cmd.execute.wb.result_arithmetic = 1'b1;
+315                compute_cmd.execute.wb.merge_op = MERGE_FIELD;
+316              end
+317              TILE_OP_IDXR: begin
+318                compute_cmd.execute.wb.write_enable = 1'b1;
+319                compute_cmd.capture.rs1_sel = rb;
+320                compute_cmd.capture.rs2_sel = ra;
+321                compute_cmd.capture.x_sel = flag0 ? X_ACC : X_RS2;
+                                                     -4-  
+                                                     ==>  
+                                                     ==>  
+322                compute_cmd.execute.wb.result_arithmetic = 1'b1;
+323                compute_cmd.execute.wb.index_bounds = 1'b1;
+324                compute_cmd.execute.wb.merge_op = flag0 ? MERGE_FIELD : MERGE_ZERO_EXT;
+                                                           -5-  
+                                                           ==>  
+                                                           ==>  
+325              end
+326              TILE_OP_SYS: case (tile_sys_subop_e'(sub))
+                              -6-  
+327                TILE_SYS_LOADI: begin
+328                  compute_cmd.execute.wb.write_enable = 1'b1;
+                     ==>
+329                  compute_cmd.capture.x_sel = X_IMMEDIATE;
+330                end
+331                TILE_SYS_LD: begin
+332                  compute_cmd.execute.wb.write_enable = 1'b1;
+                     ==>
+333                  compute_cmd.capture.x_sel = X_RS1;
+334                  compute_cmd.capture.rs2_sel = TILE_GUARD_REG;
+335                  compute_cmd.execute.wb.publish = flag0;
+336                end
+337                TILE_SYS_MOV: begin
+338                  compute_cmd.execute.wb.write_enable = 1'b1;
+                     ==>
+339                  compute_cmd.capture.x_sel = X_RS1;
+340                  compute_cmd.execute.wb.full_mask = 1'b0;
+341                end
+342                TILE_SYS_MUL: begin
+343                  compute_cmd.execute.wb.write_enable = 1'b1;
+                     ==>
+344                  compute_cmd.capture.x_sel = X_RS2;
+345                  compute_cmd.execute.wb.result_arithmetic = 1'b1;
+346                end
+347                default: ;
+                   ==>
+348              endcase
+349              default: ;
+                 ==>
+
+Branches:
+
+-1-                                      -2- -3- -4- -5- -6-             Status  
+TILE_OP_SETM                             1   -   -   -   -               Covered 
+TILE_OP_SETM                             0   -   -   -   -               Covered 
+TILE_OP_LOGU TILE_OP_LOGL                -   -   -   -   -               Covered 
+TILE_OP_ST TILE_OP_STI                   -   -   -   -   -               Covered 
+TILE_OP_LDX TILE_OP_ROT                  -   -   -   -   -               Covered 
+TILE_OP_ARITH TILE_OP_CMP TILE_OP_SHIFT  -   -   -   -   -               Covered 
+TILE_OP_RED                              -   1   -   -   -               Covered 
+TILE_OP_RED                              -   0   -   -   -               Covered 
+TILE_OP_IDXR                             -   -   1   -   -               Covered 
+TILE_OP_IDXR                             -   -   0   -   -               Covered 
+TILE_OP_IDXR                             -   -   -   1   -               Covered 
+TILE_OP_IDXR                             -   -   -   0   -               Covered 
+TILE_OP_SYS                              -   -   -   -   TILE_SYS_LOADI  Covered 
+TILE_OP_SYS                              -   -   -   -   TILE_SYS_LD     Covered 
+TILE_OP_SYS                              -   -   -   -   TILE_SYS_MOV    Covered 
+TILE_OP_SYS                              -   -   -   -   TILE_SYS_MUL    Covered 
+TILE_OP_SYS                              -   -   -   -   default         Covered 
+default                                  -   -   -   -   -               Covered 
+
+
+352            if (dispatch.target.load) cmd_o.payload.load.cmd = load_cmd;
+               -1-  
+               ==>
+353            else if (dispatch.target.commit) cmd_o.payload.commit.cmd = commit_req;
+                    -2-  
+               ==>
+354            else if (dispatch.target.index_push) cmd_o.payload.index_push.cmd = index_push_cmd;
+                    -3-  
+               ==>
+355            else cmd_o.payload.compute = compute_cmd;
+               ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : fed_decode_tb.dut_decode
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT 
+ 97.22  97.81  98.15  99.92  93.02 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT 
+ 97.22  97.81  98.15  99.92  93.02 --     
+
+
+Module : 
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT NAME   
+ 97.22  97.81  98.15  99.92  93.02 --     decode 
+
+
+Parent : 
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT NAME          
+--     --     --     --     --     --     fed_decode_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : fed_decode_tb
+===============================================================================
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/frontend/fed_decode_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT NAME          
+--     --     --     --     --     --     fed_decode_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : fed_decode_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT 
+ 96.94  98.02  98.29  99.77  91.67 --     
+
+
+Module : 
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT NAME          
+--     --     --     --     --     --     fed_decode_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT NAME       
+ 97.22  97.81  98.15  99.92  93.02 --     dut_decode 
+ 96.00 100.00 100.00  97.62  86.36 --     dut_length 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
