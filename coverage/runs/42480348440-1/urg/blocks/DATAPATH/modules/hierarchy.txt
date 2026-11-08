@@ -1,0 +1,95 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                
+100.00 100.00 100.00 --     100.00 --     accumulator_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+  100.00 100.00 100.00 --     100.00 --     dut 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                        
+ 98.55  97.22 100.00 --      96.97 100.00 datapath_arch_state_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+   98.55  97.22 100.00 --      96.97 100.00 dut 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                         
+    100.00 100.00 100.00 --     100.00 --     accumulator             
+    100.00 100.00 --     --     100.00 --     g_bank[0].register_file 
+    100.00 100.00 --     --     100.00 --     g_bank[1].register_file 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT               
+ 55.02  54.82  66.05 --      44.19 --     decode_cmd_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+   55.02  54.82  66.05 --      44.19 --     dut 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                      
+ 96.77  93.75 100.00 100.00  93.33 --     execution_control_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+   96.77  93.75 100.00 100.00  93.33 --     dut 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+100.00 100.00 --     --     100.00 --     register_file_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+  100.00 100.00 --     --     100.00 --     dut 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                  
+ 99.47  98.98  98.92 100.00  99.46 100.00 tile_datapath_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+   99.47  98.98  98.92 100.00  99.46 100.00 dut 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT            
+     98.73  97.56 100.00 --      97.37 100.00 arch_state 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT                         
+      100.00 100.00 100.00 --     100.00 --     accumulator             
+      100.00 100.00 --     --     100.00 --     g_bank[0].register_file 
+      100.00 100.00 --     --     100.00 --     g_bank[1].register_file 
+      100.00 100.00 100.00 --     100.00 --     masks                   
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT            
+     93.65  93.75  94.20 100.00  86.67 --     control    
+     99.83 100.00  99.49 --     100.00 --     func_units 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT            
+       99.58 100.00  98.75 --     100.00 --     arithmetic 
+      100.00 --     100.00 --     100.00 --     indexed    
+      100.00 100.00 100.00 --     100.00 --     logic_leaf 
+       95.83 100.00  87.50 --     100.00 --     multiply   
+      100.00 100.00 100.00 --     100.00 --     reduce     
+      100.00 100.00 100.00 --     100.00 --     shift      
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT       
+     93.33 100.00  80.00 --     100.00 --     merge 
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT        
+ 63.01  69.84  64.57 --      54.63 --     top_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT               
+   63.35  67.98  69.75 --      52.33 --     decode        
+   50.38  87.50   0.00 --      63.64 --     length_decode 
+

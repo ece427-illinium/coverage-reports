@@ -1,0 +1,556 @@
+Group : completion_router_tb::completion_cg
+
+===============================================================================
+Group : completion_router_tb::completion_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/events/completion_router_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
+100.00 1      100    1        64           64            coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   completion_router_tb::completion_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 16       0         16      100.00  
+Crosses   28       0         28      100.00  
+
+
+Variables for Group  completion_router_tb::completion_cg
+
+
+VARIABLE          EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+activation_mask   4        0         4       100.00  100  1      1        0                    
+contention        3        0         3       100.00  100  1      1        0                    
+one_hot_ready     1        0         1       100.00  100  1      1        0                    
+output_state      2        0         2       100.00  100  1      1        0                    
+round_robin_wrap  1        0         1       100.00  100  1      1        0                    
+selected_tile     4        0         4       100.00  100  1      1        0                    
+stable_while_held 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group  completion_router_tb::completion_cg
+
+
+CROSS               EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+tile_x_contention   12       0         12      100.00  100  1      1        0                     
+tile_x_output_state 8        0         8       100.00  100  1      1        0                     
+mask_x_acceptance   8        0         8       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable activation_mask
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for activation_mask
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+dense   467   1        
+sparse  69    1        
+one_hot 30    1        
+zero    18    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable contention
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for contention
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+all_four 37    1        
+two      181   1        
+one      294   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable one_hot_ready
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for one_hot_ready
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 318   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable output_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for output_state
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+accepted      318   1        
+backpressured 266   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable round_robin_wrap
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for round_robin_wrap
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 36    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable selected_tile
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for selected_tile
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+tiles_0 148   1        
+tiles_1 156   1        
+tiles_2 130   1        
+tiles_3 150   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable stable_while_held
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for stable_while_held
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 266   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross tile_x_contention
+
+
+Samples crossed: selected_tile contention
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 12       0         12      100.00          
+
+
+Automatically Generated Cross Bins for tile_x_contention
+
+
+Bins
+
+selected_tile contention COUNT AT LEAST 
+tiles_0       all_four   13    1        
+tiles_0       two        49    1        
+tiles_0       one        68    1        
+tiles_1       all_four   8     1        
+tiles_1       two        49    1        
+tiles_1       one        85    1        
+tiles_2       all_four   6     1        
+tiles_2       two        39    1        
+tiles_2       one        54    1        
+tiles_3       all_four   10    1        
+tiles_3       two        44    1        
+tiles_3       one        87    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross tile_x_output_state
+
+
+Samples crossed: selected_tile output_state
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 8        0         8       100.00          
+
+
+Automatically Generated Cross Bins for tile_x_output_state
+
+
+Bins
+
+selected_tile output_state  COUNT AT LEAST 
+tiles_0       accepted      77    1        
+tiles_0       backpressured 71    1        
+tiles_1       accepted      93    1        
+tiles_1       backpressured 63    1        
+tiles_2       accepted      69    1        
+tiles_2       backpressured 61    1        
+tiles_3       accepted      79    1        
+tiles_3       backpressured 71    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross mask_x_acceptance
+
+
+Samples crossed: activation_mask output_state
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              8        0         8       100.00          
+Automatically Generated Cross Bins 4        0         4       100.00          
+User Defined Cross Bins            4        0         4       100.00          
+
+
+Automatically Generated Cross Bins for mask_x_acceptance
+
+
+Bins
+
+activation_mask output_state  COUNT AT LEAST 
+dense           backpressured 217   1        
+sparse          backpressured 25    1        
+one_hot         backpressured 12    1        
+zero            backpressured 12    1        
+
+
+User Defined Cross Bins for mask_x_acceptance
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+accepted_zero    6     1        
+accepted_one_hot 18    1        
+accepted_sparse  44    1        
+accepted_dense   250   1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                                
+100.00 100.00    1      100    1        1            64           64                    completion_router_tb::completion_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 16       0         16      100.00  
+Crosses   28       0         28      100.00  
+
+
+Variables for Group Instance  coverage
+
+
+VARIABLE          EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+activation_mask   4        0         4       100.00  100  1      1        0                    
+contention        3        0         3       100.00  100  1      1        0                    
+one_hot_ready     1        0         1       100.00  100  1      1        0                    
+output_state      2        0         2       100.00  100  1      1        0                    
+round_robin_wrap  1        0         1       100.00  100  1      1        0                    
+selected_tile     4        0         4       100.00  100  1      1        0                    
+stable_while_held 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  coverage
+
+
+CROSS               EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+tile_x_contention   12       0         12      100.00  100  1      1        0                     
+tile_x_output_state 8        0         8       100.00  100  1      1        0                     
+mask_x_acceptance   8        0         8       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable activation_mask
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for activation_mask
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+dense   467   1        
+sparse  69    1        
+one_hot 30    1        
+zero    18    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable contention
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for contention
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+all_four 37    1        
+two      181   1        
+one      294   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable one_hot_ready
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for one_hot_ready
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 318   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable output_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for output_state
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+accepted      318   1        
+backpressured 266   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable round_robin_wrap
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for round_robin_wrap
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 36    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable selected_tile
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for selected_tile
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+tiles_0 148   1        
+tiles_1 156   1        
+tiles_2 130   1        
+tiles_3 150   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable stable_while_held
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for stable_while_held
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 266   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross tile_x_contention
+
+
+Samples crossed: selected_tile contention
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 12       0         12      100.00          
+
+
+Automatically Generated Cross Bins for tile_x_contention
+
+
+Bins
+
+selected_tile contention COUNT AT LEAST 
+tiles_0       all_four   13    1        
+tiles_0       two        49    1        
+tiles_0       one        68    1        
+tiles_1       all_four   8     1        
+tiles_1       two        49    1        
+tiles_1       one        85    1        
+tiles_2       all_four   6     1        
+tiles_2       two        39    1        
+tiles_2       one        54    1        
+tiles_3       all_four   10    1        
+tiles_3       two        44    1        
+tiles_3       one        87    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross tile_x_output_state
+
+
+Samples crossed: selected_tile output_state
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 8        0         8       100.00          
+
+
+Automatically Generated Cross Bins for tile_x_output_state
+
+
+Bins
+
+selected_tile output_state  COUNT AT LEAST 
+tiles_0       accepted      77    1        
+tiles_0       backpressured 71    1        
+tiles_1       accepted      93    1        
+tiles_1       backpressured 63    1        
+tiles_2       accepted      69    1        
+tiles_2       backpressured 61    1        
+tiles_3       accepted      79    1        
+tiles_3       backpressured 71    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross mask_x_acceptance
+
+
+Samples crossed: activation_mask output_state
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              8        0         8       100.00          
+Automatically Generated Cross Bins 4        0         4       100.00          
+User Defined Cross Bins            4        0         4       100.00          
+
+
+Automatically Generated Cross Bins for mask_x_acceptance
+
+
+Bins
+
+activation_mask output_state  COUNT AT LEAST 
+dense           backpressured 217   1        
+sparse          backpressured 25    1        
+one_hot         backpressured 12    1        
+zero            backpressured 12    1        
+
+
+User Defined Cross Bins for mask_x_acceptance
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+accepted_zero    6     1        
+accepted_one_hot 18    1        
+accepted_sparse  44    1        
+accepted_dense   250   1        
+
+

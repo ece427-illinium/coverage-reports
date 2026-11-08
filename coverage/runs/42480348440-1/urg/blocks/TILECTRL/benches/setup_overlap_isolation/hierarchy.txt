@@ -1,0 +1,62 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   FSM    BRANCH ASSERT                            
+ 32.76  53.49  23.39   0.00  51.72  35.19 setup_overlap_isolation_tb 
+  
+  ----------------
+  SCORE  LINE   COND   FSM    BRANCH ASSERT     
+   32.76  53.49  23.39   0.00  51.72  35.19 dut 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT               
+     32.43 --     --     --     --      32.43 commit_engine 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT            
+       45.00 --     --     --     --      45.00 back_end_u 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT         
+         80.00 --     --     --     --      80.00 delta_u 
+         60.00 --     --     --     --      60.00 vsp_u   
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT             
+        7.69 --     --     --     --       7.69 front_end_u 
+        
+        ----------------
+        SCORE  LINE   COND   FSM    BRANCH ASSERT              
+         20.00 --     --     --     --      20.00 word_paint_u 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT         
+     25.72  53.49  23.39   0.00  51.72   0.00 control 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT               
+       24.74  51.35  22.37   0.00  50.00   0.00 context_state 
+       50.56  66.67  25.00 --      60.00 --     issue         
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT          
+    100.00 --     --     --     --     100.00 datapath 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT            
+      100.00 --     --     --     --     100.00 arch_state 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT             
+    100.00 --     --     --     --     100.00 frontend    
+     60.00 --     --     --     --      60.00 load_engine 
+      
+      ----------------
+      SCORE  LINE   COND   FSM    BRANCH ASSERT        
+       50.00 --     --     --     --      50.00 packer 
+    
+    ----------------
+    SCORE  LINE   COND   FSM    BRANCH ASSERT                
+      0.00 --     --     --     --       0.00 memory_arbiter 
+
