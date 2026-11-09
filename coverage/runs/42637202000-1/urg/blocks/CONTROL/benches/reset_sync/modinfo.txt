@@ -1,0 +1,308 @@
+===============================================================================
+Module : reset_sync
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/control/reset/reset_sync.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+100.00 100.00 --     --     100.00 --     reset_sync_tb.i_chip 
+100.00 100.00 --     --     100.00 --     reset_sync_tb.i_io   
+100.00 100.00 --     --     100.00 --     reset_sync_tb.i_scan 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : reset_sync
+
+             Line No.   Total   Covered  Percent
+TOTAL                        3        3   100.00
+ALWAYS             13        3        3   100.00
+
+12                        always_ff @(posedge clk_i or negedge arst_ni) begin
+13         2/2              if (!arst_ni) reset_sync_r <= '0;
+14         1/1              else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : reset_sync
+         Line No. Total Covered Percent 
+Branches          2     2       100.00  
+IF       13       2     2       100.00  
+
+
+13             if (!arst_ni) reset_sync_r <= '0;
+               -1-  
+               ==>
+14             else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : reset_sync_tb.i_chip
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 100.00 --     --     100.00 --     reset_sync 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     reset_sync_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : reset_sync_tb.i_chip
+
+             Line No.   Total   Covered  Percent
+TOTAL                        3        3   100.00
+ALWAYS             13        3        3   100.00
+
+12                        always_ff @(posedge clk_i or negedge arst_ni) begin
+13         2/2              if (!arst_ni) reset_sync_r <= '0;
+14         1/1              else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : reset_sync_tb.i_chip
+         Line No. Total Covered Percent 
+Branches          2     2       100.00  
+IF       13       2     2       100.00  
+
+
+13             if (!arst_ni) reset_sync_r <= '0;
+               -1-  
+               ==>
+14             else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : reset_sync_tb.i_io
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 100.00 --     --     100.00 --     reset_sync 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     reset_sync_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : reset_sync_tb.i_io
+
+             Line No.   Total   Covered  Percent
+TOTAL                        3        3   100.00
+ALWAYS             13        3        3   100.00
+
+12                        always_ff @(posedge clk_i or negedge arst_ni) begin
+13         2/2              if (!arst_ni) reset_sync_r <= '0;
+14         1/1              else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : reset_sync_tb.i_io
+         Line No. Total Covered Percent 
+Branches          2     2       100.00  
+IF       13       2     2       100.00  
+
+
+13             if (!arst_ni) reset_sync_r <= '0;
+               -1-  
+               ==>
+14             else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : reset_sync_tb.i_scan
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+100.00 100.00 --     --     100.00 --     reset_sync 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     reset_sync_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : reset_sync_tb.i_scan
+
+             Line No.   Total   Covered  Percent
+TOTAL                        3        3   100.00
+ALWAYS             13        3        3   100.00
+
+12                        always_ff @(posedge clk_i or negedge arst_ni) begin
+13         2/2              if (!arst_ni) reset_sync_r <= '0;
+14         1/1              else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : reset_sync_tb.i_scan
+         Line No. Total Covered Percent 
+Branches          2     2       100.00  
+IF       13       2     2       100.00  
+
+
+13             if (!arst_ni) reset_sync_r <= '0;
+               -1-  
+               ==>
+14             else          reset_sync_r <= {reset_sync_r[0], 1'b1};
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+===============================================================================
+Module : reset_sync_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/control/reset/reset_sync_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     reset_sync_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : reset_sync_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     reset_sync_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 100.00 --     --     100.00 --     i_chip 
+100.00 100.00 --     --     100.00 --     i_io   
+100.00 100.00 --     --     100.00 --     i_scan 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

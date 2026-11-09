@@ -1,0 +1,880 @@
+Group : vs_cache_bank_tb::bank_cg
+
+===============================================================================
+Group : vs_cache_bank_tb::bank_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/cache/vs_cache_bank_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
+100.00 1      100    1        64           64            coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   vs_cache_bank_tb::bank_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 11       0         11      100.00  
+Crosses   8        0         8       100.00  
+
+
+Variables for Group  vs_cache_bank_tb::bank_cg
+
+
+VARIABLE             EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+access               5        0         5       100.00  100  1      1        0                    
+metadata             3        0         3       100.00  100  1      1        0                    
+replaced_victim      2        0         2       100.00  100  1      1        0                    
+same_set_replacement 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group  vs_cache_bank_tb::bank_cg
+
+
+CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+metadata_x_operation 8        0         8       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable access
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for access
+
+
+Bins
+
+NAME        COUNT AT LEAST 
+reset_scrub 6     1        
+clear_dirty 48    1        
+invalidate  18    1        
+write       258   1        
+read        327   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable metadata
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for metadata
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+dirty         258   1        
+clean         189   1        
+invalid_entry 210   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable replaced_victim
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for replaced_victim
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+dirty 46    1        
+clean 146   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable same_set_replacement
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for same_set_replacement
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 192   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross metadata_x_operation
+
+
+Samples crossed: access metadata
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 8        0         8       100.00          
+
+
+User Defined Cross Bins for metadata_x_operation
+
+
+Bins
+
+NAME                 COUNT AT LEAST 
+invalid_lookup       122   1        
+clean_lookup         109   1        
+dirty_lookup         96    1        
+clean_install        80    1        
+dirty_install        114   1        
+dirty_clear          48    1        
+parallel_invalidate  18    1        
+reset_initialization 6     1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                      
+100.00 100.00    1      100    1        1            64           64                    vs_cache_bank_tb::bank_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 11       0         11      100.00  
+Crosses   8        0         8       100.00  
+
+
+Variables for Group Instance  coverage
+
+
+VARIABLE             EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+access               5        0         5       100.00  100  1      1        0                    
+metadata             3        0         3       100.00  100  1      1        0                    
+replaced_victim      2        0         2       100.00  100  1      1        0                    
+same_set_replacement 1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  coverage
+
+
+CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+metadata_x_operation 8        0         8       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable access
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for access
+
+
+Bins
+
+NAME        COUNT AT LEAST 
+reset_scrub 6     1        
+clear_dirty 48    1        
+invalidate  18    1        
+write       258   1        
+read        327   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable metadata
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for metadata
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+dirty         258   1        
+clean         189   1        
+invalid_entry 210   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable replaced_victim
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for replaced_victim
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+dirty 46    1        
+clean 146   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable same_set_replacement
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for same_set_replacement
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 192   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross metadata_x_operation
+
+
+Samples crossed: access metadata
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 8        0         8       100.00          
+
+
+User Defined Cross Bins for metadata_x_operation
+
+
+Bins
+
+NAME                 COUNT AT LEAST 
+invalid_lookup       122   1        
+clean_lookup         109   1        
+dirty_lookup         96    1        
+clean_install        80    1        
+dirty_install        114   1        
+dirty_clear          48    1        
+parallel_invalidate  18    1        
+reset_initialization 6     1        
+
+
+Group : vs_cache_bank_tb::dft_isolation_cg
+
+===============================================================================
+Group : vs_cache_bank_tb::dft_isolation_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/cache/vs_cache_bank_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME         
+100.00 1      100    1        64           64            dft_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   vs_cache_bank_tb::dft_isolation_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 13       0         13      100.00  
+Crosses   8        0         8       100.00  
+
+
+Variables for Group  vs_cache_bank_tb::dft_isolation_cg
+
+
+VARIABLE     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+macro_access 3        0         3       100.00  100  1      1        0                    
+metadata     3        0         3       100.00  100  1      1        0                    
+mode         3        0         3       100.00  100  1      1        0                    
+request      4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group  vs_cache_bank_tb::dft_isolation_cg
+
+
+CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+dft_request_x_access 8        0         8       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable macro_access
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for macro_access
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+functional_write 194   1        
+functional_read  270   1        
+isolated         682   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable metadata
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for metadata
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+dirty   114   1        
+clean   80    1        
+invalid 64    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mode
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for mode
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+shift      112   1        
+step       12    1        
+functional 1022  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for request
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+simultaneous 32    1        
+write        226   1        
+lookup       295   1        
+idle         593   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross dft_request_x_access
+
+
+Samples crossed: mode request macro_access
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 8        0         8       100.00          
+
+
+User Defined Cross Bins for dft_request_x_access
+
+
+Bins
+
+NAME                 COUNT AT LEAST 
+scan_idle            23    1        
+blocked_lookup       25    1        
+blocked_write        32    1        
+blocked_simultaneous 32    1        
+normal_lookup        264   1        
+normal_write         188   1        
+step_lookup          6     1        
+step_write           6     1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : dft_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                               
+100.00 100.00    1      100    1        1            64           64                    vs_cache_bank_tb::dft_isolation_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   dft_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 13       0         13      100.00  
+Crosses   8        0         8       100.00  
+
+
+Variables for Group Instance  dft_coverage
+
+
+VARIABLE     EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+macro_access 3        0         3       100.00  100  1      1        0                    
+metadata     3        0         3       100.00  100  1      1        0                    
+mode         3        0         3       100.00  100  1      1        0                    
+request      4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  dft_coverage
+
+
+CROSS                EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+dft_request_x_access 8        0         8       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable macro_access
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for macro_access
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+functional_write 194   1        
+functional_read  270   1        
+isolated         682   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable metadata
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for metadata
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+dirty   114   1        
+clean   80    1        
+invalid 64    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable mode
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for mode
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+shift      112   1        
+step       12    1        
+functional 1022  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable request
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for request
+
+
+Bins
+
+NAME         COUNT AT LEAST 
+simultaneous 32    1        
+write        226   1        
+lookup       295   1        
+idle         593   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross dft_request_x_access
+
+
+Samples crossed: mode request macro_access
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 8        0         8       100.00          
+
+
+User Defined Cross Bins for dft_request_x_access
+
+
+Bins
+
+NAME                 COUNT AT LEAST 
+scan_idle            23    1        
+blocked_lookup       25    1        
+blocked_write        32    1        
+blocked_simultaneous 32    1        
+normal_lookup        264   1        
+normal_write         188   1        
+step_lookup          6     1        
+step_write           6     1        
+
+
+Group : vs_cache_bank_tb::maintenance_cg
+
+===============================================================================
+Group : vs_cache_bank_tb::maintenance_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/cache/vs_cache_bank_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME                 
+100.00 1      100    1        64           64            maintenance_coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   vs_cache_bank_tb::maintenance_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 12       0         12      100.00  
+Crosses   16       0         16      100.00  
+
+
+Variables for Group  vs_cache_bank_tb::maintenance_cg
+
+
+VARIABLE           EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+maintenance_event  4        0         4       100.00  100  1      1        0                    
+selected_set_range 8        0         8       100.00  100  1      1        0                    
+
+
+Crosses for Group  vs_cache_bank_tb::maintenance_cg
+
+
+CROSS             EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+dirty_set_x_event 16       0         16      100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable maintenance_event
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for maintenance_event
+
+
+Bins
+
+NAME                 COUNT AT LEAST 
+no_dirty_termination 138   1        
+parallel_invalidate  18    1        
+dirty_cleared        48    1        
+dirty_selected       966   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable selected_set_range
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 8        0         8       100.00  
+
+
+User Defined Bins for selected_set_range
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+sets_0 150   1        
+sets_1 356   1        
+sets_2 82    1        
+sets_3 206   1        
+sets_4 22    1        
+sets_5 154   1        
+sets_6 26    1        
+sets_7 18    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross dirty_set_x_event
+
+
+Samples crossed: selected_set_range maintenance_event
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              16       0         16      100.00          
+Automatically Generated Cross Bins 16       0         16      100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for dirty_set_x_event
+
+
+Bins
+
+selected_set_range maintenance_event COUNT AT LEAST 
+sets_0             dirty_cleared     6     1        
+sets_0             dirty_selected    144   1        
+sets_1             dirty_cleared     6     1        
+sets_1             dirty_selected    350   1        
+sets_2             dirty_cleared     6     1        
+sets_2             dirty_selected    76    1        
+sets_3             dirty_cleared     6     1        
+sets_3             dirty_selected    200   1        
+sets_4             dirty_cleared     6     1        
+sets_4             dirty_selected    16    1        
+sets_5             dirty_cleared     6     1        
+sets_5             dirty_selected    148   1        
+sets_6             dirty_cleared     6     1        
+sets_6             dirty_selected    20    1        
+sets_7             dirty_cleared     6     1        
+sets_7             dirty_selected    12    1        
+
+
+User Defined Cross Bins for dirty_set_x_event
+
+
+Excluded/Illegal bins
+
+NAME                   COUNT STATUS   
+no_set_for_invalidate  0     Excluded 
+no_set_for_termination 0     Excluded 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : maintenance_coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                             
+100.00 100.00    1      100    1        1            64           64                    vs_cache_bank_tb::maintenance_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   maintenance_coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 12       0         12      100.00  
+Crosses   16       0         16      100.00  
+
+
+Variables for Group Instance  maintenance_coverage
+
+
+VARIABLE           EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+maintenance_event  4        0         4       100.00  100  1      1        0                    
+selected_set_range 8        0         8       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  maintenance_coverage
+
+
+CROSS             EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+dirty_set_x_event 16       0         16      100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable maintenance_event
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for maintenance_event
+
+
+Bins
+
+NAME                 COUNT AT LEAST 
+no_dirty_termination 138   1        
+parallel_invalidate  18    1        
+dirty_cleared        48    1        
+dirty_selected       966   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable selected_set_range
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 8        0         8       100.00  
+
+
+User Defined Bins for selected_set_range
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+sets_0 150   1        
+sets_1 356   1        
+sets_2 82    1        
+sets_3 206   1        
+sets_4 22    1        
+sets_5 154   1        
+sets_6 26    1        
+sets_7 18    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross dirty_set_x_event
+
+
+Samples crossed: selected_set_range maintenance_event
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              16       0         16      100.00          
+Automatically Generated Cross Bins 16       0         16      100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for dirty_set_x_event
+
+
+Bins
+
+selected_set_range maintenance_event COUNT AT LEAST 
+sets_0             dirty_cleared     6     1        
+sets_0             dirty_selected    144   1        
+sets_1             dirty_cleared     6     1        
+sets_1             dirty_selected    350   1        
+sets_2             dirty_cleared     6     1        
+sets_2             dirty_selected    76    1        
+sets_3             dirty_cleared     6     1        
+sets_3             dirty_selected    200   1        
+sets_4             dirty_cleared     6     1        
+sets_4             dirty_selected    16    1        
+sets_5             dirty_cleared     6     1        
+sets_5             dirty_selected    148   1        
+sets_6             dirty_cleared     6     1        
+sets_6             dirty_selected    20    1        
+sets_7             dirty_cleared     6     1        
+sets_7             dirty_selected    12    1        
+
+
+User Defined Cross Bins for dirty_set_x_event
+
+
+Excluded/Illegal bins
+
+NAME                   COUNT STATUS   
+no_set_for_invalidate  0     Excluded 
+no_set_for_termination 0     Excluded 
+
+

@@ -1,0 +1,2514 @@
+===============================================================================
+Module : index_store
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 90.91 100.00  81.82 --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/lde/index_store.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                     
+ 90.91 100.00  81.82 --     --     --     lde_directed_depth1_tb.test_case.indices 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : index_store
+
+             Line No.   Total   Covered  Percent
+TOTAL                       15       15   100.00
+ALWAYS             66        2        2   100.00
+ALWAYS             72       13       13   100.00
+
+65                        always_comb
+66         1/1              for (int bank = 0; bank < NUM_INDEX_BANKS; bank++)
+67         1/1                capture_ptr_next[bank] = capture_ptr_r[bank] == LAST_SLOT ? '0 : capture_ptr_r[bank] + 1'b1;
+68                      
+69                        // clear_bank_i is per-bank, so it takes the place of a global clear_i here.
+70                        // Slot contents are not cleared: reading a slot not yet captured this supernode is malformed.
+71                        always_ff @(posedge clk_i) begin
+72         1/1              for (int bank = 0; bank < NUM_INDEX_BANKS; bank++) begin
+73         1/1                if (reset_i || clear_bank_i[bank]) begin
+74         1/1                  index_valid_r[bank] <= 1'b0;
+75         1/1                  capture_ptr_r[bank] <= '0;
+76                            end else begin
+77         1/1                  if (back_valid_i && back_ready_o && back_op_i == IDX_SET &&
+78                                  back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+79         1/1                    index_r[bank] <= back_data_i;
+80         1/1                    index_valid_r[bank] <= 1'b1;
+81                              end
+                        MISSING_ELSE
+82         1/1                  if (back_capture && back_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+83         1/1                    slots_r[bank][capture_ptr_r[bank]] <= back_resolved;
+84         1/1                    capture_ptr_r[bank] <= capture_ptr_next[bank];
+85                              end
+                        MISSING_ELSE
+86         1/1                  if (front_push && front_bank_i == bank[INDEX_BANK_SEL_W-1:0]) begin
+87         1/1                    slots_r[bank][capture_ptr_r[bank]] <= front_resolved;
+88         1/1                    capture_ptr_r[bank] <= capture_ptr_next[bank];
+89                              end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : index_store
+
+               Total   Covered  Percent
+Conditions         22       18    81.82
+Logical            22       18    81.82
+Non-Logical         0        0
+Event               0        0
+
+ LINE       54
+ EXPRESSION (((!reset_i)) && back_enable_i && ((!clear_bank_i[back_bank_i])))
+             ------1-----    ------2------    ---------------3--------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Not Covered
+ 1   1   1  Covered
+
+ LINE       55
+ EXPRESSION (((!reset_i)) && front_enable_i && ((!clear_bank_i[front_bank_i])))
+             ------1-----    -------2------    ---------------3---------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Not Covered
+ 1   1   1  Covered
+
+ LINE       56
+ EXPRESSION (back_valid_i && back_ready_o && ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE)))
+             ------1-----    ------2-----    ---------------------------3---------------------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Not Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       56
+ SUB-EXPRESSION ((back_op_i == IDX_PUSH) || (back_op_i == IDX_CAPTURE))
+                 -----------1-----------    -------------2------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_PUSH)
+                -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       56
+ SUB-EXPRESSION (back_op_i == IDX_CAPTURE)
+                -------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       58
+ EXPRESSION (front_valid_i && front_ready_o)
+             ------1------    ------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : lde_directed_depth1_tb.test_case.indices
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 90.91 100.00  81.82 --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 90.91 100.00  81.82 --     --     --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+ 90.91 100.00  81.82 --     --     --     index_store 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+--     --     --     --     --     --     test_case 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : tile_lde
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.27 100.00  95.00  69.23  97.10 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/lde/tile_lde.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                 
+ 92.27 100.00  95.00  69.23  97.10 100.00 lde_directed_depth1_tb.test_case.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : tile_lde
+
+             Line No.   Total   Covered  Percent
+TOTAL                       53       53   100.00
+ROUTINE           108        1        1   100.00
+ROUTINE           183        7        7   100.00
+ALWAYS            202        5        5   100.00
+ALWAYS            238       13       13   100.00
+ALWAYS            263       27       27   100.00
+
+107                       function automatic logic [PTR_W-1:0] next_ptr(input logic [PTR_W-1:0] ptr);
+108        1/1              return ptr == PTR_W'(CMD_FIFO_DEPTH-1) ? '0 : ptr + 1'b1;
+109                       endfunction
+110                     
+111                       // FIFO acceptance proceeds independently of memory and RF writes.
+112                       assign head_cmd = command_fifo[command_read_ptr];
+113                       assign endl_valid_o = !reset_i && state == DRAIN_ENDL && packer_empty;
+114                       assign initialize = reset_i || (endl_valid_o && endl_ready_i);
+115                       assign cmd_ready_o = !initialize && !endl_accepted &&
+116                         command_count < COUNT_W'(CMD_FIFO_DEPTH);
+117                       assign command_push = cmd_valid_i && cmd_ready_o;
+118                       assign command_pop = !initialize && state == COMMAND && command_count != 0 &&
+119                         (!needs_index_op || index_op_ready_i);
+120                     
+121                       // --------------------------------------------------------------------------
+122                       // Decode and generate the effective address
+123                       // --------------------------------------------------------------------------
+124                     
+125                       assign near_form = head_cmd.kind == LOAD_RF && head_cmd.form[0];
+126                       assign bits_form = head_cmd.kind == LOAD_RF && !head_cmd.form[1];
+127                       assign index_form = head_cmd.kind == LOAD_INDEX_VALUE;
+128                       assign is_endl = head_cmd.kind == LOAD_END;
+129                       assign is_push = head_cmd.kind == LOAD_PUSH_INDEX_ADDRESS;
+130                       assign is_load = head_cmd.kind == LOAD_RF || index_form;
+131                       assign needs_index_op = is_push || (is_load && head_cmd.capture_addr);
+132                       // Near offsets are unsigned; index addition is optional.
+133                       assign effective_address = (near_form ? load_base : '0) + head_cmd.address
+134                                        + (head_cmd.use_index ? index_i : '0);
+135                       // Round up only when start_at_new requests register alignment.
+136                       assign aligned_cursor = head_cmd.align_new ?
+137                         ((allocation_cursor + RF_BIT_CURSOR_WIDTH'(WORD_WIDTH - 1)) & ~RF_BIT_CURSOR_WIDTH'(WORD_WIDTH - 1)) :
+138                         allocation_cursor;
+139                       assign gather_width = GATHER_COUNT_W'($countones(head_cmd.gather_mask));
+140                       assign head_last_bits = WORD_BIT_COUNT_WIDTH'(head_cmd.last_bits_m1) + WORD_BIT_COUNT_WIDTH'(1);
+141                       assign active_last_bits = WORD_BIT_COUNT_WIDTH'(active_cmd.last_bits_m1) + WORD_BIT_COUNT_WIDTH'(1);
+142                       assign instruction_bits = bits_form ? RF_BIT_CURSOR_WIDTH'(gather_width) :
+143                         ((RF_BIT_CURSOR_WIDTH'(head_cmd.byte_count) - 1'b1) << TILE_BYTE_IDX) +
+144                         RF_BIT_CURSOR_WIDTH'(head_last_bits);
+145                     
+146                       // Legality and initialized operands are the producer's responsibility.
+147                       assign start_load = command_pop && is_load;
+148                       assign start_index = start_load && index_form;
+149                     
+150                       // --------------------------------------------------------------------------
+151                       // Generate index-state operations
+152                       // --------------------------------------------------------------------------
+153                     
+154                       // INDEX publishes its assembled response. IDXPUSH supplies a base address;
+155                       // fused capture supplies the already-resolved LOADB effective address.
+156                       assign index_op_valid_o = !initialize &&
+157                         (state == PUBLISH_INDEX || (state == COMMAND && command_count != 0 && needs_index_op));
+158                       assign index_op_o = state == PUBLISH_INDEX ? IDX_SET : is_push ? IDX_PUSH : IDX_CAPTURE;
+159                       assign index_data_o = state == PUBLISH_INDEX ? index_assembly :
+160                         is_push ? head_cmd.address : effective_address;
+161                     
+162                       // --------------------------------------------------------------------------
+163                       // Generate an aligned value-store memory request
+164                       // --------------------------------------------------------------------------
+165                     
+166                       assign request_valid_o = !reset_i && state == WAIT_ACK;
+167                       // Dropping two address bits converts bytes into aligned words.
+168                       assign request_address_o = byte_address[ADDR_SPACE_WIDTH-1:TILE_WORD_BYTE_IDX];
+169                     
+170                       // --------------------------------------------------------------------------
+171                       // Accept and format a returned memory word
+172                       // --------------------------------------------------------------------------
+173                     
+174                       // Also handle a response arriving alongside its ACK.
+175                       assign response_accept = !reset_i && response_valid_i && (state == WAIT_RESPONSE ||
+176                         (state == WAIT_ACK && request_ack_i));
+177                       // Compact selected source bits into consecutive low positions.
+178                       function automatic logic [TILE_BYTE_WIDTH-1:0] gather_byte(
+179                         input logic [TILE_BYTE_WIDTH-1:0] source_byte, gather_mask
+180                       );
+181                         logic [TILE_BYTE_WIDTH-1:0] packed_bits;
+182                         int position;
+183        1/1              position = 0;
+184        1/1              packed_bits = 0;
+185        1/1              for (int bit_index = 0; bit_index < TILE_BYTE_WIDTH; bit_index++) begin
+186        1/1                if (gather_mask[bit_index]) begin
+187        1/1                  packed_bits[position] = source_byte[bit_index];
+188        1/1                  position++;
+189                           end
+                        MISSING_ELSE
+190                         end
+191        1/1              return packed_bits;
+192                       endfunction
+193                     
+194                       // Number of useful bytes in this aligned-word response.
+195                       assign word_bytes_left = CHUNK_BYTES_W'(TILE_WORD_BYTES) -
+196                         CHUNK_BYTES_W'(byte_address[TILE_WORD_BYTE_IDX-1:0]);
+197                       assign chunk_bytes = bytes_remaining < TILE_LOADB_BYTE_COUNT_WIDTH'(word_bytes_left)
+198                         ? CHUNK_BYTES_W'(bytes_remaining) : word_bytes_left;
+199                       // Move the first requested byte into the low byte.
+200                       assign shifted = response_data_i >> {byte_address[TILE_WORD_BYTE_IDX-1:0], TILE_BYTE_IDX'(0)};
+201                       always_comb begin
+202        1/1              if (active_cmd.gather) begin
+203        1/1                chunk_bits = WORD_BIT_COUNT_WIDTH'($countones(active_cmd.gather_mask));
+204        1/1                chunk_data = WORD_WIDTH'(gather_byte(shifted[TILE_BYTE_WIDTH-1:0],active_cmd.gather_mask));
+205                         end else begin
+206                           // A final RF DATA byte may be partial; INDEX responses use complete bytes.
+207        1/1                chunk_bits = !active_cmd.index_value &&
+208                             bytes_remaining == TILE_LOADB_BYTE_COUNT_WIDTH'(chunk_bytes)
+209                             ? (((WORD_BIT_COUNT_WIDTH'(chunk_bytes) - 1'b1) << TILE_BYTE_IDX) + active_last_bits)
+210                             : WORD_BIT_COUNT_WIDTH'(chunk_bytes) << TILE_BYTE_IDX;
+211        1/1                chunk_data = shifted & low_mask(chunk_bits);
+212                         end
+213                       end
+214                       assign index_response = response_accept && active_cmd.index_value;
+215                       assign final_response = response_accept && bytes_remaining == TILE_LOADB_BYTE_COUNT_WIDTH'(chunk_bytes);
+216                     
+217                       // --------------------------------------------------------------------------
+218                       // Pack formatted responses into complete back-register-file writes
+219                       // --------------------------------------------------------------------------
+220                     
+221                       // INDEX responses bypass the RF packer.
+222                       assign fragment_push = response_accept && !active_cmd.index_value;
+223                     
+224                       rf_packer packer (
+225                         .clk_i, .reset_i, .clear_i(endl_valid_o && endl_ready_i),
+226                         .push_i(fragment_push), .push_data_i(chunk_data), .push_bits_i(chunk_bits),
+227                         .push_cursor_i(destination_cursor), .space_o(fragment_space),
+228                         .drain_i(state == DRAIN_ENDL), .empty_o(packer_empty),
+229                         .rf_write_o, .rf_address_o, .rf_data_o
+230                       );
+231                     
+232                       // --------------------------------------------------------------------------
+233                       // Control FSM
+234                       // --------------------------------------------------------------------------
+235                     
+236                       // State transitions have explicit, mutually exclusive priorities.
+237                       always_comb begin
+238        1/1              case (state)
+239                           COMMAND:
+240        1/1                  next_state = command_pop && is_endl ? DRAIN_ENDL :
+241                               start_load ? RESERVE_RESPONSE : COMMAND;
+242                           // No response backpressure: reserve capacity before asserting valid.
+243                           RESERVE_RESPONSE:
+244        1/1                  next_state = fragment_space ? WAIT_ACK : RESERVE_RESPONSE;
+245                           // Wait for this response before issuing another read.
+246                           WAIT_ACK, WAIT_RESPONSE:
+247        1/1                  if (final_response)
+248        1/1                    next_state = index_response ? PUBLISH_INDEX : COMMAND;
+249        2/2                  else if (response_accept) next_state = RESERVE_RESPONSE;
+250        2/2                  else if (request_ack_i && state == WAIT_ACK) next_state = WAIT_RESPONSE;
+251        1/1                  else next_state = state;
+252                           PUBLISH_INDEX:
+253        1/1                  next_state = index_op_ready_i ? COMMAND : PUBLISH_INDEX;
+254                           // Earlier requests finished; drain fragments and flush the final RF word.
+255                           DRAIN_ENDL:
+256        1/1                  next_state = endl_valid_o && endl_ready_i ? COMMAND : DRAIN_ENDL;
+257        1/1                default: next_state = COMMAND;
+258                         endcase
+259                       end
+260                     
+261                       always_ff @(posedge clk_i) begin
+262                         // Controller and lifecycle state.
+263        1/1              state <= (initialize ? COMMAND : next_state);
+264        2/2              if (initialize || command_push) busy_o <= !initialize;
+                        MISSING_ELSE
+265                         // Enqueued ENDL closes ingress immediately, before it retires.
+266        1/1              if (initialize || (command_push && cmd_i.kind == LOAD_END))
+267        1/1                endl_accepted <= !initialize;
+                        MISSING_ELSE
+268                         // Command FIFO storage and pointers.
+269                         // Simultaneous enqueue and dequeue leave occupancy unchanged.
+270        1/1              command_count <= initialize ? '0 :
+271                           command_count + COUNT_W'(command_push) - COUNT_W'(command_pop);
+272        1/1              if (initialize || command_push)
+273        1/1                command_write_ptr <= initialize ? '0 : next_ptr(command_write_ptr);
+                        MISSING_ELSE
+274        1/1              if (initialize || command_pop)
+275        1/1                command_read_ptr <= initialize ? '0 : next_ptr(command_read_ptr);
+                        MISSING_ELSE
+276        2/2              if (command_push) command_fifo[command_write_ptr] <= cmd_i;
+                        MISSING_ELSE
+277                     
+278                         // Reserve the entire destination before any response arrives.
+279        1/1              if (initialize || (start_load && !index_form))
+280        1/1                allocation_cursor <= initialize ? '0 : aligned_cursor + instruction_bits;
+                        MISSING_ELSE
+281                     
+282                         // Address/request tracking.
+283                         // Full-address loads establish the base for subsequent near loads.
+284        1/1              if (initialize || (start_load && !near_form)) begin
+285        1/1                load_base <= initialize ? '0 : effective_address;
+286                         end
+                        MISSING_ELSE
+287                         // Retain operands while the FIFO advances to later commands.
+288        2/2              if (start_load) active_cmd <= '{index_value:index_form, gather:bits_form,
+                        MISSING_ELSE
+289                           gather_mask:head_cmd.gather_mask, last_bits_m1:head_cmd.last_bits_m1};
+290        1/1              if (start_load || (response_accept && !final_response)) begin
+291        1/1                byte_address <= start_load ? effective_address : byte_address + ADDR_SPACE_WIDTH'(word_bytes_left);
+292        1/1                bytes_remaining <= start_load ? head_cmd.byte_count :
+293                             bytes_remaining - TILE_LOADB_BYTE_COUNT_WIDTH'(chunk_bytes);
+294                         end
+                        MISSING_ELSE
+295        1/1              if (initialize || start_load || response_accept)
+296        1/1                destination_cursor <= initialize ? '0 : start_load ? aligned_cursor : destination_cursor + RF_BIT_CURSOR_WIDTH'(chunk_bits);
+                        MISSING_ELSE
+297                     
+298                         // INDEX response assembly.
+299                         // Assemble little-endian index bytes, including across word boundaries.
+300        1/1              if (initialize || start_index || index_response)
+301        1/1                index_assembly <= initialize || start_index ? '0 :
+                        MISSING_ELSE
+302                             index_assembly | (chunk_data[ADDR_SPACE_WIDTH-1:0] << index_shift);
+303        1/1              if (initialize || start_index || index_response)
+304        1/1                index_shift <= initialize || start_index ? '0 : index_shift + (INDEX_SHIFT_W'(chunk_bytes) << TILE_BYTE_IDX);
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : tile_lde
+
+               Total   Covered  Percent
+Conditions        240      228    95.00
+Logical           240      228    95.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       207
+ EXPRESSION 
+ Number  Term
+      1  (((!active_cmd.index_value)) && (bytes_remaining == 7'(chunk_bytes))) ? ((((6'(chunk_bytes) - 1'b1) << tile_pkg::TILE_BYTE_IDX) + active_last_bits)) : ((6'(chunk_bytes) << tile_pkg::TILE_BYTE_IDX)))
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       207
+ SUB-EXPRESSION (((!active_cmd.index_value)) && (bytes_remaining == 7'(chunk_bytes)))
+                 -------------1-------------    ------------------2-----------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       207
+ SUB-EXPRESSION (bytes_remaining == 7'(chunk_bytes))
+                ------------------1-----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       240
+ EXPRESSION ((command_pop && is_endl) ? DRAIN_ENDL : (start_load ? RESERVE_RESPONSE : COMMAND))
+             ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       240
+ SUB-EXPRESSION (command_pop && is_endl)
+                 -----1-----    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       240
+ SUB-EXPRESSION (start_load ? RESERVE_RESPONSE : COMMAND)
+                 -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       244
+ EXPRESSION (fragment_space ? WAIT_ACK : RESERVE_RESPONSE)
+             -------1------
+
+-1- Status
+ 0  Not Covered
+ 1  Covered
+
+ LINE       248
+ EXPRESSION (index_response ? PUBLISH_INDEX : COMMAND)
+             -------1------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       250
+ EXPRESSION (request_ack_i && (state == WAIT_ACK))
+             ------1------    ---------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       250
+ SUB-EXPRESSION (state == WAIT_ACK)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       253
+ EXPRESSION (index_op_ready_i ? COMMAND : PUBLISH_INDEX)
+             --------1-------
+
+-1- Status
+ 0  Not Covered
+ 1  Covered
+
+ LINE       256
+ EXPRESSION ((endl_valid_o && endl_ready_i) ? COMMAND : DRAIN_ENDL)
+             ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       256
+ SUB-EXPRESSION (endl_valid_o && endl_ready_i)
+                 ------1-----    ------2-----
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       263
+ EXPRESSION (initialize ? COMMAND : next_state)
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       264
+ EXPRESSION (initialize || command_push)
+             -----1----    ------2-----
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       266
+ EXPRESSION (initialize || (command_push && (cmd_i.kind == LOAD_END)))
+             -----1----    ---------------------2--------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       266
+ SUB-EXPRESSION (command_push && (cmd_i.kind == LOAD_END))
+                 ------1-----    ------------2-----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       266
+ SUB-EXPRESSION (cmd_i.kind == LOAD_END)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       270
+ EXPRESSION (initialize ? '0 : (((command_count + 1'(command_push)) - 1'(command_pop))))
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       272
+ EXPRESSION (initialize || command_push)
+             -----1----    ------2-----
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       273
+ EXPRESSION (initialize ? '0 : next_ptr(command_write_ptr))
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       274
+ EXPRESSION (initialize || command_pop)
+             -----1----    -----2-----
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       275
+ EXPRESSION (initialize ? '0 : next_ptr(command_read_ptr))
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       279
+ EXPRESSION (initialize || (start_load && ((!index_form))))
+             -----1----    ---------------2---------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       279
+ SUB-EXPRESSION (start_load && ((!index_form)))
+                 -----1----    -------2-------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       280
+ EXPRESSION (initialize ? '0 : ((aligned_cursor + instruction_bits)))
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       284
+ EXPRESSION (initialize || (start_load && ((!near_form))))
+             -----1----    ---------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       284
+ SUB-EXPRESSION (start_load && ((!near_form)))
+                 -----1----    -------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       285
+ EXPRESSION (initialize ? '0 : effective_address)
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       290
+ EXPRESSION (start_load || (response_accept && ((!final_response))))
+             -----1----    --------------------2-------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       290
+ SUB-EXPRESSION (response_accept && ((!final_response)))
+                 -------1-------    ---------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       291
+ EXPRESSION (start_load ? effective_address : ((byte_address + 24'(word_bytes_left))))
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       292
+ EXPRESSION (start_load ? head_cmd.byte_count : ((bytes_remaining - 7'(chunk_bytes))))
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       295
+ EXPRESSION (initialize || start_load || response_accept)
+             -----1----    -----2----    -------3-------
+
+-1- -2- -3- Status
+ 0   0   0  Covered
+ 0   0   1  Covered
+ 0   1   0  Covered
+ 1   0   0  Covered
+
+ LINE       296
+ EXPRESSION (initialize ? '0 : (start_load ? aligned_cursor : ((destination_cursor + 11'(chunk_bits)))))
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       296
+ SUB-EXPRESSION (start_load ? aligned_cursor : ((destination_cursor + 11'(chunk_bits))))
+                 -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       300
+ EXPRESSION (initialize || start_index || index_response)
+             -----1----    -----2-----    -------3------
+
+-1- -2- -3- Status
+ 0   0   0  Covered
+ 0   0   1  Covered
+ 0   1   0  Covered
+ 1   0   0  Covered
+
+ LINE       301
+ EXPRESSION ((initialize || start_index) ? '0 : ((index_assembly | (chunk_data[(tile_common_pkg::ADDR_SPACE_WIDTH - 1):0] << index_shift))))
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       301
+ SUB-EXPRESSION (initialize || start_index)
+                 -----1----    -----2-----
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       303
+ EXPRESSION (initialize || start_index || index_response)
+             -----1----    -----2-----    -------3------
+
+-1- -2- -3- Status
+ 0   0   0  Covered
+ 0   0   1  Covered
+ 0   1   0  Covered
+ 1   0   0  Covered
+
+ LINE       304
+ EXPRESSION ((initialize || start_index) ? '0 : ((index_shift + (5'(chunk_bytes) << tile_pkg::TILE_BYTE_IDX))))
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       304
+ SUB-EXPRESSION (initialize || start_index)
+                 -----1----    -----2-----
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       224
+ EXPRESSION (endl_valid_o && endl_ready_i)
+             ------1-----    ------2-----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       224
+ EXPRESSION (state == DRAIN_ENDL)
+            ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       113
+ EXPRESSION (((!reset_i)) && (state == DRAIN_ENDL) && packer_empty)
+             ------1-----    ----------2----------    ------3-----
+
+-1- -2- -3- Status
+ 0   1   1  Not Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       113
+ SUB-EXPRESSION (state == DRAIN_ENDL)
+                ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       114
+ EXPRESSION (reset_i || (endl_valid_o && endl_ready_i))
+             ---1---    ---------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       114
+ SUB-EXPRESSION (endl_valid_o && endl_ready_i)
+                 ------1-----    ------2-----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       115
+ EXPRESSION (((!initialize)) && ((!endl_accepted)) && (command_count < 1'(CMD_FIFO_DEPTH)))
+             -------1-------    ---------2--------    ------------------3-----------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       117
+ EXPRESSION (cmd_valid_i && cmd_ready_o)
+             -----1-----    -----2-----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       118
+ EXPRESSION (((!initialize)) && (state == COMMAND) && (command_count != 1'b0) && (((!needs_index_op)) || index_op_ready_i))
+             -------1-------    ---------2--------    -----------3-----------    --------------------4--------------------
+
+-1- -2- -3- -4- Status
+ 0   1   1   1  Not Covered
+ 1   0   1   1  Covered
+ 1   1   0   1  Covered
+ 1   1   1   0  Not Covered
+ 1   1   1   1  Covered
+
+ LINE       118
+ SUB-EXPRESSION (state == COMMAND)
+                ---------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       118
+ SUB-EXPRESSION (command_count != 1'b0)
+                -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       118
+ SUB-EXPRESSION (((!needs_index_op)) || index_op_ready_i)
+                 ---------1---------    --------2-------
+
+-1- -2- Status
+ 0   0  Not Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       125
+ EXPRESSION ((head_cmd.kind == LOAD_RF) && head_cmd.form[0])
+             -------------1------------    --------2-------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       125
+ SUB-EXPRESSION (head_cmd.kind == LOAD_RF)
+                -------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       126
+ EXPRESSION ((head_cmd.kind == LOAD_RF) && ((!head_cmd.form[1])))
+             -------------1------------    ----------2----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       126
+ SUB-EXPRESSION (head_cmd.kind == LOAD_RF)
+                -------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       127
+ EXPRESSION (head_cmd.kind == LOAD_INDEX_VALUE)
+            -----------------1-----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       128
+ EXPRESSION (head_cmd.kind == LOAD_END)
+            -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       129
+ EXPRESSION (head_cmd.kind == LOAD_PUSH_INDEX_ADDRESS)
+            ---------------------1--------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       130
+ EXPRESSION ((head_cmd.kind == LOAD_RF) || index_form)
+             -------------1------------    -----2----
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       130
+ SUB-EXPRESSION (head_cmd.kind == LOAD_RF)
+                -------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       131
+ EXPRESSION (is_push || (is_load && head_cmd.capture_addr))
+             ---1---    -----------------2----------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       131
+ SUB-EXPRESSION (is_load && head_cmd.capture_addr)
+                 ---1---    ----------2----------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       136
+ EXPRESSION 
+ Number  Term
+      1  head_cmd.align_new ? (((allocation_cursor + 11'((tile_common_pkg::WORD_WIDTH - 1))) & (~11'((tile_common_pkg::WORD_WIDTH - 1))))) : allocation_cursor)
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       142
+ EXPRESSION (bits_form ? (11'(gather_width)) : ((((11'(head_cmd.byte_count) - 1'b1) << tile_pkg::TILE_BYTE_IDX) + 11'(head_last_bits))))
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       147
+ EXPRESSION (command_pop && is_load)
+             -----1-----    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       148
+ EXPRESSION (start_load && index_form)
+             -----1----    -----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       156
+ EXPRESSION (((!initialize)) && ((state == PUBLISH_INDEX) || ((state == COMMAND) && (command_count != 1'b0) && needs_index_op)))
+             -------1-------    -----------------------------------------------2-----------------------------------------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       156
+ SUB-EXPRESSION ((state == PUBLISH_INDEX) || ((state == COMMAND) && (command_count != 1'b0) && needs_index_op))
+                 ------------1-----------    --------------------------------2--------------------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       156
+ SUB-EXPRESSION (state == PUBLISH_INDEX)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       156
+ SUB-EXPRESSION ((state == COMMAND) && (command_count != 1'b0) && needs_index_op)
+                 ---------1--------    -----------2-----------    -------3------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       156
+ SUB-EXPRESSION (state == COMMAND)
+                ---------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       156
+ SUB-EXPRESSION (command_count != 1'b0)
+                -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       158
+ EXPRESSION ((state == PUBLISH_INDEX) ? IDX_SET : (is_push ? IDX_PUSH : IDX_CAPTURE))
+             ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       158
+ SUB-EXPRESSION (state == PUBLISH_INDEX)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       158
+ SUB-EXPRESSION (is_push ? IDX_PUSH : IDX_CAPTURE)
+                 ---1---
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       159
+ EXPRESSION ((state == PUBLISH_INDEX) ? index_assembly : (is_push ? head_cmd.address : effective_address))
+             ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       159
+ SUB-EXPRESSION (state == PUBLISH_INDEX)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       159
+ SUB-EXPRESSION (is_push ? head_cmd.address : effective_address)
+                 ---1---
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       166
+ EXPRESSION (((!reset_i)) && (state == WAIT_ACK))
+             ------1-----    ---------2---------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       166
+ SUB-EXPRESSION (state == WAIT_ACK)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       175
+ EXPRESSION (((!reset_i)) && response_valid_i && ((state == WAIT_RESPONSE) || ((state == WAIT_ACK) && request_ack_i)))
+             ------1-----    --------2-------    ----------------------------------3---------------------------------
+
+-1- -2- -3- Status
+ 0   1   1  Not Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       175
+ SUB-EXPRESSION ((state == WAIT_RESPONSE) || ((state == WAIT_ACK) && request_ack_i))
+                 ------------1-----------    -------------------2------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       175
+ SUB-EXPRESSION (state == WAIT_RESPONSE)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       175
+ SUB-EXPRESSION ((state == WAIT_ACK) && request_ack_i)
+                 ---------1---------    ------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       175
+ SUB-EXPRESSION (state == WAIT_ACK)
+                ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       197
+ EXPRESSION ((bytes_remaining < 7'(word_bytes_left)) ? (3'(bytes_remaining)) : word_bytes_left)
+             -------------------1-------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       214
+ EXPRESSION (response_accept && active_cmd.index_value)
+             -------1-------    -----------2----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       215
+ EXPRESSION (response_accept && (bytes_remaining == 7'(chunk_bytes)))
+             -------1-------    ------------------2-----------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       215
+ SUB-EXPRESSION (bytes_remaining == 7'(chunk_bytes))
+                ------------------1-----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       222
+ EXPRESSION (response_accept && ((!active_cmd.index_value)))
+             -------1-------    -------------2-------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+-------------------------------------------------------------------------------
+FSM Coverage for Module : tile_lde
+Summary for FSM :: state
+            Total Covered Percent                         
+States      6     6       100.00  (Not included in score) 
+Transitions 13    9       69.23                           
+Sequences   0     0                                       
+
+State, Transition and Sequence Details for FSM :: state
+-------------------------------------------------------------------------------
+states           Line No. Covered 
+COMMAND          263      Covered 
+DRAIN_ENDL       240      Covered 
+PUBLISH_INDEX    248      Covered 
+RESERVE_RESPONSE 240      Covered 
+WAIT_ACK         244      Covered 
+WAIT_RESPONSE    250      Covered 
+
+transitions                     Line No. Covered     
+COMMAND->DRAIN_ENDL             240      Covered     
+COMMAND->RESERVE_RESPONSE       240      Covered     
+DRAIN_ENDL->COMMAND             263      Covered     
+PUBLISH_INDEX->COMMAND          263      Covered     
+RESERVE_RESPONSE->COMMAND       263      Not Covered 
+RESERVE_RESPONSE->WAIT_ACK      244      Covered     
+WAIT_ACK->COMMAND               263      Not Covered 
+WAIT_ACK->PUBLISH_INDEX         248      Not Covered 
+WAIT_ACK->RESERVE_RESPONSE      249      Not Covered 
+WAIT_ACK->WAIT_RESPONSE         250      Covered     
+WAIT_RESPONSE->COMMAND          263      Covered     
+WAIT_RESPONSE->PUBLISH_INDEX    248      Covered     
+WAIT_RESPONSE->RESERVE_RESPONSE 249      Covered     
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : tile_lde
+         Line No. Total Covered Percent 
+Branches          69    67      97.10   
+TERNARY  136      2     2       100.00  
+TERNARY  142      2     2       100.00  
+TERNARY  158      3     3       100.00  
+TERNARY  159      3     3       100.00  
+TERNARY  197      2     2       100.00  
+IF       202      3     3       100.00  
+CASE     238      15    13      86.67   
+TERNARY  263      2     2       100.00  
+IF       264      2     2       100.00  
+IF       266      2     2       100.00  
+TERNARY  270      2     2       100.00  
+IF       272      3     3       100.00  
+IF       274      3     3       100.00  
+IF       276      2     2       100.00  
+IF       279      3     3       100.00  
+IF       284      3     3       100.00  
+IF       288      2     2       100.00  
+IF       290      5     5       100.00  
+IF       295      4     4       100.00  
+IF       300      3     3       100.00  
+IF       303      3     3       100.00  
+
+
+136          assign aligned_cursor = head_cmd.align_new ?
+                                                        -1-  
+                                                        ==>  
+                                                        ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+142          assign instruction_bits = bits_form ? RF_BIT_CURSOR_WIDTH'(gather_width) :
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+158          assign index_op_o = state == PUBLISH_INDEX ? IDX_SET : is_push ? IDX_PUSH : IDX_CAPTURE;
+                                                        -1-                 -2-   
+                                                        ==>                 ==>   
+                                                                            ==>  
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+159          assign index_data_o = state == PUBLISH_INDEX ? index_assembly :
+                                                          -1-  
+                                                          ==>  
+160            is_push ? head_cmd.address : effective_address;
+                       -2-  
+                       ==>  
+                       ==>  
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+197          assign chunk_bytes = bytes_remaining < TILE_LOADB_BYTE_COUNT_WIDTH'(word_bytes_left)
+                                                                                                 
+198            ? CHUNK_BYTES_W'(bytes_remaining) : word_bytes_left;
+               -1-  
+               ==>  
+               ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+202            if (active_cmd.gather) begin
+               -1-  
+203              chunk_bits = WORD_BIT_COUNT_WIDTH'($countones(active_cmd.gather_mask));
+                 ==>
+204              chunk_data = WORD_WIDTH'(gather_byte(shifted[TILE_BYTE_WIDTH-1:0],active_cmd.gather_mask));
+205            end else begin
+206              // A final RF DATA byte may be partial; INDEX responses use complete bytes.
+207              chunk_bits = !active_cmd.index_value &&
+                                                        
+208                bytes_remaining == TILE_LOADB_BYTE_COUNT_WIDTH'(chunk_bytes)
+                                                                               
+209                ? (((WORD_BIT_COUNT_WIDTH'(chunk_bytes) - 1'b1) << TILE_BYTE_IDX) + active_last_bits)
+                   -2-  
+                   ==>  
+                   ==>  
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+238            case (state)
+               -1-  
+239              COMMAND:
+240                next_state = command_pop && is_endl ? DRAIN_ENDL :
+                                                       -2-  
+                                                       ==>  
+241                  start_load ? RESERVE_RESPONSE : COMMAND;
+                                -3-  
+                                ==>  
+                                ==>  
+242              // No response backpressure: reserve capacity before asserting valid.
+243              RESERVE_RESPONSE:
+244                next_state = fragment_space ? WAIT_ACK : RESERVE_RESPONSE;
+                                               -4-  
+                                               ==>  
+                                               ==>  
+245              // Wait for this response before issuing another read.
+246              WAIT_ACK, WAIT_RESPONSE:
+247                if (final_response)
+                   -5-  
+248                  next_state = index_response ? PUBLISH_INDEX : COMMAND;
+                                                 -6-  
+                                                 ==>  
+                                                 ==>  
+249                else if (response_accept) next_state = RESERVE_RESPONSE;
+                        -7-  
+                   ==>
+250                else if (request_ack_i && state == WAIT_ACK) next_state = WAIT_RESPONSE;
+                        -8-  
+                   ==>
+251                else next_state = state;
+                   ==>
+252              PUBLISH_INDEX:
+253                next_state = index_op_ready_i ? COMMAND : PUBLISH_INDEX;
+                                                 -9-  
+                                                 ==>  
+                                                 ==>  
+254              // Earlier requests finished; drain fragments and flush the final RF word.
+255              DRAIN_ENDL:
+256                next_state = endl_valid_o && endl_ready_i ? COMMAND : DRAIN_ENDL;
+                                                             -10-  
+                                                             ==>  
+                                                             ==>  
+257              default: next_state = COMMAND;
+                 ==>
+
+Branches:
+
+-1-                     -2- -3- -4- -5- -6- -7- -8- -9- -10- Status      
+COMMAND                 1   -   -   -   -   -   -   -   -    Covered     
+COMMAND                 0   1   -   -   -   -   -   -   -    Covered     
+COMMAND                 0   0   -   -   -   -   -   -   -    Covered     
+RESERVE_RESPONSE        -   -   1   -   -   -   -   -   -    Covered     
+RESERVE_RESPONSE        -   -   0   -   -   -   -   -   -    Not Covered 
+WAIT_ACK WAIT_RESPONSE  -   -   -   1   1   -   -   -   -    Covered     
+WAIT_ACK WAIT_RESPONSE  -   -   -   1   0   -   -   -   -    Covered     
+WAIT_ACK WAIT_RESPONSE  -   -   -   0   -   1   -   -   -    Covered     
+WAIT_ACK WAIT_RESPONSE  -   -   -   0   -   0   1   -   -    Covered     
+WAIT_ACK WAIT_RESPONSE  -   -   -   0   -   0   0   -   -    Covered     
+PUBLISH_INDEX           -   -   -   -   -   -   -   1   -    Covered     
+PUBLISH_INDEX           -   -   -   -   -   -   -   0   -    Not Covered 
+DRAIN_ENDL              -   -   -   -   -   -   -   -   1    Covered     
+DRAIN_ENDL              -   -   -   -   -   -   -   -   0    Covered     
+default                 -   -   -   -   -   -   -   -   -    Covered     
+
+
+263            state <= (initialize ? COMMAND : next_state);
+                                    -1-  
+                                    ==>  
+                                    ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+264            if (initialize || command_push) busy_o <= !initialize;
+               -1-  
+               ==>
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+266            if (initialize || (command_push && cmd_i.kind == LOAD_END))
+               -1-  
+267              endl_accepted <= !initialize;
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+270            command_count <= initialize ? '0 :
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+272            if (initialize || command_push)
+               -1-  
+273              command_write_ptr <= initialize ? '0 : next_ptr(command_write_ptr);
+                                                 -2-  
+                                                 ==>  
+                                                 ==>  
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   1   Covered 
+1   0   Covered 
+0   -   Covered 
+
+
+274            if (initialize || command_pop)
+               -1-  
+275              command_read_ptr <= initialize ? '0 : next_ptr(command_read_ptr);
+                                                -2-  
+                                                ==>  
+                                                ==>  
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   1   Covered 
+1   0   Covered 
+0   -   Covered 
+
+
+276            if (command_push) command_fifo[command_write_ptr] <= cmd_i;
+               -1-                           
+               ==>
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+279            if (initialize || (start_load && !index_form))
+               -1-  
+280              allocation_cursor <= initialize ? '0 : aligned_cursor + instruction_bits;
+                                                 -2-  
+                                                 ==>  
+                                                 ==>  
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   1   Covered 
+1   0   Covered 
+0   -   Covered 
+
+
+284            if (initialize || (start_load && !near_form)) begin
+               -1-  
+285              load_base <= initialize ? '0 : effective_address;
+                                         -2-  
+                                         ==>  
+                                         ==>  
+286            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   1   Covered 
+1   0   Covered 
+0   -   Covered 
+
+
+288            if (start_load) active_cmd <= '{index_value:index_form, gather:bits_form,
+               -1-  
+               ==>
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+290            if (start_load || (response_accept && !final_response)) begin
+               -1-  
+291              byte_address <= start_load ? effective_address : byte_address + ADDR_SPACE_WIDTH'(word_bytes_left);
+                                            -2-  
+                                            ==>  
+                                            ==>  
+292              bytes_remaining <= start_load ? head_cmd.byte_count :
+                                               -3-  
+                                               ==>  
+                                               ==>  
+293                bytes_remaining - TILE_LOADB_BYTE_COUNT_WIDTH'(chunk_bytes);
+294            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   1   -   Covered 
+1   0   -   Covered 
+1   -   1   Covered 
+1   -   0   Covered 
+0   -   -   Covered 
+
+
+295            if (initialize || start_load || response_accept)
+               -1-  
+296              destination_cursor <= initialize ? '0 : start_load ? aligned_cursor : destination_cursor + RF_BIT_CURSOR_WIDTH'(chunk_bits);
+                                                  -2-               -3-   
+                                                  ==>               ==>   
+                                                                    ==>  
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   1   -   Covered 
+1   0   1   Covered 
+1   0   0   Covered 
+0   -   -   Covered 
+
+
+300            if (initialize || start_index || index_response)
+               -1-  
+301              index_assembly <= initialize || start_index ? '0 :
+                                                             -2-  
+                                                             ==>  
+                                                             ==>  
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   1   Covered 
+1   0   Covered 
+0   -   Covered 
+
+
+303            if (initialize || start_index || index_response)
+               -1-  
+304              index_shift <= initialize || start_index ? '0 : index_shift + (INDEX_SHIFT_W'(chunk_bytes) << TILE_BYTE_IDX);
+                                                          -2-  
+                                                          ==>  
+                                                          ==>  
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- Status  
+1   1   Covered 
+1   0   Covered 
+0   -   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : tile_lde
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 1        1              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : lde_directed_depth1_tb.test_case.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.27 100.00  95.00  69.23  97.10 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.62 100.00  95.85  69.23  98.02 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME     
+ 92.27 100.00  95.00  69.23  97.10 100.00 tile_lde 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+--     --     --     --     --     --     test_case 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+ 99.48 100.00  97.94 --     100.00 100.00 packer 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : rf_packer
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.48 100.00  97.94 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/lde/rf_packer.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                        
+ 99.48 100.00  97.94 --     100.00 100.00 lde_directed_depth1_tb.test_case.dut.packer 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : rf_packer
+
+             Line No.   Total   Covered  Percent
+TOTAL                       30       30   100.00
+ALWAYS             71       10       10   100.00
+ALWAYS             87        9        9   100.00
+ALWAYS            104        4        4   100.00
+ALWAYS            104        4        4   100.00
+ALWAYS            116        3        3   100.00
+
+70                        always_ff @(posedge clk_i) begin
+71         1/1              if (reset_i || clear_i) begin
+72         1/1                word_data_r <= '0;
+73         1/1                word_rd_r <= '0;
+74         1/1                word_valid_r <= 1'b0;
+75         1/1              end else if (rf_write_o) begin
+76         1/1                word_valid_r <= 1'b0;
+77         1/1              end else if (fragment_take) begin
+78         1/1                word_data_r <= rf_data_o;
+79         1/1                word_rd_r <= rf_address_o;
+80         1/1                word_valid_r <= 1'b1;
+81                          end
+                        MISSING_ELSE
+82                        end
+83                      
+84                        // Packing proceeds while the request stage waits on memory.
+85                        // A power-of-two depth lets the pointers wrap naturally.
+86                        always_ff @(posedge clk_i) begin
+87         1/1              if (reset_i || clear_i) begin
+88         1/1                fragment_count <= '0;
+89         1/1                fragment_read_ptr <= '0;
+90         1/1                fragment_write_ptr <= '0;
+91                          end else begin
+92         1/1                fragment_count <= fragment_count + FRAGMENT_COUNT_W'(push_i) - FRAGMENT_COUNT_W'(fragment_pop);
+93         2/2                if (fragment_pop) fragment_read_ptr <= fragment_read_ptr + 1'b1;
+                        MISSING_ELSE
+94         2/2                if (push_i) fragment_write_ptr <= fragment_write_ptr + 1'b1;
+                        MISSING_ELSE
+95                          end
+96                        end
+97                      
+98                        // Retain the fragment remainder when packing reaches an RF word boundary.
+99                        for (genvar slot = 0; slot < TILE_LDE_FRAGMENT_DEPTH; slot++) begin : g_fragment
+100                         logic enqueue, advance;
+101                         assign enqueue = push_i && fragment_write_ptr == FRAGMENT_PTR_W'(slot);
+102                         assign advance = fragment_take && !fragment_pop && fragment_read_ptr == FRAGMENT_PTR_W'(slot);
+103                         always_ff @(posedge clk_i) begin
+104        1/1                if (enqueue || advance) begin
+105        1/1                  fragment_data[slot] <= enqueue ? push_data_i : fragment_data[slot] >> take_bits;
+106        1/1                  fragment_bits[slot] <= enqueue ? push_bits_i : fragment_bits[slot] - take_bits;
+107        1/1                  fragment_cursor[slot] <= enqueue ? push_cursor_i :
+108                               fragment_cursor[slot] + RF_BIT_CURSOR_WIDTH'(take_bits);
+109                           end
+                        MISSING_ELSE
+***repeat 1
+104        1/1                if (enqueue || advance) begin
+105        1/1                  fragment_data[slot] <= enqueue ? push_data_i : fragment_data[slot] >> take_bits;
+106        1/1                  fragment_bits[slot] <= enqueue ? push_bits_i : fragment_bits[slot] - take_bits;
+107        1/1                  fragment_cursor[slot] <= enqueue ? push_cursor_i :
+108                               fragment_cursor[slot] + RF_BIT_CURSOR_WIDTH'(take_bits);
+109                           end
+                        MISSING_ELSE
+110                         end
+111                       end
+112                     
+113                     `ifndef SYNTHESIS
+114                       initial assert (TILE_LDE_FRAGMENT_DEPTH > 1 && 2 ** FRAGMENT_PTR_W == TILE_LDE_FRAGMENT_DEPTH)
+115                         else $fatal(1,"TILE_LDE_FRAGMENT_DEPTH must be a power of two above one");
+116        1/1            always @(posedge clk_i) if (!reset_i) begin
+117                         assert (fragment_count <= FRAGMENT_COUNT_W'(TILE_LDE_FRAGMENT_DEPTH)) else $fatal(1,"fragment queue overflow");
+118        1/1              if (push_i) assert (space_o || fragment_pop)
+119                           else $fatal(1,"response arrived without reserved fragment space");
+                        MISSING_ELSE
+120        1/1              if (fragment_take) assert (fragment_cursor[fragment_read_ptr] < NUM_REGS * WORD_WIDTH && take_bits != 0)
+121                           else $fatal(1,"invalid RF fragment");
+                        MISSING_ELSE
+122                       end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : rf_packer
+
+               Total   Covered  Percent
+Conditions         97       95    97.94
+Logical            97       95    97.94
+Non-Logical         0        0
+Event               0        0
+
+ LINE       71
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       87
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       104
+ EXPRESSION (g_fragment[0].enqueue || g_fragment[0].advance)
+             ----------1----------    ----------2----------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       105
+ EXPRESSION (g_fragment[0].enqueue ? push_data_i : ((fragment_data[0] >> take_bits)))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       106
+ EXPRESSION (g_fragment[0].enqueue ? push_bits_i : ((fragment_bits[0] - take_bits)))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       107
+ EXPRESSION (g_fragment[0].enqueue ? push_cursor_i : ((fragment_cursor[0] + 11'(take_bits))))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       104
+ EXPRESSION (g_fragment[1].enqueue || g_fragment[1].advance)
+             ----------1----------    ----------2----------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       105
+ EXPRESSION (g_fragment[1].enqueue ? push_data_i : ((fragment_data[1] >> take_bits)))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       106
+ EXPRESSION (g_fragment[1].enqueue ? push_bits_i : ((fragment_bits[1] - take_bits)))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       107
+ EXPRESSION (g_fragment[1].enqueue ? push_cursor_i : ((fragment_cursor[1] + 11'(take_bits))))
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       47
+ EXPRESSION ((fragment_count == 2'b0) && ((!word_valid_r)))
+             ------------1-----------    --------2--------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       47
+ SUB-EXPRESSION (fragment_count == 2'b0)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       55
+ EXPRESSION ((fragment_bits[fragment_read_ptr] < register_bits_available) ? fragment_bits[fragment_read_ptr] : register_bits_available)
+             ------------------------------1-----------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       57
+ EXPRESSION 
+ Number  Term
+      1  word_valid_r && 
+      2  (((fragment_count != 2'b0) && (word_rd_r != fragment_cursor[fragment_read_ptr][datapath_pkg::WORD_IDX+:datapath_pkg::NUM_REGS_IDX])) || (drain_i && (fragment_count == 2'b0))))
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       57
+ SUB-EXPRESSION 
+ Number  Term
+      1  ((fragment_count != 2'b0) && (word_rd_r != fragment_cursor[fragment_read_ptr][datapath_pkg::WORD_IDX+:datapath_pkg::NUM_REGS_IDX])) || 
+      2  (drain_i && (fragment_count == 2'b0)))
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       57
+ SUB-EXPRESSION ((fragment_count != 2'b0) && (word_rd_r != fragment_cursor[fragment_read_ptr][datapath_pkg::WORD_IDX+:datapath_pkg::NUM_REGS_IDX]))
+                 ------------1-----------    --------------------------------------------------2--------------------------------------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       57
+ SUB-EXPRESSION (fragment_count != 2'b0)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       57
+ SUB-EXPRESSION (word_rd_r != fragment_cursor[fragment_read_ptr][datapath_pkg::WORD_IDX+:datapath_pkg::NUM_REGS_IDX])
+                --------------------------------------------------1--------------------------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       57
+ SUB-EXPRESSION (drain_i && (fragment_count == 2'b0))
+                 ---1---    ------------2-----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       57
+ SUB-EXPRESSION (fragment_count == 2'b0)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       61
+ EXPRESSION (((!reset_i)) && (fragment_count != 2'b0) && ((!flush_word)))
+             ------1-----    ------------2-----------    -------3-------
+
+-1- -2- -3- Status
+ 0   1   1  Not Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       61
+ SUB-EXPRESSION (fragment_count != 2'b0)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       62
+ EXPRESSION (((!reset_i)) && (flush_word || (fragment_take && (take_bits == register_bits_available))))
+             ------1-----    ------------------------------------2------------------------------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       62
+ SUB-EXPRESSION (flush_word || (fragment_take && (take_bits == register_bits_available)))
+                 -----1----    ----------------------------2----------------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       62
+ SUB-EXPRESSION (fragment_take && (take_bits == register_bits_available))
+                 ------1------    -------------------2------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       62
+ SUB-EXPRESSION (take_bits == register_bits_available)
+                -------------------1------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       64
+ EXPRESSION (flush_word ? word_rd_r : fragment_cursor[fragment_read_ptr][datapath_pkg::WORD_IDX+:datapath_pkg::NUM_REGS_IDX])
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       65
+ EXPRESSION 
+ Number  Term
+      1  flush_word ? word_data_r : (((word_valid_r ? word_data_r : '0) | (fragment_data[fragment_read_ptr] << fragment_cursor[fragment_read_ptr][(datapath_pkg::WORD_IDX - 1):0]))))
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       68
+ EXPRESSION (fragment_take && (take_bits == fragment_bits[fragment_read_ptr]))
+             ------1------    -----------------------2-----------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       68
+ SUB-EXPRESSION (take_bits == fragment_bits[fragment_read_ptr])
+                -----------------------1-----------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       101
+ EXPRESSION (push_i && (fragment_write_ptr == 1'(0)))
+             ---1--    --------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       101
+ SUB-EXPRESSION (fragment_write_ptr == 1'(0))
+                --------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       102
+ EXPRESSION (fragment_take && ((!fragment_pop)) && (fragment_read_ptr == 1'(0)))
+             ------1------    --------2--------    --------------3-------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       102
+ SUB-EXPRESSION (fragment_read_ptr == 1'(0))
+                --------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       101
+ EXPRESSION (push_i && (fragment_write_ptr == 1'(1)))
+             ---1--    --------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       101
+ SUB-EXPRESSION (fragment_write_ptr == 1'(1))
+                --------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       102
+ EXPRESSION (fragment_take && ((!fragment_pop)) && (fragment_read_ptr == 1'(1)))
+             ------1------    --------2--------    --------------3-------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       102
+ SUB-EXPRESSION (fragment_read_ptr == 1'(1))
+                --------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : rf_packer
+         Line No. Total Covered Percent 
+Branches          32    32      100.00  
+TERNARY  55       2     2       100.00  
+TERNARY  64       2     2       100.00  
+TERNARY  65       2     2       100.00  
+IF       71       4     4       100.00  
+IF       87       5     5       100.00  
+IF       116      3     3       100.00  
+IF       104      7     7       100.00  
+IF       104      7     7       100.00  
+
+
+55           assign take_bits = fragment_bits[fragment_read_ptr] < register_bits_available ?
+                                                                                           -1-  
+                                                                                           ==>  
+                                                                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+64           assign rf_address_o = flush_word ? word_rd_r : fragment_cursor[fragment_read_ptr][WORD_IDX +: NUM_REGS_IDX];
+                                              -1-  
+                                              ==>  
+                                              ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+65           assign rf_data_o = flush_word ? word_data_r :
+66             ((word_valid_r ? word_data_r : '0) |
+67              (fragment_data[fragment_read_ptr] << fragment_cursor[fragment_read_ptr][WORD_IDX-1:0]));
+
+ID         LINE       
+-1-        65         flush_word
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+71             if (reset_i || clear_i) begin
+               -1-  
+72               word_data_r <= '0;
+                 ==>
+73               word_rd_r <= '0;
+74               word_valid_r <= 1'b0;
+75             end else if (rf_write_o) begin
+                        -2-  
+76               word_valid_r <= 1'b0;
+                 ==>
+77             end else if (fragment_take) begin
+                        -3-  
+78               word_data_r <= rf_data_o;
+                 ==>
+79               word_rd_r <= rf_address_o;
+80               word_valid_r <= 1'b1;
+81             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+87             if (reset_i || clear_i) begin
+               -1-  
+88               fragment_count <= '0;
+                 ==>
+89               fragment_read_ptr <= '0;
+90               fragment_write_ptr <= '0;
+91             end else begin
+92               fragment_count <= fragment_count + FRAGMENT_COUNT_W'(push_i) - FRAGMENT_COUNT_W'(fragment_pop);
+93               if (fragment_pop) fragment_read_ptr <= fragment_read_ptr + 1'b1;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+94               if (push_i) fragment_write_ptr <= fragment_write_ptr + 1'b1;
+                 -3-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   -   Covered 
+0   -   1   Covered 
+0   -   0   Covered 
+
+
+116          always @(posedge clk_i) if (!reset_i) begin
+                                     -1-  
+117            assert (fragment_count <= FRAGMENT_COUNT_W'(TILE_LDE_FRAGMENT_DEPTH)) else $fatal(1,"fragment queue overflow");
+118            if (push_i) assert (space_o || fragment_pop)
+               -2-  
+119              else $fatal(1,"response arrived without reserved fragment space");
+                 MISSING_ELSE
+                 ==>
+120            if (fragment_take) assert (fragment_cursor[fragment_read_ptr] < NUM_REGS * WORD_WIDTH && take_bits != 0)
+               -3-  
+121              else $fatal(1,"invalid RF fragment");
+                 MISSING_ELSE
+                 ==>
+122          end
+             MISSING_ELSE
+             ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   0   -   Covered 
+1   -   0   Covered 
+0   -   -   Covered 
+
+
+104              if (enqueue || advance) begin
+                 -1-  
+105                fragment_data[slot] <= enqueue ? push_data_i : fragment_data[slot] >> take_bits;
+                                                  -2-  
+                                                  ==>  
+                                                  ==>  
+106                fragment_bits[slot] <= enqueue ? push_bits_i : fragment_bits[slot] - take_bits;
+                                                  -3-  
+                                                  ==>  
+                                                  ==>  
+107                fragment_cursor[slot] <= enqueue ? push_cursor_i :
+                                                    -4-  
+                                                    ==>  
+                                                    ==>  
+108                  fragment_cursor[slot] + RF_BIT_CURSOR_WIDTH'(take_bits);
+109              end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- Status  
+1   1   -   -   Covered 
+1   0   -   -   Covered 
+1   -   1   -   Covered 
+1   -   0   -   Covered 
+1   -   -   1   Covered 
+1   -   -   0   Covered 
+0   -   -   -   Covered 
+
+
+104              if (enqueue || advance) begin
+                 -1-  
+105                fragment_data[slot] <= enqueue ? push_data_i : fragment_data[slot] >> take_bits;
+                                                  -2-  
+                                                  ==>  
+                                                  ==>  
+106                fragment_bits[slot] <= enqueue ? push_bits_i : fragment_bits[slot] - take_bits;
+                                                  -3-  
+                                                  ==>  
+                                                  ==>  
+107                fragment_cursor[slot] <= enqueue ? push_cursor_i :
+                                                    -4-  
+                                                    ==>  
+                                                    ==>  
+108                  fragment_cursor[slot] + RF_BIT_CURSOR_WIDTH'(take_bits);
+109              end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- Status  
+1   1   -   -   Covered 
+1   0   -   -   Covered 
+1   -   1   -   Covered 
+1   -   0   -   Covered 
+1   -   -   1   Covered 
+1   -   -   0   Covered 
+0   -   -   -   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : rf_packer
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       4     4         100.00  4                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            4     4         100.00  4                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 1        1              0        0          
+unnamed$$_1 2519     2519           0        0          
+unnamed$$_2 302      302            0        0          
+unnamed$$_3 415      415            0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : lde_directed_depth1_tb.test_case.dut.packer
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.48 100.00  97.94 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.48 100.00  97.94 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+ 99.48 100.00  97.94 --     100.00 100.00 rf_packer 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 92.27 100.00  95.00  69.23  97.10 100.00 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : lde_directed_depth1_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/lde/v2/vcs_tops.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                   
+--     --     --     --     --     --     lde_directed_depth1_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : lde_directed_depth1_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.45 100.00  94.99  69.23  98.02 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                   
+--     --     --     --     --     --     lde_directed_depth1_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+ 92.45 100.00  94.99  69.23  98.02 100.00 test_case 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : top_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/lde/v2/top_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                             
+--     --     --     --     --     --     lde_directed_depth1_tb.test_case 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : lde_directed_depth1_tb.test_case
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.45 100.00  94.99  69.23  98.02 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+--     --     --     --     --     --     top_tb 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                   
+--     --     --     --     --     --     lde_directed_depth1_tb 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME    
+ 92.62 100.00  95.85  69.23  98.02 100.00 dut     
+ 90.91 100.00  81.82 --     --     --     indices 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

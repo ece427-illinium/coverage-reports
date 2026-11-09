@@ -1,0 +1,634 @@
+Group : fpga_host_model_tb::host_cg
+
+===============================================================================
+Group : fpga_host_model_tb::host_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/models/fpga_host/fpga_host_model_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
+100.00 1      100    1        64           64            coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   fpga_host_model_tb::host_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 31       0         31      100.00  
+Crosses   25       0         25      100.00  
+
+
+Variables for Group  fpga_host_model_tb::host_cg
+
+
+VARIABLE              EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+host_interaction      10       0         10      100.00  100  1      1        0                    
+memory_region         3        0         3       100.00  100  1      1        0                    
+outstanding_reads     3        0         3       100.00  100  1      1        0                    
+response_backpressure 1        0         1       100.00  100  1      1        0                    
+event_tile            4        0         4       100.00  100  1      1        0                    
+memory_mask_format    2        0         2       100.00  100  1      1        0                    
+completion_mask       4        0         4       100.00  100  1      1        0                    
+epoch_phase           4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group  fpga_host_model_tb::host_cg
+
+
+CROSS                   EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+host_event_x_tile       3        0         3       100.00  100  1      1        0                     
+completion_tile_x_mask  16       0         16      100.00  100  1      1        0                     
+memory_operation_x_mask 2        0         2       100.00  100  1      1        0                     
+boundary_x_stimulus     4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable host_interaction
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 10       0         10      100.00  
+
+
+User Defined Bins for host_interaction
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+host_cycle_end  1     1        
+stimulus_change 1     1        
+epoch_ack       1     1        
+dut_done        1     1        
+full_write      1     1        
+masked_write    1     1        
+memory_read     3     1        
+completion      17    1        
+credit          5     1        
+program_image   5     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable memory_region
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for memory_region
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+inferred      1     1        
+sequential    1     1        
+combinational 3     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable outstanding_reads
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for outstanding_reads
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+multiple 3     1        
+one      11    1        
+none     31    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable response_backpressure
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for response_backpressure
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 9     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable event_tile
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for event_tile
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+tiles_0 6     1        
+tiles_1 6     1        
+tiles_2 9     1        
+tiles_3 6     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable memory_mask_format
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for memory_mask_format
+
+
+Bins
+
+NAME              COUNT AT LEAST 
+compact_full_word 1     1        
+explicit_mask     1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable completion_mask
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for completion_mask
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+dense  5     1        
+sparse 4     1        
+onehot 4     1        
+zero   4     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable epoch_phase
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for epoch_phase
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+host_end         1     1        
+epoch_ack        1     1        
+stimulus_update  1     1        
+dut_done_promote 1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross host_event_x_tile
+
+
+Samples crossed: host_interaction event_tile
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 3        0         3       100.00          
+
+
+User Defined Cross Bins for host_event_x_tile
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+program_tiles    5     1        
+credit_tiles     5     1        
+completion_tiles 17    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross completion_tile_x_mask
+
+
+Samples crossed: event_tile completion_mask
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 16       0         16      100.00          
+
+
+Automatically Generated Cross Bins for completion_tile_x_mask
+
+
+Bins
+
+event_tile completion_mask COUNT AT LEAST 
+tiles_0    zero            1     1        
+tiles_0    dense           1     1        
+tiles_0    sparse          1     1        
+tiles_0    onehot          1     1        
+tiles_1    zero            1     1        
+tiles_1    dense           1     1        
+tiles_1    sparse          1     1        
+tiles_1    onehot          1     1        
+tiles_2    zero            1     1        
+tiles_2    sparse          1     1        
+tiles_2    onehot          1     1        
+tiles_2    dense           2     1        
+tiles_3    zero            1     1        
+tiles_3    dense           1     1        
+tiles_3    sparse          1     1        
+tiles_3    onehot          1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross memory_operation_x_mask
+
+
+Samples crossed: host_interaction memory_mask_format
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 2        0         2       100.00          
+
+
+User Defined Cross Bins for memory_operation_x_mask
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+masked 1     1        
+full   1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross boundary_x_stimulus
+
+
+Samples crossed: host_interaction epoch_phase
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        0         4       100.00          
+
+
+User Defined Cross Bins for boundary_x_stimulus
+
+
+Bins
+
+NAME        COUNT AT LEAST 
+promote     1     1        
+update      1     1        
+acknowledge 1     1        
+end_cycle   1     1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                        
+100.00 100.00    1      100    1        1            64           64                    fpga_host_model_tb::host_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 31       0         31      100.00  
+Crosses   25       0         25      100.00  
+
+
+Variables for Group Instance  coverage
+
+
+VARIABLE              EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+host_interaction      10       0         10      100.00  100  1      1        0                    
+memory_region         3        0         3       100.00  100  1      1        0                    
+outstanding_reads     3        0         3       100.00  100  1      1        0                    
+response_backpressure 1        0         1       100.00  100  1      1        0                    
+event_tile            4        0         4       100.00  100  1      1        0                    
+memory_mask_format    2        0         2       100.00  100  1      1        0                    
+completion_mask       4        0         4       100.00  100  1      1        0                    
+epoch_phase           4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  coverage
+
+
+CROSS                   EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+host_event_x_tile       3        0         3       100.00  100  1      1        0                     
+completion_tile_x_mask  16       0         16      100.00  100  1      1        0                     
+memory_operation_x_mask 2        0         2       100.00  100  1      1        0                     
+boundary_x_stimulus     4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable host_interaction
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 10       0         10      100.00  
+
+
+User Defined Bins for host_interaction
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+host_cycle_end  1     1        
+stimulus_change 1     1        
+epoch_ack       1     1        
+dut_done        1     1        
+full_write      1     1        
+masked_write    1     1        
+memory_read     3     1        
+completion      17    1        
+credit          5     1        
+program_image   5     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable memory_region
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for memory_region
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+inferred      1     1        
+sequential    1     1        
+combinational 3     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable outstanding_reads
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for outstanding_reads
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+multiple 3     1        
+one      11    1        
+none     31    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable response_backpressure
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for response_backpressure
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 9     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable event_tile
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for event_tile
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+tiles_0 6     1        
+tiles_1 6     1        
+tiles_2 9     1        
+tiles_3 6     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable memory_mask_format
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for memory_mask_format
+
+
+Bins
+
+NAME              COUNT AT LEAST 
+compact_full_word 1     1        
+explicit_mask     1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable completion_mask
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for completion_mask
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+dense  5     1        
+sparse 4     1        
+onehot 4     1        
+zero   4     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable epoch_phase
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for epoch_phase
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+host_end         1     1        
+epoch_ack        1     1        
+stimulus_update  1     1        
+dut_done_promote 1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross host_event_x_tile
+
+
+Samples crossed: host_interaction event_tile
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 3        0         3       100.00          
+
+
+User Defined Cross Bins for host_event_x_tile
+
+
+Bins
+
+NAME             COUNT AT LEAST 
+program_tiles    5     1        
+credit_tiles     5     1        
+completion_tiles 17    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross completion_tile_x_mask
+
+
+Samples crossed: event_tile completion_mask
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 16       0         16      100.00          
+
+
+Automatically Generated Cross Bins for completion_tile_x_mask
+
+
+Bins
+
+event_tile completion_mask COUNT AT LEAST 
+tiles_0    zero            1     1        
+tiles_0    dense           1     1        
+tiles_0    sparse          1     1        
+tiles_0    onehot          1     1        
+tiles_1    zero            1     1        
+tiles_1    dense           1     1        
+tiles_1    sparse          1     1        
+tiles_1    onehot          1     1        
+tiles_2    zero            1     1        
+tiles_2    sparse          1     1        
+tiles_2    onehot          1     1        
+tiles_2    dense           2     1        
+tiles_3    zero            1     1        
+tiles_3    dense           1     1        
+tiles_3    sparse          1     1        
+tiles_3    onehot          1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross memory_operation_x_mask
+
+
+Samples crossed: host_interaction memory_mask_format
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 2        0         2       100.00          
+
+
+User Defined Cross Bins for memory_operation_x_mask
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+masked 1     1        
+full   1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross boundary_x_stimulus
+
+
+Samples crossed: host_interaction epoch_phase
+CATEGORY                EXPECTED UNCOVERED COVERED PERCENT MISSING 
+User Defined Cross Bins 4        0         4       100.00          
+
+
+User Defined Cross Bins for boundary_x_stimulus
+
+
+Bins
+
+NAME        COUNT AT LEAST 
+promote     1     1        
+update      1     1        
+acknowledge 1     1        
+end_cycle   1     1        
+
+

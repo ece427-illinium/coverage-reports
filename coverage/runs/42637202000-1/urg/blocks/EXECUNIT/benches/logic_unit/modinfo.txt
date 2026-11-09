@@ -1,0 +1,2364 @@
+===============================================================================
+Module : logic_unit
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH 
+100.00 100.00 100.00 --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/func_units/logic_unit.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH NAME              
+100.00 100.00 100.00 --     100.00 logic_unit_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : logic_unit
+
+             Line No.   Total   Covered  Percent
+TOTAL                       10       10   100.00
+ROUTINE            11       10       10   100.00
+
+10                        function automatic logic [7:0] fixed_table(input logic [2:0] fn);
+11         1/1              case (tile_logic_fn_e'(fn))
+12         1/1                TILE_LOGIC_PASS: fixed_table = 8'hF0;
+13         1/1                TILE_LOGIC_NOT:  fixed_table = 8'h0F;
+14         1/1                TILE_LOGIC_AND2: fixed_table = 8'hC0;
+15         1/1                TILE_LOGIC_OR2:  fixed_table = 8'hFC;
+16         1/1                TILE_LOGIC_XOR2: fixed_table = 8'h3C;
+17         1/1                TILE_LOGIC_SEL:  fixed_table = 8'hD8;
+18         1/1                TILE_LOGIC_AND3: fixed_table = 8'h80;
+19         1/1                TILE_LOGIC_OR3:  fixed_table = 8'hFE;
+20         1/1                default:        fixed_table = '0;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : logic_unit
+
+               Total   Covered  Percent
+Conditions        208      208   100.00
+Logical           208      208   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       25
+ EXPRESSION (uniform_i ? table_i : fixed_table(functions_i[(21 - (3 * 0))+:3]))
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[0].g_lut[0].BIT] ? g_lane[0].lut[7:4] : g_lane[0].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[0].g_lut[0].BIT] ? g_lane[0].g_lut[0].x_slice[3:2] : g_lane[0].g_lut[0].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[0].g_lut[0].BIT] ? g_lane[0].g_lut[0].b_slice[1] : g_lane[0].g_lut[0].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[0].g_lut[1].BIT] ? g_lane[0].lut[7:4] : g_lane[0].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[0].g_lut[1].BIT] ? g_lane[0].g_lut[1].x_slice[3:2] : g_lane[0].g_lut[1].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[0].g_lut[1].BIT] ? g_lane[0].g_lut[1].b_slice[1] : g_lane[0].g_lut[1].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[0].g_lut[2].BIT] ? g_lane[0].lut[7:4] : g_lane[0].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[0].g_lut[2].BIT] ? g_lane[0].g_lut[2].x_slice[3:2] : g_lane[0].g_lut[2].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[0].g_lut[2].BIT] ? g_lane[0].g_lut[2].b_slice[1] : g_lane[0].g_lut[2].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[0].g_lut[3].BIT] ? g_lane[0].lut[7:4] : g_lane[0].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[0].g_lut[3].BIT] ? g_lane[0].g_lut[3].x_slice[3:2] : g_lane[0].g_lut[3].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[0].g_lut[3].BIT] ? g_lane[0].g_lut[3].b_slice[1] : g_lane[0].g_lut[3].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       25
+ EXPRESSION (uniform_i ? table_i : fixed_table(functions_i[(21 - (3 * 1))+:3]))
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[1].g_lut[0].BIT] ? g_lane[1].lut[7:4] : g_lane[1].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[1].g_lut[0].BIT] ? g_lane[1].g_lut[0].x_slice[3:2] : g_lane[1].g_lut[0].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[1].g_lut[0].BIT] ? g_lane[1].g_lut[0].b_slice[1] : g_lane[1].g_lut[0].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[1].g_lut[1].BIT] ? g_lane[1].lut[7:4] : g_lane[1].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[1].g_lut[1].BIT] ? g_lane[1].g_lut[1].x_slice[3:2] : g_lane[1].g_lut[1].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[1].g_lut[1].BIT] ? g_lane[1].g_lut[1].b_slice[1] : g_lane[1].g_lut[1].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[1].g_lut[2].BIT] ? g_lane[1].lut[7:4] : g_lane[1].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[1].g_lut[2].BIT] ? g_lane[1].g_lut[2].x_slice[3:2] : g_lane[1].g_lut[2].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[1].g_lut[2].BIT] ? g_lane[1].g_lut[2].b_slice[1] : g_lane[1].g_lut[2].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[1].g_lut[3].BIT] ? g_lane[1].lut[7:4] : g_lane[1].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[1].g_lut[3].BIT] ? g_lane[1].g_lut[3].x_slice[3:2] : g_lane[1].g_lut[3].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[1].g_lut[3].BIT] ? g_lane[1].g_lut[3].b_slice[1] : g_lane[1].g_lut[3].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       25
+ EXPRESSION (uniform_i ? table_i : fixed_table(functions_i[(21 - (3 * 2))+:3]))
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[2].g_lut[0].BIT] ? g_lane[2].lut[7:4] : g_lane[2].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[2].g_lut[0].BIT] ? g_lane[2].g_lut[0].x_slice[3:2] : g_lane[2].g_lut[0].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[2].g_lut[0].BIT] ? g_lane[2].g_lut[0].b_slice[1] : g_lane[2].g_lut[0].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[2].g_lut[1].BIT] ? g_lane[2].lut[7:4] : g_lane[2].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[2].g_lut[1].BIT] ? g_lane[2].g_lut[1].x_slice[3:2] : g_lane[2].g_lut[1].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[2].g_lut[1].BIT] ? g_lane[2].g_lut[1].b_slice[1] : g_lane[2].g_lut[1].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[2].g_lut[2].BIT] ? g_lane[2].lut[7:4] : g_lane[2].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[2].g_lut[2].BIT] ? g_lane[2].g_lut[2].x_slice[3:2] : g_lane[2].g_lut[2].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[2].g_lut[2].BIT] ? g_lane[2].g_lut[2].b_slice[1] : g_lane[2].g_lut[2].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[2].g_lut[3].BIT] ? g_lane[2].lut[7:4] : g_lane[2].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[2].g_lut[3].BIT] ? g_lane[2].g_lut[3].x_slice[3:2] : g_lane[2].g_lut[3].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[2].g_lut[3].BIT] ? g_lane[2].g_lut[3].b_slice[1] : g_lane[2].g_lut[3].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       25
+ EXPRESSION (uniform_i ? table_i : fixed_table(functions_i[(21 - (3 * 3))+:3]))
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[3].g_lut[0].BIT] ? g_lane[3].lut[7:4] : g_lane[3].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[3].g_lut[0].BIT] ? g_lane[3].g_lut[0].x_slice[3:2] : g_lane[3].g_lut[0].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[3].g_lut[0].BIT] ? g_lane[3].g_lut[0].b_slice[1] : g_lane[3].g_lut[0].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[3].g_lut[1].BIT] ? g_lane[3].lut[7:4] : g_lane[3].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[3].g_lut[1].BIT] ? g_lane[3].g_lut[1].x_slice[3:2] : g_lane[3].g_lut[1].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[3].g_lut[1].BIT] ? g_lane[3].g_lut[1].b_slice[1] : g_lane[3].g_lut[1].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[3].g_lut[2].BIT] ? g_lane[3].lut[7:4] : g_lane[3].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[3].g_lut[2].BIT] ? g_lane[3].g_lut[2].x_slice[3:2] : g_lane[3].g_lut[2].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[3].g_lut[2].BIT] ? g_lane[3].g_lut[2].b_slice[1] : g_lane[3].g_lut[2].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[3].g_lut[3].BIT] ? g_lane[3].lut[7:4] : g_lane[3].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[3].g_lut[3].BIT] ? g_lane[3].g_lut[3].x_slice[3:2] : g_lane[3].g_lut[3].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[3].g_lut[3].BIT] ? g_lane[3].g_lut[3].b_slice[1] : g_lane[3].g_lut[3].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       25
+ EXPRESSION (uniform_i ? table_i : fixed_table(functions_i[(21 - (3 * 4))+:3]))
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[4].g_lut[0].BIT] ? g_lane[4].lut[7:4] : g_lane[4].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[4].g_lut[0].BIT] ? g_lane[4].g_lut[0].x_slice[3:2] : g_lane[4].g_lut[0].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[4].g_lut[0].BIT] ? g_lane[4].g_lut[0].b_slice[1] : g_lane[4].g_lut[0].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[4].g_lut[1].BIT] ? g_lane[4].lut[7:4] : g_lane[4].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[4].g_lut[1].BIT] ? g_lane[4].g_lut[1].x_slice[3:2] : g_lane[4].g_lut[1].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[4].g_lut[1].BIT] ? g_lane[4].g_lut[1].b_slice[1] : g_lane[4].g_lut[1].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[4].g_lut[2].BIT] ? g_lane[4].lut[7:4] : g_lane[4].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[4].g_lut[2].BIT] ? g_lane[4].g_lut[2].x_slice[3:2] : g_lane[4].g_lut[2].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[4].g_lut[2].BIT] ? g_lane[4].g_lut[2].b_slice[1] : g_lane[4].g_lut[2].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[4].g_lut[3].BIT] ? g_lane[4].lut[7:4] : g_lane[4].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[4].g_lut[3].BIT] ? g_lane[4].g_lut[3].x_slice[3:2] : g_lane[4].g_lut[3].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[4].g_lut[3].BIT] ? g_lane[4].g_lut[3].b_slice[1] : g_lane[4].g_lut[3].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       25
+ EXPRESSION (uniform_i ? table_i : fixed_table(functions_i[(21 - (3 * 5))+:3]))
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[5].g_lut[0].BIT] ? g_lane[5].lut[7:4] : g_lane[5].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[5].g_lut[0].BIT] ? g_lane[5].g_lut[0].x_slice[3:2] : g_lane[5].g_lut[0].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[5].g_lut[0].BIT] ? g_lane[5].g_lut[0].b_slice[1] : g_lane[5].g_lut[0].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[5].g_lut[1].BIT] ? g_lane[5].lut[7:4] : g_lane[5].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[5].g_lut[1].BIT] ? g_lane[5].g_lut[1].x_slice[3:2] : g_lane[5].g_lut[1].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[5].g_lut[1].BIT] ? g_lane[5].g_lut[1].b_slice[1] : g_lane[5].g_lut[1].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[5].g_lut[2].BIT] ? g_lane[5].lut[7:4] : g_lane[5].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[5].g_lut[2].BIT] ? g_lane[5].g_lut[2].x_slice[3:2] : g_lane[5].g_lut[2].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[5].g_lut[2].BIT] ? g_lane[5].g_lut[2].b_slice[1] : g_lane[5].g_lut[2].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[5].g_lut[3].BIT] ? g_lane[5].lut[7:4] : g_lane[5].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[5].g_lut[3].BIT] ? g_lane[5].g_lut[3].x_slice[3:2] : g_lane[5].g_lut[3].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[5].g_lut[3].BIT] ? g_lane[5].g_lut[3].b_slice[1] : g_lane[5].g_lut[3].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       25
+ EXPRESSION (uniform_i ? table_i : fixed_table(functions_i[(21 - (3 * 6))+:3]))
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[6].g_lut[0].BIT] ? g_lane[6].lut[7:4] : g_lane[6].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[6].g_lut[0].BIT] ? g_lane[6].g_lut[0].x_slice[3:2] : g_lane[6].g_lut[0].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[6].g_lut[0].BIT] ? g_lane[6].g_lut[0].b_slice[1] : g_lane[6].g_lut[0].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[6].g_lut[1].BIT] ? g_lane[6].lut[7:4] : g_lane[6].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[6].g_lut[1].BIT] ? g_lane[6].g_lut[1].x_slice[3:2] : g_lane[6].g_lut[1].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[6].g_lut[1].BIT] ? g_lane[6].g_lut[1].b_slice[1] : g_lane[6].g_lut[1].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[6].g_lut[2].BIT] ? g_lane[6].lut[7:4] : g_lane[6].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[6].g_lut[2].BIT] ? g_lane[6].g_lut[2].x_slice[3:2] : g_lane[6].g_lut[2].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[6].g_lut[2].BIT] ? g_lane[6].g_lut[2].b_slice[1] : g_lane[6].g_lut[2].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[6].g_lut[3].BIT] ? g_lane[6].lut[7:4] : g_lane[6].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[6].g_lut[3].BIT] ? g_lane[6].g_lut[3].x_slice[3:2] : g_lane[6].g_lut[3].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[6].g_lut[3].BIT] ? g_lane[6].g_lut[3].b_slice[1] : g_lane[6].g_lut[3].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       25
+ EXPRESSION (uniform_i ? table_i : fixed_table(functions_i[(21 - (3 * 7))+:3]))
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[7].g_lut[0].BIT] ? g_lane[7].lut[7:4] : g_lane[7].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[7].g_lut[0].BIT] ? g_lane[7].g_lut[0].x_slice[3:2] : g_lane[7].g_lut[0].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[7].g_lut[0].BIT] ? g_lane[7].g_lut[0].b_slice[1] : g_lane[7].g_lut[0].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[7].g_lut[1].BIT] ? g_lane[7].lut[7:4] : g_lane[7].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[7].g_lut[1].BIT] ? g_lane[7].g_lut[1].x_slice[3:2] : g_lane[7].g_lut[1].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[7].g_lut[1].BIT] ? g_lane[7].g_lut[1].b_slice[1] : g_lane[7].g_lut[1].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[7].g_lut[2].BIT] ? g_lane[7].lut[7:4] : g_lane[7].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[7].g_lut[2].BIT] ? g_lane[7].g_lut[2].x_slice[3:2] : g_lane[7].g_lut[2].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[7].g_lut[2].BIT] ? g_lane[7].g_lut[2].b_slice[1] : g_lane[7].g_lut[2].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       31
+ EXPRESSION (x_i[g_lane[7].g_lut[3].BIT] ? g_lane[7].lut[7:4] : g_lane[7].lut[3:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION (b_i[g_lane[7].g_lut[3].BIT] ? g_lane[7].g_lut[3].x_slice[3:2] : g_lane[7].g_lut[3].x_slice[1:0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION (c_i[g_lane[7].g_lut[3].BIT] ? g_lane[7].g_lut[3].b_slice[1] : g_lane[7].g_lut[3].b_slice[0])
+             -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : logic_unit
+         Line No. Total Covered Percent 
+Branches          217   217     100.00  
+TERNARY  25       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  25       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  25       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  25       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  25       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  25       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  25       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  25       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+TERNARY  31       2     2       100.00  
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+CASE     11       9     9       100.00  
+
+
+25             assign lut = uniform_i ? table_i : fixed_table(functions_i[21-3*lane +: 3]);
+                                      -1-  
+                                      ==>  
+                                      ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+25             assign lut = uniform_i ? table_i : fixed_table(functions_i[21-3*lane +: 3]);
+                                      -1-  
+                                      ==>  
+                                      ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+25             assign lut = uniform_i ? table_i : fixed_table(functions_i[21-3*lane +: 3]);
+                                      -1-  
+                                      ==>  
+                                      ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+25             assign lut = uniform_i ? table_i : fixed_table(functions_i[21-3*lane +: 3]);
+                                      -1-  
+                                      ==>  
+                                      ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+25             assign lut = uniform_i ? table_i : fixed_table(functions_i[21-3*lane +: 3]);
+                                      -1-  
+                                      ==>  
+                                      ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+25             assign lut = uniform_i ? table_i : fixed_table(functions_i[21-3*lane +: 3]);
+                                      -1-  
+                                      ==>  
+                                      ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+25             assign lut = uniform_i ? table_i : fixed_table(functions_i[21-3*lane +: 3]);
+                                      -1-  
+                                      ==>  
+                                      ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+25             assign lut = uniform_i ? table_i : fixed_table(functions_i[21-3*lane +: 3]);
+                                      -1-  
+                                      ==>  
+                                      ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+31               assign x_slice = x_i[BIT] ? lut[7:4] : lut[3:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+32               assign b_slice = b_i[BIT] ? x_slice[3:2] : x_slice[1:0];
+                                           -1-  
+                                           ==>  
+                                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33               assign result_o[BIT] = c_i[BIT] ? b_slice[1] : b_slice[0];
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+11             case (tile_logic_fn_e'(fn))
+               -1-  
+12               TILE_LOGIC_PASS: fixed_table = 8'hF0;
+                 ==>
+13               TILE_LOGIC_NOT:  fixed_table = 8'h0F;
+                 ==>
+14               TILE_LOGIC_AND2: fixed_table = 8'hC0;
+                 ==>
+15               TILE_LOGIC_OR2:  fixed_table = 8'hFC;
+                 ==>
+16               TILE_LOGIC_XOR2: fixed_table = 8'h3C;
+                 ==>
+17               TILE_LOGIC_SEL:  fixed_table = 8'hD8;
+                 ==>
+18               TILE_LOGIC_AND3: fixed_table = 8'h80;
+                 ==>
+19               TILE_LOGIC_OR3:  fixed_table = 8'hFE;
+                 ==>
+20               default:        fixed_table = '0;
+                 ==>
+
+Branches:
+
+-1-              Status  
+TILE_LOGIC_PASS  Covered 
+TILE_LOGIC_NOT   Covered 
+TILE_LOGIC_AND2  Covered 
+TILE_LOGIC_OR2   Covered 
+TILE_LOGIC_XOR2  Covered 
+TILE_LOGIC_SEL   Covered 
+TILE_LOGIC_AND3  Covered 
+TILE_LOGIC_OR3   Covered 
+default          Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : logic_unit_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH 
+100.00 100.00 100.00 --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH 
+100.00 100.00 100.00 --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH NAME       
+100.00 100.00 100.00 --     100.00 logic_unit 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH NAME          
+--     --     --     --     --     logic_unit_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : logic_unit_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH 
+--     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/func_units/logic_unit/logic_unit_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH NAME          
+--     --     --     --     --     logic_unit_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : logic_unit_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH 
+--     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH 
+100.00 100.00 100.00 --     100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH NAME          
+--     --     --     --     --     logic_unit_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH NAME 
+100.00 100.00 100.00 --     100.00 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

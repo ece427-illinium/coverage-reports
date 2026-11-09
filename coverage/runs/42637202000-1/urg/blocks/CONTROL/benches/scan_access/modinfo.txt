@@ -1,0 +1,515 @@
+===============================================================================
+Module : scan_access
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 90.98  98.39  96.00  76.92  92.59 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/control/scan/scan_access.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME               
+ 90.98  98.39  96.00  76.92  92.59 --     scan_access_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : scan_access
+
+             Line No.   Total   Covered  Percent
+TOTAL                       62       61    98.39
+ALWAYS             33       54       53    98.15
+ALWAYS            105        8        8   100.00
+
+32                        always_ff @(posedge io_clk_i or negedge io_rst_ni) begin
+33         1/1              if (!io_rst_ni) begin
+34         1/1                state_r <= IDLE;
+35         1/1                count_r <= '0;
+36         1/1                op_lsb_r <= 1'b0;
+37         1/1                addr_shift_r <= '0;
+38         1/1                data_shift_r <= '0;
+39         1/1                req_toggle_r <= 1'b0;
+40         1/1                req_op_r <= '0;
+41         1/1                req_addr_r <= '0;
+42         1/1                req_data_r <= '0;
+43         1/1                ack_sync1_r <= 1'b0;
+44         1/1                ack_sync2_r <= 1'b0;
+45                          end else begin
+46         1/1                if (!test_mode_i) begin
+47         1/1                  ack_sync1_r <= csr_if.ack_toggle;
+48         1/1                  ack_sync2_r <= ack_sync1_r;
+49                            end
+                        MISSING_ELSE
+50         2/2                if (!test_mode_i) unique case (state_r)
+51         1/1                  IDLE: if (scan_if.di) begin
+52         1/1                    count_r <= '0;
+53         1/1                    state_r <= OP;
+54                              end
+                        MISSING_ELSE
+55                              OP: begin
+56         1/1                    op_lsb_r <= scan_if.di;
+57         1/1                    if (count_r == 1) begin
+58         1/1                      count_r <= '0;
+59         1/1                      if ({scan_if.di, op_lsb_r} == CSR_READ ||
+60                                      {scan_if.di, op_lsb_r} == CSR_WRITE) begin
+61         1/1                        req_op_r <= {scan_if.di, op_lsb_r};
+62         1/1                        state_r <= ADDR;
+63                                  end
+                   ==>  MISSING_ELSE
+64         1/1                    end else count_r <= count_r + 1'b1;
+65                              end
+66                              ADDR: begin
+67         1/1                    addr_shift_r <= {scan_if.di, addr_shift_r[6:1]};
+68         1/1                    if (count_r == 7) begin
+69         1/1                      req_addr_r <= {scan_if.di, addr_shift_r};
+70         1/1                      count_r <= '0;
+71         1/1                      if (req_op_r == CSR_READ) begin
+72         1/1                        req_toggle_r <= ~req_toggle_r;
+73         1/1                        state_r <= WAIT_ACK;
+74         1/1                      end else state_r <= DATA;
+75         1/1                    end else count_r <= count_r + 1'b1;
+76                              end
+77                              DATA: begin
+78         1/1                    data_shift_r <= {scan_if.di, data_shift_r[31:1]};
+79         1/1                    if (count_r == 31) begin
+80         1/1                      req_data_r <= {scan_if.di, data_shift_r[31:1]};
+81         1/1                      req_toggle_r <= ~req_toggle_r;
+82         1/1                      count_r <= '0;
+83         1/1                      state_r <= WAIT_ACK;
+84         1/1                    end else count_r <= count_r + 1'b1;
+85                              end
+86         1/1                  WAIT_ACK: if (req_toggle_r == ack_sync2_r) begin
+87         2/2                    if (req_op_r == CSR_READ) data_shift_r <= csr_if.read_data;
+                        MISSING_ELSE
+88         1/1                    state_r <= READY;
+89                              end
+                        MISSING_ELSE
+90         1/1                  READY: state_r <= req_op_r == CSR_READ ? READOUT : IDLE;
+91                              READOUT: begin
+92         1/1                    data_shift_r <= {1'b0, data_shift_r[31:1]};
+93         1/1                    if (count_r == 31) begin
+94         1/1                      count_r <= '0;
+95         1/1                      state_r <= IDLE;
+96         1/1                    end else count_r <= count_r + 1'b1;
+97                              end
+98         0/1     ==>          default: state_r <= IDLE;
+                        MISSING_ELSE
+99                            endcase
+100                         end
+101                       end
+102                     
+103                       // The host samples the response before each rising I/O clock edge.
+104                       always_ff @(negedge io_clk_i or negedge io_rst_ni) begin
+105        2/2              if (!io_rst_ni) dout_r <= 1'b0;
+106        2/2              else if (test_mode_i) dout_r <= 1'b0;
+107                         else begin
+108        1/1                unique case (state_r)
+109        1/1                  READY: dout_r <= 1'b1;
+110        1/1                  READOUT: dout_r <= data_shift_r[0];
+111        1/1                  default: dout_r <= 1'b0;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : scan_access
+
+               Total   Covered  Percent
+Conditions         25       24    96.00
+Logical            25       24    96.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       57
+ EXPRESSION (count_r == 5'b1)
+            --------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       59
+ EXPRESSION (({scan_if.di, op_lsb_r} == CSR_READ) || ({scan_if.di, op_lsb_r} == CSR_WRITE))
+             ------------------1-----------------    ------------------2------------------
+
+-1- -2- Status
+ 0   0  Not Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       59
+ SUB-EXPRESSION ({scan_if.di, op_lsb_r} == CSR_READ)
+                ------------------1-----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       59
+ SUB-EXPRESSION ({scan_if.di, op_lsb_r} == CSR_WRITE)
+                ------------------1------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       68
+ EXPRESSION (count_r == 5'h07)
+            ---------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       71
+ EXPRESSION (req_op_r == CSR_READ)
+            -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       79
+ EXPRESSION (count_r == 5'h1f)
+            ---------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       86
+ EXPRESSION (req_toggle_r == ack_sync2_r)
+            --------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       87
+ EXPRESSION (req_op_r == CSR_READ)
+            -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       90
+ EXPRESSION ((req_op_r == CSR_READ) ? READOUT : IDLE)
+             -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       90
+ SUB-EXPRESSION (req_op_r == CSR_READ)
+                -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       93
+ EXPRESSION (count_r == 5'h1f)
+            ---------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+FSM Coverage for Module : scan_access
+Summary for FSM :: state_r
+            Total Covered Percent                         
+States      7     7       100.00  (Not included in score) 
+Transitions 13    10      76.92                           
+Sequences   0     0                                       
+
+State, Transition and Sequence Details for FSM :: state_r
+-------------------------------------------------------------------------------
+states   Line No. Covered 
+ADDR     62       Covered 
+DATA     74       Covered 
+IDLE     34       Covered 
+OP       53       Covered 
+READOUT  90       Covered 
+READY    88       Covered 
+WAIT_ACK 73       Covered 
+
+transitions     Line No. Covered     
+ADDR->DATA      74       Covered     
+ADDR->IDLE      34       Not Covered 
+ADDR->WAIT_ACK  73       Covered     
+DATA->IDLE      34       Not Covered 
+DATA->WAIT_ACK  83       Covered     
+IDLE->OP        53       Covered     
+OP->ADDR        62       Covered     
+OP->IDLE        34       Covered     
+READOUT->IDLE   34       Covered     
+READY->IDLE     34       Covered     
+READY->READOUT  90       Covered     
+WAIT_ACK->IDLE  34       Not Covered 
+WAIT_ACK->READY 88       Covered     
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : scan_access
+         Line No. Total Covered Percent 
+Branches          27    25      92.59   
+IF       33       22    20      90.91   
+IF       105      5     5       100.00  
+
+
+33             if (!io_rst_ni) begin
+               -1-  
+34               state_r <= IDLE;
+                 ==>
+35               count_r <= '0;
+36               op_lsb_r <= 1'b0;
+37               addr_shift_r <= '0;
+38               data_shift_r <= '0;
+39               req_toggle_r <= 1'b0;
+40               req_op_r <= '0;
+41               req_addr_r <= '0;
+42               req_data_r <= '0;
+43               ack_sync1_r <= 1'b0;
+44               ack_sync2_r <= 1'b0;
+45             end else begin
+46               if (!test_mode_i) begin
+                 -2-  
+47                 ack_sync1_r <= csr_if.ack_toggle;
+                   ==>
+48                 ack_sync2_r <= ack_sync1_r;
+49               end
+                 MISSING_ELSE
+                 ==>
+50               if (!test_mode_i) unique case (state_r)
+                 -3-                      -4-  
+                 MISSING_ELSE
+                 ==>
+51                 IDLE: if (scan_if.di) begin
+                         -5-         
+52                   count_r <= '0;
+                     ==>
+53                   state_r <= OP;
+54                 end
+                   MISSING_ELSE
+                   ==>
+55                 OP: begin
+56                   op_lsb_r <= scan_if.di;
+57                   if (count_r == 1) begin
+                     -6-  
+58                     count_r <= '0;
+59                     if ({scan_if.di, op_lsb_r} == CSR_READ ||
+                       -7-          
+60                         {scan_if.di, op_lsb_r} == CSR_WRITE) begin
+61                       req_op_r <= {scan_if.di, op_lsb_r};
+                         ==>
+62                       state_r <= ADDR;
+63                     end
+                       MISSING_ELSE
+                       ==>
+64                   end else count_r <= count_r + 1'b1;
+                     ==>
+65                 end
+66                 ADDR: begin
+67                   addr_shift_r <= {scan_if.di, addr_shift_r[6:1]};
+68                   if (count_r == 7) begin
+                     -8-  
+69                     req_addr_r <= {scan_if.di, addr_shift_r};
+70                     count_r <= '0;
+71                     if (req_op_r == CSR_READ) begin
+                       -9-  
+72                       req_toggle_r <= ~req_toggle_r;
+                         ==>
+73                       state_r <= WAIT_ACK;
+74                     end else state_r <= DATA;
+                       ==>
+75                   end else count_r <= count_r + 1'b1;
+                     ==>
+76                 end
+77                 DATA: begin
+78                   data_shift_r <= {scan_if.di, data_shift_r[31:1]};
+79                   if (count_r == 31) begin
+                     -10-  
+80                     req_data_r <= {scan_if.di, data_shift_r[31:1]};
+                       ==>
+81                     req_toggle_r <= ~req_toggle_r;
+82                     count_r <= '0;
+83                     state_r <= WAIT_ACK;
+84                   end else count_r <= count_r + 1'b1;
+                     ==>
+85                 end
+86                 WAIT_ACK: if (req_toggle_r == ack_sync2_r) begin
+                             -11-  
+87                   if (req_op_r == CSR_READ) data_shift_r <= csr_if.read_data;
+                     -12-                                              
+                     ==>
+                     MISSING_ELSE
+                     ==>
+88                   state_r <= READY;
+89                 end
+                   MISSING_ELSE
+                   ==>
+90                 READY: state_r <= req_op_r == CSR_READ ? READOUT : IDLE;
+                                                          -13-  
+                                                          ==>  
+                                                          ==>  
+91                 READOUT: begin
+92                   data_shift_r <= {1'b0, data_shift_r[31:1]};
+93                   if (count_r == 31) begin
+                     -14-  
+94                     count_r <= '0;
+                       ==>
+95                     state_r <= IDLE;
+96                   end else count_r <= count_r + 1'b1;
+                     ==>
+97                 end
+98                 default: state_r <= IDLE;
+                   ==>
+
+Branches:
+
+-1- -2- -3- -4-       -5- -6- -7- -8- -9- -10- -11- -12- -13- -14- Status      
+1   -   -   -         -   -   -   -   -   -    -    -    -    -    Covered     
+0   1   -   -         -   -   -   -   -   -    -    -    -    -    Covered     
+0   0   -   -         -   -   -   -   -   -    -    -    -    -    Covered     
+0   -   1   IDLE      1   -   -   -   -   -    -    -    -    -    Covered     
+0   -   1   IDLE      0   -   -   -   -   -    -    -    -    -    Covered     
+0   -   1   OP        -   1   1   -   -   -    -    -    -    -    Covered     
+0   -   1   OP        -   1   0   -   -   -    -    -    -    -    Not Covered 
+0   -   1   OP        -   0   -   -   -   -    -    -    -    -    Covered     
+0   -   1   ADDR      -   -   -   1   1   -    -    -    -    -    Covered     
+0   -   1   ADDR      -   -   -   1   0   -    -    -    -    -    Covered     
+0   -   1   ADDR      -   -   -   0   -   -    -    -    -    -    Covered     
+0   -   1   DATA      -   -   -   -   -   1    -    -    -    -    Covered     
+0   -   1   DATA      -   -   -   -   -   0    -    -    -    -    Covered     
+0   -   1   WAIT_ACK  -   -   -   -   -   -    1    1    -    -    Covered     
+0   -   1   WAIT_ACK  -   -   -   -   -   -    1    0    -    -    Covered     
+0   -   1   WAIT_ACK  -   -   -   -   -   -    0    -    -    -    Covered     
+0   -   1   READY     -   -   -   -   -   -    -    -    1    -    Covered     
+0   -   1   READY     -   -   -   -   -   -    -    -    0    -    Covered     
+0   -   1   READOUT   -   -   -   -   -   -    -    -    -    1    Covered     
+0   -   1   READOUT   -   -   -   -   -   -    -    -    -    0    Covered     
+0   -   1   default   -   -   -   -   -   -    -    -    -    -    Not Covered 
+0   -   0   -         -   -   -   -   -   -    -    -    -    -    Covered     
+
+
+105            if (!io_rst_ni) dout_r <= 1'b0;
+               -1-  
+               ==>
+106            else if (test_mode_i) dout_r <= 1'b0;
+                    -2-  
+               ==>
+107            else begin
+108              unique case (state_r)
+                        -3-  
+109                READY: dout_r <= 1'b1;
+                   ==>
+110                READOUT: dout_r <= data_shift_r[0];
+                   ==>
+111                default: dout_r <= 1'b0;
+                   ==>
+
+Branches:
+
+-1- -2- -3-      Status  
+1   -   -        Covered 
+0   1   -        Covered 
+0   0   READY    Covered 
+0   0   READOUT  Covered 
+0   0   default  Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : scan_access_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 90.98  98.39  96.00  76.92  92.59 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 90.98  98.39  96.00  76.92  92.59 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+ 90.98  98.39  96.00  76.92  92.59 --     scan_access 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+--     --     --     --     --     --     scan_access_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : scan_access_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/control/scan/scan_access_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+--     --     --     --     --     --     scan_access_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : scan_access_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 90.98  98.39  96.00  76.92  92.59 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+--     --     --     --     --     --     scan_access_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 90.98  98.39  96.00  76.92  92.59 --     dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
