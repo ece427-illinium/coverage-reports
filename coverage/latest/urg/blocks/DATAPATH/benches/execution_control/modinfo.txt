@@ -1,0 +1,487 @@
+===============================================================================
+Module : execution_control
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.77  93.75 100.00 100.00  93.33 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/execution_control.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                     
+ 96.77  93.75 100.00 100.00  93.33 --     execution_control_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : execution_control
+
+             Line No.   Total   Covered  Percent
+TOTAL                       16       15    93.75
+ALWAYS             45       16       15    93.75
+
+44                        always_ff @(posedge clk_i) begin
+45         1/1              if (reset_i || clear_i) begin
+46         1/1                state_r <= DP_IDLE;
+47         1/1                cmd_r <= '0;
+48         1/1                bank_r <= '0;
+49                          end else begin
+50         1/1                case (state_r)
+51         1/1                  DP_IDLE: if (capture_operands_o) begin
+52         1/1                    cmd_r <= cmd_i.execute;
+53         1/1                    bank_r <= bank_i;
+54         1/1                    state_r <= DP_DEST;
+55                              end
+                        MISSING_ELSE
+56         1/1                  DP_DEST: state_r <= DP_EXEC;
+57         1/1                  DP_EXEC: state_r <= cmd_r.fu.multiply_enable ? DP_MUL_WAIT : DP_WRITEBACK;
+58         2/2                  DP_MUL_WAIT: if (multiply_done_i) state_r <= DP_WRITEBACK;
+                        MISSING_ELSE
+59         2/2                  DP_WRITEBACK: if (done_o) state_r <= DP_IDLE;
+                        MISSING_ELSE
+60         0/1     ==>          default: state_r <= DP_IDLE;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : execution_control
+
+               Total   Covered  Percent
+Conditions         69       69   100.00
+Logical            69       69   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       45
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       57
+ EXPRESSION (cmd_r.fu.multiply_enable ? DP_MUL_WAIT : DP_WRITEBACK)
+             ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       28
+ EXPRESSION (((!reset_i)) && ((!clear_i)))
+             ------1-----    ------2-----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       29
+ EXPRESSION (active && (state_r == DP_IDLE))
+             ---1--    ----------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       29
+ SUB-EXPRESSION (state_r == DP_IDLE)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       30
+ EXPRESSION (valid_i && ready_o)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       31
+ EXPRESSION (active && (state_r == DP_DEST))
+             ---1--    ----------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       31
+ SUB-EXPRESSION (state_r == DP_DEST)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ EXPRESSION ((state_r == DP_IDLE) ? cmd_i.execute : cmd_r)
+             ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       32
+ SUB-EXPRESSION (state_r == DP_IDLE)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ EXPRESSION ((state_r == DP_IDLE) ? bank_i : bank_r)
+             ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       33
+ SUB-EXPRESSION (state_r == DP_IDLE)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       34
+ EXPRESSION (active && (state_r == DP_EXEC))
+             ---1--    ----------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       34
+ SUB-EXPRESSION (state_r == DP_EXEC)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       35
+ EXPRESSION (active && (((state_r == DP_EXEC) && ((!cmd_r.fu.multiply_enable))) || ((state_r == DP_MUL_WAIT) && multiply_done_i)))
+             ---1--    -----------------------------------------------------2----------------------------------------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       35
+ SUB-EXPRESSION (((state_r == DP_EXEC) && ((!cmd_r.fu.multiply_enable))) || ((state_r == DP_MUL_WAIT) && multiply_done_i))
+                 ---------------------------1---------------------------    ----------------------2----------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       35
+ SUB-EXPRESSION ((state_r == DP_EXEC) && ((!cmd_r.fu.multiply_enable)))
+                 ----------1---------    --------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       35
+ SUB-EXPRESSION (state_r == DP_EXEC)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       35
+ SUB-EXPRESSION ((state_r == DP_MUL_WAIT) && multiply_done_i)
+                 ------------1-----------    -------2-------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       35
+ SUB-EXPRESSION (state_r == DP_MUL_WAIT)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       38
+ EXPRESSION (active && (state_r == DP_WRITEBACK) && merge_valid_i)
+             ---1--    ------------2------------    ------3------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       38
+ SUB-EXPRESSION (state_r == DP_WRITEBACK)
+                ------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       39
+ EXPRESSION (done_o && cmd_r.wb.publish)
+             ---1--    --------2-------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       41
+ EXPRESSION (done_o && cmd_r.wb.write_enable && ( ! (cmd_r.wb.index_bounds && cmd_r.fu.mode && ((!index_valid_i))) ))
+             ---1--    ----------2----------    ----------------------------------3---------------------------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       41
+ SUB-EXPRESSION ( ! (cmd_r.wb.index_bounds && cmd_r.fu.mode && ((!index_valid_i))) )
+                    -------------------------------1------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       41
+ SUB-EXPRESSION (cmd_r.wb.index_bounds && cmd_r.fu.mode && ((!index_valid_i)))
+                 ----------1----------    ------2------    ---------3--------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+-------------------------------------------------------------------------------
+FSM Coverage for Module : execution_control
+Summary for FSM :: state_r
+            Total Covered Percent                         
+States      5     5       100.00  (Not included in score) 
+Transitions 9     9       100.00                          
+Sequences   0     0                                       
+
+State, Transition and Sequence Details for FSM :: state_r
+-------------------------------------------------------------------------------
+states       Line No. Covered 
+DP_DEST      54       Covered 
+DP_EXEC      56       Covered 
+DP_IDLE      46       Covered 
+DP_MUL_WAIT  57       Covered 
+DP_WRITEBACK 57       Covered 
+
+transitions               Line No. Covered 
+DP_DEST->DP_EXEC          56       Covered 
+DP_DEST->DP_IDLE          46       Covered 
+DP_EXEC->DP_IDLE          46       Covered 
+DP_EXEC->DP_MUL_WAIT      57       Covered 
+DP_EXEC->DP_WRITEBACK     57       Covered 
+DP_IDLE->DP_DEST          54       Covered 
+DP_MUL_WAIT->DP_IDLE      46       Covered 
+DP_MUL_WAIT->DP_WRITEBACK 58       Covered 
+DP_WRITEBACK->DP_IDLE     46       Covered 
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : execution_control
+         Line No. Total Covered Percent 
+Branches          15    14      93.33   
+TERNARY  32       2     2       100.00  
+TERNARY  33       2     2       100.00  
+IF       45       11    10      90.91   
+
+
+32           assign cmd_o = state_r == DP_IDLE ? cmd_i.execute : cmd_r;
+                                               -1-  
+                                               ==>  
+                                               ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+33           assign bank_o = state_r == DP_IDLE ? bank_i : bank_r;
+                                                -1-  
+                                                ==>  
+                                                ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+45             if (reset_i || clear_i) begin
+               -1-  
+46               state_r <= DP_IDLE;
+                 ==>
+47               cmd_r <= '0;
+48               bank_r <= '0;
+49             end else begin
+50               case (state_r)
+                 -2-  
+51                 DP_IDLE: if (capture_operands_o) begin
+                            -3-  
+52                   cmd_r <= cmd_i.execute;
+                     ==>
+53                   bank_r <= bank_i;
+54                   state_r <= DP_DEST;
+55                 end
+                   MISSING_ELSE
+                   ==>
+56                 DP_DEST: state_r <= DP_EXEC;
+                   ==>
+57                 DP_EXEC: state_r <= cmd_r.fu.multiply_enable ? DP_MUL_WAIT : DP_WRITEBACK;
+                                                                -4-  
+                                                                ==>  
+                                                                ==>  
+58                 DP_MUL_WAIT: if (multiply_done_i) state_r <= DP_WRITEBACK;
+                                -5-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+59                 DP_WRITEBACK: if (done_o) state_r <= DP_IDLE;
+                                 -6-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+60                 default: state_r <= DP_IDLE;
+                   ==>
+
+Branches:
+
+-1- -2-           -3- -4- -5- -6- Status      
+1   -             -   -   -   -   Covered     
+0   DP_IDLE       1   -   -   -   Covered     
+0   DP_IDLE       0   -   -   -   Covered     
+0   DP_DEST       -   -   -   -   Covered     
+0   DP_EXEC       -   1   -   -   Covered     
+0   DP_EXEC       -   0   -   -   Covered     
+0   DP_MUL_WAIT   -   -   1   -   Covered     
+0   DP_MUL_WAIT   -   -   0   -   Covered     
+0   DP_WRITEBACK  -   -   -   1   Covered     
+0   DP_WRITEBACK  -   -   -   0   Covered     
+0   default       -   -   -   -   Not Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : execution_control_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.77  93.75 100.00 100.00  93.33 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.77  93.75 100.00 100.00  93.33 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME              
+ 96.77  93.75 100.00 100.00  93.33 --     execution_control 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+--     --     --     --     --     --     execution_control_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : execution_control_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/datapath/execution_control/execution_control_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+--     --     --     --     --     --     execution_control_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : execution_control_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.77  93.75 100.00 100.00  93.33 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+--     --     --     --     --     --     execution_control_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 96.77  93.75 100.00 100.00  93.33 --     dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

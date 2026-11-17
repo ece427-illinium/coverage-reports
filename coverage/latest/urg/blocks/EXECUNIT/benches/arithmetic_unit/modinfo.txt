@@ -1,0 +1,1272 @@
+===============================================================================
+Module : arithmetic_unit
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH 
+ 91.18  84.62  99.38 --      89.53 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/func_units/arithmetic_unit.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH NAME                   
+ 91.18  84.62  99.38 --      89.53 arithmetic_unit_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : arithmetic_unit
+
+             Line No.   Total   Covered  Percent
+TOTAL                       65       55    84.62
+ALWAYS             35       11        9    81.82
+ALWAYS             79        6        5    83.33
+ALWAYS             79        6        5    83.33
+ALWAYS             79        6        5    83.33
+ALWAYS             79        6        5    83.33
+ALWAYS             79        6        5    83.33
+ALWAYS             79        6        5    83.33
+ALWAYS             79        6        5    83.33
+ALWAYS             79        6        5    83.33
+ALWAYS             98        6        6   100.00
+
+34                        always_comb begin
+35         1/1              case (group_i)
+36         2/2                2'd0: begin link_after = 'h00; low_group_last = 'd0; end
+37         2/2                2'd1: begin link_after = 'h55; low_group_last = 'd1; end
+38         2/2                2'd2: begin link_after = 'h77; low_group_last = 'd3; end
+39         2/2                2'd3: begin link_after = 'h7f; low_group_last = 'd7; end
+40         0/2     ==>        default: begin link_after = '0; low_group_last = '0; end
+41                          endcase
+42                        end
+43                        assign subtract = subtract_i || compare_i;
+44                        // CMP ignores saved carry; a valid saved carry is consumed even when chain_i is 0.
+45                        assign incoming = carry_valid_r && carry_r && !compare_i;
+46                      
+47                        for (genvar slice = 0; slice < NUM_NIBBLES; slice++) begin : g_slice
+48                          logic [NIBBLE_WIDTH-1:0] a, b;
+49                          logic [NIBBLE_WIDTH:0] sum;
+50                          logic first, carry_in, equal_in, slice_carry_out, equal_out, condition_met, unsigned_less;
+51                          logic [SLICE_IDX_W-1:0] group_last;
+52                      
+53                          assign a = a_i[NIBBLE_WIDTH*slice +: NIBBLE_WIDTH];
+54                          assign b = b_i[NIBBLE_WIDTH*slice +: NIBBLE_WIDTH];
+55                          assign sign_a[slice] = a[NIBBLE_WIDTH-1];
+56                          assign sign_b[slice] = b[NIBBLE_WIDTH-1];
+57                      
+58                          if (slice == 0) begin : g_low
+59                            assign first = 1'b1;
+60                            assign carry_in = incoming ^ subtract;
+61                            assign equal_in = 1'b1;
+62                          end else begin : g_upper
+63                            assign first = !link_after[slice-1];
+64                            // SUB restarts with +1 at each boundary. Inside a group, carry has the
+65                            // adder convention; invert it only when exposing an unsigned borrow.
+66                            assign carry_in = first ? subtract : g_slice[slice-1].slice_carry_out;
+67                            assign equal_in = first || g_slice[slice-1].equal_out;
+68                          end
+69                      
+70                          assign sum = {1'b0,a} + {1'b0,(b ^ {NIBBLE_WIDTH{subtract}})} + (NIBBLE_WIDTH+1)'(carry_in);
+71                          assign slice_carry_out = sum[NIBBLE_WIDTH];
+72                          assign equal_out = equal_in && (a == b);
+73                          assign slice_carry[slice] = slice_carry_out;
+74                          assign group_equal[slice] = equal_out;
+75                          assign group_last = SLICE_IDX_W'(unsigned'(slice)) | low_group_last;
+76                          assign unsigned_less = !slice_carry[group_last];
+77                      
+78                          always_comb begin
+79         1/1                case (tile_cmp_cond_e'(condition_i))
+80         1/1                  TILE_CMP_EQ: condition_met = group_equal[group_last];
+81         1/1                  TILE_CMP_LTU: condition_met = unsigned_less;
+82         1/1                  TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+83         1/1                  TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+84                                sign_a[group_last] : unsigned_less;
+85         0/1     ==>          default: condition_met = 1'b0;
+***repeat 1
+79         1/1                case (tile_cmp_cond_e'(condition_i))
+80         1/1                  TILE_CMP_EQ: condition_met = group_equal[group_last];
+81         1/1                  TILE_CMP_LTU: condition_met = unsigned_less;
+82         1/1                  TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+83         1/1                  TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+84                                sign_a[group_last] : unsigned_less;
+85         0/1     ==>          default: condition_met = 1'b0;
+***repeat 2
+79         1/1                case (tile_cmp_cond_e'(condition_i))
+80         1/1                  TILE_CMP_EQ: condition_met = group_equal[group_last];
+81         1/1                  TILE_CMP_LTU: condition_met = unsigned_less;
+82         1/1                  TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+83         1/1                  TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+84                                sign_a[group_last] : unsigned_less;
+85         0/1     ==>          default: condition_met = 1'b0;
+***repeat 3
+79         1/1                case (tile_cmp_cond_e'(condition_i))
+80         1/1                  TILE_CMP_EQ: condition_met = group_equal[group_last];
+81         1/1                  TILE_CMP_LTU: condition_met = unsigned_less;
+82         1/1                  TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+83         1/1                  TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+84                                sign_a[group_last] : unsigned_less;
+85         0/1     ==>          default: condition_met = 1'b0;
+***repeat 4
+79         1/1                case (tile_cmp_cond_e'(condition_i))
+80         1/1                  TILE_CMP_EQ: condition_met = group_equal[group_last];
+81         1/1                  TILE_CMP_LTU: condition_met = unsigned_less;
+82         1/1                  TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+83         1/1                  TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+84                                sign_a[group_last] : unsigned_less;
+85         0/1     ==>          default: condition_met = 1'b0;
+***repeat 5
+79         1/1                case (tile_cmp_cond_e'(condition_i))
+80         1/1                  TILE_CMP_EQ: condition_met = group_equal[group_last];
+81         1/1                  TILE_CMP_LTU: condition_met = unsigned_less;
+82         1/1                  TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+83         1/1                  TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+84                                sign_a[group_last] : unsigned_less;
+85         0/1     ==>          default: condition_met = 1'b0;
+***repeat 6
+79         1/1                case (tile_cmp_cond_e'(condition_i))
+80         1/1                  TILE_CMP_EQ: condition_met = group_equal[group_last];
+81         1/1                  TILE_CMP_LTU: condition_met = unsigned_less;
+82         1/1                  TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+83         1/1                  TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+84                                sign_a[group_last] : unsigned_less;
+85         0/1     ==>          default: condition_met = 1'b0;
+***repeat 7
+79         1/1                case (tile_cmp_cond_e'(condition_i))
+80         1/1                  TILE_CMP_EQ: condition_met = group_equal[group_last];
+81         1/1                  TILE_CMP_LTU: condition_met = unsigned_less;
+82         1/1                  TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+83         1/1                  TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+84                                sign_a[group_last] : unsigned_less;
+85         0/1     ==>          default: condition_met = 1'b0;
+86                            endcase
+87                          end
+88                      
+89                          assign result_o[NIBBLE_WIDTH*slice +: NIBBLE_WIDTH] =
+90                            compare_i ? NIBBLE_WIDTH'(first && condition_met) : sum[NIBBLE_WIDTH-1:0];
+91                        end
+92                      
+93                        // Architectural carry: adder carry for ADD, unsigned borrow for SUB.
+94                        assign carry_out = slice_carry[low_group_last] ^ subtract;
+95                      
+96                        // Only executed ADD/SUB touch chain state; CMP, MOV, MUL and idle cycles hold it.
+97                        always_ff @(posedge clk_i) begin
+98         1/1              if (reset_i || clear_i) begin
+99         1/1                carry_r <= 1'b0;
+100        1/1                carry_valid_r <= 1'b0;
+101        1/1              end else if (execute_i && !compare_i) begin
+102        1/1                carry_r <= carry_out;
+103        1/1                carry_valid_r <= chain_i;
+104                         end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : arithmetic_unit
+
+               Total   Covered  Percent
+Conditions        160      159    99.38
+Logical           160      159    99.38
+Non-Logical         0        0
+Event               0        0
+
+ LINE       98
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       101
+ EXPRESSION (execute_i && ((!compare_i)))
+             ----1----    -------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       83
+ EXPRESSION ((sign_a[g_slice[0].group_last] ^ sign_b[g_slice[0].group_last]) ? sign_a[g_slice[0].group_last] : g_slice[0].unsigned_less)
+             -------------------------------1-------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       83
+ SUB-EXPRESSION (sign_a[g_slice[0].group_last] ^ sign_b[g_slice[0].group_last])
+                 --------------1--------------   --------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       83
+ EXPRESSION ((sign_a[g_slice[1].group_last] ^ sign_b[g_slice[1].group_last]) ? sign_a[g_slice[1].group_last] : g_slice[1].unsigned_less)
+             -------------------------------1-------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       83
+ SUB-EXPRESSION (sign_a[g_slice[1].group_last] ^ sign_b[g_slice[1].group_last])
+                 --------------1--------------   --------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       83
+ EXPRESSION ((sign_a[g_slice[2].group_last] ^ sign_b[g_slice[2].group_last]) ? sign_a[g_slice[2].group_last] : g_slice[2].unsigned_less)
+             -------------------------------1-------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       83
+ SUB-EXPRESSION (sign_a[g_slice[2].group_last] ^ sign_b[g_slice[2].group_last])
+                 --------------1--------------   --------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       83
+ EXPRESSION ((sign_a[g_slice[3].group_last] ^ sign_b[g_slice[3].group_last]) ? sign_a[g_slice[3].group_last] : g_slice[3].unsigned_less)
+             -------------------------------1-------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       83
+ SUB-EXPRESSION (sign_a[g_slice[3].group_last] ^ sign_b[g_slice[3].group_last])
+                 --------------1--------------   --------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       83
+ EXPRESSION ((sign_a[g_slice[4].group_last] ^ sign_b[g_slice[4].group_last]) ? sign_a[g_slice[4].group_last] : g_slice[4].unsigned_less)
+             -------------------------------1-------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       83
+ SUB-EXPRESSION (sign_a[g_slice[4].group_last] ^ sign_b[g_slice[4].group_last])
+                 --------------1--------------   --------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       83
+ EXPRESSION ((sign_a[g_slice[5].group_last] ^ sign_b[g_slice[5].group_last]) ? sign_a[g_slice[5].group_last] : g_slice[5].unsigned_less)
+             -------------------------------1-------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       83
+ SUB-EXPRESSION (sign_a[g_slice[5].group_last] ^ sign_b[g_slice[5].group_last])
+                 --------------1--------------   --------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       83
+ EXPRESSION ((sign_a[g_slice[6].group_last] ^ sign_b[g_slice[6].group_last]) ? sign_a[g_slice[6].group_last] : g_slice[6].unsigned_less)
+             -------------------------------1-------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       83
+ SUB-EXPRESSION (sign_a[g_slice[6].group_last] ^ sign_b[g_slice[6].group_last])
+                 --------------1--------------   --------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       83
+ EXPRESSION ((sign_a[g_slice[7].group_last] ^ sign_b[g_slice[7].group_last]) ? sign_a[g_slice[7].group_last] : g_slice[7].unsigned_less)
+             -------------------------------1-------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       83
+ SUB-EXPRESSION (sign_a[g_slice[7].group_last] ^ sign_b[g_slice[7].group_last])
+                 --------------1--------------   --------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       43
+ EXPRESSION (subtract_i || compare_i)
+             -----1----    ----2----
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       45
+ EXPRESSION (carry_valid_r && carry_r && ((!compare_i)))
+             ------1------    ---2---    -------3------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       94
+ EXPRESSION (slice_carry[low_group_last] ^ subtract)
+             -------------1-------------   ----2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       72
+ EXPRESSION (g_slice[0].equal_in && (g_slice[0].a == g_slice[0].b))
+             ---------1---------    ---------------2--------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       72
+ SUB-EXPRESSION (g_slice[0].a == g_slice[0].b)
+                ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       89
+ EXPRESSION (compare_i ? (4'((g_slice[0].first && g_slice[0].condition_met))) : g_slice[0].sum[(datapath_pkg::NIBBLE_WIDTH - 1):0])
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       60
+ EXPRESSION (incoming ^ subtract)
+             ----1---   ----2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       72
+ EXPRESSION (g_slice[1].equal_in && (g_slice[1].a == g_slice[1].b))
+             ---------1---------    ---------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       72
+ SUB-EXPRESSION (g_slice[1].a == g_slice[1].b)
+                ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       89
+ EXPRESSION (compare_i ? (4'((g_slice[1].first && g_slice[1].condition_met))) : g_slice[1].sum[(datapath_pkg::NIBBLE_WIDTH - 1):0])
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       66
+ EXPRESSION (g_slice[1].first ? subtract : g_slice[0].slice_carry_out)
+             --------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       67
+ EXPRESSION (g_slice[1].first || g_slice[0].equal_out)
+             --------1-------    ----------2---------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       72
+ EXPRESSION (g_slice[2].equal_in && (g_slice[2].a == g_slice[2].b))
+             ---------1---------    ---------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       72
+ SUB-EXPRESSION (g_slice[2].a == g_slice[2].b)
+                ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       89
+ EXPRESSION (compare_i ? (4'((g_slice[2].first && g_slice[2].condition_met))) : g_slice[2].sum[(datapath_pkg::NIBBLE_WIDTH - 1):0])
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       66
+ EXPRESSION (g_slice[2].first ? subtract : g_slice[1].slice_carry_out)
+             --------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       67
+ EXPRESSION (g_slice[2].first || g_slice[1].equal_out)
+             --------1-------    ----------2---------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       72
+ EXPRESSION (g_slice[3].equal_in && (g_slice[3].a == g_slice[3].b))
+             ---------1---------    ---------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       72
+ SUB-EXPRESSION (g_slice[3].a == g_slice[3].b)
+                ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       89
+ EXPRESSION (compare_i ? (4'((g_slice[3].first && g_slice[3].condition_met))) : g_slice[3].sum[(datapath_pkg::NIBBLE_WIDTH - 1):0])
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       66
+ EXPRESSION (g_slice[3].first ? subtract : g_slice[2].slice_carry_out)
+             --------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       67
+ EXPRESSION (g_slice[3].first || g_slice[2].equal_out)
+             --------1-------    ----------2---------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       72
+ EXPRESSION (g_slice[4].equal_in && (g_slice[4].a == g_slice[4].b))
+             ---------1---------    ---------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       72
+ SUB-EXPRESSION (g_slice[4].a == g_slice[4].b)
+                ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       89
+ EXPRESSION (compare_i ? (4'((g_slice[4].first && g_slice[4].condition_met))) : g_slice[4].sum[(datapath_pkg::NIBBLE_WIDTH - 1):0])
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       66
+ EXPRESSION (g_slice[4].first ? subtract : g_slice[3].slice_carry_out)
+             --------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       67
+ EXPRESSION (g_slice[4].first || g_slice[3].equal_out)
+             --------1-------    ----------2---------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       72
+ EXPRESSION (g_slice[5].equal_in && (g_slice[5].a == g_slice[5].b))
+             ---------1---------    ---------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       72
+ SUB-EXPRESSION (g_slice[5].a == g_slice[5].b)
+                ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       89
+ EXPRESSION (compare_i ? (4'((g_slice[5].first && g_slice[5].condition_met))) : g_slice[5].sum[(datapath_pkg::NIBBLE_WIDTH - 1):0])
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       66
+ EXPRESSION (g_slice[5].first ? subtract : g_slice[4].slice_carry_out)
+             --------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       67
+ EXPRESSION (g_slice[5].first || g_slice[4].equal_out)
+             --------1-------    ----------2---------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       72
+ EXPRESSION (g_slice[6].equal_in && (g_slice[6].a == g_slice[6].b))
+             ---------1---------    ---------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       72
+ SUB-EXPRESSION (g_slice[6].a == g_slice[6].b)
+                ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       89
+ EXPRESSION (compare_i ? (4'((g_slice[6].first && g_slice[6].condition_met))) : g_slice[6].sum[(datapath_pkg::NIBBLE_WIDTH - 1):0])
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       66
+ EXPRESSION (g_slice[6].first ? subtract : g_slice[5].slice_carry_out)
+             --------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       67
+ EXPRESSION (g_slice[6].first || g_slice[5].equal_out)
+             --------1-------    ----------2---------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       72
+ EXPRESSION (g_slice[7].equal_in && (g_slice[7].a == g_slice[7].b))
+             ---------1---------    ---------------2--------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       72
+ SUB-EXPRESSION (g_slice[7].a == g_slice[7].b)
+                ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       89
+ EXPRESSION (compare_i ? (4'((g_slice[7].first && g_slice[7].condition_met))) : g_slice[7].sum[(datapath_pkg::NIBBLE_WIDTH - 1):0])
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       66
+ EXPRESSION (g_slice[7].first ? subtract : g_slice[6].slice_carry_out)
+             --------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       67
+ EXPRESSION (g_slice[7].first || g_slice[6].equal_out)
+             --------1-------    ----------2---------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : arithmetic_unit
+         Line No. Total Covered Percent 
+Branches          86    77      89.53   
+TERNARY  89       2     2       100.00  
+TERNARY  89       2     2       100.00  
+TERNARY  66       2     2       100.00  
+TERNARY  89       2     2       100.00  
+TERNARY  66       2     2       100.00  
+TERNARY  89       2     2       100.00  
+TERNARY  66       2     2       100.00  
+TERNARY  89       2     2       100.00  
+TERNARY  66       2     2       100.00  
+TERNARY  89       2     2       100.00  
+TERNARY  66       2     2       100.00  
+TERNARY  89       2     2       100.00  
+TERNARY  66       2     2       100.00  
+TERNARY  89       2     2       100.00  
+TERNARY  66       2     2       100.00  
+CASE     35       5     4       80.00   
+IF       98       3     3       100.00  
+CASE     79       6     5       83.33   
+CASE     79       6     5       83.33   
+CASE     79       6     5       83.33   
+CASE     79       6     5       83.33   
+CASE     79       6     5       83.33   
+CASE     79       6     5       83.33   
+CASE     79       6     5       83.33   
+CASE     79       6     5       83.33   
+
+
+89             assign result_o[NIBBLE_WIDTH*slice +: NIBBLE_WIDTH] =
+                                                                    
+90               compare_i ? NIBBLE_WIDTH'(first && condition_met) : sum[NIBBLE_WIDTH-1:0];
+                           -1-  
+                           ==>  
+                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+89             assign result_o[NIBBLE_WIDTH*slice +: NIBBLE_WIDTH] =
+                                                                    
+90               compare_i ? NIBBLE_WIDTH'(first && condition_met) : sum[NIBBLE_WIDTH-1:0];
+                           -1-  
+                           ==>  
+                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+66               assign carry_in = first ? subtract : g_slice[slice-1].slice_carry_out;
+                                         -1-  
+                                         ==>  
+                                         ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+89             assign result_o[NIBBLE_WIDTH*slice +: NIBBLE_WIDTH] =
+                                                                    
+90               compare_i ? NIBBLE_WIDTH'(first && condition_met) : sum[NIBBLE_WIDTH-1:0];
+                           -1-  
+                           ==>  
+                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+66               assign carry_in = first ? subtract : g_slice[slice-1].slice_carry_out;
+                                         -1-  
+                                         ==>  
+                                         ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+89             assign result_o[NIBBLE_WIDTH*slice +: NIBBLE_WIDTH] =
+                                                                    
+90               compare_i ? NIBBLE_WIDTH'(first && condition_met) : sum[NIBBLE_WIDTH-1:0];
+                           -1-  
+                           ==>  
+                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+66               assign carry_in = first ? subtract : g_slice[slice-1].slice_carry_out;
+                                         -1-  
+                                         ==>  
+                                         ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+89             assign result_o[NIBBLE_WIDTH*slice +: NIBBLE_WIDTH] =
+                                                                    
+90               compare_i ? NIBBLE_WIDTH'(first && condition_met) : sum[NIBBLE_WIDTH-1:0];
+                           -1-  
+                           ==>  
+                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+66               assign carry_in = first ? subtract : g_slice[slice-1].slice_carry_out;
+                                         -1-  
+                                         ==>  
+                                         ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+89             assign result_o[NIBBLE_WIDTH*slice +: NIBBLE_WIDTH] =
+                                                                    
+90               compare_i ? NIBBLE_WIDTH'(first && condition_met) : sum[NIBBLE_WIDTH-1:0];
+                           -1-  
+                           ==>  
+                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+66               assign carry_in = first ? subtract : g_slice[slice-1].slice_carry_out;
+                                         -1-  
+                                         ==>  
+                                         ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+89             assign result_o[NIBBLE_WIDTH*slice +: NIBBLE_WIDTH] =
+                                                                    
+90               compare_i ? NIBBLE_WIDTH'(first && condition_met) : sum[NIBBLE_WIDTH-1:0];
+                           -1-  
+                           ==>  
+                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+66               assign carry_in = first ? subtract : g_slice[slice-1].slice_carry_out;
+                                         -1-  
+                                         ==>  
+                                         ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+89             assign result_o[NIBBLE_WIDTH*slice +: NIBBLE_WIDTH] =
+                                                                    
+90               compare_i ? NIBBLE_WIDTH'(first && condition_met) : sum[NIBBLE_WIDTH-1:0];
+                           -1-  
+                           ==>  
+                           ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+66               assign carry_in = first ? subtract : g_slice[slice-1].slice_carry_out;
+                                         -1-  
+                                         ==>  
+                                         ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+35             case (group_i)
+               -1-  
+36               2'd0: begin link_after = 'h00; low_group_last = 'd0; end
+                 ==>
+37               2'd1: begin link_after = 'h55; low_group_last = 'd1; end
+                 ==>
+38               2'd2: begin link_after = 'h77; low_group_last = 'd3; end
+                 ==>
+39               2'd3: begin link_after = 'h7f; low_group_last = 'd7; end
+                 ==>
+40               default: begin link_after = '0; low_group_last = '0; end
+                 ==>
+
+Branches:
+
+-1-     Status      
+2'b0    Covered     
+2'b1    Covered     
+2'd2    Covered     
+2'd3    Covered     
+default Not Covered 
+
+
+98             if (reset_i || clear_i) begin
+               -1-  
+99               carry_r <= 1'b0;
+                 ==>
+100              carry_valid_r <= 1'b0;
+101            end else if (execute_i && !compare_i) begin
+                        -2-  
+102              carry_r <= carry_out;
+                 ==>
+103              carry_valid_r <= chain_i;
+104            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+79               case (tile_cmp_cond_e'(condition_i))
+                 -1-  
+80                 TILE_CMP_EQ: condition_met = group_equal[group_last];
+                   ==>
+81                 TILE_CMP_LTU: condition_met = unsigned_less;
+                   ==>
+82                 TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+                   ==>
+83                 TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+                                                                                           -2-  
+                                                                                           ==>  
+                                                                                           ==>  
+84                   sign_a[group_last] : unsigned_less;
+85                 default: condition_met = 1'b0;
+                   ==>
+
+Branches:
+
+-1-           -2- Status      
+TILE_CMP_EQ   -   Covered     
+TILE_CMP_LTU  -   Covered     
+TILE_CMP_NEQ  -   Covered     
+TILE_CMP_LTS  1   Covered     
+TILE_CMP_LTS  0   Covered     
+default       -   Not Covered 
+
+
+79               case (tile_cmp_cond_e'(condition_i))
+                 -1-  
+80                 TILE_CMP_EQ: condition_met = group_equal[group_last];
+                   ==>
+81                 TILE_CMP_LTU: condition_met = unsigned_less;
+                   ==>
+82                 TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+                   ==>
+83                 TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+                                                                                           -2-  
+                                                                                           ==>  
+                                                                                           ==>  
+84                   sign_a[group_last] : unsigned_less;
+85                 default: condition_met = 1'b0;
+                   ==>
+
+Branches:
+
+-1-           -2- Status      
+TILE_CMP_EQ   -   Covered     
+TILE_CMP_LTU  -   Covered     
+TILE_CMP_NEQ  -   Covered     
+TILE_CMP_LTS  1   Covered     
+TILE_CMP_LTS  0   Covered     
+default       -   Not Covered 
+
+
+79               case (tile_cmp_cond_e'(condition_i))
+                 -1-  
+80                 TILE_CMP_EQ: condition_met = group_equal[group_last];
+                   ==>
+81                 TILE_CMP_LTU: condition_met = unsigned_less;
+                   ==>
+82                 TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+                   ==>
+83                 TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+                                                                                           -2-  
+                                                                                           ==>  
+                                                                                           ==>  
+84                   sign_a[group_last] : unsigned_less;
+85                 default: condition_met = 1'b0;
+                   ==>
+
+Branches:
+
+-1-           -2- Status      
+TILE_CMP_EQ   -   Covered     
+TILE_CMP_LTU  -   Covered     
+TILE_CMP_NEQ  -   Covered     
+TILE_CMP_LTS  1   Covered     
+TILE_CMP_LTS  0   Covered     
+default       -   Not Covered 
+
+
+79               case (tile_cmp_cond_e'(condition_i))
+                 -1-  
+80                 TILE_CMP_EQ: condition_met = group_equal[group_last];
+                   ==>
+81                 TILE_CMP_LTU: condition_met = unsigned_less;
+                   ==>
+82                 TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+                   ==>
+83                 TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+                                                                                           -2-  
+                                                                                           ==>  
+                                                                                           ==>  
+84                   sign_a[group_last] : unsigned_less;
+85                 default: condition_met = 1'b0;
+                   ==>
+
+Branches:
+
+-1-           -2- Status      
+TILE_CMP_EQ   -   Covered     
+TILE_CMP_LTU  -   Covered     
+TILE_CMP_NEQ  -   Covered     
+TILE_CMP_LTS  1   Covered     
+TILE_CMP_LTS  0   Covered     
+default       -   Not Covered 
+
+
+79               case (tile_cmp_cond_e'(condition_i))
+                 -1-  
+80                 TILE_CMP_EQ: condition_met = group_equal[group_last];
+                   ==>
+81                 TILE_CMP_LTU: condition_met = unsigned_less;
+                   ==>
+82                 TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+                   ==>
+83                 TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+                                                                                           -2-  
+                                                                                           ==>  
+                                                                                           ==>  
+84                   sign_a[group_last] : unsigned_less;
+85                 default: condition_met = 1'b0;
+                   ==>
+
+Branches:
+
+-1-           -2- Status      
+TILE_CMP_EQ   -   Covered     
+TILE_CMP_LTU  -   Covered     
+TILE_CMP_NEQ  -   Covered     
+TILE_CMP_LTS  1   Covered     
+TILE_CMP_LTS  0   Covered     
+default       -   Not Covered 
+
+
+79               case (tile_cmp_cond_e'(condition_i))
+                 -1-  
+80                 TILE_CMP_EQ: condition_met = group_equal[group_last];
+                   ==>
+81                 TILE_CMP_LTU: condition_met = unsigned_less;
+                   ==>
+82                 TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+                   ==>
+83                 TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+                                                                                           -2-  
+                                                                                           ==>  
+                                                                                           ==>  
+84                   sign_a[group_last] : unsigned_less;
+85                 default: condition_met = 1'b0;
+                   ==>
+
+Branches:
+
+-1-           -2- Status      
+TILE_CMP_EQ   -   Covered     
+TILE_CMP_LTU  -   Covered     
+TILE_CMP_NEQ  -   Covered     
+TILE_CMP_LTS  1   Covered     
+TILE_CMP_LTS  0   Covered     
+default       -   Not Covered 
+
+
+79               case (tile_cmp_cond_e'(condition_i))
+                 -1-  
+80                 TILE_CMP_EQ: condition_met = group_equal[group_last];
+                   ==>
+81                 TILE_CMP_LTU: condition_met = unsigned_less;
+                   ==>
+82                 TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+                   ==>
+83                 TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+                                                                                           -2-  
+                                                                                           ==>  
+                                                                                           ==>  
+84                   sign_a[group_last] : unsigned_less;
+85                 default: condition_met = 1'b0;
+                   ==>
+
+Branches:
+
+-1-           -2- Status      
+TILE_CMP_EQ   -   Covered     
+TILE_CMP_LTU  -   Covered     
+TILE_CMP_NEQ  -   Covered     
+TILE_CMP_LTS  1   Covered     
+TILE_CMP_LTS  0   Covered     
+default       -   Not Covered 
+
+
+79               case (tile_cmp_cond_e'(condition_i))
+                 -1-  
+80                 TILE_CMP_EQ: condition_met = group_equal[group_last];
+                   ==>
+81                 TILE_CMP_LTU: condition_met = unsigned_less;
+                   ==>
+82                 TILE_CMP_NEQ: condition_met = !group_equal[group_last];
+                   ==>
+83                 TILE_CMP_LTS: condition_met = (sign_a[group_last] ^ sign_b[group_last]) ?
+                                                                                           -2-  
+                                                                                           ==>  
+                                                                                           ==>  
+84                   sign_a[group_last] : unsigned_less;
+85                 default: condition_met = 1'b0;
+                   ==>
+
+Branches:
+
+-1-           -2- Status      
+TILE_CMP_EQ   -   Covered     
+TILE_CMP_LTU  -   Covered     
+TILE_CMP_NEQ  -   Covered     
+TILE_CMP_LTS  1   Covered     
+TILE_CMP_LTS  0   Covered     
+default       -   Not Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : arithmetic_unit_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH 
+ 91.18  84.62  99.38 --      89.53 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH 
+ 91.18  84.62  99.38 --      89.53 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH NAME            
+ 91.18  84.62  99.38 --      89.53 arithmetic_unit 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH NAME               
+--     --     --     --     --     arithmetic_unit_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : arithmetic_unit_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH 
+--     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/func_units/arithmetic_unit/arithmetic_unit_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH NAME               
+--     --     --     --     --     arithmetic_unit_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : arithmetic_unit_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH 
+--     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH 
+ 91.18  84.62  99.38 --      89.53 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH NAME               
+--     --     --     --     --     arithmetic_unit_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH NAME 
+ 91.18  84.62  99.38 --      89.53 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

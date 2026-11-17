@@ -1,0 +1,301 @@
+===============================================================================
+Module : delta
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/delta.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME              
+100.00 100.00 100.00 --     100.00 100.00 cmte_delta_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : delta
+
+             Line No.   Total   Covered  Percent
+TOTAL                       24       24   100.00
+ALWAYS             37       10       10   100.00
+ALWAYS             60       10       10   100.00
+ALWAYS             93        4        4   100.00
+
+36                          // Defaults for no inferred latches
+37         1/1              at_or_below    = '0;
+38         1/1              ordinal        = '0;
+39         1/1              class_sum      = '0;
+40         1/1              commit_delta = '0;
+41         1/1              for (k = 0; k < WORD_WIDTH; k++) begin
+42         1/1                at_or_below = {WORD_WIDTH{1'b1}} >> (WORD_WIDTH - 1 - k);
+43         1/1                ordinal     = 6'($unsigned($countones(cell_bounds_i & at_or_below))) - 6'h1;
+44         1/1                class_sum   = {2'b0, base_class_i} + ordinal;
+45         2/2                if (dirty_i[k]) commit_delta[class_sum[3:0]] = 1'b1;   // wraps mod 16, F6
+                        MISSING_ELSE
+46                          end
+47                        end
+48                      
+49                        // ================= state =================
+50                        // pending_r is the only state the handoff needs: set on ship_i (also
+51                        // freezing the snapshot so back_end's accumulator is free to move
+52                        // on), cleared the cycle the consumer takes it. delta_valid_o is pending_r
+53                        // itself -- a plain valid/ready source: valid rises with the snapshot and
+54                        // holds, with delta_o stable, until delta_ready_i accepts it. Nothing here
+55                        // depends combinationally on delta_ready_i.
+56                        logic [DELTA_WIDTH-1:0] delta_acc_r, delta_out_r;
+57                        logic                   pending_r;
+58                      
+59                        always_ff @(posedge clk_i) begin
+60         1/1              if (reset_i || clear_i) begin
+61         1/1                delta_acc_r <= '0;
+62         1/1                pending_r   <= 1'b0;
+63                          end else begin
+64         2/2                if (commit_valid_i) delta_acc_r <= delta_acc_r | commit_delta;
+                        MISSING_ELSE
+65         1/1                if (ship_i) begin
+66         1/1                  delta_out_r <= delta_acc_r;
+67         1/1                  pending_r   <= 1'b1;
+68         1/1                end else if (pending_r && delta_ready_i) begin
+69         1/1                  pending_r <= 1'b0;
+70                            end
+                        MISSING_ELSE
+71                          end
+72                        end
+73                      
+74                        assign delta_o       = delta_out_r;
+75                        assign delta_valid_o = pending_r;
+76                      
+77                      `ifndef SYNTHESIS
+78                        // Simulation-only checks are excluded by the SYNTHESIS define.
+79                      
+80                        // Enforced by the caller (back_end's ENDC state machine: ship_i
+81                        // only fires once RB/WR/WB have drained, which requires wr_free, while
+82                        // commit_valid_i requires wr_valid_r) -- not visible from this module
+83                        // alone, so assert it here too rather than trust the comment.
+84                        commit_ship_mutex: assert property (@(posedge clk_i) disable iff (reset_i)
+85                          !(commit_valid_i && ship_i))
+86                          else $error("delta: commit_valid_i and ship_i coincided");
+87                      
+88                        // One ship per image, and nothing commits after it: a later commit would
+89                        // land in delta_acc_r, never ship, and be zeroed by clear_i (a dropped Delta
+90                        // bit, the unsafe direction under F6).
+91                        logic shipped_r;
+92                        always @(posedge clk_i) begin
+93         2/2              if (reset_i || clear_i) shipped_r <= 1'b0;
+94         2/2              else if (ship_i)        shipped_r <= 1'b1;
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : delta
+
+               Total   Covered  Percent
+Conditions          9        9   100.00
+Logical             9        9   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       60
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       68
+ EXPRESSION (pending_r && delta_ready_i)
+             ----1----    ------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       93
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : delta
+         Line No. Total Covered Percent 
+Branches          9     9       100.00  
+IF       60       6     6       100.00  
+IF       93       3     3       100.00  
+
+
+60             if (reset_i || clear_i) begin
+               -1-  
+61               delta_acc_r <= '0;
+                 ==>
+62               pending_r   <= 1'b0;
+63             end else begin
+64               if (commit_valid_i) delta_acc_r <= delta_acc_r | commit_delta;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+65               if (ship_i) begin
+                 -3-  
+66                 delta_out_r <= delta_acc_r;
+                   ==>
+67                 pending_r   <= 1'b1;
+68               end else if (pending_r && delta_ready_i) begin
+                          -4-  
+69                 pending_r <= 1'b0;
+                   ==>
+70               end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- Status  
+1   -   -   -   Covered 
+0   1   -   -   Covered 
+0   0   -   -   Covered 
+0   -   1   -   Covered 
+0   -   0   1   Covered 
+0   -   0   0   Covered 
+
+
+93             if (reset_i || clear_i) shipped_r <= 1'b0;
+               -1-  
+               ==>
+94             else if (ship_i)        shipped_r <= 1'b1;
+                    -2-  
+               ==>
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : delta
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       5     5         100.00  5                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            5     5         100.00  5                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                       Attempts Real Successes Failures Incomplete 
+commit_ship_mutex          680409   680406         0        0          
+delta_ctrl_known           680409   680406         0        0          
+delta_no_commit_after_ship 680409   660406         0        0          
+delta_single_ship          680409   660406         0        0          
+delta_valid_holds          680409   289353         0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : cmte_delta_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+100.00 100.00 100.00 --     100.00 100.00 delta 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     cmte_delta_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : cmte_delta_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/cmte/delta/cmte_delta_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     cmte_delta_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : cmte_delta_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     cmte_delta_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+100.00 100.00 100.00 --     100.00 100.00 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

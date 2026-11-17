@@ -1,0 +1,354 @@
+===============================================================================
+Module : vsp
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.31 100.00  96.55 100.00 100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/vsp.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+ 99.31 100.00  96.55 100.00 100.00 100.00 cmte_vsp_unit_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : vsp
+
+             Line No.   Total   Covered  Percent
+TOTAL                       11       11   100.00
+ALWAYS             73       11       11   100.00
+
+72                        always_ff @(posedge clk_i) begin
+73         1/1              if (reset_i || clear_i) begin
+74         1/1                vsp_state_r <= VSP_FREE;
+75                          end else begin
+76         1/1                unique case (vsp_state_r)
+77                              VSP_FREE: begin
+78         2/2                    if (vs_write_issue)      vsp_state_r <= VSP_OWNED_BY_WRITE;
+79         2/2                    else if (vs_read_grant)  vsp_state_r <= VSP_OWNED_BY_READ;
+                        MISSING_ELSE
+80                              end
+81         2/2                  VSP_OWNED_BY_WRITE: if (vs_bus.ack) vsp_state_r <= VSP_FREE;
+                        MISSING_ELSE
+82         2/2                  VSP_OWNED_BY_READ:  if (vs_bus.ack) vsp_state_r <= VSP_FREE;
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : vsp
+
+               Total   Covered  Percent
+Conditions         29       28    96.55
+Logical            29       28    96.55
+Non-Logical         0        0
+Event               0        0
+
+ LINE       73
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Not Covered
+ 1   0  Covered
+
+ LINE       44
+ EXPRESSION (vs_want_write_i && (vsp_state_r != VSP_OWNED_BY_READ))
+             -------1-------    -----------------2----------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       44
+ SUB-EXPRESSION (vsp_state_r != VSP_OWNED_BY_READ)
+                -----------------1----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       45
+ EXPRESSION (vs_want_read_i && (vsp_state_r != VSP_OWNED_BY_WRITE))
+             -------1------    -----------------2-----------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       45
+ SUB-EXPRESSION (vsp_state_r != VSP_OWNED_BY_WRITE)
+                -----------------1-----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       46
+ EXPRESSION (vs_read_issue && ((!vs_write_issue)))
+             ------1------    ---------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       48
+ EXPRESSION (vs_write_issue || vs_read_grant)
+             -------1------    ------2------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       49
+ EXPRESSION (vs_write_issue ? VS_OP_WRITE : VS_OP_READ)
+             -------1------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       52
+ EXPRESSION (vs_write_issue ? ({wb_addr_i, 2'b0}) : ({rb_addr_i, 2'b0}))
+             -------1------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       56
+ EXPRESSION (vs_read_grant && vs_bus.ack)
+             ------1------    -----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       57
+ EXPRESSION (vs_write_issue && vs_bus.ack)
+             -------1------    -----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+-------------------------------------------------------------------------------
+FSM Coverage for Module : vsp
+Summary for FSM :: vsp_state_r
+            Total Covered Percent                         
+States      3     3       100.00  (Not included in score) 
+Transitions 4     4       100.00                          
+Sequences   0     0                                       
+
+State, Transition and Sequence Details for FSM :: vsp_state_r
+-------------------------------------------------------------------------------
+states             Line No. Covered 
+VSP_FREE           74       Covered 
+VSP_OWNED_BY_READ  79       Covered 
+VSP_OWNED_BY_WRITE 78       Covered 
+
+transitions                  Line No. Covered 
+VSP_FREE->VSP_OWNED_BY_READ  79       Covered 
+VSP_FREE->VSP_OWNED_BY_WRITE 78       Covered 
+VSP_OWNED_BY_READ->VSP_FREE  74       Covered 
+VSP_OWNED_BY_WRITE->VSP_FREE 74       Covered 
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : vsp
+         Line No. Total Covered Percent 
+Branches          12    12      100.00  
+TERNARY  49       2     2       100.00  
+TERNARY  52       2     2       100.00  
+IF       73       8     8       100.00  
+
+
+49           assign vs_bus.op      = vs_write_issue ? VS_OP_WRITE : VS_OP_READ;
+                                                    -1-  
+                                                    ==>  
+                                                    ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+52           assign vs_bus.address = vs_write_issue ? {wb_addr_i, 2'b00} : {rb_addr_i, 2'b00};
+                                                    -1-  
+                                                    ==>  
+                                                    ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+73             if (reset_i || clear_i) begin
+               -1-  
+74               vsp_state_r <= VSP_FREE;
+                 ==>
+75             end else begin
+76               unique case (vsp_state_r)
+                        -2-  
+77                 VSP_FREE: begin
+78                   if (vs_write_issue)      vsp_state_r <= VSP_OWNED_BY_WRITE;
+                     -3-  
+                     ==>
+79                   else if (vs_read_grant)  vsp_state_r <= VSP_OWNED_BY_READ;
+                          -4-  
+                     ==>
+                     MISSING_ELSE
+                     ==>
+80                 end
+81                 VSP_OWNED_BY_WRITE: if (vs_bus.ack) vsp_state_r <= VSP_FREE;
+                                       -5-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+82                 VSP_OWNED_BY_READ:  if (vs_bus.ack) vsp_state_r <= VSP_FREE;
+                                       -6-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- -2-                 -3- -4- -5- -6- Status  
+1   -                   -   -   -   -   Covered 
+0   VSP_FREE            1   -   -   -   Covered 
+0   VSP_FREE            0   1   -   -   Covered 
+0   VSP_FREE            0   0   -   -   Covered 
+0   VSP_OWNED_BY_WRITE  -   -   1   -   Covered 
+0   VSP_OWNED_BY_WRITE  -   -   0   -   Covered 
+0   VSP_OWNED_BY_READ   -   -   -   1   Covered 
+0   VSP_OWNED_BY_READ   -   -   -   0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : vsp
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       5     5         100.00  5                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            5     5         100.00  5                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                        Attempts Real Successes Failures Incomplete 
+vsp_ack_needs_valid         11110    3605           221      0          
+vsp_no_ack_in_first_cycle   11110    3476           710      0          
+vsp_one_ack_owner           11110    11037          0        0          
+vsp_payload_holds_until_ack 11110    5361           0        0          
+vsp_state_legal             11110    11037          0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : cmte_vsp_unit_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.31 100.00  96.55 100.00 100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.31 100.00  96.55 100.00 100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 99.31 100.00  96.55 100.00 100.00 100.00 vsp  
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME             
+--     --     --     --     --     --     cmte_vsp_unit_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : cmte_vsp_unit_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/cmte/vsp/cmte_vsp_unit_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME             
+--     --     --     --     --     --     cmte_vsp_unit_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : cmte_vsp_unit_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.31 100.00  96.55 100.00 100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME             
+--     --     --     --     --     --     cmte_vsp_unit_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 99.31 100.00  96.55 100.00 100.00 100.00 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

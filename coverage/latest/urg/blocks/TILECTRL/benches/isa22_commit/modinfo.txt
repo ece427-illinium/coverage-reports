@@ -1,0 +1,2935 @@
+===============================================================================
+Module : tile_cmte
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 83.21  90.00  57.14 --      85.71 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/tile_cmte.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+ 83.21  90.00  57.14 --      85.71 100.00 top_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : tile_cmte
+
+             Line No.   Total   Covered  Percent
+TOTAL                       10        9    90.00
+ALWAYS             83        7        7   100.00
+ALWAYS            119        3        2    66.67
+
+82                        always @(posedge clk_i) begin
+83         1/1              if (reset_i || clear_i) begin
+84         1/1                fwd_count  <= 0;
+85         1/1                push_count <= 0;
+86                          end else begin
+87         2/2                if (read_fwd_valid && read_fwd_ready) fwd_count  <= fwd_count + 1;
+                        MISSING_ELSE
+88         2/2                if (back_reg_push)                    push_count <= push_count + 1;
+                        MISSING_ELSE
+89                          end
+90                        end
+91                      
+92                        seam_push_has_forward: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+93                          back_reg_push |-> (fwd_count > push_count))
+94                          else $error("tile_cmte: word pushed into back_reg with no read forward (fwd=%0d push=%0d)",
+95                                      fwd_count, push_count);
+96                      
+97                        seam_one_word_forwarded: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+98                          fwd_count <= push_count + 1)
+99                          else $error("tile_cmte: %0d forwarded words waiting to cross the seam (max 1)",
+100                                     fwd_count - push_count);
+101                     
+102                       // ---- Deadlock signature: a second word waiting for its handoff ----
+103                       // A command is stalled behind the seam (a DESC/SETC behind an armed word,
+104                       // or ENDC behind back_reg), back_reg's word is still waiting for its
+105                       // datapath handoff, and no handoff is being presented. A sequential
+106                       // producer cannot reach that word's LD b=1 past the stalled command, so
+107                       // the engine is stuck for good: the program broke the one-word-pending
+108                       // rule (INSTRUCTION_REFERENCE LD) or dropped an LD b=1. The window only
+109                       // absorbs producer pipeline latency between executing an LD and raising
+110                       // dp_valid_i; a legal program never holds this signature at all.
+111                       localparam int unsigned HANDOFF_STALL_LIMIT = 256;
+112                     
+113                       logic        handoff_stall;
+114                       int unsigned handoff_stall_cycles;
+115                       assign handoff_stall = valid_i && !ready_o && !back_reg_free && !dp_valid_i &&
+116                                              (front_end_u.armed_r || (cmte_cmd_i.command == CMTE_CMD_ENDC));
+117                     
+118                       always @(posedge clk_i) begin
+119        2/2              if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles <= 0;
+120        0/1     ==>      else                                      handoff_stall_cycles <= handoff_stall_cycles + 1;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : tile_cmte
+
+               Total   Covered  Percent
+Conditions         21       12    57.14
+Logical            21       12    57.14
+Non-Logical         0        0
+Event               0        0
+
+ LINE       83
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       87
+ EXPRESSION (read_fwd_valid && read_fwd_ready)
+             -------1------    -------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       119
+ EXPRESSION (reset_i || clear_i || ((!handoff_stall)))
+             ---1---    ---2---    ---------3--------
+
+-1- -2- -3- Status
+ 0   0   0  Not Covered
+ 0   0   1  Covered
+ 0   1   0  Not Covered
+ 1   0   0  Not Covered
+
+ LINE       115
+ EXPRESSION 
+ Number  Term
+      1  valid_i && 
+      2  ((!ready_o)) && 
+      3  ((!back_reg_free)) && 
+      4  ((!dp_valid_i)) && 
+      5  (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)))
+
+-1- -2- -3- -4- -5- Status
+ 0   1   1   1   1  Not Covered
+ 1   0   1   1   1  Not Covered
+ 1   1   0   1   1  Covered
+ 1   1   1   0   1  Not Covered
+ 1   1   1   1   0  Not Covered
+ 1   1   1   1   1  Not Covered
+
+ LINE       115
+ SUB-EXPRESSION (tile_cmte.front_end_u.armed_r || (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC))
+                 --------------1--------------    -----------------------2-----------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       115
+ SUB-EXPRESSION (cmte_cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)
+                -----------------------1-----------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : tile_cmte
+         Line No. Total Covered Percent 
+Branches          7     6       85.71   
+IF       83       5     5       100.00  
+IF       119      2     1       50.00   
+
+
+83             if (reset_i || clear_i) begin
+               -1-  
+84               fwd_count  <= 0;
+                 ==>
+85               push_count <= 0;
+86             end else begin
+87               if (read_fwd_valid && read_fwd_ready) fwd_count  <= fwd_count + 1;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+88               if (back_reg_push)                    push_count <= push_count + 1;
+                 -3-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   -   Covered 
+0   -   1   Covered 
+0   -   0   Covered 
+
+
+119            if (reset_i || clear_i || !handoff_stall) handoff_stall_cycles <= 0;
+               -1-  
+               ==>
+120            else                                      handoff_stall_cycles <= handoff_stall_cycles + 1;
+               ==>
+
+Branches:
+
+-1- Status      
+1   Covered     
+0   Not Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : tile_cmte
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       4     4         100.00  4                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            4     4         100.00  4                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                     Attempts Real Successes Failures Incomplete 
+clear_needs_quiescent_fe 11171    276            0        0          
+handoff_deadlock         11171    10893          0        0          
+seam_one_word_forwarded  11171    10893          0        0          
+seam_push_has_forward    11171    1449           0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 83.21  90.00  57.14 --      85.71 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 91.39  99.53  87.23  76.47  96.40  97.30 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+ 83.21  90.00  57.14 --      85.71 100.00 tile_cmte 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 --     --     --     --     100.00 top_tb 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+ 92.52 100.00  92.68  76.47  98.44  95.00 back_end_u  
+ 95.49 100.00  86.96 --      95.00 100.00 front_end_u 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : back_end
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 91.73 100.00  91.76  69.23  97.67 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/back_end.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                  
+ 91.73 100.00  91.76  69.23  97.67 100.00 top_tb.dut.back_end_u 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : back_end
+
+             Line No.   Total   Covered  Percent
+TOTAL                       72       72   100.00
+ALWAYS            140        7        7   100.00
+ALWAYS            165       15       15   100.00
+ALWAYS            186        8        8   100.00
+ALWAYS            202       17       17   100.00
+ALWAYS            229        9        9   100.00
+ALWAYS            292       10       10   100.00
+ALWAYS            370        6        6   100.00
+
+139                       always_ff @(posedge clk_i) begin
+140        1/1              if (reset_i || clear_i) begin
+141        1/1                back_reg_valid_r <= 1'b0;
+142        1/1              end else if (back_reg_push_i) begin
+143        1/1                back_reg_r       <= back_reg_geom_i;
+144        1/1                back_reg_valid_r <= 1'b1;
+145        1/1              end else if (consume) begin
+146        1/1                back_reg_valid_r <= 1'b0;
+147                         end
+                        MISSING_ELSE
+148                       end
+149                     
+150                       assign back_reg_free_o = !back_reg_valid_r;
+151                       assign dp_ack_o = consume;
+152                     
+153                       // wb_free is WB's own occupancy flag, declared here (not in the WB
+154                       // section below) because wr_to_wb_pop is the first place that needs it;
+155                       // be_drained (ENDC section) is its other consumer. Same pattern as
+156                       // wr_free above, one stage over.
+157                       logic wr_to_wb_pop, wr_discard, wb_free;
+158                     
+159                       assign wb_free      = !wb_valid_r;
+160                       assign wr_to_wb_pop = wr_valid_r && wr_merged_r && (|wr_wmask_r) && wb_free;
+161                       assign wr_discard   = wr_valid_r && wr_merged_r && !(|wr_wmask_r); 
+162                     
+163                       // -- Write Register --
+164                       always_ff @(posedge clk_i) begin
+165        1/1              if (reset_i || clear_i) begin
+166        1/1                wr_valid_r  <= 1'b0;
+167        1/1                wr_merged_r <= 1'b0;
+168        1/1              end else if (rb_pop) begin // copy data over to free RB
+169        1/1                wr_addr_r   <= rb_addr_r;
+170        1/1                wr_data_r   <= rb_data_r;
+171        1/1                wr_valid_r  <= 1'b1;
+172        1/1                wr_merged_r <= 1'b0;
+173        1/1              end else if (consume) begin
+174        1/1                wr_data_r   <= merged_word;   // Old data merged with new and written back
+175        1/1                wr_wmask_r  <= dirty;
+176        1/1                wr_merged_r <= 1'b1;
+177        1/1              end else if (wr_to_wb_pop || wr_discard) begin
+178        1/1                wr_valid_r  <= 1'b0;
+179        1/1                wr_merged_r <= 1'b0;
+180                         end
+                        MISSING_ELSE
+181                       end
+182                     
+183                       // ----------------- Skid register -----------------
+184                       // Temporarily holds a read request that cannot be admitted
+185                       always_ff @(posedge clk_i) begin
+186        1/1              if (reset_i || clear_i) begin
+187        1/1                skid_valid_r <= 1'b0;
+188        1/1              end else if (read_fwd_valid_i && !rb_empty && skid_free) begin
+189        1/1                skid_addr_r    <= read_fwd_i.addr;
+190        1/1                skid_no_read_r <= read_fwd_i.no_read;
+191        1/1                skid_valid_r   <= 1'b1;
+192        1/1              end else if (rb_admit_from_skid) begin
+193        1/1                skid_valid_r <= 1'b0;
+194                         end
+                        MISSING_ELSE
+195                       end
+196                     
+197                       // ----------------- Read/Write Buffer states -----------------
+198                       logic vsp_read_ack, vsp_write_ack;
+199                       // -- RB --
+200                       // (back_end.md#state-ownership, #rb-and-address-skid)
+201                       always_ff @(posedge clk_i) begin
+202        1/1              if (reset_i || clear_i) begin
+203        1/1                rb_state_r <= RB_EMPTY;
+204                         end else begin
+205        1/1                unique case (rb_state_r)
+206                             RB_EMPTY: begin
+207        1/1                    if (rb_admit_direct) begin
+208        1/1                      rb_addr_r    <= read_fwd_i.addr;
+209        1/1                      rb_state_r   <= read_fwd_i.no_read ? RB_RESOLVED : RB_WAIT_ACK;
+210        1/1                    end else if (rb_admit_from_skid) begin
+211        1/1                      rb_addr_r    <= skid_addr_r;
+212        1/1                      rb_state_r   <= skid_no_read_r ? RB_RESOLVED : RB_WAIT_ACK;
+213                               end
+                        MISSING_ELSE
+214                             end
+215                             // stays WAIT_ACK (re-asserting vs_want_read every cycle) until VSP
+216                             // reports its req acked -- ack = received, not resolved, so a READ
+217                             // moves on to WAIT_RESP rather than RESOLVED
+218        2/2                  RB_WAIT_ACK:  if (vsp_read_ack)      rb_state_r <= RB_WAIT_RESP;
+                        MISSING_ELSE
+219        2/2                  RB_WAIT_RESP: if (vs_bus.rsp_valid)  rb_state_r <= RB_RESOLVED;
+                        MISSING_ELSE
+220        2/2                  RB_RESOLVED:  if (rb_pop)            rb_state_r <= RB_EMPTY;
+                        MISSING_ELSE
+221                           endcase
+222                     
+223        2/2                if ((rb_state_r == RB_WAIT_RESP) && vs_bus.rsp_valid) rb_data_r <= vs_bus.rsp_rdata;
+                        MISSING_ELSE
+224                         end
+225                       end
+226                     
+227                       // -- WB --
+228                       always_ff @(posedge clk_i) begin
+229        1/1              if (reset_i || clear_i) begin
+230        1/1                wb_valid_r <= 1'b0;
+231        1/1              end else if (wr_to_wb_pop) begin
+232        1/1                wb_addr_r  <= wr_addr_r;
+233        1/1                wb_data_r  <= wr_data_r;
+234        1/1                wb_wmask_r <= wr_wmask_r;
+235        1/1                wb_valid_r <= 1'b1;
+236        1/1              end else if (vsp_write_ack) begin
+237        1/1                wb_valid_r <= 1'b0;
+238                         end
+                        MISSING_ELSE
+239                       end
+240                     
+241                       // ================= VSP =================
+242                     
+243                       // RB wants the port for as long as it's WAIT_ACK -- ack alone doesn't
+244                       // resolve a read, so state moves to RB_WAIT_RESP
+245                       logic  vs_want_read, vs_want_write;
+246                       assign vs_want_read = (rb_state_r == RB_WAIT_ACK);
+247                       assign vs_want_write = wb_valid_r; // WB wants port when it holds a write
+248                     
+249                       vsp vsp_u (
+250                         .clk_i(clk_i), .reset_i(reset_i), .clear_i(clear_i),
+251                     
+252                         .vs_want_read_i(vs_want_read), .vs_want_write_i(vs_want_write),
+253                     
+254                         .rb_addr_i(rb_addr_r), .wb_addr_i(wb_addr_r),
+255                         .wb_data_i(wb_data_r), .wb_wmask_i(wb_wmask_r),
+256                     
+257                         .read_ack_o(vsp_read_ack), .write_ack_o(vsp_write_ack),
+258                     
+259                         .vs_bus(vs_bus)
+260                       );
+261                     
+262                       // ================= Delta =================
+263                       // ----------------- ENDC / quiescence -----------------
+264                       // be_drained: RB/WR/WB/skid all empty -- purely structural, the point
+265                       // past which no further commit_valid_i can land (wr_free here is
+266                       // mutually exclusive with consume's wr_valid_r). Only meaningful as the
+267                       // ENDC_PENDING -> ENDC_SENT transition condition below.
+268                       logic be_drained;
+269                       assign be_drained = rb_empty && skid_free && wr_free && wb_free;
+270                     
+271                       // ship_u2d: one-shot pulse to delta, firing exactly once on the
+272                       // ENDC_PENDING -> ENDC_SENT edge, telling it the accumulator is final
+273                       // and safe to snapshot. delta owns the rest of the handoff itself:
+274                       // delta_valid_o holds from the ship until delta_ready_i takes it, and
+275                       // delta_fire is that transfer, which is what ENDC_SENT waits for.
+276                       logic ship_u2d, delta_fire;
+277                       assign ship_u2d   = (endc_state_r == ENDC_PENDING) && be_drained;
+278                       assign delta_fire = delta_valid_o && delta_ready_i;
+279                     
+280                       delta delta_u (
+281                         .clk_i(clk_i), .reset_i(reset_i), .clear_i(clear_i),
+282                     
+283                         .commit_valid_i(consume), .dirty_i(dirty),
+284                         .cell_bounds_i(back_reg_r.cell_bounds), .base_class_i(back_reg_r.base_class),
+285                     
+286                         .ship_i(ship_u2d), .delta_ready_i(delta_ready_i),
+287                     
+288                         .delta_o(delta_o), .delta_valid_o(delta_valid_o)
+289                       );
+290                     
+291                       always_ff @(posedge clk_i) begin
+292        1/1              if (reset_i || clear_i) begin
+293        1/1                endc_state_r <= ENDC_IDLE;
+294                         end else begin
+295        1/1                unique case (endc_state_r)
+296        2/2                  ENDC_IDLE:     if (endc_i)         endc_state_r <= ENDC_PENDING;
+                        MISSING_ELSE
+297        2/2                  ENDC_PENDING:  if (be_drained)     endc_state_r <= ENDC_SENT;
+                        MISSING_ELSE
+298        2/2                  ENDC_SENT:     if (delta_fire)     endc_state_r <= PROG_COMPLETE;
+                   ==>  MISSING_ELSE
+299        1/1                  PROG_COMPLETE: ; // holds until clear_i
+300                           endcase
+301                         end
+302                       end
+303                     
+304                       // program_done_o is purely registered: it rises the cycle after the Delta
+305                       // transfer (by then the consumer has already taken delta_o) and holds,
+306                       // sticky, until clear_i. Nothing here depends combinationally on
+307                       // delta_ready_i.
+308                       assign program_done_o = (endc_state_r == PROG_COMPLETE);
+309                     
+310                     `ifndef SYNTHESIS
+311                       // Simulation-only checks are excluded by the SYNTHESIS define.
+312                     
+313                       // clear_i may start once the image has completed, or while the back end
+314                       // holds nothing (e.g. the tile's first dispatch after reset). Only the
+315                       // rising edge is checked -- clear itself resets the state that proves it.
+316                       // tile_cmte checks the front end's half.
+317                       clear_needs_quiescent_be: assert property (@(posedge clk_i) disable iff (reset_i)
+318                         $rose(clear_i) |-> (program_done_o ||
+319                                             ((endc_state_r == ENDC_IDLE) && be_drained && !back_reg_valid_r)))
+320                         else $error("back_end: clear_i while the back end still holds work");
+321                     
+322                       // consume requires wr_valid_r, ship_u2d requires wr_free -- they can
+323                       // never coincide, so delta_acc_r never changes out from under the
+324                       // snapshot delta takes of it.
+325                       commit_ship_mutex: assert property (@(posedge clk_i) disable iff (reset_i)
+326                         !(consume && ship_u2d))
+327                         else $error("back_end: commit landed the same cycle ship_u2d fired");
+328                     
+329                       // ---- Front-end sequencing the back end relies on ----
+330                       be_push_into_free_back_reg: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+331                         back_reg_push_i |-> back_reg_free_o)
+332                         else $error("back_end: back_reg push while back_reg still holds a word");
+333                     
+334                       // RB + skid are only safe because the front end never forwards more than
+335                       // one word ahead of the seam. A forward that isn't taken is lost; one that
+336                       // lands in RB past a waiting skid entry reorders words.
+337                       be_fwd_never_dropped: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+338                         read_fwd_valid_i |-> read_fwd_ready_o)
+339                         else $error("back_end: read forward dropped (RB and skid both full)");
+340                     
+341                       be_fwd_keeps_order: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+342                         !(read_fwd_valid_i && rb_empty && skid_valid_r))
+343                         else $error("back_end: read forward overtook the skid entry (word order lost)");
+344                     
+345                       be_endc_after_seam_drained: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+346                         endc_i |-> !back_reg_valid_r)
+347                         else $error("back_end: ENDC while back_reg still holds a word");
+348                     
+349                       // ---- Datapath handoff (F9): the producer holds A/R31 until dp_ack_o ----
+350                       be_dp_holds_until_ack: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+351                         (dp_valid_i && !dp_ack_o) |=> (dp_valid_i && $stable(accumulator_i) && $stable(guards_i)))
+352                         else $error("back_end: dp_valid_i/accumulator_i/guards_i changed before dp_ack_o");
+353                     
+354                       // ---- VS response contract: a read's rsp arrives >= 1 cycle after its ack ----
+355                       be_rsp_only_when_waiting: assert property (@(posedge clk_i) disable iff (reset_i || clear_i)
+356                         vs_bus.rsp_valid |-> (rb_state_r == RB_WAIT_RESP))
+357                         else $error("back_end: VS rsp_valid while RB is not waiting for one (response lost)");
+358                     
+359                       be_done_sticky: assert property (@(posedge clk_i) disable iff (reset_i)
+360                         (program_done_o && !clear_i) |=> program_done_o)
+361                         else $error("back_end: program_done_o dropped before clear_i");
+362                     
+363                       // ---- Each value-store bit is committed at most once per image ----
+364                       // A second commit of a bit can take its old value from a read issued
+365                       // before the first commit's write lands, so it compares against stale data
+366                       // and silently drops its own update. The ISA makes that program malformed;
+367                       // this shadow of every bit committed since reset/clear catches it.
+368                       logic [WORD_WIDTH-1:0] committed_bits [logic [WIDX-1:0]];
+369                       always @(posedge clk_i) begin
+370        1/1              if (reset_i || clear_i) begin
+371        1/1                committed_bits.delete();
+372        1/1              end else if (consume) begin
+373        1/1                if (committed_bits.exists(wr_addr_r)) begin
+374                             be_bit_committed_once: assert ((committed_bits[wr_addr_r] & back_reg_r.field) == '0)
+375                               else $error("back_end: word %h commits bits %h a second time this image (malformed)",
+376                                           {wr_addr_r, 2'b00}, committed_bits[wr_addr_r] & back_reg_r.field);
+377        1/1                  committed_bits[wr_addr_r] = committed_bits[wr_addr_r] | back_reg_r.field;
+378                           end else begin
+379        1/1                  committed_bits[wr_addr_r] = back_reg_r.field;
+380                           end
+381                         end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : back_end
+
+               Total   Covered  Percent
+Conditions         85       78    91.76
+Logical            85       78    91.76
+Non-Logical         0        0
+Event               0        0
+
+ LINE       140
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       165
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       177
+ EXPRESSION (wr_to_wb_pop || wr_discard)
+             ------1-----    -----2----
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       186
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       188
+ EXPRESSION (read_fwd_valid_i && ((!rb_empty)) && skid_free)
+             --------1-------    ------2------    ----3----
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Not Covered
+ 1   1   1  Covered
+
+ LINE       202
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       209
+ EXPRESSION (read_fwd_i.no_read ? RB_RESOLVED : RB_WAIT_ACK)
+             ---------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       212
+ EXPRESSION (skid_no_read_r ? RB_RESOLVED : RB_WAIT_ACK)
+             -------1------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       223
+ EXPRESSION ((rb_state_r == RB_WAIT_RESP) && vs_bus.rsp_valid)
+             --------------1-------------    --------2-------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       223
+ SUB-EXPRESSION (rb_state_r == RB_WAIT_RESP)
+                --------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       229
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       292
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       370
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       104
+ EXPRESSION (rb_state_r == RB_EMPTY)
+            ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       105
+ EXPRESSION (read_fwd_valid_i && rb_empty)
+             --------1-------    ----2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       106
+ EXPRESSION (skid_valid_r && rb_empty && ((!read_fwd_valid_i)))
+             ------1-----    ----2---    ----------3----------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       115
+ EXPRESSION ((rb_state_r == RB_RESOLVED) && wr_free)
+             -------------1-------------    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       115
+ SUB-EXPRESSION (rb_state_r == RB_RESOLVED)
+                -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       117
+ EXPRESSION (rb_empty || skid_free)
+             ----1---    ----2----
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       136
+ EXPRESSION (back_reg_valid_r && wr_valid_r && ((!wr_merged_r)) && dp_valid_i)
+             --------1-------    -----2----    --------3-------    -----4----
+
+-1- -2- -3- -4- Status
+ 0   1   1   1  Not Covered
+ 1   0   1   1  Covered
+ 1   1   0   1  Covered
+ 1   1   1   0  Covered
+ 1   1   1   1  Covered
+
+ LINE       160
+ EXPRESSION (wr_valid_r && wr_merged_r && ((|wr_wmask_r)) && wb_free)
+             -----1----    -----2-----    -------3-------    ---4---
+
+-1- -2- -3- -4- Status
+ 0   1   1   1  Not Covered
+ 1   0   1   1  Covered
+ 1   1   0   1  Covered
+ 1   1   1   0  Covered
+ 1   1   1   1  Covered
+
+ LINE       161
+ EXPRESSION (wr_valid_r && wr_merged_r && ((!(|wr_wmask_r))))
+             -----1----    -----2-----    ---------3--------
+
+-1- -2- -3- Status
+ 0   1   1  Not Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       246
+ EXPRESSION (rb_state_r == RB_WAIT_ACK)
+            -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       269
+ EXPRESSION (rb_empty && skid_free && wr_free && wb_free)
+             ----1---    ----2----    ---3---    ---4---
+
+-1- -2- -3- -4- Status
+ 0   1   1   1  Covered
+ 1   0   1   1  Not Covered
+ 1   1   0   1  Covered
+ 1   1   1   0  Covered
+ 1   1   1   1  Covered
+
+ LINE       277
+ EXPRESSION ((endc_state_r == ENDC_PENDING) && be_drained)
+             ---------------1--------------    -----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       277
+ SUB-EXPRESSION (endc_state_r == ENDC_PENDING)
+                ---------------1--------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       278
+ EXPRESSION (delta_valid_o && delta_ready_i)
+             ------1------    ------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       308
+ EXPRESSION (endc_state_r == PROG_COMPLETE)
+            ---------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+FSM Coverage for Module : back_end
+Summary for FSM :: rb_state_r
+            Total Covered Percent                         
+States      4     4       100.00  (Not included in score) 
+Transitions 7     5       71.43                           
+Sequences   0     0                                       
+
+State, Transition and Sequence Details for FSM :: rb_state_r
+-------------------------------------------------------------------------------
+states       Line No. Covered 
+RB_EMPTY     203      Covered 
+RB_RESOLVED  209      Covered 
+RB_WAIT_ACK  209      Covered 
+RB_WAIT_RESP 218      Covered 
+
+transitions               Line No. Covered     
+RB_EMPTY->RB_RESOLVED     209      Covered     
+RB_EMPTY->RB_WAIT_ACK     209      Covered     
+RB_RESOLVED->RB_EMPTY     203      Covered     
+RB_WAIT_ACK->RB_EMPTY     203      Not Covered 
+RB_WAIT_ACK->RB_WAIT_RESP 218      Covered     
+RB_WAIT_RESP->RB_EMPTY    203      Not Covered 
+RB_WAIT_RESP->RB_RESOLVED 219      Covered     
+
+Summary for FSM :: endc_state_r
+            Total Covered Percent                         
+States      4     4       100.00  (Not included in score) 
+Transitions 6     4       66.67                           
+Sequences   0     0                                       
+
+State, Transition and Sequence Details for FSM :: endc_state_r
+-------------------------------------------------------------------------------
+states        Line No. Covered 
+ENDC_IDLE     293      Covered 
+ENDC_PENDING  296      Covered 
+ENDC_SENT     297      Covered 
+PROG_COMPLETE 298      Covered 
+
+transitions              Line No. Covered     
+ENDC_IDLE->ENDC_PENDING  296      Covered     
+ENDC_PENDING->ENDC_IDLE  293      Not Covered 
+ENDC_PENDING->ENDC_SENT  297      Covered     
+ENDC_SENT->ENDC_IDLE     293      Not Covered 
+ENDC_SENT->PROG_COMPLETE 298      Covered     
+PROG_COMPLETE->ENDC_IDLE 293      Covered     
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : back_end
+         Line No. Total Covered Percent 
+Branches          43    42      97.67   
+IF       140      4     4       100.00  
+IF       165      5     5       100.00  
+IF       186      4     4       100.00  
+IF       202      14    14      100.00  
+IF       229      4     4       100.00  
+IF       292      8     7       87.50   
+IF       370      4     4       100.00  
+
+
+140            if (reset_i || clear_i) begin
+               -1-  
+141              back_reg_valid_r <= 1'b0;
+                 ==>
+142            end else if (back_reg_push_i) begin
+                        -2-  
+143              back_reg_r       <= back_reg_geom_i;
+                 ==>
+144              back_reg_valid_r <= 1'b1;
+145            end else if (consume) begin
+                        -3-  
+146              back_reg_valid_r <= 1'b0;
+                 ==>
+147            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+165            if (reset_i || clear_i) begin
+               -1-  
+166              wr_valid_r  <= 1'b0;
+                 ==>
+167              wr_merged_r <= 1'b0;
+168            end else if (rb_pop) begin // copy data over to free RB
+                        -2-  
+169              wr_addr_r   <= rb_addr_r;
+                 ==>
+170              wr_data_r   <= rb_data_r;
+171              wr_valid_r  <= 1'b1;
+172              wr_merged_r <= 1'b0;
+173            end else if (consume) begin
+                        -3-  
+174              wr_data_r   <= merged_word;   // Old data merged with new and written back
+                 ==>
+175              wr_wmask_r  <= dirty;
+176              wr_merged_r <= 1'b1;
+177            end else if (wr_to_wb_pop || wr_discard) begin
+                        -4-  
+178              wr_valid_r  <= 1'b0;
+                 ==>
+179              wr_merged_r <= 1'b0;
+180            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- -4- Status  
+1   -   -   -   Covered 
+0   1   -   -   Covered 
+0   0   1   -   Covered 
+0   0   0   1   Covered 
+0   0   0   0   Covered 
+
+
+186            if (reset_i || clear_i) begin
+               -1-  
+187              skid_valid_r <= 1'b0;
+                 ==>
+188            end else if (read_fwd_valid_i && !rb_empty && skid_free) begin
+                        -2-  
+189              skid_addr_r    <= read_fwd_i.addr;
+                 ==>
+190              skid_no_read_r <= read_fwd_i.no_read;
+191              skid_valid_r   <= 1'b1;
+192            end else if (rb_admit_from_skid) begin
+                        -3-  
+193              skid_valid_r <= 1'b0;
+                 ==>
+194            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+202            if (reset_i || clear_i) begin
+               -1-  
+203              rb_state_r <= RB_EMPTY;
+                 ==>
+204            end else begin
+205              unique case (rb_state_r)
+                        -2-  
+206                RB_EMPTY: begin
+207                  if (rb_admit_direct) begin
+                     -3-  
+208                    rb_addr_r    <= read_fwd_i.addr;
+209                    rb_state_r   <= read_fwd_i.no_read ? RB_RESOLVED : RB_WAIT_ACK;
+                                                          -4-  
+                                                          ==>  
+                                                          ==>  
+210                  end else if (rb_admit_from_skid) begin
+                              -5-  
+211                    rb_addr_r    <= skid_addr_r;
+212                    rb_state_r   <= skid_no_read_r ? RB_RESOLVED : RB_WAIT_ACK;
+                                                      -6-  
+                                                      ==>  
+                                                      ==>  
+213                  end
+                     MISSING_ELSE
+                     ==>
+214                end
+215                // stays WAIT_ACK (re-asserting vs_want_read every cycle) until VSP
+216                // reports its req acked -- ack = received, not resolved, so a READ
+217                // moves on to WAIT_RESP rather than RESOLVED
+218                RB_WAIT_ACK:  if (vsp_read_ack)      rb_state_r <= RB_WAIT_RESP;
+                                 -7-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+219                RB_WAIT_RESP: if (vs_bus.rsp_valid)  rb_state_r <= RB_RESOLVED;
+                                 -8-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+220                RB_RESOLVED:  if (rb_pop)            rb_state_r <= RB_EMPTY;
+                                 -9-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+221              endcase
+222        
+223              if ((rb_state_r == RB_WAIT_RESP) && vs_bus.rsp_valid) rb_data_r <= vs_bus.rsp_rdata;
+                 -10-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2-           -3- -4- -5- -6- -7- -8- -9- -10- Status  
+1   -             -   -   -   -   -   -   -   -    Covered 
+0   RB_EMPTY      1   1   -   -   -   -   -   -    Covered 
+0   RB_EMPTY      1   0   -   -   -   -   -   -    Covered 
+0   RB_EMPTY      0   -   1   1   -   -   -   -    Covered 
+0   RB_EMPTY      0   -   1   0   -   -   -   -    Covered 
+0   RB_EMPTY      0   -   0   -   -   -   -   -    Covered 
+0   RB_WAIT_ACK   -   -   -   -   1   -   -   -    Covered 
+0   RB_WAIT_ACK   -   -   -   -   0   -   -   -    Covered 
+0   RB_WAIT_RESP  -   -   -   -   -   1   -   -    Covered 
+0   RB_WAIT_RESP  -   -   -   -   -   0   -   -    Covered 
+0   RB_RESOLVED   -   -   -   -   -   -   1   -    Covered 
+0   RB_RESOLVED   -   -   -   -   -   -   0   -    Covered 
+0   -             -   -   -   -   -   -   -   1    Covered 
+0   -             -   -   -   -   -   -   -   0    Covered 
+
+
+229            if (reset_i || clear_i) begin
+               -1-  
+230              wb_valid_r <= 1'b0;
+                 ==>
+231            end else if (wr_to_wb_pop) begin
+                        -2-  
+232              wb_addr_r  <= wr_addr_r;
+                 ==>
+233              wb_data_r  <= wr_data_r;
+234              wb_wmask_r <= wr_wmask_r;
+235              wb_valid_r <= 1'b1;
+236            end else if (vsp_write_ack) begin
+                        -3-  
+237              wb_valid_r <= 1'b0;
+                 ==>
+238            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+292            if (reset_i || clear_i) begin
+               -1-  
+293              endc_state_r <= ENDC_IDLE;
+                 ==>
+294            end else begin
+295              unique case (endc_state_r)
+                        -2-  
+296                ENDC_IDLE:     if (endc_i)         endc_state_r <= ENDC_PENDING;
+                                  -3-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+297                ENDC_PENDING:  if (be_drained)     endc_state_r <= ENDC_SENT;
+                                  -4-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+298                ENDC_SENT:     if (delta_fire)     endc_state_r <= PROG_COMPLETE;
+                                  -5-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+299                PROG_COMPLETE: ; // holds until clear_i
+                   ==>
+
+Branches:
+
+-1- -2-            -3- -4- -5- Status      
+1   -              -   -   -   Covered     
+0   ENDC_IDLE      1   -   -   Covered     
+0   ENDC_IDLE      0   -   -   Covered     
+0   ENDC_PENDING   -   1   -   Covered     
+0   ENDC_PENDING   -   0   -   Covered     
+0   ENDC_SENT      -   -   1   Covered     
+0   ENDC_SENT      -   -   0   Not Covered 
+0   PROG_COMPLETE  -   -   -   Covered     
+
+
+370            if (reset_i || clear_i) begin
+               -1-  
+371              committed_bits.delete();
+                 ==>
+372            end else if (consume) begin
+                        -2-  
+373              if (committed_bits.exists(wr_addr_r)) begin
+                 -3-  
+374                be_bit_committed_once: assert ((committed_bits[wr_addr_r] & back_reg_r.field) == '0)
+                   ==>
+375                  else $error("back_end: word %h commits bits %h a second time this image (malformed)",
+376                              {wr_addr_r, 2'b00}, committed_bits[wr_addr_r] & back_reg_r.field);
+377                committed_bits[wr_addr_r] = committed_bits[wr_addr_r] | back_reg_r.field;
+378              end else begin
+379                committed_bits[wr_addr_r] = back_reg_r.field;
+                   ==>
+380              end
+381            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   1   Covered 
+0   1   0   Covered 
+0   0   -   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : back_end
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       10    10        100.00  10                100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            10    10        100.00  10                100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                       Attempts Real Successes Failures Incomplete 
+be_bit_committed_once      1        1              0        0          
+be_done_sticky             11171    826            0        0          
+be_dp_holds_until_ack      11171    4350           0        0          
+be_endc_after_seam_drained 11171    276            0        0          
+be_fwd_keeps_order         11171    10893          0        0          
+be_fwd_never_dropped       11171    1449           0        0          
+be_push_into_free_back_reg 11171    1449           0        0          
+be_rsp_only_when_waiting   11171    273            0        0          
+clear_needs_quiescent_be   11171    276            0        0          
+commit_ship_mutex          11171    11169          0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dut.back_end_u
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 91.73 100.00  91.76  69.23  97.67 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.52 100.00  92.68  76.47  98.44  95.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME     
+ 91.73 100.00  91.76  69.23  97.67 100.00 back_end 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 83.21  90.00  57.14 --      85.71 100.00 dut  
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME    
+ 92.22 100.00  88.89 --     100.00  80.00 delta_u 
+ 99.31 100.00  96.55 100.00 100.00 100.00 vsp_u   
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : delta
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.22 100.00  88.89 --     100.00  80.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/delta.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                          
+ 92.22 100.00  88.89 --     100.00  80.00 top_tb.dut.back_end_u.delta_u 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : delta
+
+             Line No.   Total   Covered  Percent
+TOTAL                       24       24   100.00
+ALWAYS             37       10       10   100.00
+ALWAYS             60       10       10   100.00
+ALWAYS             93        4        4   100.00
+
+36                          // Defaults for no inferred latches
+37         1/1              at_or_below    = '0;
+38         1/1              ordinal        = '0;
+39         1/1              class_sum      = '0;
+40         1/1              commit_delta = '0;
+41         1/1              for (k = 0; k < WORD_WIDTH; k++) begin
+42         1/1                at_or_below = {WORD_WIDTH{1'b1}} >> (WORD_WIDTH - 1 - k);
+43         1/1                ordinal     = 6'($unsigned($countones(cell_bounds_i & at_or_below))) - 6'h1;
+44         1/1                class_sum   = {2'b0, base_class_i} + ordinal;
+45         2/2                if (dirty_i[k]) commit_delta[class_sum[3:0]] = 1'b1;   // wraps mod 16, F6
+                        MISSING_ELSE
+46                          end
+47                        end
+48                      
+49                        // ================= state =================
+50                        // pending_r is the only state the handoff needs: set on ship_i (also
+51                        // freezing the snapshot so back_end's accumulator is free to move
+52                        // on), cleared the cycle the consumer takes it. delta_valid_o is pending_r
+53                        // itself -- a plain valid/ready source: valid rises with the snapshot and
+54                        // holds, with delta_o stable, until delta_ready_i accepts it. Nothing here
+55                        // depends combinationally on delta_ready_i.
+56                        logic [DELTA_WIDTH-1:0] delta_acc_r, delta_out_r;
+57                        logic                   pending_r;
+58                      
+59                        always_ff @(posedge clk_i) begin
+60         1/1              if (reset_i || clear_i) begin
+61         1/1                delta_acc_r <= '0;
+62         1/1                pending_r   <= 1'b0;
+63                          end else begin
+64         2/2                if (commit_valid_i) delta_acc_r <= delta_acc_r | commit_delta;
+                        MISSING_ELSE
+65         1/1                if (ship_i) begin
+66         1/1                  delta_out_r <= delta_acc_r;
+67         1/1                  pending_r   <= 1'b1;
+68         1/1                end else if (pending_r && delta_ready_i) begin
+69         1/1                  pending_r <= 1'b0;
+70                            end
+                        MISSING_ELSE
+71                          end
+72                        end
+73                      
+74                        assign delta_o       = delta_out_r;
+75                        assign delta_valid_o = pending_r;
+76                      
+77                      `ifndef SYNTHESIS
+78                        // Simulation-only checks are excluded by the SYNTHESIS define.
+79                      
+80                        // Enforced by the caller (back_end's ENDC state machine: ship_i
+81                        // only fires once RB/WR/WB have drained, which requires wr_free, while
+82                        // commit_valid_i requires wr_valid_r) -- not visible from this module
+83                        // alone, so assert it here too rather than trust the comment.
+84                        commit_ship_mutex: assert property (@(posedge clk_i) disable iff (reset_i)
+85                          !(commit_valid_i && ship_i))
+86                          else $error("delta: commit_valid_i and ship_i coincided");
+87                      
+88                        // One ship per image, and nothing commits after it: a later commit would
+89                        // land in delta_acc_r, never ship, and be zeroed by clear_i (a dropped Delta
+90                        // bit, the unsafe direction under F6).
+91                        logic shipped_r;
+92                        always @(posedge clk_i) begin
+93         2/2              if (reset_i || clear_i) shipped_r <= 1'b0;
+94         2/2              else if (ship_i)        shipped_r <= 1'b1;
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : delta
+
+               Total   Covered  Percent
+Conditions          9        8    88.89
+Logical             9        8    88.89
+Non-Logical         0        0
+Event               0        0
+
+ LINE       60
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       68
+ EXPRESSION (pending_r && delta_ready_i)
+             ----1----    ------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       93
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : delta
+         Line No. Total Covered Percent 
+Branches          9     9       100.00  
+IF       60       6     6       100.00  
+IF       93       3     3       100.00  
+
+
+60             if (reset_i || clear_i) begin
+               -1-  
+61               delta_acc_r <= '0;
+                 ==>
+62               pending_r   <= 1'b0;
+63             end else begin
+64               if (commit_valid_i) delta_acc_r <= delta_acc_r | commit_delta;
+                 -2-  
+                 ==>
+                 MISSING_ELSE
+                 ==>
+65               if (ship_i) begin
+                 -3-  
+66                 delta_out_r <= delta_acc_r;
+                   ==>
+67                 pending_r   <= 1'b1;
+68               end else if (pending_r && delta_ready_i) begin
+                          -4-  
+69                 pending_r <= 1'b0;
+                   ==>
+70               end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- Status  
+1   -   -   -   Covered 
+0   1   -   -   Covered 
+0   0   -   -   Covered 
+0   -   1   -   Covered 
+0   -   0   1   Covered 
+0   -   0   0   Covered 
+
+
+93             if (reset_i || clear_i) shipped_r <= 1'b0;
+               -1-  
+               ==>
+94             else if (ship_i)        shipped_r <= 1'b1;
+                    -2-  
+               ==>
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : delta
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       5     5         100.00  4                 80.00   
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            5     5         100.00  4                 80.00   
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                       Attempts Real Successes Failures Incomplete 
+commit_ship_mutex          11171    11169          0        0          
+delta_ctrl_known           11171    11169          0        0          
+delta_no_commit_after_ship 11171    10893          0        0          
+delta_single_ship          11171    10893          0        0          
+delta_valid_holds          11171    0              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dut.back_end_u.delta_u
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.22 100.00  88.89 --     100.00  80.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.22 100.00  88.89 --     100.00  80.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+ 92.22 100.00  88.89 --     100.00  80.00 delta 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+ 91.73 100.00  91.76  69.23  97.67 100.00 back_end_u 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : word_paint
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.31 100.00  84.62 --      84.62 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/word_paint.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                
+ 92.31 100.00  84.62 --      84.62 100.00 top_tb.dut.front_end_u.word_paint_u 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : word_paint
+
+             Line No.   Total   Covered  Percent
+TOTAL                       37       37   100.00
+ALWAYS             72       11       11   100.00
+ALWAYS             96       26       26   100.00
+
+71                      
+72         1/1              cell_width = {1'b0, cell_width_m1_i} + 6'h1;
+73                      
+74         1/1              new_cell_bounds = '0;
+75         1/1              new_bit_pos     = bit_pos_r;   // overwritten below -- j always reaches num_cells_m1_i
+76         1/1              cell_start      = bit_pos_r;
+77         1/1              for (j = 0; j < 8; j = j + 1) begin
+78         2/2                if (j <= num_cells_m1_i) new_cell_bounds[cell_start[4:0]] = 1'b1;
+                        MISSING_ELSE
+79         1/1                cell_start = cell_start + cell_width;
+80         2/2                if (j == num_cells_m1_i) new_bit_pos = cell_start;
+                        MISSING_ELSE
+81                          end
+82                      
+83         1/1              span_mask = ((32'h1 << new_bit_pos) - 32'h1) ^ ((32'h1 << bit_pos_r) - 32'h1);
+84                        end
+85                      
+86                        assign narrow_fills_word_o = (new_bit_pos == 6'd32);
+87                      
+88                        // wide_last_bits_m1_i is already the "-1" form (0..31, 5b) -- last_bits
+89                        // itself (1..32) only needs widening here, at the one place it's
+90                        // consumed, same idiom as cell_width above.
+91                        assign wide_last_bits  = {1'b0, wide_last_bits_m1_i} + 6'h1;
+92                        assign wide_final_mask = (32'h1 << wide_last_bits) - 32'h1;
+93                      
+94                        // ================= state =================
+95                        always_ff @(posedge clk_i) begin
+96         1/1              if (reset_i || clear_i) begin
+97         1/1                bit_pos_r          <= '0;
+98         1/1                limb_start_r       <= '0;
+99         1/1                cell_bounds_r       <= '0;
+100        1/1                guard_field_r       <= '0;
+101        1/1                no_compare_field_r  <= '0;
+102                         end else begin
+103        1/1                unique case (action_i)
+104                             PAINT_HOLD: begin
+105                               // no change -- wide region's continuing full-limb repaint
+106                             end
+107                     
+108                             PAINT_NARROW: begin
+109        1/1                    cell_bounds_r      <= cell_bounds_r | new_cell_bounds;
+110        1/1                    guard_field_r      <= guard_field_r      | (guarded_i    ? span_mask : '0);
+111        1/1                    no_compare_field_r <= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112        1/1                    bit_pos_r          <= new_bit_pos;
+113                             end
+114                     
+115                             PAINT_SETC: begin
+116        1/1                    bit_pos_r    <= {1'b0, setc_pos_i};
+117        1/1                    limb_start_r <= setc_pos_i;
+118                             end
+119                     
+120                             PAINT_WIDE_FIRST: begin
+121        1/1                    cell_bounds_r      <= 32'h1;
+122        1/1                    limb_start_r       <= '0;
+123        1/1                    bit_pos_r          <= 6'd32;
+124        1/1                    guard_field_r      <= guarded_i    ? '1 : '0;
+125        1/1                    no_compare_field_r <= no_compare_i ? '1 : '0;
+126                             end
+127                     
+128                             PAINT_WIDE_FINAL: begin
+129        1/1                    bit_pos_r          <= wide_last_bits;
+130        1/1                    guard_field_r      <= wide_guarded_i    ? wide_final_mask : '0;
+131        1/1                    no_compare_field_r <= wide_no_compare_i ? wide_final_mask : '0;
+132                               // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                             end
+134                     
+135                             PAINT_CLEAR: begin
+136        1/1                    bit_pos_r          <= '0;
+137        1/1                    limb_start_r       <= '0;
+138        1/1                    cell_bounds_r      <= '0;
+139        1/1                    guard_field_r      <= '0;
+140        1/1                    no_compare_field_r <= '0;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : word_paint
+
+               Total   Covered  Percent
+Conditions         13       11    84.62
+Logical            13       11    84.62
+Non-Logical         0        0
+Event               0        0
+
+ LINE       96
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       124
+ EXPRESSION (guarded_i ? '1 : '0)
+             ----1----
+
+-1- Status
+ 0  Covered
+ 1  Not Covered
+
+ LINE       125
+ EXPRESSION (no_compare_i ? '1 : '0)
+             ------1-----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       130
+ EXPRESSION (wide_guarded_i ? wide_final_mask : '0)
+             -------1------
+
+-1- Status
+ 0  Covered
+ 1  Not Covered
+
+ LINE       131
+ EXPRESSION (wide_no_compare_i ? wide_final_mask : '0)
+             --------1--------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       86
+ EXPRESSION (new_bit_pos == 6'd32)
+            -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : word_paint
+         Line No. Total Covered Percent 
+Branches          13    11      84.62   
+IF       96       13    11      84.62   
+
+
+96             if (reset_i || clear_i) begin
+               -1-  
+97               bit_pos_r          <= '0;
+                 ==>
+98               limb_start_r       <= '0;
+99               cell_bounds_r       <= '0;
+100              guard_field_r       <= '0;
+101              no_compare_field_r  <= '0;
+102            end else begin
+103              unique case (action_i)
+                        -2-  
+104                PAINT_HOLD: begin
+                   ==>
+105                  // no change -- wide region's continuing full-limb repaint
+106                end
+107        
+108                PAINT_NARROW: begin
+109                  cell_bounds_r      <= cell_bounds_r | new_cell_bounds;
+                     ==>
+110                  guard_field_r      <= guard_field_r      | (guarded_i    ? span_mask : '0);
+111                  no_compare_field_r <= no_compare_field_r | (no_compare_i ? span_mask : '0);
+112                  bit_pos_r          <= new_bit_pos;
+113                end
+114        
+115                PAINT_SETC: begin
+116                  bit_pos_r    <= {1'b0, setc_pos_i};
+                     ==>
+117                  limb_start_r <= setc_pos_i;
+118                end
+119        
+120                PAINT_WIDE_FIRST: begin
+121                  cell_bounds_r      <= 32'h1;
+122                  limb_start_r       <= '0;
+123                  bit_pos_r          <= 6'd32;
+124                  guard_field_r      <= guarded_i    ? '1 : '0;
+                                                        -3-  
+                                                        ==>  
+                                                        ==>  
+125                  no_compare_field_r <= no_compare_i ? '1 : '0;
+                                                        -4-  
+                                                        ==>  
+                                                        ==>  
+126                end
+127        
+128                PAINT_WIDE_FINAL: begin
+129                  bit_pos_r          <= wide_last_bits;
+130                  guard_field_r      <= wide_guarded_i    ? wide_final_mask : '0;
+                                                             -5-  
+                                                             ==>  
+                                                             ==>  
+131                  no_compare_field_r <= wide_no_compare_i ? wide_final_mask : '0;
+                                                             -6-  
+                                                             ==>  
+                                                             ==>  
+132                  // cell_bounds_r, limb_start_r unchanged -- still bit-0-only / 0
+133                end
+134        
+135                PAINT_CLEAR: begin
+136                  bit_pos_r          <= '0;
+                     ==>
+
+Branches:
+
+-1- -2-               -3- -4- -5- -6- Status      
+1   -                 -   -   -   -   Covered     
+0   PAINT_HOLD        -   -   -   -   Covered     
+0   PAINT_NARROW      -   -   -   -   Covered     
+0   PAINT_SETC        -   -   -   -   Covered     
+0   PAINT_WIDE_FIRST  1   -   -   -   Not Covered 
+0   PAINT_WIDE_FIRST  0   -   -   -   Covered     
+0   PAINT_WIDE_FIRST  -   1   -   -   Covered     
+0   PAINT_WIDE_FIRST  -   0   -   -   Covered     
+0   PAINT_WIDE_FINAL  -   -   1   -   Not Covered 
+0   PAINT_WIDE_FINAL  -   -   0   -   Covered     
+0   PAINT_WIDE_FINAL  -   -   -   1   Covered     
+0   PAINT_WIDE_FINAL  -   -   -   0   Covered     
+0   PAINT_CLEAR       -   -   -   -   Covered     
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : word_paint
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       5     5         100.00  5                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            5     5         100.00  5                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                             Attempts Real Successes Failures Incomplete 
+paint_action_known               11171    10893          0        0          
+paint_narrow_fits                11171    36             0        0          
+paint_setc_on_empty_word         11171    4              0        0          
+paint_wide_final_after_full_limb 11171    260            0        0          
+paint_wide_first_on_empty_word   11171    260            0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dut.front_end_u.word_paint_u
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.31 100.00  84.62 --      84.62 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 92.31 100.00  84.62 --      84.62 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+ 92.31 100.00  84.62 --      84.62 100.00 word_paint 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+ 96.80 100.00  87.20 --     100.00 100.00 front_end_u 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : front_end
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.80 100.00  87.20 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/front_end.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                   
+ 96.80 100.00  87.20 --     100.00 100.00 top_tb.dut.front_end_u 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : front_end
+
+             Line No.   Total   Covered  Percent
+TOTAL                       59       59   100.00
+ALWAYS            122        5        5   100.00
+ALWAYS            135       13       13   100.00
+ALWAYS            152       35       35   100.00
+ALWAYS            220        5        5   100.00
+ROUTINE           246        1        1   100.00
+
+121                       always_comb begin
+122        1/1              unique case (cmd_i.amode)
+123        1/1                CMTE_AMODE_CONTIGUOUS: base_address_next = base_address_r;
+124        1/1                CMTE_AMODE_NEAR:       base_address_next = base_address_r +
+125                             ({{(ADDR_SPACE_WIDTH-8){cmd_i.desc_address[7]}}, cmd_i.desc_address[7:0]} <<< 2);
+126        1/1                CMTE_AMODE_ABSOLUTE:   base_address_next = cmd_i.desc_address;
+127        1/1                CMTE_AMODE_INDEXED:    base_address_next = cmd_i.desc_address;
+128                         endcase
+129                       end
+130                     
+131                       // ================= paint action dispatch =================
+132                       // The "accepted command" and "push" groups never coincide the same cycle:
+133                       // every accepted DESC and SETC needs armed_r=0, and push needs armed_r=1.
+134                       always_comb begin
+135        1/1              if (is_setc && ready_o)
+136        1/1                paint_action = PAINT_SETC;
+137        1/1              else if (is_desc && ready_o && !cmd_i.wide)
+138        1/1                paint_action = PAINT_NARROW;
+139        1/1              else if (is_desc && ready_o && cmd_i.wide)
+140        1/1                paint_action = PAINT_WIDE_FIRST;
+141        1/1              else if (push && wide_continues && !wide_entering_final)
+142        1/1                paint_action = PAINT_HOLD;
+143        1/1              else if (push && wide_entering_final)
+144        1/1                paint_action = PAINT_WIDE_FINAL;
+145        1/1              else if (push && !wide_continues)
+146        1/1                paint_action = PAINT_CLEAR;
+147                         else
+148        1/1                paint_action = PAINT_HOLD;
+149                       end
+150                     
+151                       always_ff @(posedge clk_i) begin
+152        1/1              if (reset_i || clear_i) begin
+153        1/1                base_address_r     <= '0;
+154        1/1                base_class_r       <= '0;
+155        1/1                wide_active_r       <= 1'b0;
+156        1/1                wide_left_r         <= '0;
+157        1/1                wide_last_bits_r    <= '0;
+158        1/1                wide_guarded_r      <= 1'b0;
+159        1/1                wide_no_compare_r   <= 1'b0;
+160        1/1                no_read_r           <= 1'b0;
+161        1/1                armed_r             <= 1'b0;
+162        1/1                wide_commit_r       <= 1'b0;
+163                         end else begin
+164                           // Every accepted narrow DESC arms/disarms -- new-word or continuing
+165                           // alike (tile_cmte.md's own Example 1 closes a word on its
+166                           // *second* descriptor, so this can't be new-word-only).
+167        1/1                if (is_desc && ready_o && !cmd_i.wide) begin
+168        1/1                  armed_r <= narrow_closes;
+169                           end
+                        MISSING_ELSE
+170                     
+171                           // First descriptor of a word, narrow or wide.
+172        1/1                if (new_word_cmd && ready_o) begin
+173        1/1                  base_address_r <= base_address_next;
+174        1/1                  no_read_r      <= cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare);
+175                     
+176        1/1                  if (cmd_i.wide) begin
+177        1/1                    wide_active_r     <= 1'b1;
+178        1/1                    wide_left_r        <= {1'b0, cmd_i.limb_count_m1} + 4'h2;
+179        1/1                    wide_last_bits_r    <= cmd_i.last_bits_m1;
+180        1/1                    wide_guarded_r       <= cmd_i.guarded;
+181        1/1                    wide_no_compare_r     <= cmd_i.no_compare;
+182                               // last_bits_m1 all-ones -> last_bits=32: the trailing limb is
+183                               // full-width, so nothing can ever be packed after it -- it must
+184                               // close like any other full limb, regardless of cmd_i.commit.
+185        1/1                    wide_commit_r           <= cmd_i.commit || (cmd_i.last_bits_m1 == '1);
+186        1/1                    armed_r                  <= 1'b1;   // full limb 0 always auto-arms
+187                             end
+                        MISSING_ELSE
+188                           end
+                        MISSING_ELSE
+189                     
+190                           // Word/limb closing and crossing the seam.
+191        1/1                if (push) begin
+192        1/1                  base_address_r <= base_address_r + 24'h4;
+193                     
+194        1/1                  if (wide_continues && !wide_entering_final) begin
+195        1/1                    wide_left_r <= wide_left_r - 4'h1;
+196        1/1                  end else if (wide_entering_final) begin
+197        1/1                    wide_left_r <= wide_left_r - 4'h1;
+198        1/1                    armed_r     <= wide_commit_r;
+199        1/1                    no_read_r   <= 1'b0;   // trailing limb's closure isn't known yet
+200                             end else begin
+201        1/1                    base_class_r  <= base_class_r + 4'($unsigned($countones(cell_bounds)));
+202        1/1                    wide_active_r <= 1'b0;
+203        1/1                    armed_r       <= 1'b0;
+204                             end
+205                           end
+                        MISSING_ELSE
+206                         end
+207                       end
+208                     
+209                       // ================= transfers to the back end =================
+210                       logic [ADDR_SPACE_WIDTH-1:0] base_address_plus4;
+211                       logic                        read_fwd_case1, read_fwd_case2;
+212                     
+213                       assign base_address_plus4 = base_address_r + 24'h4;
+214                       assign read_fwd_case1     = new_word_cmd && ready_o;
+215                       assign read_fwd_case2     = push && wide_continues;
+216                     
+217                       assign read_fwd_valid_o = read_fwd_case1 || read_fwd_case2;
+218                     
+219                       always_comb begin
+220        1/1              if (read_fwd_case1) begin
+221        1/1                read_fwd_o.addr    = base_address_next[ADDR_SPACE_WIDTH-1:2];
+222        1/1                read_fwd_o.no_read = cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare);
+223                         end else begin
+224        1/1                read_fwd_o.addr    = base_address_plus4[ADDR_SPACE_WIDTH-1:2];
+225        1/1                read_fwd_o.no_read = wide_entering_final ? 1'b0 : wide_no_compare_r;
+226                         end
+227                       end
+228                     
+229                       assign geom_data_valid_o = push;
+230                     
+231                       assign fe_geom_data_o.field            = ((32'h1 << bit_pos) - 32'h1) ^ ((32'h1 << limb_start) - 32'h1);
+232                       assign fe_geom_data_o.guard_field      = guard_field;
+233                       assign fe_geom_data_o.no_compare_field = no_compare_field;
+234                       assign fe_geom_data_o.cell_bounds      = cell_bounds;
+235                       assign fe_geom_data_o.base_class       = base_class_r;
+236                       assign fe_geom_data_o.no_read          = no_read_r;
+237                     
+238                     `ifndef SYNTHESIS
+239                       // Simulation-only checks are excluded by the SYNTHESIS define.
+240                       // Most of these catch programs the ISA declares malformed
+241                       // (tile_cmte.md#67-program-boundaries): the engine's behavior on them is
+242                       // undefined, so a firing check here means the producer is wrong, not the
+243                       // RTL.
+244                     
+245                       function automatic int narrow_paint_end(input int from_bit);
+246        1/1              return from_bit + (int'(cmd_i.cell_width_m1) + 1) * (int'(cmd_i.num_cells_m1) + 1);
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : front_end
+
+               Total   Covered  Percent
+Conditions        125      109    87.20
+Logical           125      109    87.20
+Non-Logical         0        0
+Event               0        0
+
+ LINE       135
+ EXPRESSION (is_setc && ready_o)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       137
+ EXPRESSION (is_desc && ready_o && ((!cmd_i.wide)))
+             ---1---    ---2---    -------3-------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       139
+ EXPRESSION (is_desc && ready_o && cmd_i.wide)
+             ---1---    ---2---    -----3----
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Not Covered
+ 1   1   1  Covered
+
+ LINE       141
+ EXPRESSION (push && wide_continues && ((!wide_entering_final)))
+             --1-    -------2------    ------------3-----------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       143
+ EXPRESSION (push && wide_entering_final)
+             --1-    ---------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       145
+ EXPRESSION (push && ((!wide_continues)))
+             --1-    ---------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       152
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       167
+ EXPRESSION (is_desc && ready_o && ((!cmd_i.wide)))
+             ---1---    ---2---    -------3-------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Not Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       172
+ EXPRESSION (new_word_cmd && ready_o)
+             ------1-----    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       174
+ EXPRESSION (cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare))
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       174
+ SUB-EXPRESSION (narrow_closes && cmd_i.no_compare)
+                 ------1------    --------2-------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       185
+ EXPRESSION (cmd_i.commit || (cmd_i.last_bits_m1 == '1))
+             ------1-----    -------------2------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       185
+ SUB-EXPRESSION (cmd_i.last_bits_m1 == '1)
+                -------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       194
+ EXPRESSION (wide_continues && ((!wide_entering_final)))
+             -------1------    ------------2-----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       222
+ EXPRESSION (cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare))
+             -----1----
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       222
+ SUB-EXPRESSION (narrow_closes && cmd_i.no_compare)
+                 ------1------    --------2-------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       225
+ EXPRESSION (wide_entering_final ? 1'b0 : wide_no_compare_r)
+             ---------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       69
+ EXPRESSION (cmd_i.commit || narrow_fills_word)
+             ------1-----    --------2--------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       86
+ EXPRESSION (bit_pos == {1'b0, limb_start})
+            ---------------1---------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       87
+ EXPRESSION (valid_i && (cmd_i.command == cmte_pkg::CMTE_CMD_DESC))
+             ---1---    ---------------------2--------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       87
+ SUB-EXPRESSION (cmd_i.command == cmte_pkg::CMTE_CMD_DESC)
+                ---------------------1--------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       88
+ EXPRESSION (valid_i && (cmd_i.command == cmte_pkg::CMTE_CMD_ENDC))
+             ---1---    ---------------------2--------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       88
+ SUB-EXPRESSION (cmd_i.command == cmte_pkg::CMTE_CMD_ENDC)
+                ---------------------1--------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       89
+ EXPRESSION (valid_i && (cmd_i.command == cmte_pkg::CMTE_CMD_SETC))
+             ---1---    ---------------------2--------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       89
+ SUB-EXPRESSION (cmd_i.command == cmte_pkg::CMTE_CMD_SETC)
+                ---------------------1--------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       90
+ EXPRESSION (is_desc && front_reg_empty)
+             ---1---    -------2-------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       95
+ EXPRESSION (armed_r && back_reg_free)
+             ---1---    ------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       96
+ EXPRESSION (wide_active_r && (wide_left_r > 4'b1))
+             ------1------    ----------2---------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       97
+ EXPRESSION (wide_active_r && (wide_left_r == 4'h2))
+             ------1------    ----------2----------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       97
+ SUB-EXPRESSION (wide_left_r == 4'h2)
+                ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       110
+ EXPRESSION 
+ Number  Term
+      1  ( ! (is_desc && (armed_r || (front_reg_empty && ((!read_fwd_ready_i))))) ) && 
+      2  ( ! (is_endc && (armed_r || ((!back_reg_free)))) ) && 
+      3  ( ! (is_setc && armed_r) ))
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Not Covered
+ 1   1   0  Not Covered
+ 1   1   1  Covered
+
+ LINE       110
+ SUB-EXPRESSION ( ! (is_desc && (armed_r || (front_reg_empty && ((!read_fwd_ready_i))))) )
+                    ----------------------------------1---------------------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       110
+ SUB-EXPRESSION (is_desc && (armed_r || (front_reg_empty && ((!read_fwd_ready_i)))))
+                 ---1---    ---------------------------2---------------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       110
+ SUB-EXPRESSION (armed_r || (front_reg_empty && ((!read_fwd_ready_i))))
+                 ---1---    ---------------------2--------------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Not Covered
+ 1   0  Covered
+
+ LINE       110
+ SUB-EXPRESSION (front_reg_empty && ((!read_fwd_ready_i)))
+                 -------1-------    ----------2----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Not Covered
+
+ LINE       110
+ SUB-EXPRESSION ( ! (is_endc && (armed_r || ((!back_reg_free)))) )
+                    ----------------------1---------------------
+
+-1- Status
+ 0  Covered
+ 1  Not Covered
+
+ LINE       110
+ SUB-EXPRESSION (is_endc && (armed_r || ((!back_reg_free))))
+                 ---1---    ---------------2---------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Not Covered
+
+ LINE       110
+ SUB-EXPRESSION (armed_r || ((!back_reg_free)))
+                 ---1---    ---------2--------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       110
+ SUB-EXPRESSION ( ! (is_setc && armed_r) )
+                    ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Not Covered
+
+ LINE       110
+ SUB-EXPRESSION (is_setc && armed_r)
+                 ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Not Covered
+
+ LINE       114
+ EXPRESSION (is_endc && ready_o)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       214
+ EXPRESSION (new_word_cmd && ready_o)
+             ------1-----    ---2---
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       215
+ EXPRESSION (push && wide_continues)
+             --1-    -------2------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       217
+ EXPRESSION (read_fwd_case1 || read_fwd_case2)
+             -------1------    -------2------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : front_end
+         Line No. Total Covered Percent 
+Branches          27    27      100.00  
+CASE     122      4     4       100.00  
+IF       135      7     7       100.00  
+IF       152      12    12      100.00  
+IF       220      4     4       100.00  
+
+
+122            unique case (cmd_i.amode)
+                      -1-  
+123              CMTE_AMODE_CONTIGUOUS: base_address_next = base_address_r;
+                 ==>
+124              CMTE_AMODE_NEAR:       base_address_next = base_address_r +
+                 ==>
+125                ({{(ADDR_SPACE_WIDTH-8){cmd_i.desc_address[7]}}, cmd_i.desc_address[7:0]} <<< 2);
+126              CMTE_AMODE_ABSOLUTE:   base_address_next = cmd_i.desc_address;
+                 ==>
+127              CMTE_AMODE_INDEXED:    base_address_next = cmd_i.desc_address;
+                 ==>
+
+Branches:
+
+-1-                              Status  
+cmte_pkg::CMTE_AMODE_CONTIGUOUS  Covered 
+cmte_pkg::CMTE_AMODE_NEAR        Covered 
+cmte_pkg::CMTE_AMODE_ABSOLUTE    Covered 
+cmte_pkg::CMTE_AMODE_INDEXED     Covered 
+
+
+135            if (is_setc && ready_o)
+               -1-  
+136              paint_action = PAINT_SETC;
+                 ==>
+137            else if (is_desc && ready_o && !cmd_i.wide)
+                    -2-  
+138              paint_action = PAINT_NARROW;
+                 ==>
+139            else if (is_desc && ready_o && cmd_i.wide)
+                    -3-  
+140              paint_action = PAINT_WIDE_FIRST;
+                 ==>
+141            else if (push && wide_continues && !wide_entering_final)
+                    -4-  
+142              paint_action = PAINT_HOLD;
+                 ==>
+143            else if (push && wide_entering_final)
+                    -5-  
+144              paint_action = PAINT_WIDE_FINAL;
+                 ==>
+145            else if (push && !wide_continues)
+                    -6-  
+146              paint_action = PAINT_CLEAR;
+                 ==>
+147            else
+148              paint_action = PAINT_HOLD;
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- -6- Status  
+1   -   -   -   -   -   Covered 
+0   1   -   -   -   -   Covered 
+0   0   1   -   -   -   Covered 
+0   0   0   1   -   -   Covered 
+0   0   0   0   1   -   Covered 
+0   0   0   0   0   1   Covered 
+0   0   0   0   0   0   Covered 
+
+
+152            if (reset_i || clear_i) begin
+               -1-  
+153              base_address_r     <= '0;
+                 ==>
+154              base_class_r       <= '0;
+155              wide_active_r       <= 1'b0;
+156              wide_left_r         <= '0;
+157              wide_last_bits_r    <= '0;
+158              wide_guarded_r      <= 1'b0;
+159              wide_no_compare_r   <= 1'b0;
+160              no_read_r           <= 1'b0;
+161              armed_r             <= 1'b0;
+162              wide_commit_r       <= 1'b0;
+163            end else begin
+164              // Every accepted narrow DESC arms/disarms -- new-word or continuing
+165              // alike (tile_cmte.md's own Example 1 closes a word on its
+166              // *second* descriptor, so this can't be new-word-only).
+167              if (is_desc && ready_o && !cmd_i.wide) begin
+                 -2-  
+168                armed_r <= narrow_closes;
+                   ==>
+169              end
+                 MISSING_ELSE
+                 ==>
+170        
+171              // First descriptor of a word, narrow or wide.
+172              if (new_word_cmd && ready_o) begin
+                 -3-  
+173                base_address_r <= base_address_next;
+174                no_read_r      <= cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare);
+                                                -4-  
+                                                ==>  
+                                                ==>  
+175        
+176                if (cmd_i.wide) begin
+                   -5-  
+177                  wide_active_r     <= 1'b1;
+                     ==>
+178                  wide_left_r        <= {1'b0, cmd_i.limb_count_m1} + 4'h2;
+179                  wide_last_bits_r    <= cmd_i.last_bits_m1;
+180                  wide_guarded_r       <= cmd_i.guarded;
+181                  wide_no_compare_r     <= cmd_i.no_compare;
+182                  // last_bits_m1 all-ones -> last_bits=32: the trailing limb is
+183                  // full-width, so nothing can ever be packed after it -- it must
+184                  // close like any other full limb, regardless of cmd_i.commit.
+185                  wide_commit_r           <= cmd_i.commit || (cmd_i.last_bits_m1 == '1);
+186                  armed_r                  <= 1'b1;   // full limb 0 always auto-arms
+187                end
+                   MISSING_ELSE
+                   ==>
+188              end
+                 MISSING_ELSE
+                 ==>
+189        
+190              // Word/limb closing and crossing the seam.
+191              if (push) begin
+                 -6-  
+192                base_address_r <= base_address_r + 24'h4;
+193        
+194                if (wide_continues && !wide_entering_final) begin
+                   -7-  
+195                  wide_left_r <= wide_left_r - 4'h1;
+                     ==>
+196                end else if (wide_entering_final) begin
+                            -8-  
+197                  wide_left_r <= wide_left_r - 4'h1;
+                     ==>
+198                  armed_r     <= wide_commit_r;
+199                  no_read_r   <= 1'b0;   // trailing limb's closure isn't known yet
+200                end else begin
+201                  base_class_r  <= base_class_r + 4'($unsigned($countones(cell_bounds)));
+                     ==>
+202                  wide_active_r <= 1'b0;
+203                  armed_r       <= 1'b0;
+204                end
+205              end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- -6- -7- -8- Status  
+1   -   -   -   -   -   -   -   Covered 
+0   1   -   -   -   -   -   -   Covered 
+0   0   -   -   -   -   -   -   Covered 
+0   -   1   1   -   -   -   -   Covered 
+0   -   1   0   -   -   -   -   Covered 
+0   -   1   -   1   -   -   -   Covered 
+0   -   1   -   0   -   -   -   Covered 
+0   -   0   -   -   -   -   -   Covered 
+0   -   -   -   -   1   1   -   Covered 
+0   -   -   -   -   1   0   1   Covered 
+0   -   -   -   -   1   0   0   Covered 
+0   -   -   -   -   0   -   -   Covered 
+
+
+220            if (read_fwd_case1) begin
+               -1-  
+221              read_fwd_o.addr    = base_address_next[ADDR_SPACE_WIDTH-1:2];
+222              read_fwd_o.no_read = cmd_i.wide ? cmd_i.no_compare : (narrow_closes && cmd_i.no_compare);
+                                                 -2-  
+                                                 ==>  
+                                                 ==>  
+223            end else begin
+224              read_fwd_o.addr    = base_address_plus4[ADDR_SPACE_WIDTH-1:2];
+225              read_fwd_o.no_read = wide_entering_final ? 1'b0 : wide_no_compare_r;
+                                                          -3-  
+                                                          ==>  
+                                                          ==>  
+
+Branches:
+
+-1- -2- -3- Status  
+1   1   -   Covered 
+1   0   -   Covered 
+0   -   1   Covered 
+0   -   0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : front_end
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       8     8         100.00  8                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            8     8         100.00  8                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                       Attempts Real Successes Failures Incomplete 
+fe_cmd_known               11171    576            0        0          
+fe_cmd_legal               11171    576            0        0          
+fe_endc_nothing_painted    11171    276            0        0          
+fe_narrow_fits             11171    36             0        0          
+fe_no_repoint_over_painted 11171    10             0        0          
+fe_push_nonempty           11171    1449           0        0          
+fe_setc_on_empty_word      11171    4              0        0          
+fe_wide_at_bit0            11171    260            0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dut.front_end_u
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.80 100.00  87.20 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 95.49 100.00  86.96 --      95.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME      
+ 96.80 100.00  87.20 --     100.00 100.00 front_end 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 83.21  90.00  57.14 --      85.71 100.00 dut  
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME         
+ 92.31 100.00  84.62 --      84.62 100.00 word_paint_u 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : vsp
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.31 100.00  96.55 100.00 100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/cmte/vsp.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                        
+ 99.31 100.00  96.55 100.00 100.00 100.00 top_tb.dut.back_end_u.vsp_u 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : vsp
+
+             Line No.   Total   Covered  Percent
+TOTAL                       11       11   100.00
+ALWAYS             73       11       11   100.00
+
+72                        always_ff @(posedge clk_i) begin
+73         1/1              if (reset_i || clear_i) begin
+74         1/1                vsp_state_r <= VSP_FREE;
+75                          end else begin
+76         1/1                unique case (vsp_state_r)
+77                              VSP_FREE: begin
+78         2/2                    if (vs_write_issue)      vsp_state_r <= VSP_OWNED_BY_WRITE;
+79         2/2                    else if (vs_read_grant)  vsp_state_r <= VSP_OWNED_BY_READ;
+                        MISSING_ELSE
+80                              end
+81         2/2                  VSP_OWNED_BY_WRITE: if (vs_bus.ack) vsp_state_r <= VSP_FREE;
+                        MISSING_ELSE
+82         2/2                  VSP_OWNED_BY_READ:  if (vs_bus.ack) vsp_state_r <= VSP_FREE;
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : vsp
+
+               Total   Covered  Percent
+Conditions         29       28    96.55
+Logical            29       28    96.55
+Non-Logical         0        0
+Event               0        0
+
+ LINE       73
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       44
+ EXPRESSION (vs_want_write_i && (vsp_state_r != VSP_OWNED_BY_READ))
+             -------1-------    -----------------2----------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       44
+ SUB-EXPRESSION (vsp_state_r != VSP_OWNED_BY_READ)
+                -----------------1----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       45
+ EXPRESSION (vs_want_read_i && (vsp_state_r != VSP_OWNED_BY_WRITE))
+             -------1------    -----------------2-----------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       45
+ SUB-EXPRESSION (vsp_state_r != VSP_OWNED_BY_WRITE)
+                -----------------1-----------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       46
+ EXPRESSION (vs_read_issue && ((!vs_write_issue)))
+             ------1------    ---------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       48
+ EXPRESSION (vs_write_issue || vs_read_grant)
+             -------1------    ------2------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       49
+ EXPRESSION (vs_write_issue ? VS_OP_WRITE : VS_OP_READ)
+             -------1------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       52
+ EXPRESSION (vs_write_issue ? ({wb_addr_i, 2'b0}) : ({rb_addr_i, 2'b0}))
+             -------1------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       56
+ EXPRESSION (vs_read_grant && vs_bus.ack)
+             ------1------    -----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       57
+ EXPRESSION (vs_write_issue && vs_bus.ack)
+             -------1------    -----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+-------------------------------------------------------------------------------
+FSM Coverage for Module : vsp
+Summary for FSM :: vsp_state_r
+            Total Covered Percent                         
+States      3     3       100.00  (Not included in score) 
+Transitions 4     4       100.00                          
+Sequences   0     0                                       
+
+State, Transition and Sequence Details for FSM :: vsp_state_r
+-------------------------------------------------------------------------------
+states             Line No. Covered 
+VSP_FREE           74       Covered 
+VSP_OWNED_BY_READ  79       Covered 
+VSP_OWNED_BY_WRITE 78       Covered 
+
+transitions                  Line No. Covered 
+VSP_FREE->VSP_OWNED_BY_READ  79       Covered 
+VSP_FREE->VSP_OWNED_BY_WRITE 78       Covered 
+VSP_OWNED_BY_READ->VSP_FREE  74       Covered 
+VSP_OWNED_BY_WRITE->VSP_FREE 74       Covered 
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : vsp
+         Line No. Total Covered Percent 
+Branches          12    12      100.00  
+TERNARY  49       2     2       100.00  
+TERNARY  52       2     2       100.00  
+IF       73       8     8       100.00  
+
+
+49           assign vs_bus.op      = vs_write_issue ? VS_OP_WRITE : VS_OP_READ;
+                                                    -1-  
+                                                    ==>  
+                                                    ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+52           assign vs_bus.address = vs_write_issue ? {wb_addr_i, 2'b00} : {rb_addr_i, 2'b00};
+                                                    -1-  
+                                                    ==>  
+                                                    ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+73             if (reset_i || clear_i) begin
+               -1-  
+74               vsp_state_r <= VSP_FREE;
+                 ==>
+75             end else begin
+76               unique case (vsp_state_r)
+                        -2-  
+77                 VSP_FREE: begin
+78                   if (vs_write_issue)      vsp_state_r <= VSP_OWNED_BY_WRITE;
+                     -3-  
+                     ==>
+79                   else if (vs_read_grant)  vsp_state_r <= VSP_OWNED_BY_READ;
+                          -4-  
+                     ==>
+                     MISSING_ELSE
+                     ==>
+80                 end
+81                 VSP_OWNED_BY_WRITE: if (vs_bus.ack) vsp_state_r <= VSP_FREE;
+                                       -5-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+82                 VSP_OWNED_BY_READ:  if (vs_bus.ack) vsp_state_r <= VSP_FREE;
+                                       -6-  
+                   ==>
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- -2-                 -3- -4- -5- -6- Status  
+1   -                   -   -   -   -   Covered 
+0   VSP_FREE            1   -   -   -   Covered 
+0   VSP_FREE            0   1   -   -   Covered 
+0   VSP_FREE            0   0   -   -   Covered 
+0   VSP_OWNED_BY_WRITE  -   -   1   -   Covered 
+0   VSP_OWNED_BY_WRITE  -   -   0   -   Covered 
+0   VSP_OWNED_BY_READ   -   -   -   1   Covered 
+0   VSP_OWNED_BY_READ   -   -   -   0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : vsp
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       5     5         100.00  5                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            5     5         100.00  5                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                        Attempts Real Successes Failures Incomplete 
+vsp_ack_needs_valid         11171    1719           0        0          
+vsp_no_ack_in_first_cycle   11171    5998           0        0          
+vsp_one_ack_owner           11171    10893          0        0          
+vsp_payload_holds_until_ack 11171    4895           0        0          
+vsp_state_legal             11171    10893          0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dut.back_end_u.vsp_u
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.31 100.00  96.55 100.00 100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.31 100.00  96.55 100.00 100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 99.31 100.00  96.55 100.00 100.00 100.00 vsp  
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+ 91.73 100.00  91.76  69.23  97.67 100.00 back_end_u 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : top_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/misc/isa22_commit_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 --     --     --     --     100.00 top_tb 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : top_tb
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       24    24        100.00  24                100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            24    24        100.00  24                100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                                                                         Attempts Real Successes Failures Incomplete 
+finish.unnamed$$_0                                                           275      275            0        0          
+finish.unnamed$$_1                                                           275      275            0        0          
+finish.unnamed$$_2                                                           275      275            0        0          
+unnamed$$_0                                                                  1446     1446           0        0          
+unnamed$$_1                                                                  1446     1446           0        0          
+unnamed$$_2                                                                  1446     1446           0        0          
+unnamed$$_3                                                                  273      273            0        0          
+unnamed$$_4                                                                  273      273            0        0          
+unnamed$$_5                                                                  273      273            0        0          
+unnamed$$_6.unnamed$$_10.unnamed$$_11.unnamed$$_12                           3        3              0        0          
+unnamed$$_6.unnamed$$_13                                                     1        1              0        0          
+unnamed$$_6.unnamed$$_14                                                     1        1              0        0          
+unnamed$$_6.unnamed$$_17                                                     1        1              0        0          
+unnamed$$_6.unnamed$$_19                                                     1        1              0        0          
+unnamed$$_6.unnamed$$_20                                                     1        1              0        0          
+unnamed$$_6.unnamed$$_21.unnamed$$_22                                        1        1              0        0          
+unnamed$$_6.unnamed$$_23                                                     1        1              0        0          
+unnamed$$_6.unnamed$$_24.unnamed$$_25                                        1        1              0        0          
+unnamed$$_6.unnamed$$_26                                                     1        1              0        0          
+unnamed$$_6.unnamed$$_27                                                     1        1              0        0          
+unnamed$$_6.unnamed$$_28.unnamed$$_29.unnamed$$_30.unnamed$$_33.unnamed$$_34 1152     1152           0        0          
+unnamed$$_6.unnamed$$_28.unnamed$$_29.unnamed$$_30.unnamed$$_35              256      256            0        0          
+unnamed$$_6.unnamed$$_8                                                      1        1              0        0          
+unnamed$$_6.unnamed$$_9                                                      1        1              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 91.60  99.53  87.23  76.47  96.40  98.36 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME   
+100.00 --     --     --     --     100.00 top_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 91.39  99.53  87.23  76.47  96.40  97.30 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
