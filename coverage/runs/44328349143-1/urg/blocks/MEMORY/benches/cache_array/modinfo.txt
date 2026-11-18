@@ -1,0 +1,152 @@
+===============================================================================
+Module : cache_array
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/memory/cache/cache_array.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                 
+100.00 100.00 --     --     100.00 --     cache_array_tb.i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : cache_array
+
+             Line No.   Total   Covered  Percent
+TOTAL                        4        4   100.00
+ALWAYS             26        4        4   100.00
+
+25                        always_ff @(posedge clk_i) begin
+26         1/1              if (enable_i) begin
+27         1/1                if (write_i)
+28         1/1                  memory[addr_i] <= (memory[addr_i] & ~wmask_i) | (wdata_i & wmask_i);
+29         1/1                else rdata_o <= memory[addr_i];
+30                          end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : cache_array
+         Line No. Total Covered Percent 
+Branches          3     3       100.00  
+IF       26       3     3       100.00  
+
+
+26             if (enable_i) begin
+               -1-  
+27               if (write_i)
+                 -2-  
+28                 memory[addr_i] <= (memory[addr_i] & ~wmask_i) | (wdata_i & wmask_i);
+                   ==>
+29               else rdata_o <= memory[addr_i];
+                 ==>
+30             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   1   Covered 
+1   0   Covered 
+0   -   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : cache_array_tb.i_dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 100.00 --     --     100.00 --     cache_array 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+--     --     --     --     --     --     cache_array_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : cache_array_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/cache/cache_array_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+--     --     --     --     --     --     cache_array_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : cache_array_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME           
+--     --     --     --     --     --     cache_array_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+100.00 100.00 --     --     100.00 --     i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module List</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.treetable.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.treetable.js"></script>
+<script type="text/javascript" src="js/.colResizable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    }  });
+  $("#hierarchyTable tbody tr").mousedown(function() {
+    $("tr.selected").removeClass("selected");
+    $("td.selected").removeClass("selected");
+    $(this).addClass("selected");
+    $(this).children().addClass("selected");
+  });
+  $("tr[data-tt-id='hierarchyTable_root']").each(function () {
+    $(this).attr("style", "display:none");
+  });
+  $("tr[data-tt-parent-id='hierarchyTable_root']").each(function () {
+    $(this).attr("style", "display:table-row");
+    $("#hierarchyTable").treetable("expandNode", $(this).attr("data-tt-id"));
+  });
+  $("table").colResizable({    liveDrag:true,
+    fixed:false,
+    draggingClass:"dragging"
+  });
+});
+function expandAll() {
+  $("#hierarchyTable").treetable("expandAll");
+}
+function collapseAll() {
+  if ($("tr[data-tt-parent-id='hierarchyTable_root']").length > 0) {
+    $("tr[data-tt-parent-id='hierarchyTable_root']").each(function () {
+      var nodeId = $(this).attr("data-tt-id");
+      var node = $("#hierarchyTable").treetable("node", nodeId);
+      $("#hierarchyTable").treetable("collapseNodeRecursive", node);
+    });
+  } else {
+    $("#hierarchyTable").treetable("collapseAll");
+  }
+}
+</script>
+<link rel="stylesheet" href="../../../../illinium-coverage.css">
+</head>
+<body><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Design Module List</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | groups | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-center">
+<b>Total Module Definition Coverage Summary</b>&nbsp;<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td nowrap width=65>SCORE</td><td nowrap width=65>LINE</td><td nowrap width=65>COND</td><td nowrap width=65>FSM</td><td nowrap width=65>BRANCH</td><td nowrap width=65>ASSERT</td></tr><tr>
+<td class="s3 cl rt"> 32.76</td>
+<td class="s5 cl rt"> 53.49</td>
+<td class="s2 cl rt"> 23.39</td>
+<td class="s0 cl rt">  0.00</td>
+<td class="s5 cl rt"> 51.72</td>
+<td class="s3 cl rt"> 35.19</td>
+</tr></table><br clear=all>
+<br clear=all>
+Total modules in report: 17<hr>
+<table class="noborder">
+  <tr>
+    <td class="noborder"><input type="button" value="Expand All" onClick="expandAll()"></td>
+    <td class="noborder"><input type="button" value="Collapse All" onClick="collapseAll()"></td>
+  </tr>
+</table>
+<table id="hierarchyTable" border="0" cellpadding="0" cellspacing="0" class="sortable">
+  <thead class="table-header">
+    <tr>
+<th class="alfsrt">NAME</th><th>SCORE</th><th>LINE</th><th>COND</th><th>FSM</th><th>BRANCH</th><th>ASSERT</th>    </tr>
+  </thead>
+  <tbody>
+    <tr data-tt-id="hierarchyTable_root">
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td>    </tr>
+    <tr data-tt-id="mod_18" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_engine_arbiter"></a>
+<a href="mod18.html" >engine_arbiter</a></td>
+<td class="s0 cl rt">  0.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s0 cl rt"><a href="mod18.html#Assert" >  0.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_37" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_front_end"></a>
+<a href="mod37.html" >front_end</a></td>
+<td class="s0 cl rt">  0.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s0 cl rt"><a href="mod37.html#Assert" >  0.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_0" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_back_end"></a>
+<a href="mod0.html" >back_end</a></td>
+<td class="s2 cl rt"> 20.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s2 cl rt"><a href="mod0.html#Assert" > 20.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_25" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_word_paint"></a>
+<a href="mod25.html" >word_paint</a></td>
+<td class="s2 cl rt"> 20.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s2 cl rt"><a href="mod25.html#Assert" > 20.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_2" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_context_control"></a>
+<a href="mod2.html" >context_control</a></td>
+<td class="s2 cl rt"> 24.74</td>
+<td class="s5 cl rt"><a href="mod2.html#Line" > 51.35</a></td>
+<td class="s2 cl rt"><a href="mod2.html#Cond" > 22.37</a></td>
+<td class="s0 cl rt"><a href="mod2.html#FSM" >  0.00</a></td>
+<td class="s5 cl rt"><a href="mod2.html#Branch" > 50.00</a></td>
+<td class="s0 cl rt"><a href="mod2.html#Assert" >  0.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_22" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_tile_cmte"></a>
+<a href="mod22.html" >tile_cmte</a></td>
+<td class="s5 cl rt"> 50.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"><a href="mod22.html#Assert" > 50.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_32" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_rf_packer"></a>
+<a href="mod32.html" >rf_packer</a></td>
+<td class="s5 cl rt"> 50.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"><a href="mod32.html#Assert" > 50.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_26" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_issue_control"></a>
+<a href="mod26.html" >issue_control</a></td>
+<td class="s5 cl rt"> 50.56</td>
+<td class="s6 cl rt"><a href="mod26.html#Line" > 66.67</a></td>
+<td class="s2 cl rt"><a href="mod26.html#Cond" > 25.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s6 cl rt"><a href="mod26.html#Branch" > 60.00</a></td>
+<td class="wht cl rt"></td>
+    </tr>
+    <tr data-tt-id="mod_27" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_vsp"></a>
+<a href="mod27.html" >vsp</a></td>
+<td class="s6 cl rt"> 60.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s6 cl rt"><a href="mod27.html#Assert" > 60.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_44" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_delta"></a>
+<a href="mod44.html" >delta</a></td>
+<td class="s8 cl rt"> 80.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod44.html#Assert" > 80.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_20" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_tile_worker"></a>
+<a href="mod20.html" >tile_worker</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod20.html#Assert" >100.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_24" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_tile_lde"></a>
+<a href="mod24.html" >tile_lde</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod24.html#Assert" >100.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_35" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_datapath_arch_state"></a>
+<a href="mod35.html" >datapath_arch_state</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod35.html#Assert" >100.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_42" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_tile_frontend"></a>
+<a href="mod42.html" >tile_frontend</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod42.html#Assert" >100.00</a></td>
+    </tr>
+    <tr data-tt-id="mod_15" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_tile_control"></a>
+<a href="mod15.html" >tile_control</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+    </tr>
+    <tr data-tt-id="mod_21" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_setup_overlap_isolation_tb"></a>
+<a href="mod21.html" >setup_overlap_isolation_tb</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+    </tr>
+    <tr data-tt-id="mod_41" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap min-width"><a name="tag_tile_datapath"></a>
+<a href="mod41.html" >tile_datapath</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+
+<script>
+$("#hierarchyTable").treetable({ expandable: true });
+</script>
+</body>
+</html>

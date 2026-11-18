@@ -1,0 +1,892 @@
+===============================================================================
+Module : datapath_arch_state
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 97.82  95.45 100.00 --      95.83 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/arch_state/datapath_arch_state.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                       
+ 97.82  95.45 100.00 --      95.83 100.00 datapath_arch_state_tb.dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : datapath_arch_state
+
+             Line No.   Total   Covered  Percent
+TOTAL                       22       21    95.45
+ALWAYS             72       11       10    90.91
+ALWAYS             88       11       11   100.00
+
+71                        always_comb begin
+72         1/1              case (capture_ctrl_i.x_sel)
+73         1/1                X_ACC: x_data = acc_data;
+74         1/1                X_RS1: x_data = read0[compute_bank_i];
+75         1/1                X_RS2: x_data = read1[compute_bank_i];
+76         1/1                X_IMMEDIATE: x_data = capture_ctrl_i.immediate;
+77         0/1     ==>        default: x_data = acc_data;
+78                          endcase
+79         1/1              case (writeback_ctrl_i.dest_sel)
+80         1/1                DEST_ACC: old_destination = acc_data;
+81         1/1                DEST_RF: old_destination = read0[compute_bank_i];
+82         1/1                DEST_MASK: old_destination = mask_value_o;
+83         1/1                default: old_destination = acc_data;
+84                          endcase
+85                        end
+86                      
+87                        always_ff @(posedge clk_i) begin
+88         1/1              if (reset_i || clear_i) begin
+89         1/1                x_r <= '0;
+90         1/1                rs1_r <= '0;
+91         1/1                rs2_r <= '0;
+92         1/1                dest_r <= '0;
+93                          end else begin
+94         1/1                if (capture_operands_i) begin
+95         1/1                  x_r <= x_data;
+96         1/1                  rs1_r <= read0[compute_bank_i];
+97         1/1                  rs2_r <= read1[compute_bank_i];
+98                            end
+                        MISSING_ELSE
+99         1/1                if (capture_destination_i) begin
+100        1/1                  dest_r <= old_destination;
+101                           end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : datapath_arch_state
+
+               Total   Covered  Percent
+Conditions         55       55   100.00
+Logical            55       55   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       88
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       39
+ EXPRESSION (dest_valid_i && (dest_i.sel == DEST_ACC))
+             ------1-----    ------------2-----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       39
+ SUB-EXPRESSION (dest_i.sel == DEST_ACC)
+                ------------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       46
+ EXPRESSION (dest_valid_i && (dest_i.sel == DEST_MASK))
+             ------1-----    ------------2------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       46
+ SUB-EXPRESSION (dest_i.sel == DEST_MASK)
+                ------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       57
+ EXPRESSION (g_bank[0].compute_write || g_bank[0].lde_write)
+             -----------1-----------    ---------2---------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       57
+ EXPRESSION (g_bank[0].compute_write ? dest_i.rd_sel : lde_write_rd_i)
+             -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       57
+ EXPRESSION (g_bank[0].compute_write ? dest_i.data : lde_write_data_i)
+             -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       57
+ EXPRESSION (g_bank[1].compute_write || g_bank[1].lde_write)
+             -----------1-----------    ---------2---------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       57
+ EXPRESSION (g_bank[1].compute_write ? dest_i.rd_sel : lde_write_rd_i)
+             -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       57
+ EXPRESSION (g_bank[1].compute_write ? dest_i.data : lde_write_data_i)
+             -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       37
+ EXPRESSION (capture_destination_i ? writeback_ctrl_i.rd_sel : capture_ctrl_i.rs1_sel)
+             ----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       54
+ EXPRESSION (dest_valid_i && (dest_i.sel == DEST_RF) && (compute_bank_i == 1'(0)))
+             ------1-----    -----------2-----------    ------------3------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       54
+ SUB-EXPRESSION (dest_i.sel == DEST_RF)
+                -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       54
+ SUB-EXPRESSION (compute_bank_i == 1'(0))
+                ------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       56
+ EXPRESSION (lde_write_i && (lde_write_bank_i == 1'(0)))
+             -----1-----    -------------2-------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       56
+ SUB-EXPRESSION (lde_write_bank_i == 1'(0))
+                -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       54
+ EXPRESSION (dest_valid_i && (dest_i.sel == DEST_RF) && (compute_bank_i == 1'(1)))
+             ------1-----    -----------2-----------    ------------3------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       54
+ SUB-EXPRESSION (dest_i.sel == DEST_RF)
+                -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       54
+ SUB-EXPRESSION (compute_bank_i == 1'(1))
+                ------------1------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       56
+ EXPRESSION (lde_write_i && (lde_write_bank_i == 1'(1)))
+             -----1-----    -------------2-------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       56
+ SUB-EXPRESSION (lde_write_bank_i == 1'(1))
+                -------------1-------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : datapath_arch_state
+         Line No. Total Covered Percent 
+Branches          24    23      95.83   
+TERNARY  37       2     2       100.00  
+TERNARY  57       2     2       100.00  
+TERNARY  57       2     2       100.00  
+TERNARY  57       2     2       100.00  
+TERNARY  57       2     2       100.00  
+CASE     72       5     4       80.00   
+CASE     79       4     4       100.00  
+IF       88       5     5       100.00  
+
+
+37           assign compute_read0 = capture_destination_i ? writeback_ctrl_i.rd_sel : capture_ctrl_i.rs1_sel;
+                                                          -1-  
+                                                          ==>  
+                                                          ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+57             register_file register_file (
+                                            
+58               .clk_i, .reset_i,
+                                  
+59               .read_addr0_i(compute_read0), .read_addr1_i(capture_ctrl_i.rs2_sel),
+                                                                                     
+60               .read_data0_o(read0[bank]), .read_data1_o(read1[bank]),
+                                                                        
+61               .write_i(compute_write || lde_write),
+                                                      
+62               .rd_i(compute_write ? dest_i.rd_sel : lde_write_rd_i),
+                                     -1-  
+                                     ==>  
+                                     ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+57             register_file register_file (
+                                            
+58               .clk_i, .reset_i,
+                                  
+59               .read_addr0_i(compute_read0), .read_addr1_i(capture_ctrl_i.rs2_sel),
+                                                                                     
+60               .read_data0_o(read0[bank]), .read_data1_o(read1[bank]),
+                                                                        
+61               .write_i(compute_write || lde_write),
+                                                      
+62               .rd_i(compute_write ? dest_i.rd_sel : lde_write_rd_i),
+                                     -1-  
+                                     ==>  
+                                     ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+57             register_file register_file (
+                                            
+58               .clk_i, .reset_i,
+                                  
+59               .read_addr0_i(compute_read0), .read_addr1_i(capture_ctrl_i.rs2_sel),
+                                                                                     
+60               .read_data0_o(read0[bank]), .read_data1_o(read1[bank]),
+                                                                        
+61               .write_i(compute_write || lde_write),
+                                                      
+62               .rd_i(compute_write ? dest_i.rd_sel : lde_write_rd_i),
+                                     -1-  
+                                     ==>  
+                                     ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+57             register_file register_file (
+                                            
+58               .clk_i, .reset_i,
+                                  
+59               .read_addr0_i(compute_read0), .read_addr1_i(capture_ctrl_i.rs2_sel),
+                                                                                     
+60               .read_data0_o(read0[bank]), .read_data1_o(read1[bank]),
+                                                                        
+61               .write_i(compute_write || lde_write),
+                                                      
+62               .rd_i(compute_write ? dest_i.rd_sel : lde_write_rd_i),
+                                     -1-  
+                                     ==>  
+                                     ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+72             case (capture_ctrl_i.x_sel)
+               -1-  
+73               X_ACC: x_data = acc_data;
+                 ==>
+74               X_RS1: x_data = read0[compute_bank_i];
+                 ==>
+75               X_RS2: x_data = read1[compute_bank_i];
+                 ==>
+76               X_IMMEDIATE: x_data = capture_ctrl_i.immediate;
+                 ==>
+77               default: x_data = acc_data;
+                 ==>
+
+Branches:
+
+-1-          Status      
+X_ACC        Covered     
+X_RS1        Covered     
+X_RS2        Covered     
+X_IMMEDIATE  Covered     
+default      Not Covered 
+
+
+79             case (writeback_ctrl_i.dest_sel)
+               -1-  
+80               DEST_ACC: old_destination = acc_data;
+                 ==>
+81               DEST_RF: old_destination = read0[compute_bank_i];
+                 ==>
+82               DEST_MASK: old_destination = mask_value_o;
+                 ==>
+83               default: old_destination = acc_data;
+                 ==>
+
+Branches:
+
+-1-        Status  
+DEST_ACC   Covered 
+DEST_RF    Covered 
+DEST_MASK  Covered 
+default    Covered 
+
+
+88             if (reset_i || clear_i) begin
+               -1-  
+89               x_r <= '0;
+                 ==>
+90               rs1_r <= '0;
+91               rs2_r <= '0;
+92               dest_r <= '0;
+93             end else begin
+94               if (capture_operands_i) begin
+                 -2-  
+95                 x_r <= x_data;
+                   ==>
+96                 rs1_r <= read0[compute_bank_i];
+97                 rs2_r <= read1[compute_bank_i];
+98               end
+                 MISSING_ELSE
+                 ==>
+99               if (capture_destination_i) begin
+                 -3-  
+100                dest_r <= old_destination;
+                   ==>
+101              end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   -   Covered 
+0   -   1   Covered 
+0   -   0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : datapath_arch_state
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       2     2         100.00  2                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            2     2         100.00  2                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name                  Attempts Real Successes Failures Incomplete 
+g_bank[0].unnamed$$_0 120852   119668         0        0          
+g_bank[1].unnamed$$_0 120852   119668         0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : datapath_arch_state_tb.dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 97.82  95.45 100.00 --      95.83 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 98.55  97.22 100.00 --      96.97 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                
+ 97.82  95.45 100.00 --      95.83 100.00 datapath_arch_state 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                   
+--     --     --     --     --     --     datapath_arch_state_tb 
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                    
+100.00 100.00 100.00 --     100.00 --     accumulator             
+100.00 100.00 --     --     100.00 --     g_bank[0].register_file 
+100.00 100.00 --     --     100.00 --     g_bank[1].register_file 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : accumulator
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/arch_state/accumulator.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                   
+100.00 100.00 100.00 --     100.00 --     datapath_arch_state_tb.dut.accumulator 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : accumulator
+
+             Line No.   Total   Covered  Percent
+TOTAL                        4        4   100.00
+ALWAYS             18        4        4   100.00
+
+17                              
+18         1/1                  if(reset_i || clear_i) begin
+19         1/1                      acc_value <= '0;
+20         1/1                  end else if(write_en_i) begin
+21         1/1                      acc_value <= write_data_i;
+22                              end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : accumulator
+
+               Total   Covered  Percent
+Conditions          3        3   100.00
+Logical             3        3   100.00
+Non-Logical         0        0
+Event               0        0
+
+ LINE       18
+ EXPRESSION (reset_i || clear_i)
+             ---1---    ---2---
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : accumulator
+         Line No. Total Covered Percent 
+Branches          3     3       100.00  
+IF       18       3     3       100.00  
+
+
+18                 if(reset_i || clear_i) begin
+                   -1-  
+19                     acc_value <= '0;
+                       ==>
+20                 end else if(write_en_i) begin
+                            -2-  
+21                     acc_value <= write_data_i;
+                       ==>
+22                 end
+                   MISSING_ELSE
+                   ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : datapath_arch_state_tb.dut.accumulator
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 100.00 --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 100.00 100.00 --     100.00 --     accumulator 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 97.82  95.45 100.00 --      95.83 100.00 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : register_file
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/tile/datapath/arch_state/register_file.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                                               
+100.00 100.00 --     --     100.00 --     datapath_arch_state_tb.dut.g_bank[0].register_file 
+100.00 100.00 --     --     100.00 --     datapath_arch_state_tb.dut.g_bank[1].register_file 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : register_file
+
+             Line No.   Total   Covered  Percent
+TOTAL                        5        5   100.00
+ALWAYS             18        5        5   100.00
+
+17                        always_ff @(posedge clk_i) begin
+18         1/1              if (reset_i) begin
+19         2/2                for (int i = 0; i < NUM_REGS; i++) registers_r[i] <= '0;
+20         1/1              end else if (write_i) begin
+21         1/1                registers_r[rd_i] <= data_i;
+22                          end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : register_file
+         Line No. Total Covered Percent 
+Branches          3     3       100.00  
+IF       18       3     3       100.00  
+
+
+18             if (reset_i) begin
+               -1-  
+19               for (int i = 0; i < NUM_REGS; i++) registers_r[i] <= '0;
+                 ==>
+20             end else if (write_i) begin
+                        -2-  
+21               registers_r[rd_i] <= data_i;
+                 ==>
+22             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : datapath_arch_state_tb.dut.g_bank[0].register_file
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+100.00 100.00 --     --     100.00 --     register_file 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 97.82  95.45 100.00 --      95.83 100.00 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : datapath_arch_state_tb.dut.g_bank[0].register_file
+
+             Line No.   Total   Covered  Percent
+TOTAL                        5        5   100.00
+ALWAYS             18        5        5   100.00
+
+17                        always_ff @(posedge clk_i) begin
+18         1/1              if (reset_i) begin
+19         2/2                for (int i = 0; i < NUM_REGS; i++) registers_r[i] <= '0;
+20         1/1              end else if (write_i) begin
+21         1/1                registers_r[rd_i] <= data_i;
+22                          end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : datapath_arch_state_tb.dut.g_bank[0].register_file
+         Line No. Total Covered Percent 
+Branches          3     3       100.00  
+IF       18       3     3       100.00  
+
+
+18             if (reset_i) begin
+               -1-  
+19               for (int i = 0; i < NUM_REGS; i++) registers_r[i] <= '0;
+                 ==>
+20             end else if (write_i) begin
+                        -2-  
+21               registers_r[rd_i] <= data_i;
+                 ==>
+22             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : datapath_arch_state_tb.dut.g_bank[1].register_file
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 100.00 --     --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+100.00 100.00 --     --     100.00 --     register_file 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 97.82  95.45 100.00 --      95.83 100.00 dut  
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : datapath_arch_state_tb.dut.g_bank[1].register_file
+
+             Line No.   Total   Covered  Percent
+TOTAL                        5        5   100.00
+ALWAYS             18        5        5   100.00
+
+17                        always_ff @(posedge clk_i) begin
+18         1/1              if (reset_i) begin
+19         2/2                for (int i = 0; i < NUM_REGS; i++) registers_r[i] <= '0;
+20         1/1              end else if (write_i) begin
+21         1/1                registers_r[rd_i] <= data_i;
+22                          end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : datapath_arch_state_tb.dut.g_bank[1].register_file
+         Line No. Total Covered Percent 
+Branches          3     3       100.00  
+IF       18       3     3       100.00  
+
+
+18             if (reset_i) begin
+               -1-  
+19               for (int i = 0; i < NUM_REGS; i++) registers_r[i] <= '0;
+                 ==>
+20             end else if (write_i) begin
+                        -2-  
+21               registers_r[rd_i] <= data_i;
+                 ==>
+22             end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- -2- Status  
+1   -   Covered 
+0   1   Covered 
+0   0   Covered 
+
+
+===============================================================================
+Module : datapath_arch_state_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/tile/datapath/arch_state/datapath_arch_state_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                   
+--     --     --     --     --     --     datapath_arch_state_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : datapath_arch_state_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 98.55  97.22 100.00 --      96.97 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                   
+--     --     --     --     --     --     datapath_arch_state_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME 
+ 98.55  97.22 100.00 --      96.97 100.00 dut  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
