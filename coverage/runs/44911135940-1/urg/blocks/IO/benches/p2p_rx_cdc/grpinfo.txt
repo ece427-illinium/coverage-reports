@@ -1,0 +1,522 @@
+Group : p2p_rx_cdc_tb::cdc_stream_cg
+
+===============================================================================
+Group : p2p_rx_cdc_tb::cdc_stream_cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/cdc/p2p_rx_cdc_tb.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME     
+100.00 1      100    1        64           64            coverage 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   p2p_rx_cdc_tb::cdc_stream_cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 11       0         11      100.00  
+Crosses   13       0         13      100.00  
+
+
+Variables for Group  p2p_rx_cdc_tb::cdc_stream_cg
+
+
+VARIABLE                  EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+backpressure              3        0         3       100.00  100  1      1        0                    
+crossing_side             2        0         2       100.00  100  1      1        0                    
+delivery_after_stall      1        0         1       100.00  100  1      1        0                    
+memory_request_registered 1        0         1       100.00  100  1      1        0                    
+payload_stream            2        0         2       100.00  100  1      1        0                    
+reset_during_traffic      1        0         1       100.00  100  1      1        0                    
+simultaneous_streams      1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group  p2p_rx_cdc_tb::cdc_stream_cg
+
+
+CROSS                    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+stream_x_side            4        0         4       100.00  100  1      1        0                     
+stream_x_side_x_stall    6        0         6       100.00  100  1      1        0                     
+concurrency_x_chip_stall 3        0         3       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable backpressure
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for backpressure
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+chip_consumer 4814  1        
+io_fifo_full  9498  1        
+none          22798 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable crossing_side
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for crossing_side
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+chip_deliver    16192 1        
+boundary_accept 20918 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable delivery_after_stall
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for delivery_after_stall
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 2248  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable memory_request_registered
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for memory_request_registered
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 21    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable payload_stream
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for payload_stream
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+memory_response 25421 1        
+program_stream  11689 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable reset_during_traffic
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for reset_during_traffic
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 42    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable simultaneous_streams
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for simultaneous_streams
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 15523 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross stream_x_side
+
+
+Samples crossed: payload_stream crossing_side
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 4        0         4       100.00          
+
+
+Automatically Generated Cross Bins for stream_x_side
+
+
+Bins
+
+payload_stream  crossing_side   COUNT AT LEAST 
+memory_response chip_deliver    10358 1        
+memory_response boundary_accept 15063 1        
+program_stream  chip_deliver    5834  1        
+program_stream  boundary_accept 5855  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross stream_x_side_x_stall
+
+
+Samples crossed: payload_stream crossing_side backpressure
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              6        0         6       100.00          
+Automatically Generated Cross Bins 6        0         6       100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for stream_x_side_x_stall
+
+
+Bins
+
+payload_stream  crossing_side   backpressure  COUNT AT LEAST 
+memory_response chip_deliver    chip_consumer 4814  1        
+memory_response chip_deliver    none          5544  1        
+memory_response boundary_accept io_fifo_full  9498  1        
+memory_response boundary_accept none          5565  1        
+program_stream  chip_deliver    none          5834  1        
+program_stream  boundary_accept none          5855  1        
+
+
+User Defined Cross Bins for stream_x_side_x_stall
+
+
+Excluded/Illegal bins
+
+NAME                     COUNT STATUS   
+program_has_no_stall     0     Excluded 
+io_has_no_consumer_stall 0     Excluded 
+chip_has_no_fifo_full    0     Excluded 
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross concurrency_x_chip_stall
+
+
+Samples crossed: simultaneous_streams backpressure
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 3        0         3       100.00          
+
+
+Automatically Generated Cross Bins for concurrency_x_chip_stall
+
+
+Bins
+
+simultaneous_streams backpressure  COUNT AT LEAST 
+observed             chip_consumer 1661  1        
+observed             io_fifo_full  3921  1        
+observed             none          9941  1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : coverage
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                         
+100.00 100.00    1      100    1        1            64           64                    p2p_rx_cdc_tb::cdc_stream_cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   coverage
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 11       0         11      100.00  
+Crosses   13       0         13      100.00  
+
+
+Variables for Group Instance  coverage
+
+
+VARIABLE                  EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+backpressure              3        0         3       100.00  100  1      1        0                    
+crossing_side             2        0         2       100.00  100  1      1        0                    
+delivery_after_stall      1        0         1       100.00  100  1      1        0                    
+memory_request_registered 1        0         1       100.00  100  1      1        0                    
+payload_stream            2        0         2       100.00  100  1      1        0                    
+reset_during_traffic      1        0         1       100.00  100  1      1        0                    
+simultaneous_streams      1        0         1       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  coverage
+
+
+CROSS                    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+stream_x_side            4        0         4       100.00  100  1      1        0                     
+stream_x_side_x_stall    6        0         6       100.00  100  1      1        0                     
+concurrency_x_chip_stall 3        0         3       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable backpressure
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for backpressure
+
+
+Bins
+
+NAME          COUNT AT LEAST 
+chip_consumer 4814  1        
+io_fifo_full  9498  1        
+none          22798 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable crossing_side
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for crossing_side
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+chip_deliver    16192 1        
+boundary_accept 20918 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable delivery_after_stall
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for delivery_after_stall
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 2248  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable memory_request_registered
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for memory_request_registered
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 21    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable payload_stream
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for payload_stream
+
+
+Bins
+
+NAME            COUNT AT LEAST 
+memory_response 25421 1        
+program_stream  11689 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable reset_during_traffic
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for reset_during_traffic
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 42    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable simultaneous_streams
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 1        0         1       100.00  
+
+
+User Defined Bins for simultaneous_streams
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+observed 15523 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross stream_x_side
+
+
+Samples crossed: payload_stream crossing_side
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 4        0         4       100.00          
+
+
+Automatically Generated Cross Bins for stream_x_side
+
+
+Bins
+
+payload_stream  crossing_side   COUNT AT LEAST 
+memory_response chip_deliver    10358 1        
+memory_response boundary_accept 15063 1        
+program_stream  chip_deliver    5834  1        
+program_stream  boundary_accept 5855  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross stream_x_side_x_stall
+
+
+Samples crossed: payload_stream crossing_side backpressure
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              6        0         6       100.00          
+Automatically Generated Cross Bins 6        0         6       100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for stream_x_side_x_stall
+
+
+Bins
+
+payload_stream  crossing_side   backpressure  COUNT AT LEAST 
+memory_response chip_deliver    chip_consumer 4814  1        
+memory_response chip_deliver    none          5544  1        
+memory_response boundary_accept io_fifo_full  9498  1        
+memory_response boundary_accept none          5565  1        
+program_stream  chip_deliver    none          5834  1        
+program_stream  boundary_accept none          5855  1        
+
+
+User Defined Cross Bins for stream_x_side_x_stall
+
+
+Excluded/Illegal bins
+
+NAME                     COUNT STATUS   
+program_has_no_stall     0     Excluded 
+io_has_no_consumer_stall 0     Excluded 
+chip_has_no_fifo_full    0     Excluded 
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross concurrency_x_chip_stall
+
+
+Samples crossed: simultaneous_streams backpressure
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 3        0         3       100.00          
+
+
+Automatically Generated Cross Bins for concurrency_x_chip_stall
+
+
+Bins
+
+simultaneous_streams backpressure  COUNT AT LEAST 
+observed             chip_consumer 1661  1        
+observed             io_fifo_full  3921  1        
+observed             none          9941  1        
+
+

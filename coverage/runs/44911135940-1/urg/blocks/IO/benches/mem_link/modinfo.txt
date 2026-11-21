@@ -1,0 +1,709 @@
+===============================================================================
+Module : mem_link
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.21 100.00  96.83 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/io/memory_link/mem_link.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME              
+ 99.21 100.00  96.83 --     100.00 100.00 mem_link_tb.i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : mem_link
+
+             Line No.   Total   Covered  Percent
+TOTAL                       65       65   100.00
+ROUTINE            41        1        1   100.00
+ROUTINE            45        3        3   100.00
+ROUTINE            54       13       13   100.00
+ALWAYS             83        5        5   100.00
+ALWAYS             94       43       43   100.00
+
+40                        function automatic logic full_word_write(input backing_req_chan_t request);
+41         1/1              full_word_write = request.write && (&request.wmask);
+42                        endfunction
+43                      
+44                        function automatic logic [3:0] request_length(input backing_req_chan_t request);
+45         2/2              if (!request.write) request_length = 4'd4;
+46         1/1              else request_length = full_word_write(request) ? 4'd8 : 4'd12;
+47                        endfunction
+48                      
+49                        function automatic logic [7:0] request_byte(
+50                          input backing_req_chan_t request,
+51                          input logic [3:0] index
+52                        );
+53                          begin
+54         1/1                unique case (index)
+55                              // Packet length is implicit: reads are four bytes, full-word writes
+56                              // are eight, and masked writes are twelve. Bits [5:0] stay reserved.
+57         1/1                  4'd0: request_byte = {request.write, full_word_write(request), 6'b0};
+58         1/1                  4'd1: request_byte = request.key[23:16];
+59         1/1                  4'd2: request_byte = request.key[15:8];
+60         1/1                  4'd3: request_byte = request.key[7:0];
+61         1/1                  4'd4: request_byte = full_word_write(request) ? request.wdata[7:0]   : request.wmask[7:0];
+62         1/1                  4'd5: request_byte = full_word_write(request) ? request.wdata[15:8]  : request.wmask[15:8];
+63         1/1                  4'd6: request_byte = full_word_write(request) ? request.wdata[23:16] : request.wmask[23:16];
+64         1/1                  4'd7: request_byte = full_word_write(request) ? request.wdata[31:24] : request.wmask[31:24];
+65         1/1                  4'd8: request_byte = request.wdata[7:0];
+66         1/1                  4'd9: request_byte = request.wdata[15:8];
+67         1/1                  4'd10: request_byte = request.wdata[23:16];
+68         1/1                  default: request_byte = request.wdata[31:24];
+69                            endcase
+70                          end
+71                        endfunction
+72                      
+73                        // A full read tracker blocks only reads. A write additionally waits for the
+74                        // previous local write-completion record to be consumed by VS service.
+75                        assign service_if.req_ready = tx_state_r == TX_IDLE &&
+76                            (service_if.req.write ? !write_rsp_r.valid : meta_count_r < OUTSTANDING_READS);
+77                        assign accept_request = service_if.req.valid && service_if.req_ready;
+78                        assign push_meta = accept_request && !service_if.req.write;
+79                        assign response_byte = fpga_if.rx_valid && fpga_if.rx_ready;
+80                        assign response_complete = response_byte && rx_index_r == 2'd3;
+81                      
+82                        always_comb begin
+83         1/1              fpga_if.tx_valid = tx_state_r == TX_SEND;
+84         1/1              fpga_if.tx_data = request_byte(tx_req_r, tx_index_r);
+85         1/1              fpga_if.rx_ready = meta_count_r != 0 && !read_rsp_r.valid;
+86         1/1              control_if.memory_link_idle = tx_idle_i && tx_state_r == TX_IDLE && meta_count_r == 0 &&
+87                                   !read_rsp_r.valid && !write_rsp_r.valid;
+88                      
+89                          // Read completions take priority if read and local write completion coexist.
+90         1/1              service_if.rsp = read_rsp_r.valid ? read_rsp_r : write_rsp_r;
+91                        end
+92                      
+93                        always_ff @(posedge clk_i or negedge rst_ni) begin
+94         1/1              if (!rst_ni) begin
+95         1/1                tx_state_r <= TX_IDLE;
+96         1/1                tx_req_r <= '0;
+97         1/1                tx_index_r <= '0;
+98         1/1                meta_head_r <= '0;
+99         1/1                meta_tail_r <= '0;
+100        1/1                meta_count_r <= '0;
+101        1/1                rx_index_r <= '0;
+102        1/1                rx_data_r <= '0;
+103        1/1                read_rsp_r <= '0;
+104        1/1                write_rsp_r <= '0;
+105                         end else begin
+106        1/1                if (read_rsp_r.valid && service_if.rsp_ready)
+107        1/1                  read_rsp_r.valid <= 1'b0;
+                        MISSING_ELSE
+108        1/1                if (write_rsp_r.valid && !read_rsp_r.valid && service_if.rsp_ready)
+109        1/1                  write_rsp_r.valid <= 1'b0;
+                        MISSING_ELSE
+110                     
+111        1/1                if (accept_request) begin
+112        1/1                  tx_req_r <= service_if.req;
+113        1/1                  tx_index_r <= '0;
+114        1/1                  tx_state_r <= TX_SEND;
+115                           end
+                        MISSING_ELSE
+116                     
+117                           // Local write completion follows acceptance of the final FIFO byte;
+118                           // memory_link_idle additionally waits for physical transmission.
+119        1/1                if (tx_state_r == TX_SEND && tx_ready_i) begin
+120        1/1                  if (tx_index_r == request_length(tx_req_r) - 1'b1) begin
+121        1/1                    tx_state_r <= TX_IDLE;
+122        1/1                    tx_index_r <= '0;
+123        1/1                    if (tx_req_r.write) begin
+124        1/1                      write_rsp_r.valid <= 1'b1;
+125        1/1                      write_rsp_r.rdata <= '0;
+126        1/1                      write_rsp_r.response_context <= tx_req_r.response_context;
+127                               end
+                        MISSING_ELSE
+128                             end else begin
+129        1/1                    tx_index_r <= tx_index_r + 1'b1;
+130                             end
+131                           end
+                        MISSING_ELSE
+132                     
+133        1/1                if (push_meta) begin
+134        1/1                  response_context_fifo_r[meta_tail_r] <= service_if.req.response_context;
+135        1/1                  meta_tail_r <= meta_tail_r == OUTSTANDING_READS-1 ? '0 : meta_tail_r + 1'b1;
+136                           end
+                        MISSING_ELSE
+137                     
+138                           // Retain only the first three bytes. The fourth byte completes the word
+139                           // directly, so storing it would duplicate read_rsp_r[31:24].
+140        1/1                if (response_byte) begin
+141        1/1                  if (response_complete) begin
+142        1/1                    rx_index_r <= '0;
+143        1/1                    meta_head_r <= meta_head_r == OUTSTANDING_READS-1 ? '0 : meta_head_r + 1'b1;
+144        1/1                    read_rsp_r.valid <= 1'b1;
+145        1/1                    read_rsp_r.rdata <= {fpga_if.rx_data, rx_data_r[23:0]};
+146        1/1                    read_rsp_r.response_context <= response_context_fifo_r[meta_head_r];
+147                             end else begin
+148        1/1                    rx_data_r[8*rx_index_r +: 8] <= fpga_if.rx_data;
+149        1/1                    rx_index_r <= rx_index_r + 1'b1;
+150                             end
+151                           end
+                        MISSING_ELSE
+152                     
+153        1/1                unique case ({push_meta, response_complete})
+154        1/1                  2'b10: meta_count_r <= meta_count_r + 1'b1;
+155        1/1                  2'b01: meta_count_r <= meta_count_r - 1'b1;
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : mem_link
+
+               Total   Covered  Percent
+Conditions         63       61    96.83
+Logical            63       61    96.83
+Non-Logical         0        0
+Event               0        0
+
+ LINE       41
+ EXPRESSION (request.write && ((&request.wmask)))
+             ------1------    ---------2--------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       83
+ EXPRESSION (tx_state_r == TX_SEND)
+            -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       85
+ EXPRESSION ((meta_count_r != 3'b0) && ((!read_rsp_r.valid)))
+             -----------1----------    ----------2----------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       85
+ SUB-EXPRESSION (meta_count_r != 3'b0)
+                -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       86
+ EXPRESSION (tx_idle_i && (tx_state_r == TX_IDLE) && (meta_count_r == 3'b0) && ((!read_rsp_r.valid)) && ((!write_rsp_r.valid)))
+             ----1----    -----------2-----------    -----------3----------    ----------4----------    -----------5----------
+
+-1- -2- -3- -4- -5- Status
+ 0   1   1   1   1  Covered
+ 1   0   1   1   1  Covered
+ 1   1   0   1   1  Covered
+ 1   1   1   0   1  Covered
+ 1   1   1   1   0  Covered
+ 1   1   1   1   1  Covered
+
+ LINE       86
+ SUB-EXPRESSION (tx_state_r == TX_IDLE)
+                -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       86
+ SUB-EXPRESSION (meta_count_r == 3'b0)
+                -----------1----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       90
+ EXPRESSION (read_rsp_r.valid ? read_rsp_r : write_rsp_r)
+             --------1-------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       106
+ EXPRESSION (read_rsp_r.valid && service_if.rsp_ready)
+             --------1-------    ----------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       108
+ EXPRESSION (write_rsp_r.valid && ((!read_rsp_r.valid)) && service_if.rsp_ready)
+             --------1--------    ----------2----------    ----------3---------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Not Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       119
+ EXPRESSION ((tx_state_r == TX_SEND) && tx_ready_i)
+             -----------1-----------    -----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       119
+ SUB-EXPRESSION (tx_state_r == TX_SEND)
+                -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       135
+ EXPRESSION ((meta_tail_r == (OUTSTANDING_READS - 1)) ? '0 : ((meta_tail_r + 1'b1)))
+             --------------------1-------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       135
+ SUB-EXPRESSION (meta_tail_r == (OUTSTANDING_READS - 1))
+                --------------------1-------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       143
+ EXPRESSION ((meta_head_r == (OUTSTANDING_READS - 1)) ? '0 : ((meta_head_r + 1'b1)))
+             --------------------1-------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       143
+ SUB-EXPRESSION (meta_head_r == (OUTSTANDING_READS - 1))
+                --------------------1-------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       75
+ EXPRESSION ((tx_state_r == TX_IDLE) && (service_if.req.write ? ((!write_rsp_r.valid)) : (meta_count_r < OUTSTANDING_READS)))
+             -----------1-----------    ------------------------------------------2-----------------------------------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       75
+ SUB-EXPRESSION (tx_state_r == TX_IDLE)
+                -----------1-----------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       75
+ SUB-EXPRESSION (service_if.req.write ? ((!write_rsp_r.valid)) : (meta_count_r < OUTSTANDING_READS))
+                 ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       77
+ EXPRESSION (service_if.req.valid && service_if.req_ready)
+             ----------1---------    ----------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       78
+ EXPRESSION (accept_request && ((!service_if.req.write)))
+             -------1------    ------------2------------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       79
+ EXPRESSION (fpga_if.rx_valid && fpga_if.rx_ready)
+             --------1-------    --------2-------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       80
+ EXPRESSION (response_byte && (rx_index_r == 2'd3))
+             ------1------    ----------2---------
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       80
+ SUB-EXPRESSION (rx_index_r == 2'd3)
+                ----------1---------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : mem_link
+         Line No. Total Covered Percent 
+Branches          37    37      100.00  
+TERNARY  90       2     2       100.00  
+IF       94       21    21      100.00  
+IF       45       2     2       100.00  
+CASE     54       12    12      100.00  
+
+
+90             service_if.rsp = read_rsp_r.valid ? read_rsp_r : write_rsp_r;
+                                                 -1-  
+                                                 ==>  
+                                                 ==>  
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+94             if (!rst_ni) begin
+               -1-  
+95               tx_state_r <= TX_IDLE;
+                 ==>
+96               tx_req_r <= '0;
+97               tx_index_r <= '0;
+98               meta_head_r <= '0;
+99               meta_tail_r <= '0;
+100              meta_count_r <= '0;
+101              rx_index_r <= '0;
+102              rx_data_r <= '0;
+103              read_rsp_r <= '0;
+104              write_rsp_r <= '0;
+105            end else begin
+106              if (read_rsp_r.valid && service_if.rsp_ready)
+                 -2-                                
+107                read_rsp_r.valid <= 1'b0;
+                   ==>
+                   MISSING_ELSE
+                   ==>
+108              if (write_rsp_r.valid && !read_rsp_r.valid && service_if.rsp_ready)
+                 -3-                                                      
+109                write_rsp_r.valid <= 1'b0;
+                   ==>
+                   MISSING_ELSE
+                   ==>
+110        
+111              if (accept_request) begin
+                 -4-  
+112                tx_req_r <= service_if.req;
+                   ==>
+113                tx_index_r <= '0;
+114                tx_state_r <= TX_SEND;
+115              end
+                 MISSING_ELSE
+                 ==>
+116        
+117              // Local write completion follows acceptance of the final FIFO byte;
+118              // memory_link_idle additionally waits for physical transmission.
+119              if (tx_state_r == TX_SEND && tx_ready_i) begin
+                 -5-  
+120                if (tx_index_r == request_length(tx_req_r) - 1'b1) begin
+                   -6-  
+121                  tx_state_r <= TX_IDLE;
+122                  tx_index_r <= '0;
+123                  if (tx_req_r.write) begin
+                     -7-  
+124                    write_rsp_r.valid <= 1'b1;
+                       ==>
+125                    write_rsp_r.rdata <= '0;
+126                    write_rsp_r.response_context <= tx_req_r.response_context;
+127                  end
+                     MISSING_ELSE
+                     ==>
+128                end else begin
+129                  tx_index_r <= tx_index_r + 1'b1;
+                     ==>
+130                end
+131              end
+                 MISSING_ELSE
+                 ==>
+132        
+133              if (push_meta) begin
+                 -8-  
+134                response_context_fifo_r[meta_tail_r] <= service_if.req.response_context;
+135                meta_tail_r <= meta_tail_r == OUTSTANDING_READS-1 ? '0 : meta_tail_r + 1'b1;
+                                                                     -9-  
+                                                                     ==>  
+                                                                     ==>  
+136              end
+                 MISSING_ELSE
+                 ==>
+137        
+138              // Retain only the first three bytes. The fourth byte completes the word
+139              // directly, so storing it would duplicate read_rsp_r[31:24].
+140              if (response_byte) begin
+                 -10-  
+141                if (response_complete) begin
+                   -11-  
+142                  rx_index_r <= '0;
+143                  meta_head_r <= meta_head_r == OUTSTANDING_READS-1 ? '0 : meta_head_r + 1'b1;
+                                                                       -12-  
+                                                                       ==>  
+                                                                       ==>  
+144                  read_rsp_r.valid <= 1'b1;
+145                  read_rsp_r.rdata <= {fpga_if.rx_data, rx_data_r[23:0]};
+146                  read_rsp_r.response_context <= response_context_fifo_r[meta_head_r];
+147                end else begin
+148                  rx_data_r[8*rx_index_r +: 8] <= fpga_if.rx_data;
+                     ==>
+149                  rx_index_r <= rx_index_r + 1'b1;
+150                end
+151              end
+                 MISSING_ELSE
+                 ==>
+152        
+153              unique case ({push_meta, response_complete})
+                        -13-  
+154                2'b10: meta_count_r <= meta_count_r + 1'b1;
+                   ==>
+155                2'b01: meta_count_r <= meta_count_r - 1'b1;
+                   ==>
+156                default: begin end
+                   ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- -6- -7- -8- -9- -10- -11- -12- -13-    Status  
+1   -   -   -   -   -   -   -   -   -    -    -    -       Covered 
+0   1   -   -   -   -   -   -   -   -    -    -    -       Covered 
+0   0   -   -   -   -   -   -   -   -    -    -    -       Covered 
+0   -   1   -   -   -   -   -   -   -    -    -    -       Covered 
+0   -   0   -   -   -   -   -   -   -    -    -    -       Covered 
+0   -   -   1   -   -   -   -   -   -    -    -    -       Covered 
+0   -   -   0   -   -   -   -   -   -    -    -    -       Covered 
+0   -   -   -   1   1   1   -   -   -    -    -    -       Covered 
+0   -   -   -   1   1   0   -   -   -    -    -    -       Covered 
+0   -   -   -   1   0   -   -   -   -    -    -    -       Covered 
+0   -   -   -   0   -   -   -   -   -    -    -    -       Covered 
+0   -   -   -   -   -   -   1   1   -    -    -    -       Covered 
+0   -   -   -   -   -   -   1   0   -    -    -    -       Covered 
+0   -   -   -   -   -   -   0   -   -    -    -    -       Covered 
+0   -   -   -   -   -   -   -   -   1    1    1    -       Covered 
+0   -   -   -   -   -   -   -   -   1    1    0    -       Covered 
+0   -   -   -   -   -   -   -   -   1    0    -    -       Covered 
+0   -   -   -   -   -   -   -   -   0    -    -    -       Covered 
+0   -   -   -   -   -   -   -   -   -    -    -    2'b10   Covered 
+0   -   -   -   -   -   -   -   -   -    -    -    2'b01   Covered 
+0   -   -   -   -   -   -   -   -   -    -    -    default Covered 
+
+
+45             if (!request.write) request_length = 4'd4;
+               -1-  
+               ==>
+46             else request_length = full_word_write(request) ? 4'd8 : 4'd12;
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+54               unique case (index)
+                        -1-  
+55                 // Packet length is implicit: reads are four bytes, full-word writes
+56                 // are eight, and masked writes are twelve. Bits [5:0] stay reserved.
+57                 4'd0: request_byte = {request.write, full_word_write(request), 6'b0};
+                   ==>
+58                 4'd1: request_byte = request.key[23:16];
+                   ==>
+59                 4'd2: request_byte = request.key[15:8];
+                   ==>
+60                 4'd3: request_byte = request.key[7:0];
+                   ==>
+61                 4'd4: request_byte = full_word_write(request) ? request.wdata[7:0]   : request.wmask[7:0];
+                   ==>
+62                 4'd5: request_byte = full_word_write(request) ? request.wdata[15:8]  : request.wmask[15:8];
+                   ==>
+63                 4'd6: request_byte = full_word_write(request) ? request.wdata[23:16] : request.wmask[23:16];
+                   ==>
+64                 4'd7: request_byte = full_word_write(request) ? request.wdata[31:24] : request.wmask[31:24];
+                   ==>
+65                 4'd8: request_byte = request.wdata[7:0];
+                   ==>
+66                 4'd9: request_byte = request.wdata[15:8];
+                   ==>
+67                 4'd10: request_byte = request.wdata[23:16];
+                   ==>
+68                 default: request_byte = request.wdata[31:24];
+                   ==>
+
+Branches:
+
+-1-     Status  
+4'b0    Covered 
+4'b1    Covered 
+4'd2    Covered 
+4'd3    Covered 
+4'd4    Covered 
+4'd5    Covered 
+4'd6    Covered 
+4'd7    Covered 
+4'd8    Covered 
+4'd9    Covered 
+4'd10   Covered 
+default Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : mem_link
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_0 6        6              0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : mem_link_tb.i_dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.21 100.00  96.83 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.21 100.00  96.83 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME     
+ 99.21 100.00  96.83 --     100.00 100.00 mem_link 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 --     --     --     --     100.00 mem_link_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : mem_link_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/io/memory_link/mem_link_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 --     --     --     --     100.00 mem_link_tb 
+
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : mem_link_tb
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       1     1         100.00  1                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            1     1         100.00  1                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_1 4317     1940           0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : mem_link_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+100.00 --     --     --     --     100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 99.21 100.00  96.83 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME        
+100.00 --     --     --     --     100.00 mem_link_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+ 99.21 100.00  96.83 --     100.00 100.00 i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
