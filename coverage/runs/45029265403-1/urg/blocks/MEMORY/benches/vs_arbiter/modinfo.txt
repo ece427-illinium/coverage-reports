@@ -1,0 +1,669 @@
+===============================================================================
+Module : vs_arbiter
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.98 100.00  87.93 --     100.00 100.00 
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/rtl/memory/vs/vs_arbiter.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME                
+ 96.98 100.00  87.93 --     100.00 100.00 vs_arbiter_tb.i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : vs_arbiter
+
+             Line No.   Total   Covered  Percent
+TOTAL                       54       54   100.00
+ROUTINE            39        3        3   100.00
+ALWAYS             49        6        6   100.00
+ALWAYS             77        8        8   100.00
+ALWAYS             77        8        8   100.00
+ALWAYS             77        8        8   100.00
+ALWAYS             77        8        8   100.00
+ALWAYS             95       12       12   100.00
+INITIAL           117        0        0
+ALWAYS            122        1        1   100.00
+
+38                          begin
+39         1/1                id = '0;
+40                            // Even bits are LDE and odd bits are CMTE for each tile.
+41         1/1                id[{tid, engine}] = 1'b1;
+42         1/1                requester_id = id;
+43                          end
+44                        endfunction
+45                      
+46                        always_comb begin
+47                          // Select one tile beginning at the round-robin pointer. The chosen request
+48                          // is latched below because VS service acceptance may be delayed.
+49         1/1              request_found = 1'b0;
+50         1/1              selected_owner = rr_r;
+51         1/1              for (int unsigned offset = 0; offset < NTILES; offset++) begin
+52         1/1                if (!request_found && tile_req[(rr_r + offset) % NTILES].valid) begin
+53         1/1                  request_found = 1'b1;
+54         1/1                  selected_owner = (rr_r + offset) % NTILES;
+55                            end
+                        MISSING_ELSE
+56                          end
+57                        end
+58                      
+59                        // Once selected, a request remains admitted through DRAIN. Admission gates
+60                        // only selection of new requests, preventing a held request from deadlocking.
+61                        assign cache_if.req.valid = occupied_r;
+62                        assign cache_if.req.id = requester_id(owner_r, request_r.engine);
+63                        assign cache_if.req.addr = request_r.addr;
+64                        assign cache_if.req.write = request_r.write;
+65                        assign cache_if.req.wdata = request_r.wdata;
+66                        assign cache_if.req.wmask = request_r.wmask;
+67                        assign control_if.vs_arbiter_idle = !occupied_r;
+68                      
+69                        // The service ACK is intentionally one-cycle and is routed only to owner_r.
+70                        // Response IDs are one-hot client bits, allowing merged MSHR responses to
+71                        // be delivered independently to multiple tile/engine consumers.
+72                      
+73                        for (genvar tile = 0; tile < NTILES; tile++) begin : g_tile_decode
+74                          localparam logic [1:0] TILE_ID = tile;
+75                          always_comb begin
+76                            // ACK returns to the tile/engine whose held request entered VS service.
+77         1/1                tile_if[tile].vs_ack = 1'b0;
+78         1/1                if (cache_if.ack && occupied_r && owner_r == TILE_ID) begin
+79         1/1                  tile_if[tile].vs_ack = 1'b1;
+80                            end
+                        MISSING_ELSE
+81                      
+82                            // The one-hot requester ID lets responses return out of MSHR order without
+83                            // carrying a separate tile or engine field.
+84         1/1                tile_if[tile].vs_rsp = '0;
+85         1/1                if (cache_if.rsp.valid &&
+86                                (cache_if.rsp.id[2*tile] || cache_if.rsp.id[2*tile+1])) begin
+87         1/1                  tile_if[tile].vs_rsp.valid = 1'b1;
+88         1/1                  tile_if[tile].vs_rsp.engine = cache_if.rsp.id[2*tile+1];
+89         1/1                  tile_if[tile].vs_rsp.rdata = cache_if.rsp.rdata;
+90                            end
+                        MISSING_ELSE
+***repeat 1
+77         1/1                tile_if[tile].vs_ack = 1'b0;
+78         1/1                if (cache_if.ack && occupied_r && owner_r == TILE_ID) begin
+79         1/1                  tile_if[tile].vs_ack = 1'b1;
+80                            end
+                        MISSING_ELSE
+81                      
+82                            // The one-hot requester ID lets responses return out of MSHR order without
+83                            // carrying a separate tile or engine field.
+84         1/1                tile_if[tile].vs_rsp = '0;
+85         1/1                if (cache_if.rsp.valid &&
+86                                (cache_if.rsp.id[2*tile] || cache_if.rsp.id[2*tile+1])) begin
+87         1/1                  tile_if[tile].vs_rsp.valid = 1'b1;
+88         1/1                  tile_if[tile].vs_rsp.engine = cache_if.rsp.id[2*tile+1];
+89         1/1                  tile_if[tile].vs_rsp.rdata = cache_if.rsp.rdata;
+90                            end
+                        MISSING_ELSE
+***repeat 2
+77         1/1                tile_if[tile].vs_ack = 1'b0;
+78         1/1                if (cache_if.ack && occupied_r && owner_r == TILE_ID) begin
+79         1/1                  tile_if[tile].vs_ack = 1'b1;
+80                            end
+                        MISSING_ELSE
+81                      
+82                            // The one-hot requester ID lets responses return out of MSHR order without
+83                            // carrying a separate tile or engine field.
+84         1/1                tile_if[tile].vs_rsp = '0;
+85         1/1                if (cache_if.rsp.valid &&
+86                                (cache_if.rsp.id[2*tile] || cache_if.rsp.id[2*tile+1])) begin
+87         1/1                  tile_if[tile].vs_rsp.valid = 1'b1;
+88         1/1                  tile_if[tile].vs_rsp.engine = cache_if.rsp.id[2*tile+1];
+89         1/1                  tile_if[tile].vs_rsp.rdata = cache_if.rsp.rdata;
+90                            end
+                        MISSING_ELSE
+***repeat 3
+77         1/1                tile_if[tile].vs_ack = 1'b0;
+78         1/1                if (cache_if.ack && occupied_r && owner_r == TILE_ID) begin
+79         1/1                  tile_if[tile].vs_ack = 1'b1;
+80                            end
+                        MISSING_ELSE
+81                      
+82                            // The one-hot requester ID lets responses return out of MSHR order without
+83                            // carrying a separate tile or engine field.
+84         1/1                tile_if[tile].vs_rsp = '0;
+85         1/1                if (cache_if.rsp.valid &&
+86                                (cache_if.rsp.id[2*tile] || cache_if.rsp.id[2*tile+1])) begin
+87         1/1                  tile_if[tile].vs_rsp.valid = 1'b1;
+88         1/1                  tile_if[tile].vs_rsp.engine = cache_if.rsp.id[2*tile+1];
+89         1/1                  tile_if[tile].vs_rsp.rdata = cache_if.rsp.rdata;
+90                            end
+                        MISSING_ELSE
+91                          end
+92                        end
+93                      
+94                        always_ff @(posedge clk_i or negedge rst_ni) begin
+95         1/1              if (!rst_ni) begin
+96         1/1                owner_r <= '0;
+97         1/1                rr_r <= '0;
+98         1/1                occupied_r <= 1'b0;
+99         1/1                request_r <= '0;
+100                         end else begin
+101        1/1                if (cache_if.ack && occupied_r) begin
+102                             // Once accepted, VS service owns the request and the arbiter may advance.
+103        1/1                  occupied_r <= 1'b0;
+104        1/1                  rr_r <= owner_r + 2'd1;
+105        1/1                end else if (!occupied_r && control_if.control.vs_admit && request_found) begin
+106                             // Keep the selected request because ACK may arrive after arbitration.
+107                             // The tile holds its original valid until that ACK is routed.
+108        1/1                  owner_r <= selected_owner;
+109        1/1                  request_r <= tile_req[selected_owner];
+110        1/1                  occupied_r <= 1'b1;
+111                           end
+                        MISSING_ELSE
+112                         end
+113                       end
+114                     
+115                     `ifndef SYNTHESIS
+116                       initial begin
+117                         assert (NTILES > 0 && NTILES <= 4)
+118                           else $fatal(1, "VS arbiter supports one through four tiles");
+119                       end
+120                     
+121                       always_ff @(posedge clk_i) begin
+122        1/1              if (rst_ni && cache_if.rsp.valid) begin
+123                           assert ($onehot(cache_if.rsp.id))
+124                             else $fatal(1, "VS response ID must be one-hot");
+125                         end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Cond Coverage for Module : vs_arbiter
+
+               Total   Covered  Percent
+Conditions         58       51    87.93
+Logical            58       51    87.93
+Non-Logical         0        0
+Event               0        0
+
+ LINE       101
+ EXPRESSION (cache_if.ack && occupied_r)
+             ------1-----    -----2----
+
+-1- -2- Status
+ 0   1  Covered
+ 1   0  Not Covered
+ 1   1  Covered
+
+ LINE       105
+ EXPRESSION (((!occupied_r)) && control_if.control.vs_admit && request_found)
+             -------1-------    -------------2-------------    ------3------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Not Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       122
+ EXPRESSION (rst_ni && cache_if.rsp.valid)
+             ---1--    ---------2--------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       78
+ EXPRESSION (cache_if.ack && occupied_r && (owner_r == g_tile_decode[0].TILE_ID))
+             ------1-----    -----2----    ------------------3------------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       78
+ SUB-EXPRESSION (owner_r == g_tile_decode[0].TILE_ID)
+                ------------------1------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       85
+ EXPRESSION (cache_if.rsp.valid && (cache_if.rsp.id[(2 * 0)] || cache_if.rsp.id[((2 * 0) + 1)]))
+             ---------1--------    ------------------------------2-----------------------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       85
+ SUB-EXPRESSION (cache_if.rsp.id[(2 * 0)] || cache_if.rsp.id[((2 * 0) + 1)])
+                 ------------1-----------    ---------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       78
+ EXPRESSION (cache_if.ack && occupied_r && (owner_r == g_tile_decode[1].TILE_ID))
+             ------1-----    -----2----    ------------------3------------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       78
+ SUB-EXPRESSION (owner_r == g_tile_decode[1].TILE_ID)
+                ------------------1------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       85
+ EXPRESSION (cache_if.rsp.valid && (cache_if.rsp.id[(2 * 1)] || cache_if.rsp.id[((2 * 1) + 1)]))
+             ---------1--------    ------------------------------2-----------------------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       85
+ SUB-EXPRESSION (cache_if.rsp.id[(2 * 1)] || cache_if.rsp.id[((2 * 1) + 1)])
+                 ------------1-----------    ---------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       78
+ EXPRESSION (cache_if.ack && occupied_r && (owner_r == g_tile_decode[2].TILE_ID))
+             ------1-----    -----2----    ------------------3------------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       78
+ SUB-EXPRESSION (owner_r == g_tile_decode[2].TILE_ID)
+                ------------------1------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       85
+ EXPRESSION (cache_if.rsp.valid && (cache_if.rsp.id[(2 * 2)] || cache_if.rsp.id[((2 * 2) + 1)]))
+             ---------1--------    ------------------------------2-----------------------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       85
+ SUB-EXPRESSION (cache_if.rsp.id[(2 * 2)] || cache_if.rsp.id[((2 * 2) + 1)])
+                 ------------1-----------    ---------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+ LINE       78
+ EXPRESSION (cache_if.ack && occupied_r && (owner_r == g_tile_decode[3].TILE_ID))
+             ------1-----    -----2----    ------------------3------------------
+
+-1- -2- -3- Status
+ 0   1   1  Covered
+ 1   0   1  Covered
+ 1   1   0  Covered
+ 1   1   1  Covered
+
+ LINE       78
+ SUB-EXPRESSION (owner_r == g_tile_decode[3].TILE_ID)
+                ------------------1------------------
+
+-1- Status
+ 0  Covered
+ 1  Covered
+
+ LINE       85
+ EXPRESSION (cache_if.rsp.valid && (cache_if.rsp.id[(2 * 3)] || cache_if.rsp.id[((2 * 3) + 1)]))
+             ---------1--------    ------------------------------2-----------------------------
+
+-1- -2- Status
+ 0   1  Not Covered
+ 1   0  Covered
+ 1   1  Covered
+
+ LINE       85
+ SUB-EXPRESSION (cache_if.rsp.id[(2 * 3)] || cache_if.rsp.id[((2 * 3) + 1)])
+                 ------------1-----------    ---------------2--------------
+
+-1- -2- Status
+ 0   0  Covered
+ 0   1  Covered
+ 1   0  Covered
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : vs_arbiter
+         Line No. Total Covered Percent 
+Branches          22    22      100.00  
+IF       95       4     4       100.00  
+IF       122      2     2       100.00  
+IF       78       2     2       100.00  
+IF       85       2     2       100.00  
+IF       78       2     2       100.00  
+IF       85       2     2       100.00  
+IF       78       2     2       100.00  
+IF       85       2     2       100.00  
+IF       78       2     2       100.00  
+IF       85       2     2       100.00  
+
+
+95             if (!rst_ni) begin
+               -1-  
+96               owner_r <= '0;
+                 ==>
+97               rr_r <= '0;
+98               occupied_r <= 1'b0;
+99               request_r <= '0;
+100            end else begin
+101              if (cache_if.ack && occupied_r) begin
+                 -2-          
+102                // Once accepted, VS service owns the request and the arbiter may advance.
+103                occupied_r <= 1'b0;
+                   ==>
+104                rr_r <= owner_r + 2'd1;
+105              end else if (!occupied_r && control_if.control.vs_admit && request_found) begin
+                          -3-                           
+106                // Keep the selected request because ACK may arrive after arbitration.
+107                // The tile holds its original valid until that ACK is routed.
+108                owner_r <= selected_owner;
+                   ==>
+109                request_r <= tile_req[selected_owner];
+110                occupied_r <= 1'b1;
+111              end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- -2- -3- Status  
+1   -   -   Covered 
+0   1   -   Covered 
+0   0   1   Covered 
+0   0   0   Covered 
+
+
+122            if (rst_ni && cache_if.rsp.valid) begin
+               -1-                    
+123              assert ($onehot(cache_if.rsp.id))
+                 ==>
+124                else $fatal(1, "VS response ID must be one-hot");
+125            end
+               MISSING_ELSE
+               ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+78               if (cache_if.ack && occupied_r && owner_r == TILE_ID) begin
+                 -1-          
+79                 tile_if[tile].vs_ack = 1'b1;
+                   ==>
+80               end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+85               if (cache_if.rsp.valid &&
+                 -1-          
+86                   (cache_if.rsp.id[2*tile] || cache_if.rsp.id[2*tile+1])) begin
+87                 tile_if[tile].vs_rsp.valid = 1'b1;
+                   ==>
+88                 tile_if[tile].vs_rsp.engine = cache_if.rsp.id[2*tile+1];
+89                 tile_if[tile].vs_rsp.rdata = cache_if.rsp.rdata;
+90               end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+78               if (cache_if.ack && occupied_r && owner_r == TILE_ID) begin
+                 -1-          
+79                 tile_if[tile].vs_ack = 1'b1;
+                   ==>
+80               end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+85               if (cache_if.rsp.valid &&
+                 -1-          
+86                   (cache_if.rsp.id[2*tile] || cache_if.rsp.id[2*tile+1])) begin
+87                 tile_if[tile].vs_rsp.valid = 1'b1;
+                   ==>
+88                 tile_if[tile].vs_rsp.engine = cache_if.rsp.id[2*tile+1];
+89                 tile_if[tile].vs_rsp.rdata = cache_if.rsp.rdata;
+90               end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+78               if (cache_if.ack && occupied_r && owner_r == TILE_ID) begin
+                 -1-          
+79                 tile_if[tile].vs_ack = 1'b1;
+                   ==>
+80               end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+85               if (cache_if.rsp.valid &&
+                 -1-          
+86                   (cache_if.rsp.id[2*tile] || cache_if.rsp.id[2*tile+1])) begin
+87                 tile_if[tile].vs_rsp.valid = 1'b1;
+                   ==>
+88                 tile_if[tile].vs_rsp.engine = cache_if.rsp.id[2*tile+1];
+89                 tile_if[tile].vs_rsp.rdata = cache_if.rsp.rdata;
+90               end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+78               if (cache_if.ack && occupied_r && owner_r == TILE_ID) begin
+                 -1-          
+79                 tile_if[tile].vs_ack = 1'b1;
+                   ==>
+80               end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+85               if (cache_if.rsp.valid &&
+                 -1-          
+86                   (cache_if.rsp.id[2*tile] || cache_if.rsp.id[2*tile+1])) begin
+87                 tile_if[tile].vs_rsp.valid = 1'b1;
+                   ==>
+88                 tile_if[tile].vs_rsp.engine = cache_if.rsp.id[2*tile+1];
+89                 tile_if[tile].vs_rsp.rdata = cache_if.rsp.rdata;
+90               end
+                 MISSING_ELSE
+                 ==>
+
+Branches:
+
+-1- Status  
+1   Covered 
+0   Covered 
+
+
+-------------------------------------------------------------------------------
+Assert Coverage for Module : vs_arbiter
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       2     2         100.00  2                 100.00  
+Cover properties 0     0                 0                         
+Cover sequences  0     0                 0                         
+Total            2     2         100.00  2                 100.00  
+
+
+
+-------------------------------------------------------------------------------
+
+Assertion Details
+
+Name        Attempts Real Successes Failures Incomplete 
+unnamed$$_1 6        6              0        0          
+unnamed$$_2 48       48             0        0          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : vs_arbiter_tb.i_dut
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.98 100.00  87.93 --     100.00 100.00 
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.98 100.00  87.93 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME       
+ 96.98 100.00  87.93 --     100.00 100.00 vs_arbiter 
+
+
+Parent : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     vs_arbiter_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : vs_arbiter_tb
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+Source File(s) : 
+
+/home/sbrown16/actions-runner-rtl-dev/_work/rtl-dev/rtl-dev/tb/memory/vs/vs_arbiter_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     vs_arbiter_tb 
+
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : vs_arbiter_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+--     --     --     --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT 
+ 96.98 100.00  87.93 --     100.00 100.00 
+
+
+Module : 
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME          
+--     --     --     --     --     --     vs_arbiter_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   COND   FSM    BRANCH ASSERT NAME  
+ 96.98 100.00  87.93 --     100.00 100.00 i_dut 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
